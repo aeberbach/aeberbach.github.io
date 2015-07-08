@@ -1,3 +1,11 @@
+---
+layout: post
+title: "PVC Conduit Laptop stand"
+tags:
+- computer
+- DIY
+---
+<meta charset="utf-8"> 
 On Monday 11th of June I was at the WWDC Keynote to see the Retina MacBook Pro announced and I felt pretty satisfied knowing my cunning plan had worked. Months ago, rather than ask for the laptop I wanted at work I settled for a maxed-out Mac mini, expecting the team to grow, and with that growth there would be a need for a machine to do continuous integration. That machine would be the Mac mini, with me in obvious need of the anticipated 2012 machine free of optical drive, with Ivy Bridge, etc. etc.  
  So I was all set to say thanks, I’ll have the new shiny and a 30” monitor too please – I’ve been using two Thunderbolt 27” displays and I find that side-by-side they are just too wide for comfort – but that 30” wouldn’t have been a retina display. Better to live with just the laptop for a little while, getting the monitor when retina displays become available or other choices present themselves. Current displays do look pretty ugly next to the retina MacBook Pro, no matter how good they look up until the time you see one. And living with one smaller screen would have the beneficial effect of encouraging me to get more efficient with my use of Mission Control and gestures.  
  In the meantime I would need a laptop stand. I looked around a bit, didn’t feel like spending $70 on a bent aluminium thing, and while searching came across the AIAIAI Laptop Pipe Stand. Couldn’t find any reasons not to just build one…  

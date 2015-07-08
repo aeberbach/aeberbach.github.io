@@ -1,3 +1,11 @@
+---
+layout: post
+title: "Digital Radio: DAB+ in the Van"
+tags:
+- DIY
+---
+
+<meta charset="utf-8"> 
 About 6 years ago I bought a [Volkswagen T5 Multivan](http://en.wikipedia.org/wiki/Volkswagen_Transporter_(T5) "Volkswagen T5 Multivan (wikipedia)"), the family situation (requirement for child seat restraints) made it a choice between that or a [Mercedes Vito](http://en.wikipedia.org/wiki/Mercedes-Benz_Vito "Mercedes-Benz Vito (wikipedia)"). The Vito is great but was a fair bit more money. Or there was the hilariously ugly [SsangYong Stavic](http://www.productreview.com.au/p/ssangyong-stavic-2005-present.html "SsangYong Stavic 2005-2013 review"), but that’s no choice at all. Google for some amusing comments on this last abomination. (update - several other minivan choices became available about 6 months too late for us)
 
 <span style="line-height: 1.714285714; font-size: 1rem;">If you have to drive a van the VW is a good one. I don’t have much to complain about, although I could mention the horrible turbo lag and general hugeness, but that’s balanced by the internal hugeness, convenience of sliding doors, being able to get to any seat from any door or the amazingly tight turning circle. The thing I seriously hated since day 1 was the sound system.</span>  

@@ -1,3 +1,10 @@
+---
+layout: post
+title: "Murloc Build Light"
+tags:
+- programming
+---
+<meta charset="utf-8"> 
 If you have ever played World of Warcraft you know what a Murloc sounds like. You’re running along on some quest and you hear RWLRWLRWLRWLRWL!! and then you know you’ve got a Murloc to fight. Then because of their overlapping patrol patterns you hear it a bunch more times, and pretty soon you’re on a ghost run. I picked up the J!NX talking plush Murloc when I bought a Battle.net authenticator, waste of money to pay shipping to Australia on just one item.  
  [![pasted-graphic](assets/pasted-graphic.jpg)](http://www.grayunicorn.com/wp-content/uploads/2013/12/pasted-graphic.jpg)  
 Why a build light? When you work in a team on a software project sooner or later someone will break the build when they commit code to the shared repository. It’s no big deal as long as you catch it quickly and fix it. If the break goes unnoticed you get Confusion and Delay as you back out change after change and everyone wonders who is to blame and hopes it wasn’t them.  

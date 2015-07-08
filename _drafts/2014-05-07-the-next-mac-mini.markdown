@@ -1,3 +1,11 @@
+---
+layout: post
+title: "The Next Mac mini"
+tags:
+- computer
+- DIY
+---
+<meta charset="utf-8"> 
 I love the Mac mini. In 2005, after the WWDC keynote, I couldn't order one fast enough. When I opened one up and found it used a laptop-sized IDE connector, inspiration struck - I built a tiny PCB with a female 2.5" drive connector and a male 3.5" drive connector, allowing use of a cable to connect a full-sized drive (with its own power supply) for better speed and higher capcity. I made and sold hundreds of those little boards, it was my 15 minutes of internet fame.  
  Over the years I have had several minis. Early on there were two G4s, both with the larger drive modification. After the switch to Intel I've owned at least three or four. Most of my iOS programming has been on a mini. Right now the family still uses a late 2009 2.26GHz with maxed RAM and a OWC Data Doubler allowing an extra drive internally.  
  The little 2009 mini still chugs along. It gets a real workout from kids playing Flash games, serves music and video around the house and even gets used for Xcode sometimes. My main workhorse now is an 11" MacBook Air 6,1\. The Air is almost perfect - surprisingly fast, and 8GB RAM hasn't been the compromise I thought it would be - but it isn't quite portable enough. When I bicycle to work I wish it was smaller because I rarely use the screen or keyboard, I plug it in to a monitor at both ends of the trip.  

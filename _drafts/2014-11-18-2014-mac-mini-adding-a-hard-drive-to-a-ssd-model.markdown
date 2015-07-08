@@ -1,3 +1,11 @@
+---
+layout: post
+title: "Mac mini: Adding a Second Drive to a  2014 SSD Model"
+tags:
+- computer
+- DIY
+---
+<meta charset="utf-8"> 
 November 16, great excitement! New stuff from Apple, including a Mac mini - sadly not quite [as I had hoped](http://www.grayunicorn.com/the-next-mac-mini/ "The Next Mac mini") but good enough. Our old mini is a 2009 white top model, Intel, but definitely showing its age. A SSD helped but it wasn't really keeping up especially with kids in the house who leave Flash games running in the background.
 
 The amount of anger about soldered RAM was fairly predictable. It's easier for a lot of people to believe that this is some kind of Apple plot to overcharge for RAM than it is to think about the actual cost of two SODIMM sockets in every machine, no matter how many people never upgrade - so that's what people did. I just bought the 16GB. Every mini I have owned has ended up with maxed RAM and storage and as I hope to get 5 years out of this one too I also upgraded to i7 3.0GHz - this is the machine that does the most video en/recoding.

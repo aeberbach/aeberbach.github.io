@@ -1,3 +1,13 @@
+---
+layout: post
+title: "Rocksmith 2014 Package"
+tags:
+- game
+- guitar
+- computer
+---
+
+<meta charset="utf-8"> 
 In December this year I heard about [Rocksmith 2014](http://rocksmith.ubi.com/rocksmith "Rocksmith 2014 home"). Sounded good, but then I found it was Mac-compatible and it got upgraded to must-have. [Steam](http://steampowered.com "Steam home") got it installed with no fuss, an eBay seller provided the cable and it was ready to go. The cable is essential - Rocksmith will not work with other guitar-USB adapters, though GarageBand can get a low signal from the Rocksmith cable. There's the famous Ubisoft DRM, I guess.
 
 The voice of Rocksmith sounds like you would expect given a voice actor and a brief to sound like a Rock Dude (searched, but can't find his name). He guides you through the intro sequence, asks you to identify the headstock and to calibrate the level coming from your guitar. Once that is done you can get right into "Learn a Song", though new players can use the lessons, from basics like "holding a pick" up to stuff I have yet to learn. From the start, little tasks keep popping up to keep you moving along (same as starting a new World of Warcraft toon) and if you just stick to one song it will remind you to try something else, or do a lesson or play a game.

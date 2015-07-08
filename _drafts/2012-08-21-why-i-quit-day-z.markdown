@@ -1,3 +1,11 @@
+---
+layout: post
+title: "Quitting Day Z"
+tags:
+- games
+- computers
+---
+<meta charset="utf-8"> 
 ![Death Screen for Day Z](assets/dayzyouaredeadpvp.jpg)  
 Day Z has two big problems. One is hackers, the other is motivation. I wouldn’t have discovered the second without the first.  
  What this isn’t is a post about blaming [Bohemia Interactive](http://www.bistudio.com/ "Bohemia Interactive") (makers of Arma II) or [Dean “Rocket” Hall](http://www.rockpapershotgun.com/tag/dean-rocket-hall/ "Rock Paper Shotgun") for anything. I admire both for what they have produced and I’m grateful for the fun I had while I was playing it. I just don’t have enough game time to waste on something that is so totally broken.  

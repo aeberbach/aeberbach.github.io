@@ -1,25 +1,35 @@
-# A New Bike for Winter
+---
+layout: post
+title: "A New Bike for Winter"
+tags:
+- bicycle
+- spot
+- shimano
+- belt
+---
 
-I don't mind riding in winter but I hate the functional bits of my bike getting covered in mud and grit. I hate the sound of a grinding chain or a derailleur that isn't adjusted right. I hate rattles. In the past I have made a habit of disassembling everything and cleaning every little bit before lubricating and reassembling for that perfect smooth ride, but then if it rains the drivetrain soon picks up dirt and grit again. It takes hours to do this properly.  
-<img style="float: right" src="/assets/pasted-graphic-6.jpg">
-The easiest way to avoid grit on the chain is to have no chain, and the best way to stop the gears picking up mud is to hide them inside the hub in a nice oil bath. I set out to find a belt-driven bike with Internal Gear Hub (IGH), hydraulic disc brakes front & rear. Going to an IGH means a big drop in the number of gears, considering my "27 speed" mountain bike, or "18 speed" road bike. But do you get that many speeds? No, chain alignment issues mean you get far fewer. Even so I was sure I wanted at least an 11 speed hub rather than the more commonly available 8, and the [Rohloff][2] is just a bit too expensive. That narrowed it down to [Shimano Alfine 11][3]. There seems to be about one choice in belts, the [Gates][4] range. I've been looking for a while and found a few options – [Bryant Civia][5] looks like a fine bike and there are others. Having had carbon bikes for a while (even the mountain bike) I wanted something a bit lighter than steel, so the [Spot Acme][6] with its alloy frame and carbon fork stood out. I pre-ordered it and received it on the 24th of April.  
-![full picture][7]  
+<meta charset="utf-8"> 
+
+<img style="float: right" src="/assets/pasted-graphic-6.jpg">I don't mind riding in winter but I hate the functional bits of my bike getting covered in mud and grit. I hate the sound of a grinding chain or a derailleur that isn't adjusted right. I hate rattles. In the past I have made a habit of disassembling everything and cleaning every little bit before lubricating and reassembling for that perfect smooth ride, but then if it rains the drivetrain soon picks up dirt and grit again. It takes hours to do this properly.  
+
+The easiest way to avoid grit on the chain is to have no chain, and the best way to stop the gears picking up mud is to hide them inside the hub in a nice oil bath. I set out to find a belt-driven bike with Internal Gear Hub (IGH), hydraulic disc brakes front & rear. Going to an IGH means a big drop in the number of gears, considering my "27 speed" mountain bike, or "18 speed" road bike. But do you get that many speeds? No, chain alignment issues mean you get far fewer. Even so I was sure I wanted at least an 11 speed hub rather than the more commonly available 8, and the <a href="http://www.rohloff.de/en/products/speedhub/" target="_blank">Rohloff Speedhub</a> is just a bit too expensive. That narrowed it down to [Shimano Alfine 11][3]. There seems to be about one choice in belts, the [Gates][4] range. I've been looking for a while and found a few options – [Bryant Civia][5] looks like a fine bike and there are others. Having had carbon bikes for a while (even the mountain bike) I wanted something a bit lighter than steel, so the [Spot Acme][6] with its alloy frame and carbon fork stood out. I pre-ordered it and received it on the 24th of April.  
+<img style="float: left" src="/assets/bikeright.jpg">
 The finish really surprised me out of the box because it looks a lot better than it appears on the web site. Also you don't notice the profile of the tubes with the photos that Spot show – the down tube has a profile that could almost be intended to act as a mudguard, it is wider facing the road and curves gently on top. The whole package is a pleasant blend of brushed aluminium with black highlights, all the components are black. The chain guard is not something I have had on a bike for a long time. If I have a chain guard should I also have a basket and some streamers? It might come off, the belt isn't going to get grease on me after all.  
-!["braincrafted" sticker][8]  
+<img style="float: right" src="/assets/braincrafted.jpg">
 Under the water bottle mount on the down tube, right about where my [Trek][9] says "Made in USA" is this sticker – "Braincrafted in Golden, Colorado" – I'm not sure exactly what that means but I think it must mean "Designed in Colorado, made somewhere we're not convinced has any marketing appeal" – oh well. Apple do the same kind of thing with their "Designed by Apple in California" tag.  
 **What's great?**  
 Smooth. So smooth, it's a silent bike, just like I wanted. There are minor rattles over major bumps but nothing to complain about. The build quality impresses me. I really like the attention to detail on the welds, and the adjustment system for the belt is a thing of beauty. On the right seat stay is a gap where a small keyed part slots in while the bike is in operation, but comes out should you need to remove the belt. (Unlike a chain you can't break a belt, at least not if you want to use it again. Gates claim the belt will last about twice as long as a chain.)  
-![Chain tensioner][10]  
+<img style="float: left" src="/assets/.jpg">
 **What's not great?**  
 Not much, but a couple of things are not perfect. The disc brakes are fine, Avid Elixir 1 – for non-race situations they're going to satisfy just about anyone. The discs are another matter. I have a front disc brake on another bike, an Avid Code 5 – maybe a few steps up in the Avid product range, but I think out of production now. Anyway the disc that came with that brake was machined perfectly flat. The Shimano discs on this bike are stamped and are nowhere near flat. This means that until the pads wear the discs flat these brakes will not be operating at maximum efficiency because the full surface area of the pad isn't in contact with the disc. The picture should make it obvious, you can see after the first ride where the disc is starting to wear in, the raised parts are beginning to flatten but there's a long way to go. How much would a quick machining pass have cost, Shimano?  
-![brake disc][11]  
+<img style="float: right" src="/assets/.jpg">
 I'm not in love with the bars, being more used to riding thicker bars with bar ends. When I stand up I like to get the weight forward. Also I have to say the stem is pretty ugly, having a roughly finished chrome section on the front. This is probably the first area on the bike I'll change.  
 On the gears the Alfine 11's change mechanism takes some getting used to. No doubt it is still bedding in a little and I shouldn't expect it to be the same but shifting is not a thought-free process. Up a hill under load you need to back off just a little to allow the gears to downshift. The entire shift process is just a little disconcerting when you're used to the solid *clunk* of a conventional derailleur. But it is great to have 11 speeds, in a line, that can be selected while the bike is standing still. I like the range too, without crunching any numbers I feel like I get all the speed at the top end and more granny-gear at the low end than I did with the "27 speed" bike.  
-![chunky pedals][12]  
+<img style="float: left" src="/assets/chaintensioner.jpg">
 These supplied pedals are horrible, and weigh a ton. I didn't even install them, having some [Shimano SPD PD-M520][13] pedals waiting.  
-![rear stay break][14]  
+<img style="float: right" src="/assets/pedals.jpg">
 Lights were easy to fit, except that I noticed the bars are very thin. To fit the first bell I tried needed three rubber spacers wrapped around the bar tube before I could tighten the screw on the bell. (You're supposed to have a bell where I ride on Melbourne's bike paths. On about half the people the effect is to make them calm and to keep walking straight while you pass them, which is great. They lift a hand as if to say "thanks for letting me know". Some jump violently to one side when they hear a bell, sometimes right into your path. Some just get angry because they think the bell means "Move!" and they don't see why they should, so they don't, but that's what you want anyway.)  
-![brass bell][15]  
+<img style="float: left" src="/assets/brassbell.jpg">
 I became aware of a bell named "the King of Ding" by [Portland Design Works][16] and I was pretty sure I was going to buy one – but then I saw one next to the bell I did buy. It's the prince, at best. The bell you see pictured is some generic Chinese thing, same price, is subjectively up to twice as loud and is a much better design in that firstly the brass dome doesn't unscrew, and secondly the dinger can be positioned around the bell to wherever you want it.  
 I used my existing Blackburn bottle carrier, it is light and strong and it even matches the frame.  
 I'm still shopping for mudguards. I might pick some up at WWDC this year (yes, I did get a ticket) because I haven't seen anything I like locally. [Joe Bike][17] in Portland, OR has some amazing wooden veneers… until then it's the old Zefal Flamingo, with the bend modified by heat gun. The way these things stick up in the air, unmodified, is ridiculous.  
@@ -33,15 +43,8 @@ I got it from [Black Mountain Sports][19] in Brisbane who imported and shipped i
 [4]: http://www.carbondrivesystems.com "Gates"
 [5]: http://civiacycles.com/bikes/bryant/ "Bryant"
 [6]: http://spotbrand.com/bikes/product-page/acme/ "Spot"
-[7]: http://www.grayunicorn.com/wp-content/uploads/2013/12/bikeright.jpg
-[8]: http://www.grayunicorn.com/wp-content/uploads/2013/12/braincrafted.jpg
 [9]: http://www.trekbikes.com/au/en/ "Trek"
-[10]: http://www.grayunicorn.com/wp-content/uploads/2013/12/chaintensioner.jpg
-[11]: http://www.grayunicorn.com/wp-content/uploads/2013/12/discwear.jpg
-[12]: http://www.grayunicorn.com/wp-content/uploads/2013/12/pedals.jpg
 [13]: http://www.shimano.com.au/publish/content/global_cycle/en/au/index/products/pedals/mountain/product.-code-PD-M520-S.-type-..html "Shimano SPD PD-M520"
-[14]: http://www.grayunicorn.com/wp-content/uploads/2013/12/rearstaybreak.jpg
-[15]: http://www.grayunicorn.com/wp-content/uploads/2013/12/brassbell.jpg
 [16]: https://www.ridepdw.com "Portland Design Works"
 [17]: http://www.joe-bike.com "Joe Bike"
 [18]: http://en.wikipedia.org/wiki/Hub_gear "Wikipedia page on hub gears"

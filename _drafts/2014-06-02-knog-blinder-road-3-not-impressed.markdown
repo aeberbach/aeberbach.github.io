@@ -1,3 +1,10 @@
+---
+layout: post
+title: "Knog Blinder Road 3 - Not Impressed"
+tags:
+- bicycle
+---
+<meta charset="utf-8"> 
 I was in the bike shop for no good reason other than there was a bike shop in my way, and this light caught my eye. It's a Knog Blinder Road 3 - neat little package with a very bright light that looked great in the shop. Australian company too. My riding has been frequent enough that I felt OK spending another hundred-odd on lights, so I bought this and a matching rear light, a Blinder 4V.  
  At first glance the Blinder Road 3 is a neat design - a rechargeable light with a fold-out USB connector built in! Except that the curvature of the light's mount and the position of the USB connector is such that it can't plug directly into anything much, so a short USB extender cable is provided. And this connector is positioned under the mount, so the light has to come right off the bike for it to be charged. That's strike 1.  
  Next the mount itself. It's a stretchy silicon strap that has a hook and lever design, the lever meets with the strap behind whichever bar you are going to attach the light to and then is folded back flat against the bar. Just like a guitar case's latch. That's fine, except that my bars are a bit thin, so the stretch wasn't tight enough to stop the light from drooping after bumps. (Perhaps this was not an issue with the lighter-in-front Blinder Road 2) I padded it with some rubber, but then the latch wouldn't stay shut.  

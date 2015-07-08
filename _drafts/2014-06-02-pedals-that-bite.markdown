@@ -1,3 +1,10 @@
+---
+layout: post
+title: "Pedals That Bite"
+tags:
+- bicycle
+---
+<meta charset="utf-8"> 
 [caption id="attachment_96" align="alignnone" width="300"]![Nice pedal. Shame about the knife edges!](assets/Shimano-PD-M980-XTR-XC-Race-SPD-Mountainbike-Pedal-300x191.jpg) Nice pedal. Shame about the knife edges![/caption]
 
 I bought Shimano XC Race Pedals (Grey) when I found them cheap on Wiggle, as my older SPD pedals were creaking. I hate noise when I ride. The XTR pedals look great, notice the milled surface just above the logo? Better shoe-pedal engagement says Shimano. But there lies the problem.

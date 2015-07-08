@@ -1,3 +1,12 @@
+---
+layout: post
+title: "Continuous Integration with Jenkins and Xcode"
+tags:
+- programming
+- computers
+---
+
+<meta charset="utf-8"> 
 Last week (15 November 2012) I gave a short talk on setting up a continuous integration environment with Jenkins at Melbourne Cocoaheads. This is pretty much the content, converted into a blog post. Some said afterwards they would like more detail on various parts, so here is the whole thing with the shell script at the end. I hope you find it useful. I have to give a lot of thanks to all the other bloggers who wrote about their own experiences in doing this and to Stack Overflow.  
  **Motivation**  
  First up, why would you do this? There are two big problems that this setup solves. First and most broadly speaking, continuous integration solves the problem of a broken build where nobody really knows how it got broken, which change broke it or how long it has been like that. If you let your project get into that state then it will be a miracle if you ever deliver anything, dealing with this issue is a huge part of success when working in a team. Because the build is performed every time anyone submits to the repository you will know right away that there is a problem and you can fix it right away. You can also apply some appropriate penalty to the person that did it – they can buy the team a coffee or something, _pour encourager les autres_<sup>1</sup>.

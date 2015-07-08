@@ -1,3 +1,10 @@
+---
+layout: post
+title: "Drifter Kickstarter"
+tags:
+- game
+---
+<meta charset="utf-8"> 
 [![driftercloseup1](assets/driftercloseup1.jpg)](http://www.grayunicorn.com/wp-content/uploads/2013/12/driftercloseup1.jpg)  
 Yesterday Colin Walsh (@celsiusgs) tweeted that he was uploading something. I’ve been waiting for the release of Drifter and I hoped that was it, but it was a kickstarter project! Instead of just an iOS version, if the funding goal is met there will be a PC and Mac release also with expanded graphics and more depth. Did you ever play Elite or Privateer?
 

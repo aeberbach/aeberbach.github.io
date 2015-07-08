@@ -1,3 +1,10 @@
+---
+layout: post
+title: "Pneumonia and Pleurisy"
+tags:
+- sick
+---
+<meta charset="utf-8"> 
 From about mid-January this year I have been sick. It started out as a cold and moved around the body, one week just a persistent cough and the next it was sinus congestion and pressure. Then an earache, then back to the chest and around again. I didn't go to the doctor - my doctor doesn't give out antibiotics for this kind of thing because it has no effect on the viral cause. Why pay for a consultation when only your own body can sort it out?  
  I nearly got better several times but each time I would feel good, do a day in the garden and get tired, then be back to square one the next day. Total rest would have been great but when you are responsible for taking care of the house it isn't always an option. Everyone at work more or less got used to me coughing. People warned me I would get pneumonia if this continued but I didn't take that very seriously, only old people get that.  
  Then last Wednesday I woke up and just couldn't go to work. The dreams are strange with a fever. I have industrial-themed dreams where some process or operation is repeating with great noise and huge scale. I couldn't balance and it was an effort just to get in the shower. The doctor said I probably had pneumonia and gave me Roxythromycin to take. Feeling as sick as I did I took it seriously and stayed in bed after that, only sleeping and watching TV. No internet. My birthday came and went and I didn't want to know, I couldn't eat or even talk much.  
