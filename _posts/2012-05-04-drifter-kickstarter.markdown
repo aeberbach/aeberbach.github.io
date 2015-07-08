@@ -1,0 +1,5 @@
+[![driftercloseup1](assets/driftercloseup1.jpg)](http://www.grayunicorn.com/wp-content/uploads/2013/12/driftercloseup1.jpg)  
+Yesterday Colin Walsh (@celsiusgs) tweeted that he was uploading something. I’ve been waiting for the release of Drifter and I hoped that was it, but it was a kickstarter project! Instead of just an iOS version, if the funding goal is met there will be a PC and Mac release also with expanded graphics and more depth. Did you ever play Elite or Privateer?
+
+Stop reading this now, go look at the project and support it!  
+ <script type="text/javascript"></p> <p> var _gaq = _gaq || [];<br /> _gaq.push(['_setAccount', 'UA-46719042-1']);<br /> _gaq.push(['_trackPageview']);</p> <p> (function() {<br /> var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;<br /> ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';<br /> var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);<br /> })();</p> <p></script>
