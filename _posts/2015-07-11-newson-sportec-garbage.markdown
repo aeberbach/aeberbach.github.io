@@ -13,4 +13,4 @@ I bought these on eBay, they are Newson Sportec "powder coated" nipples. They ar
 
 This post is the extent of what I am prepared to do about that $17 - I hope I am saving someone else some time and money.  
 
-Incidentally this was the start of a wheelset for my [SOMA Wolverine](http://www.somafab.com/archives/product/wolverine) build. Disc brakes, belt drive. Updates to come.
+Incidentally this was the start of a wheelset for my [SOMA Wolverine](http://www.somafab.com/archives/product/wolverine) build. The orange spokes would have been a nice match for the frame but anodised will probably look OK too, and the finish won't fall off as soon as they start being tensioned. Disc brakes, belt drive. Updates to come.
