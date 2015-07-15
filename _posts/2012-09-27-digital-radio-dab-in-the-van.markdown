@@ -5,7 +5,7 @@ tags:
 - DIY
 ---
 <meta charset="utf-8"> 
-About 6 years ago I bought a [Volkswagen T5 Multivan](http://en.wikipedia.org/wiki/Volkswagen_Transporter_(T5) "Volkswagen T5 Multivan (wikipedia)"), the family situation (requirement for child seat restraints) made it a choice between that or a [Mercedes Vito](http://en.wikipedia.org/wiki/Mercedes-Benz_Vito "Mercedes-Benz Vito (wikipedia)"). The Vito is great but was a fair bit more money. Or there was the hilariously ugly [SsangYong Stavic](http://www.productreview.com.au/p/ssangyong-stavic-2005-present.html "SsangYong Stavic 2005-2013 review"), but that’s no choice at all. Google for some amusing comments on this last abomination. (update - several other minivan choices became available about 6 months too late for us)  
+About 6 years ago I bought a <A HREF="http://en.wikipedia.org/wiki/Volkswagen_Transporter_(T5)" target="_blank">Volkswagen T5 Multivan</A> made it a choice between that or a <A HREF="http://en.wikipedia.org/wiki/Mercedes-Benz_Vito" target="_blank">Mercedes Vito</A>. The Vito is great but was a fair bit more money. Or there was the hilariously ugly <A HREF="http://www.productreview.com.au/p/ssangyong-stavic-2005-present.html" target="_blank">SsangYong Stavic</A>, but that’s no choice at all. Google for some amusing comments on this last abomination. (update - several other minivan choices became available about 6 months too late for us)  
 
 If you have to drive a van the VW is OK. I don’t have much to complain about, although I could mention the horrible turbo lag and general hugeness, but that’s balanced by the internal hugeness, convenience of sliding doors, being able to get to any seat from any door or the amazingly tight turning circle. The thing I seriously hated since day 1 was the sound system.  
 
@@ -15,29 +15,31 @@ One issue it had was crackles and static on all but a few Melbourne FM stations.
 
 There are at least three iOS devices on the road on any family holiday so playing music from one of those seemed like a good idea. With no front AUX jack and no information on how to interface this Eurovox thing to an iPod any other way a FM transmitter was the only choice. But they barely work in metropolitan areas and will be overpowered by every regional station you get within 100km of – do not waste your money. I have had three different kinds and all worked equally badly.  
 
-Finally I decided to replace it, and AUX-input was priority number one. Mechless seemed like a good idea. Didn’t care much about Bluetooth or phone integration. Zero gauge wiring, subwoofers, mono block amps and hojillion farad capacitors interest me about as much as neon underbody lights. I did notice some models with [DAB+](http://en.wikipedia.org/wiki/Digital_Audio_Broadcasting "Digital Audio Broadcasting (wikipedia)") though.  
-  
-Sony, JVC and Kenwood have models available in Australia. I couldn’t find much information about them, probably because DAB+ is limited to a small selection of regions right now. I have a JVC in my other car and it’s OK. I used to be a huge Sony fan but got very tired of everything being incompatible or proprietary. In the end I bought a Kenwood KDC-U5049DAB. Got it online for way less than retail.  
+Finally I decided to replace it, and AUX-input was priority number one. Mechless seemed like a good idea. Didn’t care much about Bluetooth or phone integration. Zero gauge wiring, subwoofers, mono block amps and hojillion farad capacitors interest me about as much as neon underbody lights. I did notice some models with <A HREF="http://en.wikipedia.org/wiki/Digital_Audio_Broadcasting" target="_blank">DAB+</A>. Sony, JVC and Kenwood have models available in Australia. I couldn’t find much information about them, probably because DAB+ is limited to a small selection of regions right now. I have a JVC in my other car and it’s OK. I used to be a huge Sony fan but got very tired of everything being incompatible or proprietary. In the end I bought a Kenwood KDC-U5049DAB. Got it online for way less than retail.  
 
 **Installation** – DAB+ works on a different frequency to AM or FM so a separate antenna is required. Job No. 1 is to install the DAB+ antenna, a stick-on conductive film that needs to mount close to a pillar so you can stick the signal amplifier unit onto the glass, contacting the antenna itself, and run the cable back to where the head unit is mounted. There are clear instructions included in the box.  
-
+<figure>
 <img src="https://github.com/aeberbach/aeberbach.github.io/blob/master/assets/img_1250.jpg?raw=true">
+<figcaption>Sticky antenna</figcaption>
+</figure>
 
 Sticking film onto glass is easy but getting it installed behind the neatly-fitting trim pieces looked like it was going to be the tough bit. I would rather change a head gasket than get upside down under a dashboard again so I wasn’t looking forward to this at all. But it wasn’t so bad…  
 
 The grab handle on the passenger side A-column has a clip-off cover exposing two T30 Torx bolts. When that is off the whole trim piece unclips with careful steady force. The glove box (mine doesn’t contain gloves either) is held in by eight T26 Torx bolts, five under black plastic covers. Lid and box remove as one unit, allowing the cable to be snaked through behind on the way through to the centre console. Getting it all back in place was easy too. The antenna and amplifier block are not very noticeable on the window, certainly not when you’re the driver. In a van this wide it is basically side-on and invisible from the right side.  
 
-Removing the original head unit was also easier than expected. The tray on top of the dash just lifts out from the window side once the clips let go, then the centre panel has two Torx screws to remove before it too lifts away. Detaching the wire from the driver’s seat heater control allowed it to all swing away for the duration. Then there were just two phillips head screws holding the head unit’s bracket in – one hole was stripped, thanks to the Volkswagen service department monkey who did that. With the physical restraints removed the whole unit came out revealing a harness adapting the Eurovox connector to [ISO10487](http://en.wikipedia.org/wiki/Connectors_for_car_audio "I love standards.") – sweet!  
-
+Removing the original head unit was also easier than expected. The tray on top of the dash just lifts out from the window side once the clips let go, then the centre panel has two Torx screws to remove before it too lifts away. Detaching the wire from the driver’s seat heater control allowed it to all swing away for the duration. Then there were just two phillips head screws holding the head unit’s bracket in – one hole was stripped, thanks to the Volkswagen service department monkey who did that. With the physical restraints removed the whole unit came out revealing a harness adapting the Eurovox connector to <A HREF="http://en.wikipedia.org/wiki/Connectors_for_car_audio" target="_blank">ISO10487</A> – sweet!  
+<figure>
 <img src="https://github.com/aeberbach/aeberbach.github.io/blob/master/assets/img_1216.jpg?raw=true">
-
+<figcaption>Just plug it in</figcaption>
+</figure>
 The only wart was a power connection made to the FM antenna signal amplifier. Or so I thought… I happily went off to Repco and bought the Kenwood to ISO adapter, pushed my luck by plugging it all together one hour before a family trip, but it was as easy as I had hoped. Until we set out and I discovered the thing had gone back to demo mode with no station memory – so no permanent power connection. Still, it worked.  
 
 Back home I pulled it out and did some comparing between the Kenwood and Eurovox harnesses – it was as simple as the permanent and switched 12V connections being swapped. Which is why you don’t do these things in a hurry. As convenient as off the shelf adapters are there's always a chance it is wrong, there are just too many variants out there. I didn’t have to cut any wires, just used a tiny screwdriver to release the spade connectors from the plastic housing and swapped them over.  
-
+<figure>
 <img src="https://github.com/aeberbach/aeberbach.github.io/blob/master/assets/img_1248.jpg?raw=true">
-
-All finished – with extra storage space. The original unit was double DIN so I needed to fill up the space with a $15 Aerpro single DIN pocket. It’s got some rubbery mat from Bunnings in it to stop things sliding around.  
+<figcaption>All finished – with extra storage space.</figcaption>
+</figure>
+The original unit was double DIN so I needed to fill up the space with a $15 Aerpro single DIN pocket. It’s got some rubbery mat from Bunnings in it to stop things sliding around.  
 
 *So what’s it like?*
 **Aux:** Works like you’d expect – a stereo 3.5mm lead from something with a headphone or line out plays music, sounds great. Everything is controlled by the connected device. If you forget to pause the music when you turn the car off it keeps playing, could cost you just your place in the music or all your battery.  
@@ -56,7 +58,7 @@ The manual explains how to initiate download of station info – when you do it 
 
 Remote: It comes with a remote, but I can reach the controls from where I sit and there’s no way I’m passing control back to one of the kids. I’d rather pay $2 less and not have a remote, OK Kenwood?  
 
-If you want to see an (exhaustive) demo of the Kenwood KDC-U5049DAB, see [this video](http://www.youtube.com/watch?v=HG5CjHue-4k "Simonskie250 ") by Simonskie250 from Adelaide. He’s wrong about one thing though, it does not have to do the scan on each startup – that’s configurable. Possibly this changed in a firmware update since he posted it.  
+If you want to see an (exhaustive) demo of the Kenwood KDC-U5049DAB, see <A HREF="http://www.youtube.com/watch?v=HG5CjHue-4k" target="_blank">this video</A> by Simonskie250 from Adelaide. He’s wrong about one thing though, it does not have to do the scan on each startup – that’s configurable. Possibly this changed in a firmware update since he posted it.  
 
 While I feel like I have bought an early adopter model – there will be something twice as good next year for half the money – I’m very happy with this change. I hope this post helps someone who might be looking into DAB+ for the car, or who needs to know how to install in a T5 Multivan.  
 
