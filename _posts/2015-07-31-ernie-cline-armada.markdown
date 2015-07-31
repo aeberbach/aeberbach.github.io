@@ -14,16 +14,16 @@ Armada isn't. I got through it in multiple short sessions on the train. But unli
 
 <details>
 <summary>SPOILERS!</summary>
-<i>So what's wrong with Armada? I always felt I knew what was going to happen. From the first mention of a missing father I expected him to turn up. Once he did turn up I expected him to nobly sacrifice himself for the cause. As soon as Last Starfighter was mentioned I knew the video game would become reality. 
+<i>So what's wrong with Armada? I always felt I knew what was going to happen. From the first mention of a missing father I expected him to turn up. Once he did turn up I expected him to nobly sacrifice himself for the cause. As soon as Last Starfighter was mentioned I knew the video game would become reality. <p/>
 
-What was the point of the big buildup with "Zack Attack"? Was it background for Zack's disobeying the order to not follow the Glaive into the hangar? Also, what a very understanding Admiral he turned out to be.
+What was the point of the big buildup with "Zack Attack"? Was it background for Zack's disobeying the order to not follow the Glaive into the hangar? Also, what a very understanding Admiral he turned out to be.<p/>
 
-Tethered drones, are you nuts? How would any kind of tether be expected to survive for any length of time in combat? The whole communications disruption mechanism was clumsy and this band-aid stuck out a mile.
+Tethered drones, are you nuts? How would any kind of tether be expected to survive for any length of time in combat? The whole communications disruption mechanism was clumsy and this band-aid stuck out a mile.<p/>
 
-And haven't we already been through this with OASIS? And Ender's Game? Even the lesson of War Games is in there - and it was telegraphed very early leaving the end to play out with nothing much left to say.
+And haven't we already been through this with OASIS? And Ender's Game? Even the lesson of War Games is in there - and it was telegraphed very early leaving the end to play out with nothing much left to say.<p/>
 
 And everyone rocks out on the far side of the moon. Sorry but this is going too far. Cringeworthy in fact.</i>
-</details>
+</details><p/>
 
 Apparently the questioner at WWDC 1997 was <A HREF="http://www.quora.com/History-of-Apple-Inc/Whos-the-guy-that-insults-Steve-Jobs-in-this-clip-of-WWDC-1997?srid=iKUi&share=1" target="_blank">Robert Hamisch</A> - did he manage to "insult" Jobs, or hand him one of the greatest opportunities ever? I'm sure Ernest Cline has noticed some criticism of Armada and will respond with another great book.
 
