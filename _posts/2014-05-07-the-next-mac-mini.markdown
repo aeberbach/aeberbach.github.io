@@ -16,7 +16,7 @@ There is no question that this, the smallest of Apple's laptops, is far more cap
 
 So what could a new Mac mini look like?  
 <figure>
-<img src="{{ site.baseurl }}/assets/hero_macpro.png?raw=true">
+<img src="{{ site.baseurl }}/assets/the-next-mac-mini/hero_macpro.png?raw=true">
 <figcaption>Big Brother</figcaption>
 </figure>
 ...but smaller. Inside the Mac Pro is a central triangular heatsink extrusion around which the two GPU cards and CPU card are arranged. A mini only needs a single board containing a CPU with integrated graphics. Sometimes I want discrete graphics but the Air's HD Graphics 5000 graphics is adequate, I play Diablo III on it. It won't be good enough for Star Citizen or Day Z on a big screen but no mini ever has been. It will be the usual choice, Core i5 at the bottom end, Core i7 with more cores at the top. I don't think ARM is at all likely this iteration.  

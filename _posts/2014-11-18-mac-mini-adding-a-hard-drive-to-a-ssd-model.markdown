@@ -20,24 +20,24 @@ The bad news is that the SATA cable is not included in minis fitted with only a 
 
 I bought the <A HREF="https://www.ifixit.com/Store/Mac/Mac-Mini-Dual-Drive-Kit/IF171-005" target="_blank">iFixit Mac mini dual drive</A> (This kit does NOT include the <A HREF="https://www.ifixit.com/Store/Parts/TR6-Torx-Security-Screwdriver/IF145-225-2" target="_blank">iFixit Torx T6 Security driver</A> and set to installing a 2TB Samsung drive (ST2000LM003 HN-M201RAD) extracted from a Seagate Backup Plus Slim Portable Drive. In Australia at least it's cheaper to buy the complete external 2TB than a bare drive.
 <figure>
-<img src="{{ site.baseurl }}/assets/IMG_0010-1024x553.jpg?raw=true">
+<img src="{{ site.baseurl }}/assets/mac-mini-adding-a-hard-drive-to-a-ssd-model/IMG_0010-1024x553.jpg?raw=true">
 <figcaption>Driver carrier before fitting SATA hard drive</figcaption>
 </figure>
 This is the mini with the main assembly removed, power supply and drive carrier remaining. Here's how it looks before the SATA drive and cable are installed. You can see the PCIe cable ready to plug into the mini's main board but there's no SATA cable.  
 <figure>
-<img src="{{ site.baseurl }}/assets/IMG_0012-1024x624.jpg?raw=true">
+<img src="{{ site.baseurl }}/assets/mac-mini-adding-a-hard-drive-to-a-ssd-model/IMG_0012-1024x624.jpg?raw=true">
 <figcaption>Apple grommets have a large hole, iFixits are smaller.</figcaption>
 </figure>
 The iFixit kit includes hex-head grub screws and a set of four grommets. These grommets are a neat fit for the grub screws and they should replace the four original Apple grommets which have a larger hole. With the drive in place it is easy to insert each of the grub screws and secure the drive. If you're too lazy to find a hex key for this, the T6 Torx bit fits just fine. Don't tension them too much if you do this or you will ruin the Torx bit.
 <figure>
-<img src="{{ site.baseurl }}/assets/IMG_0014-1024x470.jpg?raw=true">
+<img src="{{ site.baseurl }}/assets/mac-mini-adding-a-hard-drive-to-a-ssd-model/IMG_0014-1024x470.jpg?raw=true">
 <figcaption>2.5" HD mounted, ready to reassemble.</figcaption>
 </figure>
 With the drive installed you can see the SATA connector ready to connect to the main assembly on the left, with the power supply connector in the middle and the PCIe connector at right.
 
 Putting everything together you will notice that while the PCIe connector has a cover secured by two screws to hold it in place, the SATA connector does not. There is a screw hole to the side of it so probably if there is ever an Apple upgrade kit there will be a similar cover in it... It would be easy to make one but in my stock of screws stripped out of of MacBooks and the like I did not have one small enough, so I left it. A bit of Kapton tape would be an OK solution. Or if your mini doesn't get bumped around it shouldn't fall out anyway.
 <figure>
-<img src="{{ site.baseurl }}/assets/Screen-Shot-2014-11-18-at-8.32.49-PM-300x173.png?raw=true">
+<img src="{{ site.baseurl }}/assets/mac-mini-adding-a-hard-drive-to-a-ssd-model/Screen-Shot-2014-11-18-at-8.32.49-PM-300x173.png?raw=true">
 <figcaption>The internal 2TB drive as reported by "About This Mac"</figcaption>
 </figure>
 

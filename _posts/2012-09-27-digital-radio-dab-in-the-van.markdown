@@ -19,7 +19,7 @@ Finally I decided to replace it, and AUX-input was priority number one. Mechless
 
 **Installation** – DAB+ works on a different frequency to AM or FM so a separate antenna is required. Job No. 1 is to install the DAB+ antenna, a stick-on conductive film that needs to mount close to a pillar so you can stick the signal amplifier unit onto the glass, contacting the antenna itself, and run the cable back to where the head unit is mounted. There are clear instructions included in the box.  
 <figure>
-<img src="{{ site.baseurl }}/assets/img_1250.jpg?raw=true">
+<img src="{{ site.baseurl }}/assets/digital-radio-dab-in-the-van/img_1250.jpg?raw=true">
 <figcaption>Sticky antenna</figcaption>
 </figure>
 
@@ -29,14 +29,14 @@ The grab handle on the passenger side A-column has a clip-off cover exposing two
 
 Removing the original head unit was also easier than expected. The tray on top of the dash just lifts out from the window side once the clips let go, then the centre panel has two Torx screws to remove before it too lifts away. Detaching the wire from the driver’s seat heater control allowed it to all swing away for the duration. Then there were just two phillips head screws holding the head unit’s bracket in – one hole was stripped, thanks to the Volkswagen service department monkey who did that. With the physical restraints removed the whole unit came out revealing a harness adapting the Eurovox connector to <A HREF="http://en.wikipedia.org/wiki/Connectors_for_car_audio" target="_blank">ISO10487</A> – sweet!  
 <figure>
-<img src="{{ site.baseurl }}/assets/img_1216.jpg?raw=true">
+<img src="{{ site.baseurl }}/assets/digital-radio-dab-in-the-van/img_1216.jpg?raw=true">
 <figcaption>Just plug it in</figcaption>
 </figure>
 The only wart was a power connection made to the FM antenna signal amplifier. Or so I thought… I happily went off to Repco and bought the Kenwood to ISO adapter, pushed my luck by plugging it all together one hour before a family trip, but it was as easy as I had hoped. Until we set out and I discovered the thing had gone back to demo mode with no station memory – so no permanent power connection. Still, it worked.  
 
 Back home I pulled it out and did some comparing between the Kenwood and Eurovox harnesses – it was as simple as the permanent and switched 12V connections being swapped. Which is why you don’t do these things in a hurry. As convenient as off the shelf adapters are there's always a chance it is wrong, there are just too many variants out there. I didn’t have to cut any wires, just used a tiny screwdriver to release the spade connectors from the plastic housing and swapped them over.  
 <figure>
-<img src="{{ site.baseurl }}/assets/img_1248.jpg?raw=true">
+<img src="{{ site.baseurl }}/assets/digital-radio-dab-in-the-van/img_1248.jpg?raw=true">
 <figcaption>All finished – with extra storage space.</figcaption>
 </figure>
 The original unit was double DIN so I needed to fill up the space with a $15 Aerpro single DIN pocket. It’s got some rubbery mat from Bunnings in it to stop things sliding around.  
