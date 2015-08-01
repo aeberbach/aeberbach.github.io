@@ -49,5 +49,5 @@ The voice box should be familiar to anyone who has disassembled any talking toys
 
 Now when the build breaks, “Rwlrwlrwlrwl!” And a minute later, “Rwlrwlrwlrwl!!” – until the build is fixed. The other outcome is that everything is fine. For that I picked a nice muted green, no pulsing, just a steady colour that won’t bother anyone. And it matches the Murloc. If someone issues a command that isn’t recognised the light goes purple.  
  How’s it working? All tests show it’s fully functional. In use we’ll see whether the Murloc is too annoying, I have a feeling I should make the Murloc noise only every ten minutes or so.  
-<iframe width="420" height="315" src="https://www.youtube.com/embed/iYO_m60uyXQ" frameborder="0" allowfullscreen>Angry Murloc</iframe>
+<iframe width="420" height="315" src="https://www.youtube.com/embed/iYO_m60uyXQ" frameborder="0" allowfullscreen="allowfullscreen">Angry Murloc</iframe>
 In the background you can see my command window issuing curl commands to the light’s IP address. It responds to GET requests for Building, BuildGood and BuildBroken. If I need more states in future they will be easy to add, as Arduino just isn’t difficult enough to seem like an embedded system at all. Try it!  
