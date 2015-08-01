@@ -48,8 +48,6 @@ The finishing touch is sound. The plush Murloc is a good match for the size of t
 The voice box should be familiar to anyone who has disassembled any talking toys, there’s a speaker, a black-blob integrated circuit on a tiny PCB, batteries and a simple button. I first took the batteries and case away and powered the Murloc sound board from the Arduino board. The button is a rubber dome bridging PCB contacts – I traced the PCB track back to the blob, noticed the other half of the contact was ground and decided to try simply pulling the pin down to logic zero. Success!  
 
 Now when the build breaks, “Rwlrwlrwlrwl!” And a minute later, “Rwlrwlrwlrwl!!” – until the build is fixed. The other outcome is that everything is fine. For that I picked a nice muted green, no pulsing, just a steady colour that won’t bother anyone. And it matches the Murloc. If someone issues a command that isn’t recognised the light goes purple.  
- How’s it working? All tests show it’s fully functional. In use we’ll see whether the Murloc is too annoying, I have a feeling I should make the Murloc noise only every ten minutes or so. 
- 
-<A HREF="https://www.youtube.com/embed/iYO_m60uyXQ" target="_blank">Angry Murloc build light video</A> 
-
+ How’s it working? All tests show it’s fully functional. In use we’ll see whether the Murloc is too annoying, I have a feeling I should make the Murloc noise only every ten minutes or so.  
+<iframe width="420" height="315" src="https://www.youtube.com/embed/iYO_m60uyXQ" frameborder="0" allowfullscreen>Angry Murloc</iframe>
 In the background you can see my command window issuing curl commands to the light’s IP address. It responds to GET requests for Building, BuildGood and BuildBroken. If I need more states in future they will be easy to add, as Arduino just isn’t difficult enough to seem like an embedded system at all. Try it!  
