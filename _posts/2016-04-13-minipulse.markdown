@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Building a Minipulse Metal Detector, part 1."
+title: "Minipulse Metal Detector, part 1."
 tags:
 - electronics
 ---
