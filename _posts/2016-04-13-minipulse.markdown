@@ -14,7 +14,7 @@ We met a guy in Beechworth travelling with his family while camping. He came ove
 Searching around I found several forums full of DIY detector builds - the <A href="http://www.geotech1.com/cgi-bin/pages/common/index.pl?page=main&file=main.dat" target="_blank">Geotech forum</A> is the one I spent most time on. There is an active community of builders and it didn't seem too hard. I settled on the Minipulse kit, from <A href="http://www.silverdog.co.uk/shop2/">silverdog</A> - reasonably priced at £34.00. It was delivered in around ten days. Here's what arrived.
 <figure>
 <img src="{{ site.baseurl }}/assets/minipulse/Parts/as-arrived.jpg?raw=true">
-<figcaption>A PCB and a bag of parts</figcaption>
+<figcaption>Big bag of parts</figcaption>
 </figure>
 Right away I worried about the ICs - all rattling around in one bag, surely the pins would be bent? At the very least I'd be buying new sockets.
 <figure>
