@@ -55,7 +55,7 @@ Another easy step! This thing will be done in no time. A 78L05 provides +5V.
 **Step 3**
 
 Now starts the analogue stuff so I'm out of my comfort zone. I picked up a 470nF capacitor instead of the 47nF here, my only component mistake - I just don't do enough electronics to read "473J100" without having to stop and think. When that was fixed 
-the test showed I was very close to the expected result - at least close enough to go on. I suspect the 1000uF capacitor is not actually 1000uF, so I will come back and check that.
+the test showed I was very close to the expected result - at least close enough to go on. 
 
 <figure>
 <img src="{{ site.baseurl }}/assets/minipulse/Step3/tx-oscillator.jpg?raw=true">
@@ -171,6 +171,6 @@ Oh wow, that's a horrible sound from the included mini-speaker. I guess with bet
 
 **Conclusion** 
 
-Building this kit is going to take around three hours at an absolute minimum and you should probably budget more like a whole day if you are not very experienced. I took around five hours in all, including winding the coil (and many more 3D printing a coild former, but that's another story). If you have only ever made LEDs flash with an Arduino this might be too much for you, but then again if you go slow and ask questions in the forum it can probably be done. Just be cautious and don't guess.
+Building this kit is going to take around three hours at an absolute minimum and you should probably budget more like a whole day if you are not very experienced. I took around five hours in all, including winding the coil (and many more 3D printing a coil former, but that's another story). If you have only ever made LEDs flash with an Arduino this might be too much for you, but then again if you go slow and ask questions in the forum it can probably be done. Just be cautious and don't guess.
 After building the whole thing I have one more complaint about the PCB - the holes for the resistors are often far too large. When you put the component into the holes and bend the leads a little they just rattle around. It looks like a uniform hole size was used for all of the resistors, a comfortable fit for the 2W units but less so for the 1/4W, which are the majority. 
 I'm pretty happy to have a metal detector, especially one so cheap! But there's still a long way to go before it can go in the car and find some gold. I need to do a lot of work putting it in a case and building the head cover, hand grip, making a battery system etc. More posts to come...
