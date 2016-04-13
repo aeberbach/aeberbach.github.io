@@ -40,7 +40,7 @@ I have one very tiny criticism (in steps 7 and 8) but otherwise it's very, very 
 The first step is an easy one, getting a 5V supply using a 79L05. I confused myself by looking for a TO220 package before realising it was a TO-92. That done, an easy step.
 <figure>
 <img src="{{ site.baseurl }}/assets/minipulse/Step1/negative-supply.jpg?raw=true">
-<figcaption>-5V as expected</figcaption>
+<figcaption>Step 1, -5V supply - as expected</figcaption>
 </figure>
 
 **Step 2**
@@ -49,17 +49,17 @@ Another easy step! This thing will be done in no time. A 78L05 provides +5V.
 
 <figure>
 <img src="{{ site.baseurl }}/assets/minipulse/Step2/positive-supply.jpg?raw=true">
-<figcaption>+5V as expected</figcaption>
+<figcaption>Step 2, +5V supply as expected</figcaption>
 </figure>
 
 **Step 3**
 
-Now starts the analogue stuff, which means my understanding gets somewhat shaky. I picked up a 470nF capacitor instead of the 47nF here, my only component mistake - I just don't do enough electronics to read "473J100" without having to stop and think. When that was fixed 
+Now starts the analogue stuff so I'm out of my comfort zone. I picked up a 470nF capacitor instead of the 47nF here, my only component mistake - I just don't do enough electronics to read "473J100" without having to stop and think. When that was fixed 
 the test showed I was very close to the expected result - at least close enough to go on. I suspect the 1000uF capacitor is not actually 1000uF, so I will come back and check that.
 
 <figure>
 <img src="{{ site.baseurl }}/assets/minipulse/Step3/tx-oscillator.jpg?raw=true">
-<figcaption>Step 3 components in place</figcaption>
+<figcaption>Step 3, TX oscillator complete</figcaption>
 </figure>
 
 <figure>
