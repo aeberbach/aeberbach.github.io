@@ -63,17 +63,17 @@ the test showed I was very close to the expected result - at least close enough 
 </figure>
 
 <figure>
-<img src="{{ site.baseurl }}/assets/minipulse/Step3/frequency-check.jpg?raw=true">
+<img src="{{ site.baseurl }}/assets/minipulse/Step3/frequency-check.png?raw=true">
 <figcaption>"The frequency should be ~1kHz" - check!</figcaption>
 </figure>
 
 <figure>
-<img src="{{ site.baseurl }}/assets/minipulse/Step3/pulse-width.jpg?raw=true">
+<img src="{{ site.baseurl }}/assets/minipulse/Step3/pulse-width.png?raw=true">
 <figcaption>"with a pulse width of 58us [when battery voltage = 12V]" - nope.</figcaption>
 </figure>
 
 <figure>
-<img src="{{ site.baseurl }}/assets/minipulse/Step3/sync-check.jpg?raw=true">
+<img src="{{ site.baseurl }}/assets/minipulse/Step3/sync-check.png?raw=true">
 <figcaption>"You can also see that the TX oscillator is synchronized to U2" - check!</figcaption>
 </figure>
 
@@ -86,7 +86,7 @@ The manual also suggests putting on headphones and listening for an induced nois
 My coil inductance is 370uH, or at least to the degree that my very cheap <a  href="http://www.amazon.com/gp/product/B00LSLDD5O/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00LSLDD5O&linkCode=as2&tag=grayunicorn-20&linkId=SEKAZMQBJPTFBJFG">Mastech MY6243 LCR Digital Multimeter, Capacitance and Inductance Tester</a><img src="http://ir-na.amazon-adsystem.com/e/ir?t=grayunicorn-20&l=as2&o=1&a=B00LSLDD5O" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> can measure it. (I bought it just for this project - usually I only do digital electronics, never anything with a coil!) On this basis I did not adjust the damping resistor but I might later.
 
 <figure>
-<img src="{{ site.baseurl }}/assets/minipulse/Step4/flyback.jpg?raw=true">
+<img src="{{ site.baseurl }}/assets/minipulse/Step4/flyback.png?raw=true">
 <figcaption>"you should see a flyback signal of about 350V"</figcaption>
 </figure>
 
@@ -118,7 +118,7 @@ This step includes the two 16-pin devices, whose sockets were the most mangled f
 </figure>
 
 <figure>
-<img src="{{ site.baseurl }}/assets/minipulse/Step6/sample-pulse-delay.jpg?raw=true">
+<img src="{{ site.baseurl }}/assets/minipulse/Step6/sample-pulse-delay.png?raw=true">
 <figcaption>"adjust R6 for a minimum sample delay of 22us"</figcaption>
 </figure>
 
