@@ -102,7 +102,7 @@ OK, now it's time to hook up the coil since I need to measure voltages changing 
 </figure>
 
 <figure>
-<iframe width="800" height="615" src="https://www.youtube.com/embed/5RBbKWjcuU4" frameborder="0" allowfullscreen></iframe>
+<iframe width="740" height="570" src="https://www.youtube.com/embed/5RBbKWjcuU4" frameborder="0" allowfullscreen></iframe>
 <figcaption>Voltage drops with object proximity</figcaption></figure>
 
 At this point some of the uneasiness from previous steps evaporated. Clearly something is working properly.
@@ -132,7 +132,7 @@ The section parts list says it's time to use the TL062 op-amp, but a TL072 is su
 The test in this step is about the opposite of the one in step 5 - this time the voltage at the test point goes up rather than down as the metallic object nears the coil.
 
 <figure>
-<iframe width="420" height="315" src="https://www.youtube.com/embed/rtZe5K30BCw" frameborder="0" allowfullscreen></iframe>
+<iframe width="740" height="570" src="https://www.youtube.com/embed/rtZe5K30BCw" frameborder="0" allowfullscreen></iframe>
 <figcaption>Voltage rises with object proximity</figcaption></figure>
  
 **Step 8**
@@ -146,7 +146,7 @@ Just like in Step 7 the op-amp supplied is an equivalent, a TL071 instead of a T
 The test step here is a tricky adjustment to make on the oscilloscope, I would almost suggest doing it on the meter instead - the voltage you are watching dances around a bit and it is hard to get it at zero but it doesn't have to be exact.
 
 <figure>
-<iframe width="420" height="315" src="https://www.youtube.com/embed/iBQYe9rkz7o" frameborder="0" allowfullscreen></iframe>
+<iframe width="740" height="570" src="https://www.youtube.com/embed/iBQYe9rkz7o" frameborder="0" allowfullscreen></iframe>
 <figcaption>Self-adjusting threshold</figcaption></figure>
 
 I couldn't capture everything in this short clip so here's the explanation. The self-adjusting threshold causes the voltage at TP9 to adjust back to 0 in the absence of a moving target. The display here shows the voltage as a target (the big acetone can from previous clips) moves close to the coil, pauses and then moves away. All working!
@@ -166,7 +166,7 @@ I couldn't capture everything in this short clip so here's the explanation. The 
 Oh wow, that's a horrible sound from the included mini-speaker. I guess with better headphones on, when the sound indicates that you've found something, it's much more welcome. Anyway - it works! Obviously there is more tweaking to do and I need to go back and look at the scope, but that's a wrap. It detects metal.
 
 <figure>
-<iframe width="420" height="315" src="https://www.youtube.com/embed/PliDJD09Wco" frameborder="0" allowfullscreen></iframe>
+<iframe width="740" height="570" src="https://www.youtube.com/embed/PliDJD09Wco" frameborder="0" allowfullscreen></iframe>
 <figcaption>It works!</figcaption></figure>
 
 **Conclusion** 
