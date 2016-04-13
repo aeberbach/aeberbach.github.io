@@ -94,14 +94,16 @@ That's a little high but once again I'm going with it and moving on.
 
 **Step 5**
 
-OK, now it's time to hook up the coil since I need to measure voltages changing as a matal object comes close to it. There is no conventional coil connector supplied with the kit but I would like to be able to use a commercial coil maybe, so I bought the pair of connectors. I wasn't sure about how to wire it up but the manual makes it clear. Did I mention this is a great kit?
+OK, now it's time to hook up the coil since I need to measure voltages changing as a metallic object comes close to it. There is no conventional coil connector supplied with the kit but I would like to be able to use a commercial coil maybe, so I bought the pair of connectors. I wasn't sure about how to wire it up but the manual makes it clear. Did I mention this is a great kit?
 
 <figure>
 <img src="{{ site.baseurl }}/assets/minipulse/Step5/rx-preamp.jpg?raw=true">
 <figcaption>"Step 5, RX preamp section complete"</figcaption>
 </figure>
 
-<iframe width="420" height="315" src="https://www.youtube.com/embed/5RBbKWjcuU4" frameborder="0" allowfullscreen></iframe>
+<figure>
+<iframe width="800" height="615" src="https://www.youtube.com/embed/5RBbKWjcuU4" frameborder="0" allowfullscreen></iframe>
+<figcaption>Voltage drops with object proximity</figcaption></figure>
 
 At this point some of the uneasiness from previous steps evaporated. Clearly something is working properly.
 
@@ -129,7 +131,9 @@ This step includes the two 16-pin devices, whose sockets were the most mangled f
 The section parts list says it's time to use the TL062 op-amp, but a TL072 is supplied. For all intensive porpoises that's the same thing, and the full parts list makes that clear but maybe it could be mentioned in the section parts list also?
 The test in this step is about the opposite of the one in step 5 - this time the voltage at the test point goes up rather than down as the metallic object nears the coil.
 
+<figure>
 <iframe width="420" height="315" src="https://www.youtube.com/embed/rtZe5K30BCw" frameborder="0" allowfullscreen></iframe>
+<figcaption>Voltage rises with object proximity</figcaption></figure>
  
 **Step 8**
 
@@ -161,8 +165,10 @@ I couldn't capture everything in this short clip so here's the explanation. The 
 
 Oh wow, that's a horrible sound from the included mini-speaker. I guess with better headphones on, when the sound indicates that you've found something, it's much more welcome. Anyway - it works! Obviously there is more tweaking to do and I need to go back and look at the scope, but that's a wrap. It detects metal.
 
+<figure>
 <iframe width="420" height="315" src="https://www.youtube.com/embed/PliDJD09Wco" frameborder="0" allowfullscreen></iframe>
- 
+<figcaption>It works!</figcaption></figure>
+
 **Conclusion** 
 
 Building this kit is going to take around three hours at an absolute minimum and you should probably budget more like a whole day if you are not very experienced. I took around five hours in all, including winding the coil (and many more 3D printing a coild former, but that's another story). If you have only ever made LEDs flash with an Arduino this might be too much for you, but then again if you go slow and ask questions in the forum it can probably be done. Just be cautious and don't guess.
