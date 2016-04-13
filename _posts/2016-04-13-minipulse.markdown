@@ -81,6 +81,13 @@ OK, something isn't exactly right. My pulse width appears to be ~45uS. I do have
 
 The manual also suggests putting on headphones and listening for an induced noise when the coil is close. It works!
 
+*Update!* Forum user teleno reported that switching out the TLC555 chips supplied in the kit for NE555 chips brings the pule to 58uS. Good thing everyone has ten or so NE555s in the junk box. (Mine must be around 30 years old!) I now see around 54uS and I'm a lot happier with that result. If the TLC555 45uS pulse is OK, the kit manual needs to be updated to say so.
+
+<figure>
+<img src="{{ site.baseurl }}/assets/minipulse/Step3/NE555-54us-pulse.png?raw=true">
+<figcaption>"Wider pulse with NE555</figcaption>
+</figure>
+
 **Step 4**
 
 My coil inductance is 370uH, or at least to the degree that my very cheap <a  href="http://www.amazon.com/gp/product/B00LSLDD5O/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00LSLDD5O&linkCode=as2&tag=grayunicorn-20&linkId=SEKAZMQBJPTFBJFG">Mastech MY6243 LCR Digital Multimeter, Capacitance and Inductance Tester</a><img src="http://ir-na.amazon-adsystem.com/e/ir?t=grayunicorn-20&l=as2&o=1&a=B00LSLDD5O" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> can measure it. (I bought it just for this project - usually I only do digital electronics, never anything with a coil!) On this basis I did not adjust the damping resistor but I might later.
