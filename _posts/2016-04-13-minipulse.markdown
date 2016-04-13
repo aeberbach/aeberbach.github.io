@@ -81,7 +81,7 @@ OK, something isn't exactly right. My pulse width appears to be ~45uS. I do have
 
 The manual also suggests putting on headphones and listening for an induced noise when the coil is close. It works!
 
-*Update!* Forum user teleno reported that switching out the TLC555 chips supplied in the kit for NE555 chips brings the pule to 58uS. Good thing everyone has ten or so NE555s in the junk box. (Mine must be around 30 years old!) I now see around 54uS and I'm a lot happier with that result. If the TLC555 45uS pulse is OK, the kit manual needs to be updated to say so.
+*Update!* Forum user teleno reported that switching out the TLC555 chips supplied in the kit for NE555 chips brings the pulse to 58uS. Good thing everyone has ten or so NE555s in the junk box. (Mine must be around 30 years old!) I now see around 54uS and I'm a lot happier with that result. If the TLC555 45uS pulse is OK, the kit manual needs to be updated to say so.
 
 <figure>
 <img src="{{ site.baseurl }}/assets/minipulse/Step3/NE555-54us-pulse.png?raw=true">
