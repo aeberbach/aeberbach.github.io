@@ -11,7 +11,7 @@ We met a guy in Beechworth travelling with his family while camping. He came ove
 
 **The Kit**  
 
-Searching around I found several forums full of DIY detector builds - http://www.geotech1.com/cgi-bin/pages/common/index.pl?page=main&file=main.dat is the one I spent most time on. There is an active community of builders and it didn't seem too hard. I settled on the Minipulse kit, from http://www.silverdog.co.uk/shop2/ - reasonably priced at £34.00. It was delivered in around ten days. Here's what arrived.
+Searching around I found several forums full of DIY detector builds - the <A href="http://www.geotech1.com/cgi-bin/pages/common/index.pl?page=main&file=main.dat" target="_blank">Geotech forum</A> is the one I spent most time on. There is an active community of builders and it didn't seem too hard. I settled on the Minipulse kit, from <A href="http://www.silverdog.co.uk/shop2/">silverdog</A> - reasonably priced at £34.00. It was delivered in around ten days. Here's what arrived.
 <figure>
 <img src="{{ site.baseurl }}/assets/minipulse/Parts/as-arrived.jpg?raw=true">
 <figcaption>A PCB and a bag of parts</figcaption>
@@ -30,7 +30,7 @@ The PCB is a quality item. Holes plated through, flowed ground plane, heavy fibr
 <img src="{{ site.baseurl }}/assets/minipulse/Parts/everything.jpg?raw=true">
 <figcaption>Everything else</figcaption>
 </figure>
-And here are all the parts in a bit more order. I was going to separate them into small containers by construction step (there are 9 steps) but I found it just as easy to take them from here as each step was complete. 
+And here are all the parts in a bit more order. I was going to separate them into small containers by construction step (there are 9 steps) but I found it just as easy to take them from this mat as each step was complete. 
 The electrolytics are decidedly cheap, nasty-looking things - brand names like "Forever" and "Suntan". I'm not looking for audiophile stuff like Black Gate or Cerafine but I have replaced too many bulging, leaky electrolytics in the past ten years. But I used them. That's about the only complaint I have about the parts. You can see from the individually labelled resistors that silverdog has gone to a lot of trouble to make this as easy as possible to put together right.
 The <A href="http://silverdog.co.uk/shop2/library/minipulserevd.pdf" target="_blank">instruction manual</A> is available before you buy the kit so you can see what you'll be building. The manual stresses that you should follow the build steps in order and perform the tests at the end of each step. This post describes following those steps and shows the result of each test. 
 I have one very tiny criticism (in steps 7 and 8) but otherwise it's very, very good. Up front I'll say this is a great kit. Buy with confidence.
@@ -122,8 +122,6 @@ This step includes the two 16-pin devices, whose sockets were the most mangled f
 <figcaption>"adjust R6 for a minimum sample delay of 22us"</figcaption>
 </figure>
 
- **Conclusion**
-
 **Step 7**
 
 <figure>
@@ -176,6 +174,7 @@ Oh wow, that's a horrible sound from the included mini-speaker. I guess with bet
 </figure>
  
 **Conclusion** 
- 
-After building the whole thing I have one more complaint about the PCB - the holes for the resistors are often far too large. When you put the component into the holes and bend the leads a little they just rattle around. It looks like a uniform hole size was used for all of the resistors, a comfortable fit for the 2W units but less so for the 1/4W, which are the majority.
 
+Building this kit is going to take around three hours at an absolute minimum and you should probably budget more like a whole day if you are not very experienced. I took around five hours in all, including winding the coil (and many more 3D printing a coild former, but that's another story). If you have only ever made LEDs flash with an Arduino this might be too much for you, but then again if you go slow and ask questions in the forum it can probably be done. Just be cautious and don't guess.
+After building the whole thing I have one more complaint about the PCB - the holes for the resistors are often far too large. When you put the component into the holes and bend the leads a little they just rattle around. It looks like a uniform hole size was used for all of the resistors, a comfortable fit for the 2W units but less so for the 1/4W, which are the majority. 
+I'm pretty happy to have a metal detector, especially one so cheap! But there's still a long way to go before it can go in the car and find some gold. I need to do a lot of work putting it in a case and building the head cover, hand grip, making a battery system etc. More posts to come...
