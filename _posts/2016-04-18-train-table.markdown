@@ -14,9 +14,14 @@ tags:
 </figure>
 Out with the dog we walked past a council rubbish collection and someone had put out a table tennis table! I gave in, pushed it home on the handy wheels and the kids played about three games of table tennis, then forgot about it.
 <br>
-Months later in Sydney we found HobbyCo in the amazing Queen Victoria Building. I've been thinking about model trains for years, since seeing the Hornby Live Steam "Mallard" in a little store in Maldon. Is it a good thing I didn't buy that one or not? By all accounts they didn't work very well but I expect it will be a real collector's item one day. So I looked at all the trains, $800 for a big set... but then I found them for around half the price from the amazing eHatton's...
+Months later in Sydney we found <A HREF="https://hobbyco.com.au">HobbyCo</A> in the amazing <A HREF="https://en.wikipedia.org/wiki/Queen_Victoria_Building">Queen Victoria Building</A>. I've been thinking about model trains for years, since seeing one of these...
+<figure>
+<iframe width="740" height="570" src="https://www.youtube.com/embed/B1uGwZXk7IE" frameborder="0" allowfullscreen></iframe>
+<figcaption>Hornby Live Steam "Mallard"</figcaption>
+</figure>
+(That was on a trip to the Goldfields Railway, in a little shop in Maldon, Victoria. Is it a good thing I didn't buy that one or not? By all accounts they had their problems and are now discontinued but I expect they will be a real collector's item one day.) So I looked at all the trains, $800 for a big set and decided it was far too much money... but then I found them for around half the price from the amazing <A HREF="http://www.ehattons.com">eHatton's</A>...
 <br>
-And a week later I had a <a  href="http://www.amazon.com/gp/product/B00260GAOC/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00260GAOC&linkCode=as2&tag=grayunicorn-20&linkId=R5JSHF2TSYFC3Z6T">Hornby R1125 Somerset Belle Set</a><img src="http://ir-na.amazon-adsystem.com/e/ir?t=grayunicorn-20&l=as2&o=1&a=B00260GAOC" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+And a week later for a very reasonable price I had a <a  href="http://www.amazon.com/gp/product/B00260GAOC/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00260GAOC&linkCode=as2&tag=grayunicorn-20&linkId=R5JSHF2TSYFC3Z6T">Hornby R1125 Somerset Belle Set</a><img src="http://ir-na.amazon-adsystem.com/e/ir?t=grayunicorn-20&l=as2&o=1&a=B00260GAOC" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
  and plenty of expansion track.
 <br>
 So it was obvious what to do with the disused table. Except that it's just a little too narrow for the Hornby TrakMat, so I set about using the better of the two surfaces to extend the first. We don't have a heap of room so having it tip up and store vertically will be very useful. A shame to wreck a good table? Not this one. It was thrown out in the first place because the MDF is in very bad condition, pulling away from the mounting screws on one side and bubbling up with water damage on the top. 
