@@ -19,7 +19,7 @@ Months later in Sydney we found <A HREF="https://hobbyco.com.au">HobbyCo</A> in 
 <iframe width="740" height="570" src="https://www.youtube.com/embed/B1uGwZXk7IE" frameborder="0" allowfullscreen></iframe>
 <figcaption>Hornby Live Steam "Mallard"</figcaption>
 </figure>
-(That was on a trip to the Goldfields Railway, in a little shop in Maldon, Victoria. Is it a good thing I didn't buy that one or not? By all accounts they had their problems and are now discontinued but I expect they will be a real collector's item one day.)<br> So I looked at all the trains, $800 for a big set and decided it was far too much money... but then I found them for around half the price from the amazing <A HREF="http://www.ehattons.com">eHatton's</A>...
+(That was on a trip to the <A HREF="https://en.wikipedia.org/wiki/Victorian_Goldfields_Railway">Goldfields Railway</A>, in a little shop in Maldon, Victoria. Is it a good thing I didn't buy that one or not? By all accounts they had their problems and are now discontinued but I expect they will be a real collector's item one day.)<br> So I looked at all the trains, $800 for a big set and decided it was far too much money... but then I found them for around half the price from the amazing <A HREF="http://www.ehattons.com">eHatton's</A>...
 <br>
 And a week later for a very reasonable price I had a <a  href="http://www.amazon.com/gp/product/B00260GAOC/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00260GAOC&linkCode=as2&tag=grayunicorn-20&linkId=R5JSHF2TSYFC3Z6T">Hornby R1125 Somerset Belle Set</a><img src="http://ir-na.amazon-adsystem.com/e/ir?t=grayunicorn-20&l=as2&o=1&a=B00260GAOC" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
  and plenty of expansion track.
