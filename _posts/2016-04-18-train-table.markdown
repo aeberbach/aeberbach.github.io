@@ -1,0 +1,52 @@
+---
+layout: post
+title: "Train Layout Table"
+tags:
+- electronics
+- trains
+---
+
+<meta charset="utf-8"> 
+
+<figure>
+<img src="{{ site.baseurl }}/assets/train-table/looks-useful.jpg?raw=true">
+<figcaption>OK, how can anyone walk past this?</figcaption>
+</figure>
+Out with the dog we walked past a council rubbish collection and someone had put out a table tennis table! I gave in, pushed it home on the handy wheels and the kids played about three games of table tennis, then forgot about it.
+<br>
+Months later in Sydney we found HobbyCo in the amazing Queen Victoria Building. I've been thinking about model trains for years, since seeing the Hornby Live Steam "Mallard" in a little store in Maldon. Is it a good thing I didn't buy that one or not? By all accounts they didn't work very well but I expect it will be a real collector's item one day. So I looked at all the trains, $800 for a big set... but then I found them for around half the price from the amazing eHatton's...
+<br>
+And a week later I had a <a  href="http://www.amazon.com/gp/product/B00260GAOC/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00260GAOC&linkCode=as2&tag=grayunicorn-20&linkId=R5JSHF2TSYFC3Z6T">Hornby R1125 Somerset Belle Set</a><img src="http://ir-na.amazon-adsystem.com/e/ir?t=grayunicorn-20&l=as2&o=1&a=B00260GAOC" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+ and plenty of expansion track.
+<br>
+So it was obvious what to do with the disused table. Except that it's just a little too narrow for the Hornby TrakMat, so I set about using the better of the two surfaces to extend the first. We don't have a heap of room so having it tip up and store vertically will be very useful. A shame to wreck a good table? Not this one. It was thrown out in the first place because the MDF is in very bad condition, pulling away from the mounting screws on one side and bubbling up with water damage on the top. 
+<figure>
+<img src="{{ site.baseurl }}/assets/train-table/bubbles.jpg?raw=true">
+<figcaption>Makes for an unpredictable bounce</figcaption>
+<img src="{{ site.baseurl }}/assets/train-table/condition.jpg?raw=true">
+<figcaption>Wobbly too</figcaption>
+</figure>
+The back of the table is braced with some rectangular section steel and plastic corner pieces. They came off easily and I was able to start cutting. I ripped along the edge of the large piece I wanted to use and then cut a piece from the waste side to make the width up to 1850mm - enough for the full trakmat and a little extra for whatever.
+<figure>
+<img src="{{ site.baseurl }}/assets/train-table/added-piece.jpg?raw=true">
+<figcaption>Real carpentering</figcaption>
+</figure>
+On the back the removed steel pieces made nice bracing for the new section, with short pieces of steel and corners finishing it up nicely. I joined them by making a redgum block to fit inside the steel section as a mating piece and driving a couple of screws in from either side. 
+<figure>
+<img src="{{ site.baseurl }}/assets/train-table/second-cross-bar?raw=true">
+<figcaption>Back structure</figcaption>
+</figure>
+Next up a quick pass with the big belt sander. The blobs really show the water damage! Wile it's nowhere near really flat, it is a lot flatter than it was. Also I wanted to make sure the satin table finish was nicely scratched up so the new paint could stick to it.
+<figure>
+<img src="{{ site.baseurl }}/assets/train-table/sanding.jpg?raw=true">
+<figcaption>Smooth</figcaption>
+</figure>
+Finally a quick coat of ceiling white. Most of this surface will be coated with TrakMat, I just want to seal it. And that's why the edges look whiter and the centre part that will definitely be under the mat is not so neat. Can't remember where I put that paint roller and trays and it was about to rain, so quick job.
+How does it look?
+<figure>
+<img src="{{ site.baseurl }}/assets/train-table/looks-useful.jpg?raw=true">
+<figcaption>Done!</figcaption>
+</figure>
+When the paint dried I gave the back of the TrakMat a coat of 3M Photo Mount and went to roll it down. Here's where things went slightly wrong. I was really happy with the <a  href="http://www.amazon.com/gp/product/B0017D3D2G/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B0017D3D2G&linkCode=as2&tag=grayunicorn-20&linkId=SJNAAYFNK2CF425B">Speedball 6in Soft Rubber Brayer</a><img src="http://ir-na.amazon-adsystem.com/e/ir?t=grayunicorn-20&l=as2&o=1&a=B0017D3D2G" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> when I bought it but it's very badly designed. Any downward pressure on the soft steel frame results in the frame spreading and the roller popping out of its pins. Looks like an ideal tool for removing air bubbles when block mounting - is actually no good at all if you want to apply pressure. Probably a narrower one would hold up better.
+<br>
+Anyway, it's stuck down - redy to build a train set.
