@@ -41,13 +41,12 @@ On the back the removed steel pieces made nice bracing for the new section, with
 <img src="{{ site.baseurl }}/assets/train-table/second-cross-bar.jpg?raw=true">
 <figcaption>Back structure</figcaption>
 </figure>
-Next up a quick pass with the big belt sander. The blobs really show the water damage! While it's nowhere near really flat, it is better. Also I wanted to make sure the satin table finish was nicely scratched up so the new paint could stick to it.
+Next up a quick pass with the big belt sander. The white blobs reveal where the sander has taken the top off water damage bubbles! While it's nowhere near really flat, it is better. Also I wanted to make sure the satin table finish was nicely scratched up so the new paint could stick to it.
 <figure>
 <img src="{{ site.baseurl }}/assets/train-table/sanding.jpg?raw=true">
 <figcaption>Smooth</figcaption>
 </figure>
-Finally a quick coat of ceiling white. Most of this surface will be coated with TrakMat, I just want to seal it. And that's why the edges look whiter and the centre part that will definitely be under the mat is not so neat. Can't remember where I put that paint roller and trays and it was about to rain, so quick job.
-How does it look?
+Finally a quick coat of ceiling white, and here it is with the TrakMat in place to see how it fits. For a quick job I'm happy, and I got it done before the rain.
 <figure>
 <img src="{{ site.baseurl }}/assets/train-table/finished.jpg?raw=true">
 <figcaption>Done!</figcaption>
