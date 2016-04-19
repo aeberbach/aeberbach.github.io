@@ -17,7 +17,7 @@ Then a few things happened at once. Due to the Alfine's service issues I found m
 <img src="{{ site.baseurl }}/assets/wolverine/right-side.jpg?raw=true">
 <figcaption>Right side</figcaption>
 </figure>
-**What's on it?**  
+**What's on it?**<br>
 This project has been going on for months! People in the office are going to be happy there will be fewer packages delivered for me I am sure. I used a variety of online sellers - no reason to spread it around, just that not everyone had all the parts I wanted.<br>
 <figure>
 <img src="{{ site.baseurl }}/assets/wolverine/crank.jpg?raw=true">
@@ -33,7 +33,7 @@ There's a Chris King headset, Thomson stem and seat post, H Plus Son rims, Brook
 <img src="{{ site.baseurl }}/assets/wolverine/rear-sprocket.jpg?raw=true">
 <figcaption>White Industries and Gates collaborated to produce this freewheel sprocket</figcaption>
 </figure>
-**Building Wheels**
+**Building Wheels**<br>
 Another reason for doing it myself is that I just like mechanical work, and building wheels seemed like a good challenge. I liked building wheels so much that I build a new set for my Spot Acme also. Anyone who doesn't mind getting their hands mildly dirty should try it - the book I used is Roger Musson's <A href="http://www.wheelpro.co.uk/wheelbuilding/book.php">The Professional Guide to
 Wheel Building</A>. He tells you exactly what to do any why. The only tool you absolutely need to buy is a <a  href="http://www.amazon.com/gp/product/B003ZRWA4Y/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B003ZRWA4Y&linkCode=as2&tag=grayunicorn-20&linkId=G72NVCLPINFL4IL4">SPOKEY professional</a><img src="http://ir-na.amazon-adsystem.com/e/ir?t=grayunicorn-20&l=as2&o=1&a=B003ZRWA4Y" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> - and I agree with the author that's the only one to buy.<br> 
 Building wheels is just not hard. If you do it methodically and patiently you can build excellent wheels, you'll save money and learn something.
