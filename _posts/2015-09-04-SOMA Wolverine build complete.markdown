@@ -23,7 +23,7 @@ This project has been going on for months! People in the office are going to be 
 <img src="{{ site.baseurl }}/assets/wolverine/crank.jpg?raw=true">
 <figcaption>Sugino crank</figcaption>
 </figure>
-I got the frame, good advice, and some parts from <A href="http://commutercycles.com.au" target="_blank">Commuter Cycles</A>. This is a really great bike shop in Brunswick right on the bike lane and easy to get to by train when the bike is out of action. There are always desirable bikes lined up waiting for collection when I visit, they obviously love what they do and there is no better recommendation.<br>
+I got the frame, good advice, and some parts from Commuter Cycles. This is a really great bike shop in Brunswick right on the bike lane and easy to get to by train when the bike is out of action. There are always desirable bikes lined up waiting for collection when I visit, they obviously love what they do and there is no better recommendation.<br>
 <figure>
 <img src="{{ site.baseurl }}/assets/wolverine/saddle.jpg?raw=true">
 <figcaption>Brooks B17, possibly the world's greatest saddle for commuting</figcaption>
