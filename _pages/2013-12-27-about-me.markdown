@@ -4,7 +4,7 @@ title: "About Me"
 ---
 <meta charset="utf-8"> 
 
-Hi – I’m Adam Eberbach, iOS developer living in Melbourne, Australia. Over the years I have done mostly C programming with a mobile/embedded leaning, a bit less C++ and no Java at all. I’ve worked for huge companies and smaller ones, in Australia and the USA. When not programming I like to build or fix things, play guitar or play computer games.
+Hi – I’m Adam Eberbach, iOS developer living in Melbourne, Australia. Over the years I have done mostly C programming with a mobile/embedded leaning, a bit less C++ and no Java at all. I’ve worked for huge companies and smaller ones, in Australia and the USA. When not programming I like to build or fix things, play guitar or play computer games. Lately I have bought some model trains too.
 
 
 **Why "Gray Unicorn"?**
