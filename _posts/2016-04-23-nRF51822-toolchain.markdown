@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Building for the nRF51 dk board on Mac OS X"
+title: "nRF51 Developer Kit setup for Mac OS X"
 tags:
 nRF51822
 nRF51 dk
