@@ -11,38 +11,38 @@ tags:
 **Back to Embedded Confusion**<br>
 These days I am mostly an iOS developer, but a long time ago I did embedded. For all the complaining about Xcode we have it easy compared to the embedded world where you are likely to spend as much time on the command line as you are in a code editor. And usually doing anything embedded means, for a Mac user, running Windows in one form or another.<br>
 So when I went looking for a Bluetooth controller the presence of a Mac toolchain was a big factor in favor of <A HREF="https://www.nordicsemi.com/eng/Products/Bluetooth-Smart-Bluetooth-low-energy/nRF51822">Nordic Semiconductor's nRF51822</A>. Not to mention it's incredibly popular and relatively cheap.<br>But getting it all working wasn't quite as easy as I had hoped. Some outdated blog posts referring to outdated directory structures led me astray so I'm putting the simple recipe here.<br>
-Here's what I'm using - if you're reading this later and things have changed, don't assume anything is still the same.</p>
+Here's what I'm using - if you're reading this later and things have changed, don't assume anything is still the same.<br>
 <A HREF="https://www.nordicsemi.com/eng/Products/nRF51-DK">nF51 Developer Kit</A>
 From that page click on the "DOWNLOADS" tab (it's very small, look harder)<br>
-*Download:*
-- nRF5-SDK-zip - nRF5 SDK Zip File
-- S130-SD-v2 - S130 nRF51 SoftDevice
+*Download:*<br>
+- nRF5-SDK-zip - nRF5 SDK Zip File<br>
+- S130-SD-v2 - S130 nRF51 SoftDevice<br>
 - nRF5x-Command-Line-Tools-OSX - nRF5x toolset tar for OSX (nrfjprog and mergehex)<br>
-*Download*
+*Download*<br>
 <A HREF="https://launchpad.net/gcc-arm-embedded">Latest verion of GCC ARM Embedded for Mac</A><br>
-*Download*
-<A HREF="https://www.segger.com/jlink-software.html">Segger software and documentation pack for Mac</A> - make sure to click on the blue download button not the text, the links go to different places.<br>
+*Download*<br>
+<A HREF="https://www.segger.com/jlink-software.html">Segger software and documentation pack for Mac</A> - make sure to click on the blue download button not the text, the links go to different places.<br><br>
 
 
 **Installing**
-First you need to install GCC ARM Embedded. The easy way is to cd to <pre><code>/usr/local</pre></code> in terminal then <pre><code>sudo tar xvfj ~/Downloads/gcc-arm-non-eabi...........tar.bz</pre></code>Use the exact filename you received of course, version numbers will change. Add the bin directory to your path in .bash_profile or similar - making a soft link so you can refer to <pre><code>/usr/local/arm-gcc-embedded/bin</pre></code> might be a good idea rather than having the entire version number in your path.<br>
-Next the nRF5 SDK should be unpacked. There is a file that must be edited so that the SDK makefiles can find your compiler installation - in version 11 the path to this file is <pre><code>nRF5_SDK_11/components/toochain/gcc/Makefile.posix</pre></code>Edit it so that GNU_INSTALL_ROOT points to your ARM GCC Embedded installtion's root, again that softlink would be useful here.<br>
-The command line tools from Nordic, <b>nrfjprog</b> and <b>mergehex</b> make life a lot simpler and I also added them to <b>/usr/bin</b> and put them in my path.<br>
+First you need to install GCC ARM Embedded. The easy way is to cd to <code>/usr/local</code> in terminal then <code>sudo tar xvfj ~/Downloads/gcc-arm-non-eabi...........tar.bz</code>Use the exact filename you received of course, version numbers will change. Add the bin directory to your path in .bash_profile or similar - making a soft link so you can refer to <code>/usr/local/arm-gcc-embedded/bin</code> might be a good idea rather than having the entire version number in your path.<br>
+Next the nRF5 SDK should be unpacked. There is a file that must be edited so that the SDK makefiles can find your compiler installation - in version 11 the path to this file is <code>nRF5_SDK_11/components/toochain/gcc/Makefile.posix</code>Edit it so that GNU_INSTALL_ROOT points to your ARM GCC Embedded installtion's root, again that softlink would be useful here.<br>
+The command line tools from Nordic, <b>nrfjprog</b> and <b>mergehex</b> make life a lot simpler and I also added them to <code>/usr/bin</code> and put them in my path.<br>
 Finally there is the installer from Segger. I did install this while I was trying to use the Segger jlinkexe command line utility as a way to program the board but it did not work for me. I don't know if this package is required since I now use mergehex and nrfjprog - but I suspect it is required since Segger's J-Link is included on the development board, I expect nrfjprog requires it.<br>
-That done you can go and try building an example fron the SDK. In terminal navigate to <pre><code>nRF5_SDK_11/examples/ble_peripheral/ble_app_hrs/pca10028/s130/armgcc</pre></code>The last three components of the path are meaningful - the nRF51 DK is identified by <b>pca10028</b>, the softdevice from Nordic driving the radio is <b>s130</b> and the toolchain is <b>armgcc</b>. Once there you should hopefully just be able to make and a folder called _build will be created with the results.
+That done you can go and try building an example fron the SDK. In terminal navigate to <code>nRF5_SDK_11/examples/ble_peripheral/ble_app_hrs/pca10028/s130/armgcc</code>The last three components of the path are meaningful - the nRF51 DK is identified by <b>pca10028</b>, the softdevice from Nordic driving the radio is <b>s130</b> and the toolchain is <b>armgcc</b>. Once there you should hopefully just be able to make and a folder called _build will be created with the results.
 
 <figure>
 <img src="{{ site.baseurl }}/assets/nRF51822-setup/make.png?raw=true">
 <figcaption>Making the app</figcaption>
 </figure>
 
-The relative path to the softdevice hex file is <b>../../../../../../../components/softdevice/s130/hex/s130_nrf51_2.0.0_softdevice.hex</b>. The app you just built is in the _build directory and is probably called nrf51422_xxac_s130.hex. You can merge these hex files, the softdevice and the app, with the command line <pre><code>mergehex -m ../../../../../../../components/softdevice/s130/hex/s130_nrf51_2.0.0_softdevice.hex nrf51422_xxac_s130.hex -o out.hex</pre></code>Check the result and there will be an out.hex file laregr than both the softdevice file and your app file.
+The relative path to the softdevice hex file is <b>../../../../../../../components/softdevice/s130/hex/s130_nrf51_2.0.0_softdevice.hex</b>. The app you just built is in the _build directory and is probably called nrf51422_xxac_s130.hex. You can merge these hex files, the softdevice and the app, with the command line <code>mergehex -m ../../../../../../../components/softdevice/s130/hex/s130_nrf51_2.0.0_softdevice.hex nrf51422_xxac_s130.hex -o out.hex</code>Check the result and there will be an out.hex file laregr than both the softdevice file and your app file.
 To program the board I use a sequence of nrfjprog commands - these are:
-<pre><code>
+<code>
 nrfjprog --eraseall
 nrfjprog --program out.hex
 nrfjprog --verify out.hex
-nrfjprog --reset</pre></code>
+nrfjprog --reset</code>
 
 <figure>
 <img src="{{ site.baseurl }}/assets/nRF51822-setup/programming.png?raw=true">
