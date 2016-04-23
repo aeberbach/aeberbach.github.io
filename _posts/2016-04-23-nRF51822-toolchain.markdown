@@ -9,7 +9,7 @@ tags:
 <meta charset="utf-8"> 
 
 **Back to Embedded Confusion**
-These days I am mostly an iOS developer, but I used to be an embedded developer (admittedly not a very good one). For all the complaining about Xcode we have it easy compared to the embedded world where you are likely to spend as much time on the command line as you are in a code editor. And usually doing anything embedded means, for a Mac user, running Windows in one form or another.
+These days I am mostly an iOS developer, but a long time ago I did embedded. For all the complaining about Xcode we have it easy compared to the embedded world where you are likely to spend as much time on the command line as you are in a code editor. And usually doing anything embedded means, for a Mac user, running Windows in one form or another.
 So when I went looking for a Bluetooth controller the presence of a Mac toolchain was a big factor in favor of <A HREF="https://www.nordicsemi.com/eng/Products/Bluetooth-Smart-Bluetooth-low-energy/nRF51822">Nordic Semiconductor's nRF51822</A>. Not to mention it's incredibly popular and relatively cheap.<br>But getting it all working wasn't quite as easy as I had hoped. Some outdated blog posts referring to outdated directory structures led me astray so I'm putting the simple recipe here. Here's what I'm using - if you're reading this later and things have changed, don't assume anything is still the same.<br>
 <A HREF="https://www.nordicsemi.com/eng/Products/nRF51-DK">nF51 Developer Kit</A>
 From that page click on the "DOWNLOADS" tab (it's very small, look harder)<br>
