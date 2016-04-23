@@ -3,7 +3,6 @@ layout: post
 title: "nRF51 Developer Kit setup for Mac OS X"
 tags:
 - nRF51822
-- nRF51 dk
 - bluetooth
 ---
 
