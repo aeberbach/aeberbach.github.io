@@ -10,3 +10,14 @@ tags:
 
 **Back to Embedded Confusion**
 These days I am mostly an iOS developer, but I used to be an embedded developer (admittedly not a very good one). For all the complaining about Xcode we have it easy compared to the embedded world where you are likely to spend as much time on the command line as you are in a code editor. And usually doing anything embedded means, for a Mac user, running Windows in one form or another.
+So when I went looking for a Bluetooth controller the presence of a Mac toolchain was a big factor in favor of <A HREF="https://www.nordicsemi.com/eng/Products/Bluetooth-Smart-Bluetooth-low-energy/nRF51822">Nordic Semiconductor's nRF51822</A>. Not to mention it's incredibly popular and relatively cheap.<br>But getting it all working wasn't quite as easy as I had hoped. Some outdated blog posts referring to outdated directory structures led me astray so I'm putting the simple recipe here. Here's what I'm using - if you're reading this later and things have changed, don't assume anything is still the same.<br>
+<A HREF="https://www.nordicsemi.com/eng/Products/nRF51-DK">nF51 Developer Kit</A>
+From that page click on the "DOWNLOADS" tab (it's very small, look harder)<br>
+*Download:*
+- nRF5-SDK-zip - nRF5 SDK Zip File
+- S130-SD-v2 - S130 nRF51 SoftDevice
+- nRF5x-Command-Line-Tools-OSX - nRF5x toolset tar for OSX (nrfjprog and mergehex)<br>
+*Download*
+<A HREF="https://launchpad.net/gcc-arm-embedded">Latest verion of GCC ARM Embedded for Mac</A><br>
+*Download*
+<A HREF="https://www.segger.com/jlink-software.html">Segger software and documentation pack for Mac</A> - make sure to click on the blue download button not the text, the links go to different places.<br>
