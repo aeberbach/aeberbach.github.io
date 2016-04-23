@@ -36,25 +36,25 @@ That done you can go and try building an example fron the SDK. In terminal navig
 <figcaption>Making the app</figcaption>
 </figure>
 
-The relative path to the softdevice hex file is <b>../../../../../../../components/softdevice/s130/hex/s130_nrf51_2.0.0_softdevice.hex</b>. The app you just built is in the _build directory and is probably called nrf51422_xxac_s130.hex. You can merge these hex files, the softdevice and the app, with the command line <code>mergehex -m ../../../../../../../components/softdevice/s130/hex/s130_nrf51_2.0.0_softdevice.hex nrf51422_xxac_s130.hex -o out.hex</code>Check the result and there will be an out.hex file laregr than both the softdevice file and your app file.
+The relative path to the softdevice hex file is <code>../../../../../../../components/softdevice/s130/hex/s130_nrf51_2.0.0_softdevice.hex</code>. The app you just built is in the _build directory and is probably called <code>nrf51422_xxac_s130.hex</code>. You can merge these hex files, the softdevice and the app, with the command line <code>mergehex -m ../../../../../../../components/softdevice/s130/hex/s130_nrf51_2.0.0_softdevice.hex nrf51422_xxac_s130.hex -o out.hex</code><br>
+Check the result and there will be an out.hex file laregr than both the softdevice file and your app file.
 To program the board I use a sequence of nrfjprog commands - these are:
-<code>
-nrfjprog --eraseall
-nrfjprog --program out.hex
-nrfjprog --verify out.hex
-nrfjprog --reset</code>
+<code>nrfjprog --eraseall</code><br>
+<code>nrfjprog --program out.hex</code><br>
+<code>nrfjprog --verify out.hex</code><br>
+<code>nrfjprog --reset</code><br>
 
 <figure>
 <img src="{{ site.baseurl }}/assets/nRF51822-setup/programming.png?raw=true">
 <figcaption>Programming the developer kit</figcaption>
 </figure>
 
-If all is well a LED should start flashing on the board! Now for the point of this exercise - interaction with an iOS device. You should download the nRF Toolbox app from the iOS app store. When you run it, if your board is running (LED still flashing?) then when you select the HRM option, and hit the connect button, you will see Nordic_HRM. Select that and you'll see the app communicating with the board and receiving a simulated heartbeat.
+If all is well a LED should start flashing on the board! Now for the point of this exercise - interaction with an iOS device. You should download the nRF Toolbox app from the iOS app store. When you run it, if your board is running (LED still flashing?) then when you select the HRM option, and hit the connect button, you will see Nordic_HRM. Select that and you'll see the app communicating with the board and receiving a simulated heartbeat.<br>
 <figure>
 <img src="{{ site.baseurl }}/assets/nRF51822-setup/success.jpg?raw=true">
 <figcaption>Success!</figcaption>
 </figure>
-This has been a quick rundown on how to get things working and a lot of detail has been glossed over. But it's frustrating trying to figure out the arcane commands required to get this stuff working sometimes. Now you have this working it should be possible to progress by building on existing projects.
+This has been a quick rundown on how to get things working and a lot of detail has been glossed over. But it's frustrating trying to figure out the arcane commands required to get this stuff working sometimes. Now you have this working it should be possible to progress by building on existing projects.<br>
 <A HREF="https://devzone.nordicsemi.com/questions">Nordic Developer Zone</A> looks like it is using Stack Overflow software and there aren't many questions not answered by Nordic staff, so take a look. Happy embedded developing!
 
 
