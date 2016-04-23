@@ -26,9 +26,10 @@ From that page click on the "DOWNLOADS" tab (it's very small, look harder)<br>
 
 **Installing**<br>
 First you need to install GCC ARM Embedded. The easy way is to cd to <code>/usr/local</code> in terminal then <code>sudo tar xvfj ~/Downloads/gcc-arm-non-eabi...........tar.bz</code>Use the exact filename you received of course, version numbers will change. Add the bin directory to your path in .bash_profile or similar - making a soft link so you can refer to <code>/usr/local/arm-gcc-embedded/bin</code> might be a good idea rather than having the entire version number in your path.<br>
-Next the nRF5 SDK should be unpacked. There is a file that must be edited so that the SDK makefiles can find your compiler installation - in version 11 the path to this file is <code>nRF5_SDK_11/components/toochain/gcc/Makefile.posix</code>Edit it so that GNU_INSTALL_ROOT points to your ARM GCC Embedded installtion's root, again that softlink would be useful here.<br>
+Next the nRF5 SDK should be unpacked. There is a file that must be edited so that the SDK makefiles can find your compiler installation - in version 11 the path to this file is <code>nRF5_SDK_11/components/toochain/gcc/Makefile.posix</code>.<br>
+Edit it so that GNU_INSTALL_ROOT points to your ARM GCC Embedded installtion's root, again that softlink would be useful here.<br>
 The command line tools from Nordic, <b>nrfjprog</b> and <b>mergehex</b> make life a lot simpler and I also added them to <code>/usr/bin</code> and put them in my path.<br>
-Finally there is the installer from Segger. I did install this while I was trying to use the Segger <code>jlinkexe</code> command line utility as a way to program the board but it did not work for me. I don't know if this package is required since I now use mergehex and nrfjprog - but I suspect it is required since Segger's J-Link is included on the development board, I expect nrfjprog requires it.<br>
+Finally there is the installer from Segger. I did install this while I was trying to use the Segger <code>jlinkexe</code> command line utility as a way to program the board but it did not work for me. I don't know if this package is required since I now use <b>mergehex</b> and <b>nrfjprog</b> - but I suspect it is required since Segger's J-Link is included on the development board.<br>
 That done you can go and try building an example fron the SDK. In terminal navigate to <code>nRF5_SDK_11/examples/ble_peripheral/ble_app_hrs/pca10028/s130/armgcc</code>The last three components of the path are meaningful - the nRF51 DK is identified by <b>pca10028</b>, the softdevice from Nordic driving the radio is <b>s130</b> and the toolchain is <b>armgcc</b>. Once there you should hopefully just be able to make and a folder called _build will be created with the results.
 
 <figure>
@@ -36,7 +37,7 @@ That done you can go and try building an example fron the SDK. In terminal navig
 <figcaption>Making the app</figcaption>
 </figure>
 
-The relative path to the softdevice hex file is <code>../../../../../../../components/softdevice/s130/hex/s130_nrf51_2.0.0_softdevice.hex</code>. The app you just built is in the _build directory and is probably called <code>nrf51422_xxac_s130.hex</code>. You can merge these hex files, the softdevice and the app, with the command line <code>mergehex -m ../../../../../../../components/softdevice/s130/hex/s130_nrf51_2.0.0_softdevice.hex nrf51422_xxac_s130.hex -o out.hex</code><br>
+The app you just built is in the _build directory and is probably called <code>nrf51422_xxac_s130.hex</code>. You can merge these hex files, the softdevice (using its relative path, in the version 11 SDK) and the app, with the command line <code>mergehex -m ../../../../../../../components/softdevice/s130/hex/s130_nrf51_2.0.0_softdevice.hex nrf51422_xxac_s130.hex -o out.hex</code><br>
 Check the result and there will be an out.hex file larger than both the softdevice file and your app file.
 To program the board I use a sequence of nrfjprog commands - these are:<br>
 <code>nrfjprog --eraseall</code><br>
@@ -49,7 +50,7 @@ To program the board I use a sequence of nrfjprog commands - these are:<br>
 <figcaption>Programming the developer kit</figcaption>
 </figure>
 
-If all is well a LED should start flashing on the board! Now for the point of this exercise - interaction with an iOS device. You should download the nRF Toolbox app from the iOS app store. When you run it, if your board is running (LED still flashing?) then when you select the HRM option, and hit the connect button, you will see Nordic_HRM. Select that and you'll see the app communicating with the board and receiving a simulated heartbeat.<br>
+If all is well, the example program will cause a LED to start flashing on the board. Now for the point of this exercise - interaction with an iOS device. You should download the nRF Toolbox app from the iOS app store. When you run it, if your board is running (LED still flashing?) then when you select the HRM option, and hit the connect button, you will see Nordic_HRM. Select that and you'll see the app communicating with the board and receiving a simulated heartbeat.<br>
 <figure>
 <img src="{{ site.baseurl }}/assets/nRF51822-setup/success.jpg?raw=true">
 <figcaption>Success!</figcaption>
