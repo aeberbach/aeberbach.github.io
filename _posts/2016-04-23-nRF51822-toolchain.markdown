@@ -25,7 +25,7 @@ From that page click on the "DOWNLOADS" tab (it's very small, look harder)<br>
 
 
 **Installing**<br>
-First you need to install GCC ARM Embedded. The easy way is to cd to <code>/usr/local</code> in terminal then <code>sudo tar xvfj ~/Downloads/gcc-arm-non-eabi...........tar.bz</code>Use the exact filename you received of course, version numbers will change. Add the bin directory to your path in .bash_profile or similar - making a soft link so you can refer to <code>/usr/local/arm-gcc-embedded/bin</code> might be a good idea rather than having the entire version number in your path.<br>
+First you need to install GCC ARM Embedded. The easy way is to cd to <code>/usr/local</code> in terminal then <code>sudo tar xvfj ~/Downloads/gcc-arm-non-eabi...........tar.bz</code>Use the exact filename you received of course, version numbers will change. Add the bin directory to your path in .bash_profile or similar - making a soft link so you can refer to <code>/usr/local/gcc-arm-none-eabi</code> might be a good idea rather than having the entire version number in your path.<br>
 Next the nRF5 SDK should be unpacked. There is a file that must be edited so that the SDK makefiles can find your compiler installation - in version 11 the path to this file is <code>nRF5_SDK_11/components/toochain/gcc/Makefile.posix</code>.<br>
 Edit it so that GNU_INSTALL_ROOT points to your ARM GCC Embedded installtion's root, again that softlink would be useful here.<br>
 The command line tools from Nordic, <b>nrfjprog</b> and <b>mergehex</b> make life a lot simpler and I also added them to <code>/usr/bin</code> and put them in my path.<br>
