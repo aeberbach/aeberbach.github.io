@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Minipulse Metal Detector, part 1.</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Gray Unicorn </a></h1>
+                <nav><ul>
+                    <li><a href="/category/bicycles.html">Bicycles</a></li>
+                    <li><a href="/category/books.html">Books</a></li>
+                    <li><a href="/category/computers.html">Computers</a></li>
+                    <li><a href="/category/development.html">Development</a></li>
+                    <li><a href="/category/games.html">Games</a></li>
+                    <li class="active"><a href="/category/making.html">Making</a></li>
+                    <li><a href="/category/random.html">Random</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/minipulse-metal-detector-part-1.html" rel="bookmark"
+           title="Permalink to Minipulse Metal Detector, part 1.">Minipulse Metal Detector, part 1.</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-04-13T12:00:00+10:00">
+                Published: Wed 13 April 2016
+        </abbr>
+		<br />
+        <abbr class="modified" title="2019-02-25T12:00:00+11:00">
+                Updated: Mon 25 February 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/adam-eberbach.html">Adam Eberbach</a>
+        </address>
+<p>In <a href="/category/making.html">Making</a>.</p>
+<p>tags: <a href="/tag/making.html">making</a> <a href="/tag/electronics.html">electronics</a> </p>
+</footer><!-- /.post-info -->      <p>We met a guy in Beechworth travelling with his family while camping. He came over to borrow some tea and while talking mentioned that he did a bit of prospecting. "As in gold?" we asked, interested. Beechworth is part of Victoria's "golden triangle" and our campground was on a flat below a hillside full of old mining shafts. "Sure" he said, and pulled out a glass tube with at least an ounce of gold in small nuggets rattling around. About US$1600 worth. And all you need to find it is a $5000 metal detector, or $10000 for a really good one. I was prepared to spend about $200 for a new camping toy and so this project was started.</p>
+<p><strong>The Kit</strong>  </p>
+<p>Searching around I found several forums full of DIY detector builds - the <A href="http://www.geotech1.com/cgi-bin/pages/common/index.pl?page=main&file=main.dat" target="_blank">Geotech forum</A> is the one I spent most time on. There is an active community of builders and it didn't seem too hard. I settled on the Minipulse kit, from <A href="http://www.silverdog.co.uk/shop2/">silverdog</A> - reasonably priced at £34.00. It was delivered in around ten days. Here's what arrived.</p>
+<p><img alt="Big Bag" src="/images/minipulse/Parts/as-arrived.jpg"></p>
+<p>Right away I worried about the ICs - all rattling around in one bag, surely the pins would be bent? At the very least I'd be buying new sockets.</p>
+<p><img alt="PCB Front" src="/images/minipulse/Parts/pcb-front.jpg"></p>
+<p><img alt="PCB Rear" src="/images/minipulse/Parts/pcb-rear.jpg"></p>
+<p>The PCB is a quality item. Holes plated through, flowed ground plane, heavy fibreglass substrate.</p>
+<p><img alt="Neat makes things work." src="/images/minipulse/Parts/everything.jpg"></p>
+<p>And here are all the parts in a bit more order. I was going to separate them into small containers by construction step (there are 9 steps) but I found it just as easy to take them from this mat as each step was complete. 
+The electrolytics are decidedly cheap, nasty-looking things - brand names like "Forever" and "Suntan". I'm not looking for audiophile stuff like Black Gate or Cerafine but I have replaced too many bulging, leaky electrolytics in the past ten years. But I used them. That's about the only complaint I have about the parts. You can see from the individually labelled resistors that silverdog has gone to a lot of trouble to make this as easy as possible to put together right.
+The <A href="http://silverdog.co.uk/shop2/library/minipulserevd.pdf" target="_blank">instruction manual</A> is available before you buy the kit so you can see what you'll be building. The manual stresses that you should follow the build steps in order and perform the tests at the end of each step. This post describes following those steps and shows the result of each test. 
+I have one very tiny criticism (in steps 7 and 8) but otherwise it's very, very good. Up front I'll say this is a great kit. Buy with confidence.</p>
+<p><strong>Step 1</strong></p>
+<p>The first step is an easy one, getting a 5V supply using a 79L05. I confused myself by looking for a TO220 package before realising it was a TO-92. That done, an easy step.</p>
+<p><img alt="Negative Supply" src="/images/minipulse/Step1/negative-supply.jpg"></p>
+<p><strong>Step 2</strong></p>
+<p>Another easy step! This thing will be done in no time. A 78L05 provides +5V.</p>
+<p><img alt="Positive Supply" src="/images/minipulse/Step2/positive-supply.jpg"></p>
+<p><strong>Step 3</strong></p>
+<p>Now starts the analogue stuff so I'm out of my comfort zone. I picked up a 470nF capacitor instead of the 47nF here, my only component mistake - I just don't do enough electronics to read "473J100" without having to stop and think. When that was fixed 
+the test showed I was very close to the expected result - at least close enough to go on. </p>
+<p><img alt="TX Oscillator" src="/images/minipulse/Step3/tx-oscillator.jpg"></p>
+<p><img alt="Frequency Check" src="/images/minipulse/Step3/frequency-check.png"></p>
+<p><img alt="Pulse Width" src="/images/minipulse/Step3/pulse-width.png"></p>
+<p><img alt="Sync Check" src="/images/minipulse/Step3/sync-check.png"></p>
+<p>OK, something isn't exactly right. My pulse width appears to be ~45uS. I do have a higher supply voltage, 13.8V from a fixed supply intended to power a ham radio. I don't have an adjustable supply or any batteries to do an actual 12V supply. The frequency is OK, and it's in sync with the pulse from U2, so I think it's OK to go ahead. </p>
+<p>The manual also suggests putting on headphones and listening for an induced noise when the coil is close. It works!</p>
+<p><em>Update!</em> Forum user teleno reported that switching out the TLC555 chips supplied in the kit for NE555 chips brings the pulse to 58uS. Good thing everyone has ten or so NE555s in the junk box. (Mine must be around 30 years old!) I now see around 54uS and I'm a lot happier with that result. If the TLC555 45uS pulse is OK, the kit manual needs to be updated to say so.</p>
+<p><img alt="555?" src="/images/minipulse/Step3/NE555-54us-pulse.png"></p>
+<p><strong>Step 4</strong></p>
+<p>My coil inductance is 370uH, or at least to the degree that my very cheap <a  href="http://www.amazon.com/gp/product/B00LSLDD5O/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00LSLDD5O&linkCode=as2&tag=grayunicorn-20&linkId=SEKAZMQBJPTFBJFG">Mastech MY6243 LCR Digital Multimeter, Capacitance and Inductance Tester</a><img src="http://ir-na.amazon-adsystem.com/e/ir?t=grayunicorn-20&l=as2&o=1&a=B00LSLDD5O" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> can measure it. (I bought it just for this project - usually I only do digital electronics, never anything with a coil!) On this basis I did not adjust the damping resistor but I might later.</p>
+<p><img alt="Flyback" src="/images/minipulse/Step4/flyback.png"></p>
+<p>That's a little high but once again I'm going with it and moving on.</p>
+<p><strong>Step 5</strong></p>
+<p>OK, now it's time to hook up the coil since I need to measure voltages changing as a metallic object comes close to it. There is no conventional coil connector supplied with the kit but I would like to be able to use a commercial coil maybe, so I bought the pair of connectors. I wasn't sure about how to wire it up but the manual makes it clear. Did I mention this is a great kit?</p>
+<p><img alt="RX Preamp" src="/images/minipulse/Step5/rx-preamp.jpg"></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5RBbKWjcuU4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>At this point some of the uneasiness from previous steps evaporated. Clearly something is working properly.</p>
+<p><strong>Step 6</strong></p>
+<p>This step includes the two 16-pin devices, whose sockets were the most mangled from being stuck in the plastic bag with all the rest. They straightened out OK though. It is a thoughtful step to include sockets even for the cheap chips like the 555, they are easily destroyed with clumsy soldering and a pain to desolder. With the socket you can get the pins (almost) as hot as you like and not worry about pausing between pins.</p>
+<p><img alt="Sample Pulse Generator" src="/images/minipulse/Step6/sample-pulse-generator.jpg"></p>
+<p><img alt="Sample Pulse Delay" src="/images/minipulse/Step6/sample-pulse-delay.png"></p>
+<p><strong>Step 7</strong></p>
+<p><img alt="Sampling Integrator" src="/images/minipulse/Step7/sampling-integrator.jpg"></p>
+<p>The section parts list says it's time to use the TL062 op-amp, but a TL072 is supplied. For all intensive porpoises that's the same thing, and the full parts list makes that clear but maybe it could be mentioned in the section parts list also?
+The test in this step is about the opposite of the one in step 5 - this time the voltage at the test point goes up rather than down as the metallic object nears the coil.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rtZe5K30BCw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p><strong>Step 8</strong></p>
+<p><img alt="Second Integrator" src="/images/minipulse/Step8/second-integrator.jpg"></p>
+<p>Just like in Step 7 the op-amp supplied is an equivalent, a TL071 instead of a TL061.
+The test step here is a tricky adjustment to make on the oscilloscope, I would almost suggest doing it on the meter instead - the voltage you are watching dances around a bit and it is hard to get it at zero but it doesn't have to be exact.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/iBQYe9rkz7o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>I couldn't capture everything in this short clip so here's the explanation. The self-adjusting threshold causes the voltage at TP9 to adjust back to 0 in the absence of a moving target. The display here shows the voltage as a target (the big acetone can from previous clips) moves close to the coil, pauses and then moves away. All working!</p>
+<p><strong>Step 9</strong></p>
+<p><img alt="Complete Board" src="/images/minipulse/Step9/complete-board.jpg"></p>
+<p><img alt="All Connected" src="/images/minipulse/Step9/connected-board.jpg"></p>
+<p>Oh wow, that's a horrible sound from the included mini-speaker. I guess when the sound indicates that you've found something it's much more welcome. Anyway - it works! Obviously there is more tweaking to do and I need to go back and look at the scope, but that's a wrap. It detects metal.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PliDJD09Wco" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p><strong>Conclusion</strong> </p>
+<p>Building this kit is going to take around three hours at an absolute minimum and you should probably budget more like a whole day if you are not very experienced. I took around five hours in all, including winding the coil (and many more 3D printing a coil former, but that's another story). If you have only ever made LEDs flash with an Arduino this might be too much for you, but then again if you go slow and ask questions in the forum it can probably be done. Just be cautious and don't guess.
+After building the whole thing I have one more complaint about the PCB - the holes for the resistors are often far too large. When you put the component into the holes and bend the leads a little they just rattle around. It looks like a uniform hole size was used for all of the resistors, a comfortable fit for the 2W units but less so for the 1/4W, which are the majority. 
+I'm pretty happy to have a metal detector, especially one so cheap! But there's still a long way to go before it can go in the car and find some gold. I need to do a lot of work putting it in a case and building the head cover, hand grip, making a battery system etc. More posts to come...</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
