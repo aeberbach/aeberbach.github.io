@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>nRF51 Developer Kit setup for macOS X</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Gray Unicorn </a></h1>
+                <nav><ul>
+                    <li><a href="/category/bicycles.html">Bicycles</a></li>
+                    <li><a href="/category/books.html">Books</a></li>
+                    <li><a href="/category/computers.html">Computers</a></li>
+                    <li class="active"><a href="/category/development.html">Development</a></li>
+                    <li><a href="/category/games.html">Games</a></li>
+                    <li><a href="/category/making.html">Making</a></li>
+                    <li><a href="/category/random.html">Random</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/nrf51-developer-kit-setup-for-macos-x.html" rel="bookmark"
+           title="Permalink to nRF51 Developer Kit setup for macOS X">nRF51 Developer Kit setup for macOS X</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-04-23T12:00:00+10:00">
+                Published: Sat 23 April 2016
+        </abbr>
+		<br />
+        <abbr class="modified" title="2019-02-25T12:00:00+11:00">
+                Updated: Mon 25 February 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/adam-eberbach.html">Adam Eberbach</a>
+        </address>
+<p>In <a href="/category/development.html">Development</a>.</p>
+<p>tags: <a href="/tag/development.html">development</a> </p>
+</footer><!-- /.post-info -->      <p><strong>Back to Embedded Confusion</strong><br>
+These days I am mostly an iOS developer, but a long time ago I did embedded. For all the complaining about Xcode we have it easy compared to the embedded world where you are likely to spend as much time on the command line as you are in a code editor. And usually doing anything embedded means, for a Mac user, running Windows in one form or another.<br>
+So when I went looking for a Bluetooth controller the presence of a Mac toolchain was a big factor in favor of <A HREF="https://www.nordicsemi.com/eng/Products/Bluetooth-Smart-Bluetooth-low-energy/nRF51822">Nordic Semiconductor's nRF51822</A>. Not to mention it's incredibly popular and relatively cheap.<br>But getting it all working wasn't quite as easy as I had hoped. Some old blog posts referring to outdated directory structures led me astray so I'm putting the simple recipe here.<br>
+Here's what I'm using - if you're reading this later and things have changed, don't assume anything is still the same.<br>
+<A HREF="https://www.nordicsemi.com/eng/Products/nRF51-DK">nF51 Developer Kit</A><br>
+From that page click on the "DOWNLOADS" tab (it's very small, look harder)<br>
+<em>Download:</em><br>
+- nRF5-SDK-zip - nRF5 SDK Zip File<br>
+- S130-SD-v2 - S130 nRF51 SoftDevice<br>
+- nRF5x-Command-Line-Tools-OSX - nRF5x toolset tar for OSX (nrfjprog and mergehex)<br>
+<em>Download</em><br>
+<A HREF="https://launchpad.net/gcc-arm-embedded">Latest verion of GCC ARM Embedded for Mac</A><br>
+<em>Download</em><br>
+<A HREF="https://www.segger.com/jlink-software.html">Segger software and documentation pack for Mac</A> - make sure to click on the blue download button not the text, the links go to different places.<br></p>
+<p><strong>Installing</strong><br>
+First you need to install GCC ARM Embedded. The easy way is to cd to <code>/usr/local</code> in terminal then <code>sudo tar xvfj ~/Downloads/gcc-arm-non-eabi...........tar.bz</code>Use the exact filename you received of course, version numbers will change. Add the bin directory to your path in .bash_profile or similar - making a soft link so you can refer to <code>/usr/local/gcc-arm-none-eabi</code> might be a good idea rather than having the entire version number in your path.<br>
+Next the nRF5 SDK should be unpacked. There is a file that must be edited so that the SDK makefiles can find your compiler installation - in version 11 the path to this file is <code>nRF5_SDK_11/components/toochain/gcc/Makefile.posix</code>.<br>
+Edit it so that GNU_INSTALL_ROOT points to your ARM GCC Embedded installtion's root, again that softlink would be useful here. If for any reason you need to change gcc versions you will only need to update the link and everywhere you refer to it will continue to work.<br>
+The command line tools from Nordic, <b>nrfjprog</b> and <b>mergehex</b> make life a lot simpler and I also added them to <code>/usr/bin</code> and put them in my path.<br>
+Finally there is the installer from Segger. I did install this while I was trying to use the Segger <code>jlinkexe</code> command line utility as a way to program the board but it did not work for me. I don't know if this package is required since I now use <b>mergehex</b> and <b>nrfjprog</b> - but I suspect it is required since Segger's J-Link is included on the development board.<br>
+That done you can go and try building an example fron the SDK. In terminal navigate to <code>nRF5_SDK_11/examples/ble_peripheral/ble_app_hrs/pca10028/s130/armgcc</code>The last three components of the path are meaningful - the nRF51 DK is identified by <b>pca10028</b>, the softdevice from Nordic driving the radio is <b>s130</b> and the toolchain is <b>armgcc</b>. Once there you should hopefully just be able to make and a folder called _build will be created with the results.</p>
+<p><img alt="Make Process" src="/images/nRF51822-setup/make.png"></p>
+<p>The app you just built is in the _build directory and is probably called <code>nrf51422_xxac_s130.hex</code>. You can merge these hex files, the softdevice (using its relative path, in the version 11 SDK) and the app, with the command line <code>mergehex -m ../../../../../../../components/softdevice/s130/hex/s130_nrf51_2.0.0_softdevice.hex nrf51422_xxac_s130.hex -o out.hex</code><br>
+Check the result and there will be an out.hex file larger than both the softdevice file and your app file.
+To program the board I use a sequence of nrfjprog commands - these are:<br>
+<code>nrfjprog --eraseall</code><br>
+<code>nrfjprog --program out.hex</code><br>
+<code>nrfjprog --verify out.hex</code><br>
+<code>nrfjprog --reset</code><br></p>
+<p><img alt="Programming" src="/images/nRF51822-setup/programming.png"></p>
+<p>If all is well, the example program will cause a LED to start flashing on the board. Now for the point of this exercise - interaction with an iOS device. You should download the nRF Toolbox app from the iOS app store. When you run it, if your board is running (LED still flashing?) then when you select the HRM option, and hit the connect button, you will see Nordic_HRM. Select that and you'll see the app communicating with the board and receiving a simulated heartbeat.<br></p>
+<p><img alt="Success!" src="/images/nRF51822-setup/success.jpg"></p>
+<p>This has been a quick rundown on how to get things working and a lot of detail has been glossed over. Now you have this working it should be possible to progress by building on existing projects.<br>
+<A HREF="https://devzone.nordicsemi.com/questions">Nordic Developer Zone</A> looks like it is using Stack Overflow software and there aren't many questions not answered by Nordic staff, so take a look. Happy embedded developing!</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

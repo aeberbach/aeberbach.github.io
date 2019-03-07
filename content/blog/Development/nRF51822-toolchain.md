@@ -1,0 +1,54 @@
+---
+Title: nRF51 Developer Kit setup for macOS X
+Date: 2016-04-23 12:00
+Modified: 2019-02-25 12:00
+Tags: development
+Slug: 
+Authors: Adam Eberbach
+Summary: Embedded Bluetooth Dev Setup
+---
+
+**Back to Embedded Confusion**<br>
+These days I am mostly an iOS developer, but a long time ago I did embedded. For all the complaining about Xcode we have it easy compared to the embedded world where you are likely to spend as much time on the command line as you are in a code editor. And usually doing anything embedded means, for a Mac user, running Windows in one form or another.<br>
+So when I went looking for a Bluetooth controller the presence of a Mac toolchain was a big factor in favor of <A HREF="https://www.nordicsemi.com/eng/Products/Bluetooth-Smart-Bluetooth-low-energy/nRF51822">Nordic Semiconductor's nRF51822</A>. Not to mention it's incredibly popular and relatively cheap.<br>But getting it all working wasn't quite as easy as I had hoped. Some old blog posts referring to outdated directory structures led me astray so I'm putting the simple recipe here.<br>
+Here's what I'm using - if you're reading this later and things have changed, don't assume anything is still the same.<br>
+<A HREF="https://www.nordicsemi.com/eng/Products/nRF51-DK">nF51 Developer Kit</A><br>
+From that page click on the "DOWNLOADS" tab (it's very small, look harder)<br>
+*Download:*<br>
+- nRF5-SDK-zip - nRF5 SDK Zip File<br>
+- S130-SD-v2 - S130 nRF51 SoftDevice<br>
+- nRF5x-Command-Line-Tools-OSX - nRF5x toolset tar for OSX (nrfjprog and mergehex)<br>
+*Download*<br>
+<A HREF="https://launchpad.net/gcc-arm-embedded">Latest verion of GCC ARM Embedded for Mac</A><br>
+*Download*<br>
+<A HREF="https://www.segger.com/jlink-software.html">Segger software and documentation pack for Mac</A> - make sure to click on the blue download button not the text, the links go to different places.<br>
+
+**Installing**<br>
+First you need to install GCC ARM Embedded. The easy way is to cd to <code>/usr/local</code> in terminal then <code>sudo tar xvfj ~/Downloads/gcc-arm-non-eabi...........tar.bz</code>Use the exact filename you received of course, version numbers will change. Add the bin directory to your path in .bash_profile or similar - making a soft link so you can refer to <code>/usr/local/gcc-arm-none-eabi</code> might be a good idea rather than having the entire version number in your path.<br>
+Next the nRF5 SDK should be unpacked. There is a file that must be edited so that the SDK makefiles can find your compiler installation - in version 11 the path to this file is <code>nRF5_SDK_11/components/toochain/gcc/Makefile.posix</code>.<br>
+Edit it so that GNU_INSTALL_ROOT points to your ARM GCC Embedded installtion's root, again that softlink would be useful here. If for any reason you need to change gcc versions you will only need to update the link and everywhere you refer to it will continue to work.<br>
+The command line tools from Nordic, <b>nrfjprog</b> and <b>mergehex</b> make life a lot simpler and I also added them to <code>/usr/bin</code> and put them in my path.<br>
+Finally there is the installer from Segger. I did install this while I was trying to use the Segger <code>jlinkexe</code> command line utility as a way to program the board but it did not work for me. I don't know if this package is required since I now use <b>mergehex</b> and <b>nrfjprog</b> - but I suspect it is required since Segger's J-Link is included on the development board.<br>
+That done you can go and try building an example fron the SDK. In terminal navigate to <code>nRF5_SDK_11/examples/ble_peripheral/ble_app_hrs/pca10028/s130/armgcc</code>The last three components of the path are meaningful - the nRF51 DK is identified by <b>pca10028</b>, the softdevice from Nordic driving the radio is <b>s130</b> and the toolchain is <b>armgcc</b>. Once there you should hopefully just be able to make and a folder called _build will be created with the results.
+
+
+![Make Process]({static}/images/nRF51822-setup/make.png)
+
+The app you just built is in the _build directory and is probably called <code>nrf51422_xxac_s130.hex</code>. You can merge these hex files, the softdevice (using its relative path, in the version 11 SDK) and the app, with the command line <code>mergehex -m ../../../../../../../components/softdevice/s130/hex/s130_nrf51_2.0.0_softdevice.hex nrf51422_xxac_s130.hex -o out.hex</code><br>
+Check the result and there will be an out.hex file larger than both the softdevice file and your app file.
+To program the board I use a sequence of nrfjprog commands - these are:<br>
+<code>nrfjprog --eraseall</code><br>
+<code>nrfjprog --program out.hex</code><br>
+<code>nrfjprog --verify out.hex</code><br>
+<code>nrfjprog --reset</code><br>
+
+![Programming]({static}/images/nRF51822-setup/programming.png)
+
+If all is well, the example program will cause a LED to start flashing on the board. Now for the point of this exercise - interaction with an iOS device. You should download the nRF Toolbox app from the iOS app store. When you run it, if your board is running (LED still flashing?) then when you select the HRM option, and hit the connect button, you will see Nordic_HRM. Select that and you'll see the app communicating with the board and receiving a simulated heartbeat.<br>
+
+![Success!]({static}/images/nRF51822-setup/success.jpg)
+
+This has been a quick rundown on how to get things working and a lot of detail has been glossed over. Now you have this working it should be possible to progress by building on existing projects.<br>
+<A HREF="https://devzone.nordicsemi.com/questions">Nordic Developer Zone</A> looks like it is using Stack Overflow software and there aren't many questions not answered by Nordic staff, so take a look. Happy embedded developing!
+
+
