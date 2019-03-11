@@ -10,6 +10,7 @@
         <header id="banner" class="body">
                 <h1><a href="/">Gray Unicorn </a></h1>
                 <nav><ul>
+                    <li><a href="/pages/about-me.html">About me</a></li>
                     <li><a href="/category/bicycles.html">Bicycles</a></li>
                     <li><a href="/category/books.html">Books</a></li>
                     <li class="active"><a href="/category/computers.html">Computers</a></li>
@@ -22,7 +23,46 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/amiga-1200.html">Amiga 1200</a></h1>
+                    <h1 class="entry-title"><a href="/amiga-1200-keyboard-part-1.html">Amiga 1200 Keyboard, part 1</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2019-03-10T12:00:00+11:00">
+                Published: Sun 10 March 2019
+        </abbr>
+		<br />
+        <abbr class="modified" title="2019-03-10T12:00:00+11:00">
+                Updated: Sun 10 March 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/adam-eberbach.html">Adam Eberbach</a>
+        </address>
+<p>In <a href="/category/computers.html">Computers</a>.</p>
+<p>tags: <a href="/tag/computers.html">computers</a> <a href="/tag/development.html">development</a> <a href="/tag/retrocomputing.html">retrocomputing</a> </p>
+</footer><!-- /.post-info --><p>The A1200 keyboard.</p>
+<p><a href="/images/a1200-kbd-1/a1200-original.jpg"><img alt="All the profiles" src="/images/a1200-kbd-1/thumb-a1200-original.jpg"></a></p>
+<p>With computers a thing I have always cared about is keyboards. Just like with audio equipment where the speakers matter because they are your direct link to the sound, the keyboard is your direct link to the machine. I started in computers playing Infocom text adventures on an IBM 5170 with a Model M. I bought keyboards from DEC, pre-merger, because they just felt good. I’ve had all manner of mechanical keyswitch boards and these days I love Topre 87UW55, one lives at work and I'm using another now at home. (It's a shame the fantastic SA and DSA profile keycaps can’t be fitted to these boards, a spherical keyset might make these the ultimate.) </p>
+<p><a href="/images/a1200-kbd-1/keycap-profiles.jpg"><img alt="All the profiles" src="/images/a1200-kbd-1/thumb-keycap-profiles.jpg"></a></p>
+<p>Cherry MX and compatible are by far the most popular switches available and in the last few years there has been an absolute explosion of new switch variants especially from Chinese manufacturers - who are going through what Japanese manufacturing went through and after producing a lot of absoluter crap are now offering some pretty good stuff. For what it’s worth I prefer tactile without click, brown or clear stem colors in the Cherry range. My original FILCO sold me on Cherry brown stem switches and I still think they are the best, barring Topre.</p>
+<p><a href="/images/a1200-kbd-1/cherry_key_switch_module_mx_brown_large.jpg"><img alt="All the profiles" src="/images/a1200-kbd-1/thumb-cherry_key_switch_module_mx_brown_large.jpg"></a></p>
+<p>But Amigas 1200s have a keyboard based on a membrane, a series of conductive pads bridged by a carbonized rubber foot attached to a key that is held off the pads by a spring. You press they key, the spring compresses, contact is made. Works OK; feels mushy. Some of the earlier Amigas had mechanical but later ones were built to a budget. Why not a mechanical in an A1200 though? Without an A1200 in my possession I wasn’t sure right away if this would be possible. But I did find out that the A1200 membranes are available for replacement, so obviously sometimes it’s required and disassembly is not beyond most people. A mechanical board should never need replacing. Membranes do.</p>
+<p><a href="/images/a1200-kbd-1/membrane.jpg"><img alt="All the profiles" src="/images/a1200-kbd-1/thumb-membrane.jpg"></a></p>
+<p>Compared to modern boards the A1200 is only slightly weird. Pretty much nobody makes keys for the F row wider than 1U because there are usually at least twelve keys and they align with the top of backspace. Pretty much nobody makes a space bar 9U wide like Commodore used to. The only one I am aware of is a SA profile spacebar from Signature Plastics. It’s a reality then that any replacement Amiga keyboard with MX-compatible switches will have some gaps where the smaller modern keys don’t occupy the same space. A solution would be to use keycaps whose legends don’t exactly match and to live with gaps around the keyboard maybe? Should be possible. I could live with that. (But I’m wondering how much it could cost, getting a keyset maker to produce an Amiga MX set.) </p>
+<p>Making a replacement keyboard for the A1200 is made easier by the simple passive matrix design. The membrane connects to the A1200 board by a simple ribbon with one conductor for each switch or LED connection, no electronics on the keyboard itself. To register a keypress you only have to bridge two of the 31 connectors on the ribbon cable. Of course this means keyboard ghosting is possible - press the right three keys and the system will see four - but if the aim is a true replacement I don’t see the need to do anything about that. Also I don't feel the need to improve the rollover. So the keyboard needs to connect to the same connector, and that means finding a source of 31-way FFC connectors and of ribbons to match. The advantage here is that the delicate part, the ribbon, is cheap and easily replaced.</p>
+<p>But they're not available. Digikey, Mouser, Allied, Element14 and all the rest may have these things in the online catalog but they have no stock. So that's out. Looks like there will be some soldering involved. If I want to do a completely non-destructive keyboard replacement I could desolder the existing FFC connector. Then instead solder a 34-way header to the board, bending pins as required (and chopping off the last 3). Into that header would plug a standard 34-way cable assembly just like the floppy drive uses, connecting to a right-angle header on the PCB of my new keyboard. To enable using the original keyboard I could take the old FFC connector and connect that up to a header socket, so that when I want to use the original keyboard the adapter plugs into the socket and then the FFC ribbon goes into the original connector. Best of both worlds? Looking at the back of the A1200 PCB this certainly looks possible.</p>
+<p>Thinking about cost I took a look at how the thing could be made. The large size of the PCB rules out using any hobbyist EDA package like the ones from Altium or Eagle, they will not do large boards without an expensive subscription. So KiCAD it must be, totally free, runs on almost every platform (not Amiga!) but some learning is required. I guess that the PCB could cost around $50, the switches should cost around $50. Maybe another $10 for the FFC connector and the cable. And a whole lot of soldering. This is looking quite possible!</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/amiga-1200.html" rel="bookmark"
+                           title="Permalink to Amiga 1200">Amiga 1200</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2019-03-09T12:00:00+11:00">
                 Published: Sat 09 March 2019
@@ -37,29 +77,10 @@
         </address>
 <p>In <a href="/category/computers.html">Computers</a>.</p>
 <p>tags: <a href="/tag/computers.html">computers</a> <a href="/tag/development.html">development</a> <a href="/tag/retrocomputing.html">retrocomputing</a> </p>
-</footer><!-- /.post-info --><p>To be clear, I love old computers far beyond their actual practical worth. I love that you can take them apart like LEGO, clean them, put them back together and they work again. When you're the kind of person that just compulsively takes things apart it's addictive - imagine a pen that you can unscrew in front of you, of course you do it, right? Then imagine the pen is filthy from sitting in a storage space for 10 years of so and you have an air compressor and can blast that dust right out of there and make it like new again - even better. </p>
-<p>So it is with old computers. The Amiga was my first real computer. In about 1987 I was in the wrong tertiary degree course for the wrong reasons. A friend bought an Amiga 1000 and once I saw it I suddenly realized this! I quit the degree immediately, primarily to work to make enough money to get that computer but also to get back to study because I knew that Computer Science was the degree I should have been in. I started with an Amiga 1000.</p>
-<p><img alt="The Original." src="/images/amiga1200/amiga1000.jpg"></p>
-<p>It took a couple of years of studying mathematics while working because I hadn't been a great student in conventional secondary school but pretty soon I was beginning a CS degree and I upgraded to the Amiga 2500 complete with 68020 and flicker fixer! And embarked on a four-year argument with various professors who would say "that's not compatible" - maybe that was half correct, but I got all my work done on it. (Worked fine to connect to the VAX.) </p>
-<p>Years later I had a PCB made for a little project at PCBFast in Melbourne. Much later, 2018, I heard the owner is retiring and they are closing down - and would any former customers like a few old computers? I couldn't get there fast enough.</p>
-<p>I picked up a couple of really nice Pentium II machines made by Intergraph, an old Dell and sundry monitors, bringing my collection to one 15", two 17" and two 19". No NOS 21" Trinitron as I had hoped for but oh well! Sadly I could not transport or find space for some of the industrial gear, like CNC drill machines, that were sold for scrap.
-Talking about this online someone local thought maybe I would like an Amiga 1200 with various accessories that he thought might be in storage somewhere? HELL YEAH!</p>
-<p>I never had an Amiga 1200 but my friend Pete did and it was pretty cool. Like my big box machine but perhaps as powerful but in half the space and 1/4 the price. We got a lot of gaming done, even a little work. Eventually, sadly, Commodore died and I got a 486 and never had another Amiga. I did finish the degree and things went well. Started in embedded C, then C++, then mobile - now Android and iOS.</p>
-<p><a href="/images/amiga1200/old-box.jpg"><img alt="How old did you say this was?" src="/images/amiga1200/thumb-old-box.jpg"></a></p>
-<p><a href="/images/amiga1200/originals.jpg"><img alt="Old stuff" src="/images/amiga1200/thumb-originals.jpg"></a></p>
-<p>So I got the Amiga, and it did not disappoint. Covered in dust and a little mouse poo the box showed promise, probably repairable if not actually working. I kind of expected years of neglect to have made all the capacitors leak and the board to be too far gone for anything to work at all but it did! After a complete board clean with cotton buds and isopropyl alcohol and a replacement of all electrolytic capacitors it booted, asking me for a Workbench. Which I didn't have - the included original disk folder had a corrupt workbench disk! Oh well, the Install disk boots and a couple of the games I have tried seem to boot also.</p>
-<p><a href="/images/amiga1200/68030.jpg"><img alt="OMG A 68030!" src="/images/amiga1200/thumb-68030.jpg"></a></p>
-<p>I was really excited about this thing, perhaps irrationally so. A few years ago A1200.net ran a kickstarter for an Amiga 1200 case replacement. I bought one (transparent!) before I even got my computer. </p>
-<p><a href="/images/amiga1200/new-case.jpg"><img alt="So 90's" src="/images/amiga1200/thumb-new-case.jpg"></a></p>
-<p>I also picked up the awesome <a href="https://github.com/ChuckyGang/DiagROM">DiagROM</a> images on <a href="https://gglabs.us">GGLabs'</a> A1200 ROM set, and the adapter to burn new ones if I need to. All I can do right now is boot to DiagROM - everything tests fine. I started looking for an Indivision AGA MK2 because I was convinced it was the only way to get good video out of my new machine, remembering the scarcity of 15kHz monitors back in the day - NEC 3D anyone? But there are a couple of Dell U2711 panels at work that nobody seems to be using, wonder if I can buy then a new 27" and bring one home - they are reputed to work beautifully with an Amiga with only a 23-pin to VGA video adapter.</p>
-<p><a href="/images/amiga1200/disks.jpg"><img alt="I bet disk 3 of everything is broken..." src="/images/amiga1200/thumb-disks.jpg"></a></p>
-<p>Though there is a big box of disks I don't expect too many to work. The hard drive included was a definite NOPE! 
-I picked up a 4GB flash module that sits right on the header for not too much. Right now I'm waiting for the Hyperion 3.1.4 Kickstart/Workbench set to arrive. And I'm thinking about the keyboard. I love mechanical keyboards. Having an Amiga that can play <a href="http://nethack.org">Nethack</a> and Infocom text adventures on its own mechanical keyboard would be pretty cool. I'm far from the first to think about replacing the original KB with a mechanical but maybe I'll just go and build one.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+</footer><!-- /.post-info -->                <p>GIVEN an Amiga 1200?</p>
+                <a class="readmore" href="/amiga-1200.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
