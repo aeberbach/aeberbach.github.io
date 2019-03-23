@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>Gray Unicorn - retrocomputing</title>
+        <title>Amiga 1200 Keyboard, part 2</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 </head>
 
@@ -13,17 +13,22 @@
                     <li><a href="/pages/about-me.html">About me</a></li>
                     <li><a href="/category/bicycles.html">Bicycles</a></li>
                     <li><a href="/category/books.html">Books</a></li>
-                    <li><a href="/category/computers.html">Computers</a></li>
+                    <li class="active"><a href="/category/computers.html">Computers</a></li>
                     <li><a href="/category/development.html">Development</a></li>
                     <li><a href="/category/games.html">Games</a></li>
                     <li><a href="/category/making.html">Making</a></li>
                     <li><a href="/category/random.html">Random</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/kb-2.html" rel="bookmark"
+           title="Permalink to Amiga 1200 Keyboard, part 2">Amiga 1200 Keyboard, part 2</a></h1>
+    </header>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/kb-2.html">Amiga 1200 Keyboard, part 2</a></h1>
+    <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2019-03-23T12:00:00+11:00">
                 Published: Sat 23 March 2019
@@ -38,7 +43,7 @@
         </address>
 <p>In <a href="/category/computers.html">Computers</a>.</p>
 <p>tags: <a href="/tag/computers.html">computers</a> <a href="/tag/development.html">development</a> <a href="/tag/retrocomputing.html">retrocomputing</a> </p>
-</footer><!-- /.post-info --><p>The A1200 keyboard.</p>
+</footer><!-- /.post-info -->      <p>The A1200 keyboard.</p>
 <p>Lots of people make keyboards these days. It's not even a big thing; once you know your circuit you get a board made, buy switches, use an open-source controller to send USB HID keystrokes and you're done. So why not? I decided to dive right in. </p>
 <p>First up, what software to use? In the past I have used Protel/Altium for various things; one thing I used it for a long time ago was the Mac mini drive adapter. Designed to connect a 3.5" hard drive to the original G4 Mac mini where it expected a 2.5" hard drive, it was pretty successful. </p>
 <p><a href="/images/a1200-kbd-2/mini-drive-adapter.jpg"><img alt="My Mac mini drive adapter" src="/images/a1200-kbd-2/thumb-mini-drive-adapter.jpg"></a></p>
@@ -50,66 +55,11 @@
 <p>Yes, there are documents that describe the keyboard circuit. However making a PCB is kind of a permanent thing, you want to be sure before you enter your credit card details. So I decided the ribbon connector that goes to the A1200 mainboard would be numbered arbitrarily from left to right, giving pins 1 to 31. Each pin would connect from 1 to n other places. By writing a number in a box on this diagram I made I would come up with a map of connections of every key (and LED) in the matrix.</p>
 <p><a href="/images/a1200-kbd-2/key_map.jpg"><img alt="The key connection map" src="/images/a1200-kbd-2/thumb-key_map.jpg"></a></p>
 <p>And that's the whole circuit. </p>
-<p>A long time ago a grumpy old electrical engineer told me Protel for Windows was worthless because it didn't use netlists. I'm not sure how right he was, but I believe in netlists. By writing down just what lines are connected to what key contacts you get a netlist - a list of pins that must be electrically connected together. From there it's just a matter of entering this information into KiCAD, and making sure that when you extract a netlist from the schematic you have drawn, it describes the same electrical connections. Going through the netlist net by net ensures that everything is as you want it to be, not missing a connection because you were one pixel off here or there when drawing lines in the schematic editor.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+<p>A long time ago a grumpy old electrical engineer told me Protel for Windows was worthless because it didn't use netlists. I'm not sure how right he was, but I believe in netlists. By writing down just what lines are connected to what key contacts you get a netlist - a list of pins that must be electrically connected together. From there it's just a matter of entering this information into KiCAD, and making sure that when you extract a netlist from the schematic you have drawn, it describes the same electrical connections. Going through the netlist net by net ensures that everything is as you want it to be, not missing a connection because you were one pixel off here or there when drawing lines in the schematic editor.</p>
+    </div><!-- /.entry-content -->
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/Slug: kb-1.html" rel="bookmark"
-                           title="Permalink to Amiga 1200 Keyboard, part 1">Amiga 1200 Keyboard, part 1</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-03-10T12:00:00+11:00">
-                Published: Sun 10 March 2019
-        </abbr>
-		<br />
-        <abbr class="modified" title="2019-03-10T12:00:00+11:00">
-                Updated: Sun 10 March 2019
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/adam-eberbach.html">Adam Eberbach</a>
-        </address>
-<p>In <a href="/category/computers.html">Computers</a>.</p>
-<p>tags: <a href="/tag/computers.html">computers</a> <a href="/tag/development.html">development</a> <a href="/tag/retrocomputing.html">retrocomputing</a> </p>
-</footer><!-- /.post-info -->                <p>New keyboard?</p>
-                <a class="readmore" href="/Slug: kb-1.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/amiga-1200.html" rel="bookmark"
-                           title="Permalink to Amiga 1200">Amiga 1200</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-03-09T12:00:00+11:00">
-                Published: Sat 09 March 2019
-        </abbr>
-		<br />
-        <abbr class="modified" title="2019-03-09T12:00:00+11:00">
-                Updated: Sat 09 March 2019
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/adam-eberbach.html">Adam Eberbach</a>
-        </address>
-<p>In <a href="/category/computers.html">Computers</a>.</p>
-<p>tags: <a href="/tag/computers.html">computers</a> <a href="/tag/development.html">development</a> <a href="/tag/retrocomputing.html">retrocomputing</a> </p>
-</footer><!-- /.post-info -->                <p>GIVEN an Amiga 1200?</p>
-                <a class="readmore" href="/amiga-1200.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-                </section><!-- /#content -->
+  </article>
+</section>
         <section id="extras" class="body">
         </section><!-- /#extras -->
 
