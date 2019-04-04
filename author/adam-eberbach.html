@@ -23,7 +23,62 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/kb-3.html">Amiga 1200 Keyboard, part 3</a></h1>
+                    <h1 class="entry-title"><a href="/kb-4.html">Amiga 1200 Keyboard, part 4</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2019-04-04T00:00:00+11:00">
+                Published: Thu 04 April 2019
+        </abbr>
+		<br />
+        <abbr class="modified" title="2019-04-04T00:00:00+11:00">
+                Updated: Thu 04 April 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/adam-eberbach.html">Adam Eberbach</a>
+        </address>
+<p>In <a href="/category/computers.html">Computers</a>.</p>
+<p>tags: <a href="/tag/computers.html">computers</a> <a href="/tag/development.html">development</a> <a href="/tag/retrocomputing.html">retrocomputing</a> </p>
+</footer><!-- /.post-info --><h1>Making the PCB.</h1>
+<p>(This isn't a cooking show but you're going to see pictures of a rev 1 keyboard PCB here to illustrate some of the things I want to talk about. So <em>here's one I prepared earlier</em>.)</p>
+<p>Although this is the fourth step it was always the gateway part of the project. The cost and difficulty of making a PCB has come down dramatically, largely due to Chinese manufacturing with local presence. How much would you expect a two-layer PCB of around .06m² to cost? Around $40, shipped in a week, in one-off quantities and that only gets cheaper if you scale up.</p>
+<p>Around the time I was ready to make the PCB I discovered I'm not the only one. A Canadian that goes by <a href="http://www.kipper2k.com">Kipper2K</a> on various Amiga forums is doing one too. He has a record of good Amiga projects and this one is no exception, it looks great. It will be compatible with more models than just the A1200, it will come with custom MX keycaps that are the right size and it's a two-board design (base and place PCBs). Price will be around $200. Any thought I had of doing a kickstarter with my keyboard evaporated when I saw this on the way - if you're after an Amiga mechanical keyboard, and you should be, jump on it. I hope I can get a set of his MX-compatible keycaps!</p>
+<h2>Connectors</h2>
+<p>A big concerns was how to connect a new PCB to the Amiga. The original connects via a 31-way FFC ribbon with a 1.25mm contact pitch. Searching on all the big electronics sellers I did not find any of these and for a while considered modifying the Amiga to use a more available connector. But Dave Curran of <a href="http://www.tynemouthsoftware.co.uk">Tynemouth Software</a> gave me a tip - he uses a 32-way socket in one of his products and just aligns the 31-way ribbon to the correct edge, just as the Amiga 1200 uses ROM sockets that are one row too long. All I would need to do is find a right-angle 32-way FFC socket and FFC cables and problem solved.</p>
+<p><a href="/images/a1200-kbd-4/trimmed-ribbon.jpg"><img alt="Trimmed ribbon in Amiga ZIF socket drawing" src="/images/a1200-kbd-4/thumb-trimmed-ribbon.jpg"></a></p>
+<p>Fortunately there was stock at Mouser. One style of 32-way cable is available, 15cm long, contacts on opposite sides. I bought samples and carefully snipped off one connector and found it fit in the Amiga keyboard connector as well as the original. There is also a right angle connector available though not ZIF - which is OK because this end of the cable can be left in once inserted. However the contacts opposite sides thing means the connector has to mount on the back of the PCB - but that then turns the pin order around so that the order is left to right just as I had drawn it. Apart from the cable being 5cm longer than ideal this couldn't have worked out better!</p>
+<p><a href="/images/a1200-kbd-4/keyboard-connector.jpg"><img alt="Connector ready to join the board drawing" src="/images/a1200-kbd-4/thumb-keyboard-connector.jpg"></a></p>
+<h2>Switch placement</h2>
+<p>While I anticipated spending a lot more time getting every individual key in position I only had to measure a few offsets. The fantastic keyboard symbol library from <a href="https://github.com/ai03-2725/MX_Alps_Hybrid.pretty">ai03-2725</a> shows key outline. Once one key in a group is placed accurately all the adjacent keys can be placed just like LEGO. A quick laser print of the overlay layer showed that all the keys lined up with the holes in the top cover with only one reference point measured per group.</p>
+<p><a href="/images/a1200-kbd-4/key-group-offsets.jpg"><img alt="Measuring up drawing" src="/images/a1200-kbd-4/thumb-key-group-offsets.jpg"></a></p>
+<h2>Dealing with Amiga-sized keys</h2>
+<p>Basically - I'm not.</p>
+<p>The most obvious problem is that the 9U (nine units of width, where a standard keycap like 'Q' is one) spacebar that Commodore loved so much is not really available. Signature Plastics sell a 9U spacebar in SA profile but I don't really want SA here, it's not a C=64. For now I will use 7U with a 1U space on each side, it will be a little like the IBM Model M with a gap either side of the bar. PCB will be visible in this gap. Oh well. In future I may use a double footprint for the spacebar where the switch is in the same place but the stabilizers are in both 7U and 9U positions. Then either can be loaded depending on what spacebar is available.</p>
+<p>Next problem is the 1.25U F-keys. The Amiga has only 10 and so used wider keycaps to space them out better along the top of the keyboard. Initially I will use 1U F-keys because i have them and because it's not much of a gap. An easy fix will be to get some 1.25U blank keycaps. These will fill the spaces and having no legends won't bother me at all on those keys.</p>
+<p>Finally the odd-sized modifiers, like "Amiga" and long Shift - fortunately all these are available if not common. I bought a very full set from AliExpress with about 140 caps in it and I will be able to populate the board fully if not perfectly. There are no keys with "Amiga" legends of course.</p>
+<p><a href="/images/a1200-kbd-4/cheap-keycaps.jpg"><img alt="Economical keys" src="/images/a1200-kbd-4/thumb-cheap-keycaps.jpg"></a></p>
+<p>The real fix for all these issues is to hope I can get my hands on a custom set produced by Kipper2K.</p>
+<h2>Substrate</h2>
+<p>The original keyboard has a metal plate supporting the plastic assembly on which springs and sliders move to operate the membrane contacts. It's stiff. I thought about reusing this plate but that would not work for a few reasons. With a PCB and MX switches on top the keyboard would be too high. I would also have to modify an original keyboard and those are a bit scarce.</p>
+<p><a href="/images/a1200-kbd-4/key-height.jpg"><img alt="Economical keys" src="/images/a1200-kbd-4/thumb-key-height.jpg"></a></p>
+<p>2mm fibreglass is available from the PCB manufacturer - is it stiff enough to span 420mm and support 90 keys? Almost certainly not, but 150mm would be stiff enough in height. If I was to support the top and bottom edge of the board with aluminium angle it should be OK - this is one of those things where you have to wait and see. I couldn't get a big sheet of FR4 to experiment, not even from the PCB manufacturer, they have nothing local - if you want anything it gets ordered from China. Getting a full run of first revision PCBs made cost about the same as buying blank sheets!</p>
+<h2>Color</h2>
+<p>I'm using a translucent Amiga case so color is important. I like blue, with yellow silk screen on top.</p>
+<p><a href="/images/a1200-kbd-4/keyboard-pcb.jpg"><img alt="Economical keys" src="/images/a1200-kbd-4/thumb-keyboard-pcb.jpg"></a></p>
+<p>Planned revision 2 changes:
+- add a double symbol catering for both 7U and 9U keyboard stabilizer locations.</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/kb-3.html" rel="bookmark"
+                           title="Permalink to Amiga 1200 Keyboard, part 3">Amiga 1200 Keyboard, part 3</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2019-04-01T12:00:00+11:00">
                 Published: Mon 01 April 2019
@@ -38,56 +93,10 @@
         </address>
 <p>In <a href="/category/computers.html">Computers</a>.</p>
 <p>tags: <a href="/tag/computers.html">computers</a> <a href="/tag/development.html">development</a> <a href="/tag/retrocomputing.html">retrocomputing</a> </p>
-</footer><!-- /.post-info --><p>Drawing the schematic.</p>
-<p>In the last part the circuit was derived by tracing the membrane in the original A1200 keyboard. This time that circuit is going to be turned into a schematic drawing, with the output being a netlist - simply, a list of pins connected to parts (keyswitches, LED, connector) that are connected together.</p>
-<p>Because it makes for nice organisation they keys in the schematic go in roughly the same place they would be on a real keyboard. Compared to making a PCB schematic is not hard at all - wires can cross and go pretty much anywhere as long as you can keep track of them. Unless you see a big green dot you don't have a connection. Obviously you don't want to make something you can't read so keeping it neat is a good idea.</p>
-<p><a href="/images/a1200-kbd-3/schematic.jpg"><img alt="Part of schematic drawing" src="/images/a1200-kbd-3/thumb-schematic.jpg"></a></p>
-<p>Looking at the circuit you can see that it is a matrix. The keys, with two terminals each, could be directly connected to the controller, for around 200 connections from keyboard to controller. Or like a joystick they could all use one common connection and then there would only be 100 wires or so, one from each switch plus one common. But better still is to use a matrix where a key is defined by two connections, and when those connections are bridged the controller derives a unique key. The minimum you would need is rows + columns connections - so in a really simple keyboard like this standalone numpad:</p>
-<p><img alt="GoldTouch numpad" src="/images/a1200-kbd-3/numpad.jpg"></p>
-<p>The minimum would be only 10 connections from matrix to controller because there are 4 column and 6 rows. All this minimisation is good because connections cost time and money. The Amiga however has a special set of keys with their own connections not shared with the regular matrix. These are keys like CTRL, L-AMIGA etc - the ones that can't be blocked by another key. Ignoring the connections to the LED that lights when CAPSLOCK is pressed it uses 29 connections to the controller chip, via the ribbon cable that emerges from the top of the membrane.</p>
-<p>I could write a whole article about the keyboard matrix and try to make it good, but it's been done really well already - please take a look at <a href="http://blog.komar.be/how-to-make-a-keyboard-the-matrix/">komar's tech blog</a>.</p>
-<p>Because I just want to make a replacement keyboard I am not using diodes or changing the layout in any way from the original. The circuit is exactly the same right down to the flipped row/column connections on some of the keys like F6. I do not think that making all this completely regular could have had an effect, as these are just passive switches, but I'm not changing it. The keyboard should be better with mechanical switches, but it should not be electrically different - bugs and all.</p>
-<p>When the schematic is done the output is a netlist. This is just a text file that defines what's in the circuit and how the things are connected. The first part describes the components. Here are two entries (and part of a third) describing the switches:</p>
-<div class="highlight"><pre><span></span>  (components
-    (comp (ref K2)
-      (value F1)
-      (footprint MX_Alps_Hybrid:MXOnly-1.25U-NoLED)
-      (libsource (lib MX_Alps_Hybrids) (part MX-1.25U) (description &quot;&quot;))
-      (sheetpath (names /) (tstamps /))
-      (tstamp 5C7001B7))
-    (comp (ref K3)
-      (value F2)
-      (footprint MX_Alps_Hybrid:MXOnly-1.25U-NoLED)
-      (libsource (lib MX_Alps_Hybrids) (part MX-1.25U) (description &quot;&quot;))
-      (sheetpath (names /) (tstamps /))
-      (tstamp 5C70020E))
-    (comp (ref K4)
-      (value F3)
-      (footprint MX_Alps_Hybrid:MXOnly-1.25U-NoLED)
-      (libsource (lib MX_Alps_Hybrids) (part MX-1.25U) (description &quot;&quot;))
-</pre></div>
-
-
-<p>I'm using the excellent library by github user <a href="https://github.com/ai03-2725/MX_Alps_Hybrid.pretty">ai03-2725</a> - highly recommended. I don't love the schematic symbols, because all of the keys have a diode which when unconnected causes KiCAD to complain when transferring to PC. But the PCB footprints are excellent!</p>
-<p>Late in the netlist comes the description of the nets themselves - here's one of them:</p>
-<div class="highlight"><pre><span></span>    (net (code 198) (name /18)
-      (node (ref K36) (pin 1))
-      (node (ref K55) (pin 1))
-      (node (ref K3) (pin 1))
-      (node (ref J1) (pin 18))
-      (node (ref K74) (pin 1))
-      (node (ref K15) (pin 1))
-      (node (ref K68) (pin 1)))
-</pre></div>
-
-
-<p>This means that there is a net named "18", joining the pins of the components listed. I named is "18" because it matches pin 18 of the connector. And it's as simple as that. If you look at the netlist file you can manually check that all of the nets are connected the way you wanted them. This is a good idea because though it is not an exciting job it's a lot better than soldering bits of wire on your new PCB correcting in hardware the errors you should have fixed on paper.</p>
-<p>Next time - making the PCB.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+</footer><!-- /.post-info -->                <p>Schematic design</p>
+                <a class="readmore" href="/kb-3.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
