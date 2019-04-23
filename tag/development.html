@@ -10,7 +10,7 @@
         <header id="banner" class="body">
                 <h1><a href="/">Gray Unicorn </a></h1>
                 <nav><ul>
-                    <li><a href="/pages/about-me.html">About me</a></li>
+                    <li><a href="/pages/me.html">About me</a></li>
                     <li><a href="/category/bicycles.html">Bicycles</a></li>
                     <li><a href="/category/books.html">Books</a></li>
                     <li><a href="/category/computers.html">Computers</a></li>
@@ -23,14 +23,14 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/kb-5.html">Amiga 1200 Keyboard, part 5</a></h1>
+                    <h1 class="entry-title"><a href="/kb-6.html">Amiga 1200 Keyboard, part 6</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+10:00">
-                Published: Sun 14 April 2019
+        <abbr class="published" title="2019-04-23T00:00:00+10:00">
+                Published: Tue 23 April 2019
         </abbr>
 		<br />
-        <abbr class="modified" title="2019-04-14T00:00:00+10:00">
-                Updated: Sun 14 April 2019
+        <abbr class="modified" title="2019-04-23T00:00:00+10:00">
+                Updated: Tue 23 April 2019
         </abbr>
 
         <address class="vcard author">
@@ -38,28 +38,73 @@
         </address>
 <p>In <a href="/category/computers.html">Computers</a>.</p>
 <p>tags: <a href="/tag/computers.html">computers</a> <a href="/tag/development.html">development</a> <a href="/tag/retrocomputing.html">retrocomputing</a> </p>
-</footer><!-- /.post-info --><h1>Making the PCB.</h1>
-<p>One weekend morning I got up thinking it was time to get this done! Could I use an autorouter? It would be quick, and the first rev isn't going to be perfect. Plenty of time for making a pretty hand route later as there would be things to fix, surely?</p>
-<p>But no. KiCAD and autorouters don't really mix any more. Once upon a time the ability to use an autorouter was in KiCAD although the routing code itself wasn't; the idea being that you install a .JAR file containing the autorouter code, export a Specctra Design (.DSN) file from KiCAD, click the menu item and the routed PCB is done. There are a few web sites about it from a few years ago. In the end it didn't work for me and I wasted a couple of hours I could have been making a board in. The stories of success are just a little too old and too many small details have changed.</p>
-<p><a href="/images/a1200-kbd-5/placement.jpg"><img alt="Placing Footprints" src="/images/a1200-kbd-5/thumb-placement.jpg"></a></p>
-<p>Using the fantastic MX footprints included in the KiCAD library from <a href="https://github.com/ai03-2725/MX_Alps_Hybrid.pretty">ai03-2725</a> made placing the switches in the right place easy. One box is placed next to another - 'E' key next to 'W' key and so on. Soon all the keys are in place, according to my measured offsets (see last article).</p>
-<p>Before geting started you set up the basic board parameters and design rules. I need to pass traces through between the pins of the FFC connector, so my smallest trace needs to be 0.35mm. The PCB maker has a question when placing an order and it looks like things begin to get more expensive when a hole is less than 0.60mm - so I'll use 0.60.</p>
-<p><a href="/images/a1200-kbd-5/ratsnest.jpg"><img alt="Rat's Nest" src="/images/a1200-kbd-5/thumb-ratsnest.jpg"></a></p>
-<p>Routing a board in KiCAD is a lot like every other PCB package I have used. It starts with a rats nest display, which really doesn't tell you anything except that nothing is connected, so you hide it. Select the layer on which you want to place a track. Click on one point to connect and the line will drag out, interactively routing itself around things it can't be connected to. If you try and put the trace between two pins that are too close together it just won't go there - you end up with a circuit with no design rule violations. I have used a system that could highlight the places tracks got too close, but you could still make the mistake and violate your own rules. I have also used a system with no checking and it's only when you get the PCB back you find the wrong things are connected. The KiCAD interactive router is good.</p>
-<p>For rev one of the board I tried to use no vias with two layers - not because it matters but because when making a PCB years ago I was told vias make the board more expensive. In the end I think there are three, so not bad. BUT this is a little like writing code in 2019 and using lookup table and integer approximations for trigonometry, because sinf() is so slow! In fact sinf() is fast now, faster than your lookup table, and the number of vias no longer matters. Don't waste your time.</p>
-<p><a href="/images/a1200-kbd-5/perpendicular.jpg"><img alt="Rat's Nest" src="/images/a1200-kbd-5/thumb-perpendicular.jpg"></a></p>
-<p>What you should do is use vias wherever you need them. Above I said "two layers", meaning there are copper tracks on the front and the back of the PCB. Between those layers the holes that the component pins go through are plated through, so both sides are electrically connected. So a trace can come up to a pin on the front of the board, and another trace can go away from that pin on the rear of the board and they will be electrically connected. If you want a trace to switch sides without going to a pin first, you use a via which is really just a through hole that no component will go in.</p>
-<p>When routing it is a good idea to keep your options open. No sooner do you make a trace hug close to the existing routing to keep plenty of space on one side then you find you need space on the side you took it all away from. Also you need to be able to move long distances without thinking too hard and as the board gets more crowded it can be impossible. If you try to make all your connections more or less direct then soon you have created a maze that can't be solved. My solution to this is to make one layer (top) run mostly east-west, and the other layer (bottom) run north-south. If the trace has to change direction, use a via rather than allowing a trace on one layer to fence in other connections. This problem gets dramatically worse once many connections have been made.</p>
-<p>Once done - and you're sure it's right - it's time to submit the job to the manufacturer. You don't "export" this, you "plot" it. In the olden days that's how they used to do it (I have read) and all the PCB software still calls it "plot", and you make "gerbers" - not baby food, not legendary blades, but the <a href="https://en.wikipedia.org/wiki/Gerber_format">RS-274X file format</a>. These describe the layers that need to be made with various processes to make your board. There is the copper (both sides), the mask (the paint-like stuff that covers all the copper that should not be exposed), the board outline (where the board will be cut out) and the silk screen. This last one is not essential but very useful for including information on the board like where to place components. </p>
-<p>The service I am using is called OurPCB. It looks easy - there is a list of things to choose, like the weight of the substrate material, copper thickness, the board size, how many you want made, how fast, and many other things. Then it tells you how much this will cost. It's real money alright but nothing like as expensive as this used to be.</p>
-<p>About 20 minutes after submitting the order I got an email back saying that one of my files (solder mask) was missing. I submitted that and all was well. Great service! <a href="https://www.ourpcb.com.au">OurPCB</a> is highly recommended.</p>
-<p><a href="/images/a1200-kbd-5/keyboard-pcb.jpg"><img alt="It's real!" src="/images/a1200-kbd-5/thumb-keyboard-pcb.jpg"></a></p>
-<p>About 8 days later, right on time, I got a delivery at work - PCBs. The next article will be all about adding components and making it fit into the computer.</p>                </article>
+</footer><!-- /.post-info --><h2>Fitting the PCB</h2>
+<p>The PCB is back! It's really big, barely goes in my backpack with the zip shut. I can get a 104-key modern board in my backpack but not this PCB! It arrived right on time and very carefully packed. This is a simple board so the difficulty rating is pretty low but the manufacturer really has done a great job and I would not hesitate to use them again.</p>
+<p><a href="/images/a1200-kbd-6/fit.jpg"><img alt="Testing Fit" src="/images/a1200-kbd-6/thumb-fit.jpg"></a></p>
+<h2>Does it work?</h2>
+<p>Building it was easy. The PCB-mount switches stuffed in easily and so did the FFC connector and LED. It works! With DiagROM in the system I tried it out and every key generates the right codes, except for Help and Del. This was my fault - I forgot to solder those two switches! But everything is fine, right down to the Caps Lock LED turning on and off.</p>
+<h2>Does it fit?</h2>
+<p>No. I kind of expected to find a few things that needed fixing and I did. This is what comes of not having a piece of 2mm material to fit in place and see where the problems might be before having a PCB made.
+</br>1. <strong>Too high!</strong> The board sits perfectly across the width of the case, right on the thin ledges provided in the bottom case mold. Unfortunately in this position the keyswitches sit up too high.
+</br>2. <strong>Too thick!</strong> The PCB material is too thick to fit under the clips at the front of the Amiga case. That's OK, I can route it back and add a strip of metal attached to the front of the PCB that will fit. As mentioned it is too high anyway.
+</br>3. <strong>No LED window!</strong> The A1200 case has a small PCB with three LEDs in it. The original keyboard has a hole cut out to allow the lid to close. I overlooked this.
+</br>4. <strong>Flexy!</strong> This will definitely require aluminium angle at the top edge to stop the flex, as expected.</p>
+<p>Though I want the stiffness of 2mm PCB material here it's too thick to go in the clips at the bottom of the case. I will need to cut the board back and attach a piece of 1mm aluminium, stepped down to the level of the clips.
+<a href="/images/a1200-kbd-6/too-thick.jpg"><img alt="Too Thick" src="/images/a1200-kbd-6/thumb-too-thick.jpg"></a></p>
+<p>And the keycaps sit too high when the PCB is sitting on top of the case supports. The entire PCB needs to be lowered within the case.
+<a href="/images/a1200-kbd-6/key-height.jpg"><img alt="Too High" src="/images/a1200-kbd-6/thumb-key-height.jpg"></a></p>
+<h2>Make it fit - lower It</h2>
+<p>Sitting up on the supports makes the keys too high. The only thing to do is trim the edge of the board so that it can drop down inside the case, below the supports, but still be supported somehow. There is room for screws and brackets if careful. Is there an aluminium extrusion somewhere that could do this? A quick search produced no joy, at one end Bunnings with a lot of standard and chunky extrusions that don't look useful and at the other end a lot of industrial suppliers that can probably do anything but say "call us for a quote". Small quantities of unusual angle could easily cost more than my whole project, so I gave that up.</p>
+<p>Then I thought about routing some aluminium. For a Mac mini project some time ago I routed a CD slot in a sheet of aluminium. It does dull your router bits but if everything is well supported and you are careful, no problem. (That's what using a router is really - 95% preparation, 5% cutting.) If I took some 3mm thick right angle and routed in from the outside corner I could create a step-shaped piece that would sit on the case ledge, then drop down to support the keyboard. The height this drops the keyboard by would be controlled by the depth of the cut with any excess trimmed off the top so the case can close. With 3mm of thickness, that allows for 2mm siting on the ledge (plenty) and 1mm of material left to support the keyboard (plenty).
+I did not like the idea of putting my fingers 10mm from a spinning router bit so I first made a rebate along the edge of a piece of thick ply then placed the angle wrapping around the timber with one face in the rebate. Then attached with screws through the face that won't be routed, so that the face that will be routed is exposed and securely fixed.</p>
+<p><a href="/images/a1200-kbd-6/attach-angle.jpg"><img alt="Securely Mounted" src="/images/a1200-kbd-6/thumb-attach-angle.jpg"></a></p>
+<p>Then gradually increasing the size of the cut I added in a new rebate to the outside of the extrusion so that with the PCB resting inside the original angle, the new cut would sit on top of the original case keyboard supports. This picture shows the PCB sitting in the new cut, where the case supports will go. Later I trimmed off the excess height you can see above the PCB.</p>
+<p><a href="/images/a1200-kbd-6/angle-groove.jpg"><img alt="Securely Mounted" src="/images/a1200-kbd-6/thumb-angle-groove.jpg"></a></p>
+<p>While this works, obviously I need a 3D printer. It would have been much easier and much quicker to design something to the exact dimensions required and then print it. I spent  hours thinking about how to safely route this thin extrusion, then more time measuring and setting up the router for the cut. I don't need the side supports to span any distance or to prevent any flex, just not collapse so printed ABS or similar would have been perfect.</p>
+<p>Having done as much as I could with rev 1 I was reasonably happy. I did not expect to get everything right first time. Time for rev 2!</p>
+<h2>The Changes:</h2>
+<ul>
+<li>The F-row and the main body are too close together. I don't know how that happened but after a careful measurement that is fixed. I printed the artwork on A4 paper, carefully stuck it together and then made a test fit board with the paper showing key position. The next board should be spot on.</li>
+<li>The positioning of the FFC connector at the top of the board is too close to the edge, requiring cuts to a piece of angle aluminium if I am to use one for stiffness at the top of the board. Moving it down between the F-row and the main body of keys will fix that and might even make it easier to route.</li>
+<li>A large rectangular route is added so the existing LED PCB will fit as it did in the original keyboard.</li>
+<li>reduce the size of the board to allow for the aluminium angle so there should be no need to shave off the edge of the rev 2 PCB with the router.</li>
+<li>Added holes around the board to attach the mounting rails and the top brace/bottom piece.</li>
+<li>Added a 9U space bar on top of the 7U space bar so if one becomes available it will fit in just by moving the stabilizers.</li>
+<li>Changed to blue MX switches, they will sound great here and it's not like I will be using this keyboard in an office where people will complain.</li>
+<li>Changed to a black PCB finish.</li>
+</ul>
+<p>Electrically these are no change. I re-routed the board with the changes above and came up with something very much like the first PCB, only with more vias. As mentioned I concentrated on making tracks on one side run vertically and tracks on the other side run horizontally. It's nice to do a two-layer board with no vias at all but getting rid of the last one might cost you hours of rework - so when it costs no more it is worth it?</p>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
                     <hr />
                     <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/kb-5.html" rel="bookmark"
+                           title="Permalink to Amiga 1200 Keyboard, part 5">Amiga 1200 Keyboard, part 5</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2019-04-14T00:00:00+10:00">
+                Published: Sun 14 April 2019
+        </abbr>
+		<br />
+        <abbr class="modified" title="2019-04-23T00:00:00+10:00">
+                Updated: Tue 23 April 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/adam-eberbach.html">Adam Eberbach</a>
+        </address>
+<p>In <a href="/category/computers.html">Computers</a>.</p>
+<p>tags: <a href="/tag/computers.html">computers</a> <a href="/tag/development.html">development</a> <a href="/tag/retrocomputing.html">retrocomputing</a> </p>
+</footer><!-- /.post-info -->                <p>Routing - Printed Circuit Board</p>
+                <a class="readmore" href="/kb-5.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -95,11 +140,11 @@
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2019-04-01T12:00:00+11:00">
+        <abbr class="published" title="2019-04-01T00:00:00+11:00">
                 Published: Mon 01 April 2019
         </abbr>
 		<br />
-        <abbr class="modified" title="2019-04-01T12:00:00+11:00">
+        <abbr class="modified" title="2019-04-01T00:00:00+11:00">
                 Updated: Mon 01 April 2019
         </abbr>
 
@@ -121,11 +166,11 @@
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2019-03-23T12:00:00+11:00">
+        <abbr class="published" title="2019-03-23T00:00:00+11:00">
                 Published: Sat 23 March 2019
         </abbr>
 		<br />
-        <abbr class="modified" title="2019-03-23T12:00:00+11:00">
+        <abbr class="modified" title="2019-03-23T00:00:00+11:00">
                 Updated: Sat 23 March 2019
         </abbr>
 
@@ -147,11 +192,11 @@
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2019-03-10T12:00:00+11:00">
+        <abbr class="published" title="2019-03-10T00:00:00+11:00">
                 Published: Sun 10 March 2019
         </abbr>
 		<br />
-        <abbr class="modified" title="2019-03-10T12:00:00+11:00">
+        <abbr class="modified" title="2019-03-10T00:00:00+11:00">
                 Updated: Sun 10 March 2019
         </abbr>
 
