@@ -34,8 +34,8 @@
                 Published: Tue 23 April 2019
         </abbr>
 		<br />
-        <abbr class="modified" title="2019-04-23T00:00:00+10:00">
-                Updated: Tue 23 April 2019
+        <abbr class="modified" title="2019-04-27T00:00:00+10:00">
+                Updated: Sat 27 April 2019
         </abbr>
 
         <address class="vcard author">
@@ -53,7 +53,9 @@
 </br>1. <strong>Too high!</strong> The board sits perfectly across the width of the case, right on the thin ledges provided in the bottom case mold. Unfortunately in this position the keyswitches sit up too high.
 </br>2. <strong>Too thick!</strong> The PCB material is too thick to fit under the clips at the front of the Amiga case. That's OK, I can route it back and add a strip of metal attached to the front of the PCB that will fit. As mentioned it is too high anyway.
 </br>3. <strong>No LED window!</strong> The A1200 case has a small PCB with three LEDs in it. The original keyboard has a hole cut out to allow the lid to close. I overlooked this.
-</br>4. <strong>Flexy!</strong> This will definitely require aluminium angle at the top edge to stop the flex, as expected.</p>
+</br>4. <strong>Flexy!</strong> This will definitely require aluminium angle at the top edge to stop the flex, as expected.
+</br>5. <strong>WTF?</strong> Check out the weird footprint below - this happened with the TAB key and the numpad '(' - both keys on the top left of a group. Both showed that they had the right footprint in KiCAD. Both corrected instantly as soon as I selected the footprint again, while making rev 2. You can see the central pin for the keyswitch has moved down. Easily fixed with a round file but I would rather it is in the right place.
+<a href="/images/a1200-kbd-6/bad-footprint.jpg"><img alt="Bad Footprint" src="/images/a1200-kbd-6/thumb-bad-footprint.jpg"></a></p>
 <p>Though I want the stiffness of 2mm PCB material here it's too thick to go in the clips at the bottom of the case. I will need to cut the board back and attach a piece of 1mm aluminium, stepped down to the level of the clips.
 <a href="/images/a1200-kbd-6/too-thick.jpg"><img alt="Too Thick" src="/images/a1200-kbd-6/thumb-too-thick.jpg"></a></p>
 <p>And the keycaps sit too high when the PCB is sitting on top of the case supports. The entire PCB needs to be lowered within the case.
