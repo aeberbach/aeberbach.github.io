@@ -1,471 +1,308 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-        <meta charset="utf-8" />
-        <title>Gray Unicorn - development</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
-</head>
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="/">Gray Unicorn </a></h1>
-                <nav><ul>
-                    <li><a href="/pages/me.html">About me</a></li>
-                    <li><a href="/category/bicycles.html">Bicycles</a></li>
-                    <li><a href="/category/books.html">Books</a></li>
-                    <li><a href="/category/computers.html">Computers</a></li>
-                    <li><a href="/category/development.html">Development</a></li>
-                    <li><a href="/category/games.html">Games</a></li>
-                    <li><a href="/category/making.html">Making</a></li>
-                    <li><a href="/category/random.html">Random</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
+		<title>Gray Unicorn</title>
+		<meta name="description" content="">
+		<meta name="author" content="Adam Eberbach">
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/kb-8.html">Amiga 1200 Keyboard, part 8</a></h1>
-<footer class="post-info">
-        <abbr class="published" title="2019-05-04T00:00:00+10:00">
-                Published: Sat 04 May 2019
-        </abbr>
-		<br />
-        <abbr class="modified" title="2019-05-04T00:00:00+10:00">
-                Updated: Sat 04 May 2019
-        </abbr>
+		<link rel="stylesheet" href="/theme/css/foundation.css" />
+		<link rel="stylesheet" href="/theme/css/pygment/monokai.css" />
+		<link rel="stylesheet" href="/theme/css/custom.css" />
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/adam-eberbach.html">Adam Eberbach</a>
-        </address>
-<p>In <a href="/category/computers.html">Computers</a>.</p>
-<p>tags: <a href="/tag/computers.html">computers</a> <a href="/tag/development.html">development</a> <a href="/tag/retrocomputing.html">retrocomputing</a> <a href="/tag/making.html">making</a> </p>
-</footer><!-- /.post-info --><h2>New PCB</h2>
-<p>The new board came back as expected, again with fantastic service from <a href="ourpcb.com.au">Our PCB</a>. Mark checked my design thoroughly and detected a piece of copper that would have shorted out a few keys in the design - he deleted it for me before forwarding the job for manufacturing. I can't stress how good these guys are for a hobbyist in Australia!</p>
-<h2>Soldering it up</h2>
-<p>No surprised here. The keyswitches all mounted in the holes they were supposed to go in, one LED in the CapsLock key, and the FFC connector in its place. Soldering was easy. And as soon as the soldering was done I plugged it in to DiagROM and everything tested perfectly. This is a board with no cuts or extra wires!</p>
-<p><a href="/images/a1200-kbd-8/construction.jpg"><img alt="Soldering it up" src="/images/a1200-kbd-8/thumb-construction.jpg"></a></p>
-<h2>Mounting rails and stiffness</h2>
-<p>Once again I used some aluminium angle thick enough to turn into a compound set of angles with a router blade, as previous angles. This time however the PCB has mounting holes designed in. To fit the rails I used a spring-loaded punch to mark the location of required holes, then drilled the holes and used a M3 tap to make a threaded hole ready for a M3 screw. The rails then attached to the PCB with two screws per side and the keyboard sits exactly where it is supposed to be.</p>
-<p><a href="/images/a1200-kbd-8/thread.jpg"><img alt="Soldering it up" src="/images/a1200-kbd-8/thumb-thread.jpg"></a></p>
-<p>At the bottom of the keyboard is space for another piece of aluminium that engages with the bottom of the case and sets the position of the keyboard vertically. This is a thin piece, so instead of cutting threads I just made holes and put nuts on the other side.
-At the top of the keyboard there is a rail made of aluminium angle. Its purpose is just to make the keyboard feel stiff. 2mm is a thick board, but in the centre it does move when a key is pressed - but with the rail in place fastened firmly to the top of the PCB it is nice and stiff, fels as good as any keyboard I have.</p>
-<p><a href="/images/a1200-kbd-8/soldered.jpg"><img alt="Ready to install" src="/images/a1200-kbd-8/thumb-soldered.jpg"></a></p>
-<h2>Keycaps</h2>
-<p>When you look at the A1200 there are a few gaps, it's like a grin with teeth missing. I think the way to fix this is to buy blank keycaps and to buy a laser engraver. It should be possible by experimenting with laser power and drawing speed to produce a full set of Amiga keys just like the originals. And that's the next project. But first, time to boot some Infocom adventures and maybe some 68000 assembly programming with my new keyboard :D</p>
-<p><a href="/images/a1200-kbd-8/complete.jpg"><img alt="Ready to use" src="/images/a1200-kbd-8/thumb-complete.jpg"></a></p>
-<h2>And that's it!</h2>
-<p>The Amiga is now fitted with the mechanical keyboard, 4GB solid state disk module, 3.1.4 ROMs. But I still need:<br>
-- optical mouse<br>
-- joystick (have a basic one, but I need to build up the ultimate Sanwa I have been collecting parts for)<br>
-- monitor solution (waiting for my OSSC to arrive, or one day Indivision AGA Mk 2?)<br>
-- better way to transfer data (Amiga Explorer is slow with the native serial port...)<br>
-- figure out WHDLoad and get all my favorites like Dungeon Master and FA/18 Interceptor working again.<br></p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/kb-7.html" rel="bookmark"
-                           title="Permalink to Amiga 1200 Keyboard, part 7">Amiga 1200 Keyboard, part 7</a></h1>
-                </header>
+		<script src="/theme/js/modernizr.js"></script>
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-27T00:00:00+10:00">
-                Published: Sat 27 April 2019
-        </abbr>
-		<br />
-        <abbr class="modified" title="2019-04-27T00:00:00+10:00">
-                Updated: Sat 27 April 2019
-        </abbr>
+		<!-- Feeds -->
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/adam-eberbach.html">Adam Eberbach</a>
-        </address>
-<p>In <a href="/category/computers.html">Computers</a>.</p>
-<p>tags: <a href="/tag/computers.html">computers</a> <a href="/tag/development.html">development</a> <a href="/tag/retrocomputing.html">retrocomputing</a> <a href="/tag/making.html">making</a> </p>
-</footer><!-- /.post-info -->                <p>Disassembly</p>
-                <a class="readmore" href="/kb-7.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
+<script>var _gaq=[['_setAccount','UA-46719042-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/kb-6.html" rel="bookmark"
-                           title="Permalink to Amiga 1200 Keyboard, part 6">Amiga 1200 Keyboard, part 6</a></h1>
-                </header>
+		<!-- mathjax config similar to math.stackexchange -->
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+				inlineMath: [ ['$', '$'] ],
+				displayMath: [ ['$$', '$$']],
+				processEscapes: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+			},
+			messageStyle: "none",
+			"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+		});
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	</head>
+	<body>
+		<div class="off-canvas-wrap">
+			<div class="inner-wrap">
+				<!-- mobile top bar to activate nav -->
+				<nav class="tab-bar show-for-small">
+					<section class="left-small">
+						<a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+					</section>
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-23T00:00:00+10:00">
-                Published: Tue 23 April 2019
-        </abbr>
-		<br />
-        <abbr class="modified" title="2019-04-27T00:00:00+10:00">
-                Updated: Sat 27 April 2019
-        </abbr>
+					<section class="middle tab-bar-section">
+						<h1 class="title">Gray&nbsp;Unicorn</h1>
+					</section>
+				</nav>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/adam-eberbach.html">Adam Eberbach</a>
-        </address>
-<p>In <a href="/category/computers.html">Computers</a>.</p>
-<p>tags: <a href="/tag/computers.html">computers</a> <a href="/tag/development.html">development</a> <a href="/tag/retrocomputing.html">retrocomputing</a> </p>
-</footer><!-- /.post-info -->                <p>Fitting the keyboard in the case</p>
-                <a class="readmore" href="/kb-6.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
+				<!-- mobile side bar nav -->
+				<aside class="left-off-canvas-menu">
+					<ul class="off-canvas-list">
+						<li><a href="">Home</a></li>
+						<li><label>Categories</label></li>
+							<li ><a href="/category/bicycles.html">Bicycles</a></li>
+							<li ><a href="/category/books.html">Books</a></li>
+							<li ><a href="/category/computers.html">Computers</a></li>
+							<li ><a href="/category/development.html">Development</a></li>
+							<li ><a href="/category/games.html">Games</a></li>
+							<li ><a href="/category/making.html">Making</a></li>
+							<li ><a href="/category/random.html">Random</a></li>
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/kb-5.html" rel="bookmark"
-                           title="Permalink to Amiga 1200 Keyboard, part 5">Amiga 1200 Keyboard, part 5</a></h1>
-                </header>
+						<li><label>Links</label></li>
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+10:00">
-                Published: Sun 14 April 2019
-        </abbr>
-		<br />
-        <abbr class="modified" title="2019-04-23T00:00:00+10:00">
-                Updated: Tue 23 April 2019
-        </abbr>
+						<li><label>Tags</label></li>
+							<li><a href="/tag/belt.html">belt</a></li>
+							<li><a href="/tag/bicycle.html">bicycle</a></li>
+							<li><a href="/tag/books.html">books</a></li>
+							<li><a href="/tag/computers.html">computers</a></li>
+							<li><a href="/tag/development.html">development</a></li>
+							<li><a href="/tag/drifter.html">drifter</a></li>
+							<li><a href="/tag/electronics.html">electronics</a></li>
+							<li><a href="/tag/games.html">games</a></li>
+							<li><a href="/tag/making.html">making</a></li>
+							<li><a href="/tag/random.html">random</a></li>
+							<li><a href="/tag/retrocomputing.html">retrocomputing</a></li>
+							<li><a href="/tag/shimano.html">shimano</a></li>
+							<li><a href="/tag/soma.html">SOMA</a></li>
+							<li><a href="/tag/spot.html">spot</a></li>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/adam-eberbach.html">Adam Eberbach</a>
-        </address>
-<p>In <a href="/category/computers.html">Computers</a>.</p>
-<p>tags: <a href="/tag/computers.html">computers</a> <a href="/tag/development.html">development</a> <a href="/tag/retrocomputing.html">retrocomputing</a> </p>
-</footer><!-- /.post-info -->                <p>Routing - Printed Circuit Board</p>
-                <a class="readmore" href="/kb-5.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
+						<li><label>Monthly Archives</label></li>
+									<li><a href="/posts/2019/05/index.html">May 2019 (1)</a></li>
+									<li><a href="/posts/2019/04/index.html">April 2019 (5)</a></li>
+									<li><a href="/posts/2019/03/index.html">March 2019 (3)</a></li>
+									<li><a href="/posts/2016/04/index.html">April 2016 (1)</a></li>
+									<li><a href="/posts/2015/07/index.html">July 2015 (2)</a></li>
+									<li><a href="/posts/2014/05/index.html">May 2014 (2)</a></li>
+									<li><a href="/posts/2012/07/index.html">July 2012 (1)</a></li>
+									<li><a href="/posts/2012/05/index.html">May 2012 (1)</a></li>
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/kb-4.html" rel="bookmark"
-                           title="Permalink to Amiga 1200 Keyboard, part 4">Amiga 1200 Keyboard, part 4</a></h1>
-                </header>
+						<li><label>Social</label></li>
+					</ul>	
+				</aside>
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-04T00:00:00+11:00">
-                Published: Thu 04 April 2019
-        </abbr>
-		<br />
-        <abbr class="modified" title="2019-04-04T00:00:00+11:00">
-                Updated: Thu 04 April 2019
-        </abbr>
+				<!-- top bar nav -->
+				<nav class="top-bar hide-for-small-only" data-topbar>
+					<ul class="title-area">
+						<li class="name">
+							<h1><a href="/">Gray Unicorn</a></h1>
+						</li>
+					</ul>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/adam-eberbach.html">Adam Eberbach</a>
-        </address>
-<p>In <a href="/category/computers.html">Computers</a>.</p>
-<p>tags: <a href="/tag/computers.html">computers</a> <a href="/tag/development.html">development</a> <a href="/tag/retrocomputing.html">retrocomputing</a> </p>
-</footer><!-- /.post-info -->                <p>Decisions - Printed Circuit Board</p>
-                <a class="readmore" href="/kb-4.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
+					<section class="top-bar-section">
+						<ul class="left">
+								<li ><a href="/category/bicycles.html">Bicycles</a></li>
+								<li ><a href="/category/books.html">Books</a></li>
+								<li ><a href="/category/computers.html">Computers</a></li>
+								<li ><a href="/category/development.html">Development</a></li>
+								<li ><a href="/category/games.html">Games</a></li>
+								<li ><a href="/category/making.html">Making</a></li>
+								<li ><a href="/category/random.html">Random</a></li>
+						</ul>
+                        <ul class="right">                                                                                                                                           
+                                                                                                          
+····                                                                                                                                       
+                                     <li><a href="/pages/me.html">About me</a></li>                                    
+                                                                                                                                          
+                                                                                                                                             
+                        </ul>  
+					</section>
+				</nav>
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/kb-3.html" rel="bookmark"
-                           title="Permalink to Amiga 1200 Keyboard, part 3">Amiga 1200 Keyboard, part 3</a></h1>
-                </header>
+				<!-- Main Page Content and Sidebar -->
+				<section class="main-section">
+					<div class="row">
+						<!-- Main Content -->
+						<div class="medium-9 small-12 columns" role="content">
+							<div class="row">
+								<div class="small-12 columns">
+									<h2>Posts Tagged With 'development'</h2>
+								</div>
+							</div>
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-01T00:00:00+11:00">
-                Published: Mon 01 April 2019
-        </abbr>
-		<br />
-        <abbr class="modified" title="2019-04-01T00:00:00+11:00">
-                Updated: Mon 01 April 2019
-        </abbr>
+<article>
+	<h3><a href="/kb-8.html">Amiga 1200 Keyboard, part 8</a></h3>
+	<h6>Written by <a href="/author/adam-eberbach.html">Adam Eberbach</a> in <a href="/category/computers.html">Computers</a> on Sat 04 May 2019. Tags: <a href="/tag/computers.html">computers</a>, <a href="/tag/development.html">development</a>, <a href="/tag/retrocomputing.html">retrocomputing</a>, <a href="/tag/making.html">making</a>, </h6>
+	<p>Finished</p>
+		<p class="continue"><a href="/kb-8.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="/kb-7.html">Amiga 1200 Keyboard, part 7</a></h3>
+	<h6>Written by <a href="/author/adam-eberbach.html">Adam Eberbach</a> in <a href="/category/computers.html">Computers</a> on Sat 27 April 2019. Tags: <a href="/tag/computers.html">computers</a>, <a href="/tag/development.html">development</a>, <a href="/tag/retrocomputing.html">retrocomputing</a>, <a href="/tag/making.html">making</a>, </h6>
+	<p>Disassembly</p>
+		<p class="continue"><a href="/kb-7.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="/kb-6.html">Amiga 1200 Keyboard, part 6</a></h3>
+	<h6>Written by <a href="/author/adam-eberbach.html">Adam Eberbach</a> in <a href="/category/computers.html">Computers</a> on Tue 23 April 2019. Tags: <a href="/tag/computers.html">computers</a>, <a href="/tag/development.html">development</a>, <a href="/tag/retrocomputing.html">retrocomputing</a>, </h6>
+	<p>Fitting the keyboard in the case</p>
+		<p class="continue"><a href="/kb-6.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="/kb-5.html">Amiga 1200 Keyboard, part 5</a></h3>
+	<h6>Written by <a href="/author/adam-eberbach.html">Adam Eberbach</a> in <a href="/category/computers.html">Computers</a> on Sun 14 April 2019. Tags: <a href="/tag/computers.html">computers</a>, <a href="/tag/development.html">development</a>, <a href="/tag/retrocomputing.html">retrocomputing</a>, </h6>
+	<p>Routing - Printed Circuit Board</p>
+		<p class="continue"><a href="/kb-5.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="/kb-4.html">Amiga 1200 Keyboard, part 4</a></h3>
+	<h6>Written by <a href="/author/adam-eberbach.html">Adam Eberbach</a> in <a href="/category/computers.html">Computers</a> on Thu 04 April 2019. Tags: <a href="/tag/computers.html">computers</a>, <a href="/tag/development.html">development</a>, <a href="/tag/retrocomputing.html">retrocomputing</a>, </h6>
+	<p>Decisions - Printed Circuit Board</p>
+		<p class="continue"><a href="/kb-4.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="/kb-3.html">Amiga 1200 Keyboard, part 3</a></h3>
+	<h6>Written by <a href="/author/adam-eberbach.html">Adam Eberbach</a> in <a href="/category/computers.html">Computers</a> on Mon 01 April 2019. Tags: <a href="/tag/computers.html">computers</a>, <a href="/tag/development.html">development</a>, <a href="/tag/retrocomputing.html">retrocomputing</a>, </h6>
+	<p>Schematic design</p>
+		<p class="continue"><a href="/kb-3.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="/kb-2.html">Amiga 1200 Keyboard, part 2</a></h3>
+	<h6>Written by <a href="/author/adam-eberbach.html">Adam Eberbach</a> in <a href="/category/computers.html">Computers</a> on Sat 23 March 2019. Tags: <a href="/tag/computers.html">computers</a>, <a href="/tag/development.html">development</a>, <a href="/tag/retrocomputing.html">retrocomputing</a>, </h6>
+	<p>Mapping the keyboard.</p>
+		<p class="continue"><a href="/kb-2.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="/kb-1.html">Amiga 1200 Keyboard, part 1</a></h3>
+	<h6>Written by <a href="/author/adam-eberbach.html">Adam Eberbach</a> in <a href="/category/computers.html">Computers</a> on Sun 10 March 2019. Tags: <a href="/tag/computers.html">computers</a>, <a href="/tag/development.html">development</a>, <a href="/tag/retrocomputing.html">retrocomputing</a>, </h6>
+	<p>New keyboard?</p>
+		<p class="continue"><a href="/kb-1.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="/amiga-1200.html">Amiga 1200</a></h3>
+	<h6>Written by <a href="/author/adam-eberbach.html">Adam Eberbach</a> in <a href="/category/computers.html">Computers</a> on Sat 09 March 2019. Tags: <a href="/tag/computers.html">computers</a>, <a href="/tag/development.html">development</a>, <a href="/tag/retrocomputing.html">retrocomputing</a>, </h6>
+	<p>GIVEN an Amiga 1200?</p>
+		<p class="continue"><a href="/amiga-1200.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="/nrf51-developer-kit-setup-for-macos-x.html">nRF51 Developer Kit setup for macOS X</a></h3>
+	<h6>Written by <a href="/author/adam-eberbach.html">Adam Eberbach</a> in <a href="/category/development.html">Development</a> on Sat 23 April 2016. Tags: <a href="/tag/development.html">development</a>, </h6>
+	<p>Embedded Bluetooth Dev Setup</p>
+		<p class="continue"><a href="/nrf51-developer-kit-setup-for-macos-x.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="/publishing-from-ipad.html">Publishing from iPad</a></h3>
+	<h6>Written by <a href="/author/adam-eberbach.html">Adam Eberbach</a> in <a href="/category/computers.html">Computers</a> on Sat 18 July 2015. Tags: <a href="/tag/computers.html">computers</a>, <a href="/tag/development.html">development</a>, </h6>
+	<p>Publishing direct from iPad</p>
+		<p class="continue"><a href="/publishing-from-ipad.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="/changing-to-pagesgithubio-and-jekyll.html">Changing to pages.github.io and Jekyll</a></h3>
+	<h6>Written by <a href="/author/adam-eberbach.html">Adam Eberbach</a> in <a href="/category/computers.html">Computers</a> on Fri 10 July 2015. Tags: <a href="/tag/development.html">development</a>, <a href="/tag/making.html">making</a>, <a href="/tag/computers.html">computers</a>, </h6>
+	<p>Changing blog method</p>
+		<p class="continue"><a href="/changing-to-pagesgithubio-and-jekyll.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="/mac-mini-2014-expansion.html">Mac mini 2014 expansion</a></h3>
+	<h6>Written by <a href="/author/adam-eberbach.html">Adam Eberbach</a> in <a href="/category/computers.html">Computers</a> on Wed 07 May 2014. Tags: <a href="/tag/development.html">development</a>, <a href="/tag/making.html">making</a>, <a href="/tag/computers.html">computers</a>, </h6>
+	<p>Add a drive to the 2014 Mac mini</p>
+		<p class="continue"><a href="/mac-mini-2014-expansion.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="/the-next-mac-mini.html">The Next Mac mini</a></h3>
+	<h6>Written by <a href="/author/adam-eberbach.html">Adam Eberbach</a> in <a href="/category/computers.html">Computers</a> on Wed 07 May 2014. Tags: <a href="/tag/development.html">development</a>, <a href="/tag/making.html">making</a>, <a href="/tag/computers.html">computers</a>, </h6>
+	<p>speculation</p>
+		<p class="continue"><a href="/the-next-mac-mini.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="/pvc-conduit-laptop-stand.html">PVC Conduit Laptop Stand</a></h3>
+	<h6>Written by <a href="/author/adam-eberbach.html">Adam Eberbach</a> in <a href="/category/computers.html">Computers</a> on Tue 24 July 2012. Tags: <a href="/tag/development.html">development</a>, <a href="/tag/making.html">making</a>, <a href="/tag/computers.html">computers</a>, </h6>
+	<p>simple laptop stand from PVC pipe</p>
+		<p class="continue"><a href="/pvc-conduit-laptop-stand.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="/angry-murloc-build-light.html">Angry Murloc Build Light</a></h3>
+	<h6>Written by <a href="/author/adam-eberbach.html">Adam Eberbach</a> in <a href="/category/development.html">Development</a> on Tue 08 May 2012. Tags: <a href="/tag/development.html">development</a>, <a href="/tag/games.html">games</a>, </h6>
+	<p>Having more fun than usual with continuous integration</p>
+		<p class="continue"><a href="/angry-murloc-build-light.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/adam-eberbach.html">Adam Eberbach</a>
-        </address>
-<p>In <a href="/category/computers.html">Computers</a>.</p>
-<p>tags: <a href="/tag/computers.html">computers</a> <a href="/tag/development.html">development</a> <a href="/tag/retrocomputing.html">retrocomputing</a> </p>
-</footer><!-- /.post-info -->                <p>Schematic design</p>
-                <a class="readmore" href="/kb-3.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/kb-2.html" rel="bookmark"
-                           title="Permalink to Amiga 1200 Keyboard, part 2">Amiga 1200 Keyboard, part 2</a></h1>
-                </header>
+						</div>
+						<!-- End Main Content -->
+						<!-- Sidebar -->
+						<aside class="medium-3 hide-for-small-only columns">
+							<div class="panel">
+								<h5>Links</h5>
+								<ul class="side-nav">
+								</ul>
+							</div>
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-03-23T00:00:00+11:00">
-                Published: Sat 23 March 2019
-        </abbr>
-		<br />
-        <abbr class="modified" title="2019-03-23T00:00:00+11:00">
-                Updated: Sat 23 March 2019
-        </abbr>
+							<div class="panel">
+								<h5>Tags</h5>
+								<ul class="tag-cloud">
+								</ul>
+							</div>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/adam-eberbach.html">Adam Eberbach</a>
-        </address>
-<p>In <a href="/category/computers.html">Computers</a>.</p>
-<p>tags: <a href="/tag/computers.html">computers</a> <a href="/tag/development.html">development</a> <a href="/tag/retrocomputing.html">retrocomputing</a> </p>
-</footer><!-- /.post-info -->                <p>Mapping the keyboard.</p>
-                <a class="readmore" href="/kb-2.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
+							<div class="panel">
+								<h5>Monthly Archives</h5>
+								<ul class="side-nav">
+											<li><a href="/posts/2019/05/index.html">May 2019 (1)</a></li>
+											<li><a href="/posts/2019/04/index.html">April 2019 (5)</a></li>
+											<li><a href="/posts/2019/03/index.html">March 2019 (3)</a></li>
+											<li><a href="/posts/2016/04/index.html">April 2016 (1)</a></li>
+											<li><a href="/posts/2015/07/index.html">July 2015 (2)</a></li>
+											<li><a href="/posts/2014/05/index.html">May 2014 (2)</a></li>
+											<li><a href="/posts/2012/07/index.html">July 2012 (1)</a></li>
+											<li><a href="/posts/2012/05/index.html">May 2012 (1)</a></li>
+								</ul>
+							</div>
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/kb-1.html" rel="bookmark"
-                           title="Permalink to Amiga 1200 Keyboard, part 1">Amiga 1200 Keyboard, part 1</a></h1>
-                </header>
+							<div class="panel">
+								<h5>Social</h5>
+								<ul class="side-nav">
+								</ul>
+							</div>
+						</aside>
+						<!-- End Sidebar -->
+					</div>
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-03-10T00:00:00+11:00">
-                Published: Sun 10 March 2019
-        </abbr>
-		<br />
-        <abbr class="modified" title="2019-03-10T00:00:00+11:00">
-                Updated: Sun 10 March 2019
-        </abbr>
+					<!-- Footer -->
+					<footer class="row">
+						<div class="medium-9 small-12">
+							<hr/>
+							<p class="text-center">Powered by <a href="http://getpelican.com">Pelican</a> and <a href="http://foundation.zurb.com/">Zurb Foundation</a>. Theme by <a href="http://hamaluik.com">Kenton Hamaluik</a>.</p>
+						</div>
+					</footer>
+					<!-- End Footer -->
+				</section>
+				<a class="exit-off-canvas"></a>
+			</div><!--off-canvas inner-->
+		</div><!--off-canvas wrap-->
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/adam-eberbach.html">Adam Eberbach</a>
-        </address>
-<p>In <a href="/category/computers.html">Computers</a>.</p>
-<p>tags: <a href="/tag/computers.html">computers</a> <a href="/tag/development.html">development</a> <a href="/tag/retrocomputing.html">retrocomputing</a> </p>
-</footer><!-- /.post-info -->                <p>New keyboard?</p>
-                <a class="readmore" href="/kb-1.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/amiga-1200.html" rel="bookmark"
-                           title="Permalink to Amiga 1200">Amiga 1200</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-03-09T12:00:00+11:00">
-                Published: Sat 09 March 2019
-        </abbr>
-		<br />
-        <abbr class="modified" title="2019-03-09T12:00:00+11:00">
-                Updated: Sat 09 March 2019
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/adam-eberbach.html">Adam Eberbach</a>
-        </address>
-<p>In <a href="/category/computers.html">Computers</a>.</p>
-<p>tags: <a href="/tag/computers.html">computers</a> <a href="/tag/development.html">development</a> <a href="/tag/retrocomputing.html">retrocomputing</a> </p>
-</footer><!-- /.post-info -->                <p>GIVEN an Amiga 1200?</p>
-                <a class="readmore" href="/amiga-1200.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/nrf51-developer-kit-setup-for-macos-x.html" rel="bookmark"
-                           title="Permalink to nRF51 Developer Kit setup for macOS X">nRF51 Developer Kit setup for macOS X</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-04-23T12:00:00+10:00">
-                Published: Sat 23 April 2016
-        </abbr>
-		<br />
-        <abbr class="modified" title="2019-02-25T12:00:00+11:00">
-                Updated: Mon 25 February 2019
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/adam-eberbach.html">Adam Eberbach</a>
-        </address>
-<p>In <a href="/category/development.html">Development</a>.</p>
-<p>tags: <a href="/tag/development.html">development</a> </p>
-</footer><!-- /.post-info -->                <p>Embedded Bluetooth Dev Setup</p>
-                <a class="readmore" href="/nrf51-developer-kit-setup-for-macos-x.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/publishing-from-ipad.html" rel="bookmark"
-                           title="Permalink to Publishing from iPad">Publishing from iPad</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2015-07-18T12:00:00+10:00">
-                Published: Sat 18 July 2015
-        </abbr>
-		<br />
-        <abbr class="modified" title="2019-02-25T12:00:00+11:00">
-                Updated: Mon 25 February 2019
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/adam-eberbach.html">Adam Eberbach</a>
-        </address>
-<p>In <a href="/category/computers.html">Computers</a>.</p>
-<p>tags: <a href="/tag/computers.html">computers</a> <a href="/tag/development.html">development</a> </p>
-</footer><!-- /.post-info -->                <p>Publishing direct from iPad</p>
-                <a class="readmore" href="/publishing-from-ipad.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/changing-to-pagesgithubio-and-jekyll.html" rel="bookmark"
-                           title="Permalink to Changing to pages.github.io and Jekyll">Changing to pages.github.io and Jekyll</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2015-07-10T12:00:00+10:00">
-                Published: Fri 10 July 2015
-        </abbr>
-		<br />
-        <abbr class="modified" title="2019-02-25T12:00:00+11:00">
-                Updated: Mon 25 February 2019
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/adam-eberbach.html">Adam Eberbach</a>
-        </address>
-<p>In <a href="/category/computers.html">Computers</a>.</p>
-<p>tags: <a href="/tag/development.html">development</a> <a href="/tag/making.html">making</a> <a href="/tag/computers.html">computers</a> </p>
-</footer><!-- /.post-info -->                <p>Changing blog method</p>
-                <a class="readmore" href="/changing-to-pagesgithubio-and-jekyll.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/mac-mini-2014-expansion.html" rel="bookmark"
-                           title="Permalink to Mac mini 2014 expansion">Mac mini 2014 expansion</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2014-05-07T12:00:00+10:00">
-                Published: Wed 07 May 2014
-        </abbr>
-		<br />
-        <abbr class="modified" title="2019-02-25T12:00:00+11:00">
-                Updated: Mon 25 February 2019
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/adam-eberbach.html">Adam Eberbach</a>
-        </address>
-<p>In <a href="/category/computers.html">Computers</a>.</p>
-<p>tags: <a href="/tag/development.html">development</a> <a href="/tag/making.html">making</a> <a href="/tag/computers.html">computers</a> </p>
-</footer><!-- /.post-info -->                <p>Add a drive to the 2014 Mac mini</p>
-                <a class="readmore" href="/mac-mini-2014-expansion.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/the-next-mac-mini.html" rel="bookmark"
-                           title="Permalink to The Next Mac mini">The Next Mac mini</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2014-05-07T12:00:00+10:00">
-                Published: Wed 07 May 2014
-        </abbr>
-		<br />
-        <abbr class="modified" title="2019-02-25T12:00:00+11:00">
-                Updated: Mon 25 February 2019
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/adam-eberbach.html">Adam Eberbach</a>
-        </address>
-<p>In <a href="/category/computers.html">Computers</a>.</p>
-<p>tags: <a href="/tag/development.html">development</a> <a href="/tag/making.html">making</a> <a href="/tag/computers.html">computers</a> </p>
-</footer><!-- /.post-info -->                <p>speculation</p>
-                <a class="readmore" href="/the-next-mac-mini.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/pvc-conduit-laptop-stand.html" rel="bookmark"
-                           title="Permalink to PVC Conduit Laptop Stand">PVC Conduit Laptop Stand</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2012-07-24T12:00:00+10:00">
-                Published: Tue 24 July 2012
-        </abbr>
-		<br />
-        <abbr class="modified" title="2019-02-25T12:00:00+11:00">
-                Updated: Mon 25 February 2019
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/adam-eberbach.html">Adam Eberbach</a>
-        </address>
-<p>In <a href="/category/computers.html">Computers</a>.</p>
-<p>tags: <a href="/tag/development.html">development</a> <a href="/tag/making.html">making</a> <a href="/tag/computers.html">computers</a> </p>
-</footer><!-- /.post-info -->                <p>simple laptop stand from PVC pipe</p>
-                <a class="readmore" href="/pvc-conduit-laptop-stand.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/angry-murloc-build-light.html" rel="bookmark"
-                           title="Permalink to Angry Murloc Build Light">Angry Murloc Build Light</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2012-05-08T12:00:00+10:00">
-                Published: Tue 08 May 2012
-        </abbr>
-		<br />
-        <abbr class="modified" title="2019-02-25T12:00:00+11:00">
-                Updated: Mon 25 February 2019
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/adam-eberbach.html">Adam Eberbach</a>
-        </address>
-<p>In <a href="/category/development.html">Development</a>.</p>
-<p>tags: <a href="/tag/development.html">development</a> <a href="/tag/games.html">games</a> </p>
-</footer><!-- /.post-info -->                <p>Having more fun than usual with continuous integration</p>
-                <a class="readmore" href="/angry-murloc-build-light.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-                </section><!-- /#content -->
-        <section id="extras" class="body">
-        </section><!-- /#extras -->
-
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
-
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
-
-</body>
+		<script src="/theme/js/jquery.js"></script>
+		<script src="/theme/js/foundation.min.js"></script>
+		<script>
+			$(document).foundation();
+		</script>
+	</body>
 </html>

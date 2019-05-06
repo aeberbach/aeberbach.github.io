@@ -1,49 +1,137 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-        <meta charset="utf-8" />
-        <title>Digital Radio: DAB+ in the Van</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
-</head>
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="/">Gray Unicorn </a></h1>
-                <nav><ul>
-                    <li><a href="/pages/me.html">About me</a></li>
-                    <li><a href="/category/bicycles.html">Bicycles</a></li>
-                    <li><a href="/category/books.html">Books</a></li>
-                    <li><a href="/category/computers.html">Computers</a></li>
-                    <li><a href="/category/development.html">Development</a></li>
-                    <li><a href="/category/games.html">Games</a></li>
-                    <li><a href="/category/making.html">Making</a></li>
-                    <li class="active"><a href="/category/random.html">Random</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
-<section id="content" class="body">
-  <article>
-    <header>
-      <h1 class="entry-title">
-        <a href="/digital-radio-dab-in-the-van.html" rel="bookmark"
-           title="Permalink to Digital Radio: DAB+ in the Van">Digital Radio: DAB+ in the Van</a></h1>
-    </header>
+		<title>Gray Unicorn</title>
+		<meta name="description" content="">
+		<meta name="author" content="Adam Eberbach">
 
-    <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2012-09-27T12:00:00+10:00">
-                Published: Thu 27 September 2012
-        </abbr>
-		<br />
-        <abbr class="modified" title="2019-02-25T12:00:00+11:00">
-                Updated: Mon 25 February 2019
-        </abbr>
+		<link rel="stylesheet" href="/theme/css/foundation.css" />
+		<link rel="stylesheet" href="/theme/css/pygment/monokai.css" />
+		<link rel="stylesheet" href="/theme/css/custom.css" />
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/adam-eberbach.html">Adam Eberbach</a>
-        </address>
-<p>In <a href="/category/random.html">Random</a>.</p>
-<p>tags: <a href="/tag/random.html">random</a> </p>
-</footer><!-- /.post-info -->      <p>About 6 years ago I bought a <A HREF="http://en.wikipedia.org/wiki/Volkswagen_Transporter_(T5)" target="_blank">Volkswagen T5 Multivan</A> made it a choice between that or a <A HREF="http://en.wikipedia.org/wiki/Mercedes-Benz_Vito" target="_blank">Mercedes Vito</A>. The Vito is great but was a fair bit more money. Or there was the hilariously ugly <A HREF="http://www.productreview.com.au/p/ssangyong-stavic-2005-present.html" target="_blank">SsangYong Stavic</A>, but that’s no choice at all. Google for some amusing comments on this last abomination. (update - several other minivan choices became available about 6 months too late for us)  </p>
+
+		<script src="/theme/js/modernizr.js"></script>
+
+		<!-- Feeds -->
+
+<script>var _gaq=[['_setAccount','UA-46719042-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+
+		<!-- mathjax config similar to math.stackexchange -->
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+				inlineMath: [ ['$', '$'] ],
+				displayMath: [ ['$$', '$$']],
+				processEscapes: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+			},
+			messageStyle: "none",
+			"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+		});
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	</head>
+	<body>
+		<div class="off-canvas-wrap">
+			<div class="inner-wrap">
+				<!-- mobile top bar to activate nav -->
+				<nav class="tab-bar show-for-small">
+					<section class="left-small">
+						<a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+					</section>
+
+					<section class="middle tab-bar-section">
+						<h1 class="title">Gray&nbsp;Unicorn</h1>
+					</section>
+				</nav>
+
+				<!-- mobile side bar nav -->
+				<aside class="left-off-canvas-menu">
+					<ul class="off-canvas-list">
+						<li><a href="">Home</a></li>
+						<li><label>Categories</label></li>
+							<li ><a href="/category/bicycles.html">Bicycles</a></li>
+							<li ><a href="/category/books.html">Books</a></li>
+							<li ><a href="/category/computers.html">Computers</a></li>
+							<li ><a href="/category/development.html">Development</a></li>
+							<li ><a href="/category/games.html">Games</a></li>
+							<li ><a href="/category/making.html">Making</a></li>
+							<li class="active"><a href="/category/random.html">Random</a></li>
+
+						<li><label>Links</label></li>
+
+						<li><label>Tags</label></li>
+							<li><a href="/tag/belt.html">belt</a></li>
+							<li><a href="/tag/bicycle.html">bicycle</a></li>
+							<li><a href="/tag/books.html">books</a></li>
+							<li><a href="/tag/computers.html">computers</a></li>
+							<li><a href="/tag/development.html">development</a></li>
+							<li><a href="/tag/drifter.html">drifter</a></li>
+							<li><a href="/tag/electronics.html">electronics</a></li>
+							<li><a href="/tag/games.html">games</a></li>
+							<li><a href="/tag/making.html">making</a></li>
+							<li><a href="/tag/random.html">random</a></li>
+							<li><a href="/tag/retrocomputing.html">retrocomputing</a></li>
+							<li><a href="/tag/shimano.html">shimano</a></li>
+							<li><a href="/tag/soma.html">SOMA</a></li>
+							<li><a href="/tag/spot.html">spot</a></li>
+
+						<li><label>Monthly Archives</label></li>
+									<li><a href="/posts/2019/05/index.html">May 2019 (1)</a></li>
+									<li><a href="/posts/2019/04/index.html">April 2019 (6)</a></li>
+									<li><a href="/posts/2019/03/index.html">March 2019 (3)</a></li>
+									<li><a href="/posts/2016/04/index.html">April 2016 (3)</a></li>
+									<li><a href="/posts/2015/09/index.html">September 2015 (1)</a></li>
+									<li><a href="/posts/2015/07/index.html">July 2015 (3)</a></li>
+									<li><a href="/posts/2014/05/index.html">May 2014 (3)</a></li>
+									<li><a href="/posts/2012/09/index.html">September 2012 (1)</a></li>
+									<li><a href="/posts/2012/07/index.html">July 2012 (1)</a></li>
+									<li><a href="/posts/2012/05/index.html">May 2012 (3)</a></li>
+
+						<li><label>Social</label></li>
+					</ul>	
+				</aside>
+
+				<!-- top bar nav -->
+				<nav class="top-bar hide-for-small-only" data-topbar>
+					<ul class="title-area">
+						<li class="name">
+							<h1><a href="/">Gray Unicorn</a></h1>
+						</li>
+					</ul>
+
+					<section class="top-bar-section">
+						<ul class="left">
+								<li ><a href="/category/bicycles.html">Bicycles</a></li>
+								<li ><a href="/category/books.html">Books</a></li>
+								<li ><a href="/category/computers.html">Computers</a></li>
+								<li ><a href="/category/development.html">Development</a></li>
+								<li ><a href="/category/games.html">Games</a></li>
+								<li ><a href="/category/making.html">Making</a></li>
+								<li class="active"><a href="/category/random.html">Random</a></li>
+						</ul>
+                        <ul class="right">                                                                                                                                           
+                                                                                                          
+····                                                                                                                                       
+                                     <li><a href="/pages/me.html">About me</a></li>                                    
+                                                                                                                                          
+                                                                                                                                             
+                        </ul>  
+					</section>
+				</nav>
+
+				<!-- Main Page Content and Sidebar -->
+				<section class="main-section">
+					<div class="row">
+						<!-- Main Content -->
+						<div class="medium-9 small-12 columns" role="content">
+<article>
+	<h2>Digital Radio: DAB+ in the Van</h2>
+	<p>About 6 years ago I bought a <A HREF="http://en.wikipedia.org/wiki/Volkswagen_Transporter_(T5)" target="_blank">Volkswagen T5 Multivan</A> made it a choice between that or a <A HREF="http://en.wikipedia.org/wiki/Mercedes-Benz_Vito" target="_blank">Mercedes Vito</A>. The Vito is great but was a fair bit more money. Or there was the hilariously ugly <A HREF="http://www.productreview.com.au/p/ssangyong-stavic-2005-present.html" target="_blank">SsangYong Stavic</A>, but that’s no choice at all. Google for some amusing comments on this last abomination. (update - several other minivan choices became available about 6 months too late for us)  </p>
 <p>If you have to drive a van the VW is OK. I don’t have much to complain about, although I could mention the horrible turbo lag and general hugeness, but that’s balanced by the internal hugeness, convenience of sliding doors, being able to get to any seat from any door or the amazingly tight turning circle. The thing I seriously hated since day 1 was the sound system.  </p>
 <p>VW Australia installed some Eurovox 6-CD changer as original equipment but it had a fault, the display didn’t illuminate at all. So it went back to the dealer and was replaced or fixed, but in the process they broke a trim piece. On the next service that was “fixed” with glue but of course it didn’t hold up long, we lived with it. Who’s got time to keep taking a vehicle back to the dealer? The dealer knows this.  </p>
 <p>One issue it had was crackles and static on all but a few Melbourne FM stations. Another issue was the weird angle you have to insert a CD at for it to be loaded right. A third is that nobody ever remembers to bring new CDs so once out of radio range you’re listening to an album you used to like for the 41st time.  </p>
@@ -72,20 +160,69 @@
 <p>While I feel like I have bought an early adopter model – there will be something twice as good next year for half the money – I’m very happy with this change. I hope this post helps someone who might be looking into DAB+ for the car, or who needs to know how to install in a T5 Multivan.  </p>
 <p><strong>Update</strong>: Note on the Multivan - it has been a lot of trouble. A big piece of trim came off the pillar supporting the sliding door. VW said "work out how to reattach it yourself". Both side windows will no longer remain closed. VW say "$1100 each". The dash gear indicator started displaying all the gears at once and eventually the car wouldn't start. VW said "that will be $4500, we don't know exactly what's wrong but you need a new ECU". The air conditioner drive pulley sheared off. VW said "dang! that's going to run you $2500". Currently the transmission is having a lot of trouble, big clunks between 2nd and 3rd gears - VW say "well, that's another $4500 or so, new throttle body. We don't fix transmissions, you just replace them these days".  </p>
 <p>Final words: <strong>Do not</strong> buy a Multivan. The new Mercedes V-series may cost more, but you'd be a fool to buy a VW if it's your own money. Unless you're leasing, then the disposable VW is probably going to last 3 years. Probably. <strong>Do</strong> buy a digital radio head, with AUX in, if your factory sound doesn't have either.</p>
-    </div><!-- /.entry-content -->
+	<hr/>
+	<h6>Written by <a href="/author/adam-eberbach.html">Adam Eberbach</a> in <a href="/category/random.html">Random</a> on Thu 27 September 2012. Tags: <a href="/tag/random.html">random</a>, </h6>
+</article>
 
-  </article>
-</section>
-        <section id="extras" class="body">
-        </section><!-- /#extras -->
+<hr/>
+						</div>
+						<!-- End Main Content -->
+						<!-- Sidebar -->
+						<aside class="medium-3 hide-for-small-only columns">
+							<div class="panel">
+								<h5>Links</h5>
+								<ul class="side-nav">
+								</ul>
+							</div>
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
+							<div class="panel">
+								<h5>Tags</h5>
+								<ul class="tag-cloud">
+								</ul>
+							</div>
 
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
+							<div class="panel">
+								<h5>Monthly Archives</h5>
+								<ul class="side-nav">
+											<li><a href="/posts/2019/05/index.html">May 2019 (1)</a></li>
+											<li><a href="/posts/2019/04/index.html">April 2019 (6)</a></li>
+											<li><a href="/posts/2019/03/index.html">March 2019 (3)</a></li>
+											<li><a href="/posts/2016/04/index.html">April 2016 (3)</a></li>
+											<li><a href="/posts/2015/09/index.html">September 2015 (1)</a></li>
+											<li><a href="/posts/2015/07/index.html">July 2015 (3)</a></li>
+											<li><a href="/posts/2014/05/index.html">May 2014 (3)</a></li>
+											<li><a href="/posts/2012/09/index.html">September 2012 (1)</a></li>
+											<li><a href="/posts/2012/07/index.html">July 2012 (1)</a></li>
+											<li><a href="/posts/2012/05/index.html">May 2012 (3)</a></li>
+								</ul>
+							</div>
 
-</body>
+							<div class="panel">
+								<h5>Social</h5>
+								<ul class="side-nav">
+								</ul>
+							</div>
+						</aside>
+						<!-- End Sidebar -->
+					</div>
+
+					<!-- Footer -->
+					<footer class="row">
+						<div class="medium-9 small-12">
+							<hr/>
+							<p class="text-center">Powered by <a href="http://getpelican.com">Pelican</a> and <a href="http://foundation.zurb.com/">Zurb Foundation</a>. Theme by <a href="http://hamaluik.com">Kenton Hamaluik</a>.</p>
+						</div>
+					</footer>
+					<!-- End Footer -->
+				</section>
+				<a class="exit-off-canvas"></a>
+			</div><!--off-canvas inner-->
+		</div><!--off-canvas wrap-->
+
+		<script src="/theme/js/jquery.js"></script>
+		<script src="/theme/js/foundation.min.js"></script>
+		<script>
+			$(document).foundation();
+		</script>
+	</body>
 </html>

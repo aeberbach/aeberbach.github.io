@@ -1,120 +1,198 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-        <meta charset="utf-8" />
-        <title>Gray Unicorn - Development</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
-</head>
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="/">Gray Unicorn </a></h1>
-                <nav><ul>
-                    <li><a href="/pages/me.html">About me</a></li>
-                    <li><a href="/category/bicycles.html">Bicycles</a></li>
-                    <li><a href="/category/books.html">Books</a></li>
-                    <li><a href="/category/computers.html">Computers</a></li>
-                    <li class="active"><a href="/category/development.html">Development</a></li>
-                    <li><a href="/category/games.html">Games</a></li>
-                    <li><a href="/category/making.html">Making</a></li>
-                    <li><a href="/category/random.html">Random</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
+		<title>Gray Unicorn</title>
+		<meta name="description" content="">
+		<meta name="author" content="Adam Eberbach">
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/nrf51-developer-kit-setup-for-macos-x.html">nRF51 Developer Kit setup for macOS X</a></h1>
-<footer class="post-info">
-        <abbr class="published" title="2016-04-23T12:00:00+10:00">
-                Published: Sat 23 April 2016
-        </abbr>
-		<br />
-        <abbr class="modified" title="2019-02-25T12:00:00+11:00">
-                Updated: Mon 25 February 2019
-        </abbr>
+		<link rel="stylesheet" href="/theme/css/foundation.css" />
+		<link rel="stylesheet" href="/theme/css/pygment/monokai.css" />
+		<link rel="stylesheet" href="/theme/css/custom.css" />
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/adam-eberbach.html">Adam Eberbach</a>
-        </address>
-<p>In <a href="/category/development.html">Development</a>.</p>
-<p>tags: <a href="/tag/development.html">development</a> </p>
-</footer><!-- /.post-info --><p><strong>Back to Embedded Confusion</strong><br>
-These days I am mostly an iOS developer, but a long time ago I did embedded. For all the complaining about Xcode we have it easy compared to the embedded world where you are likely to spend as much time on the command line as you are in a code editor. And usually doing anything embedded means, for a Mac user, running Windows in one form or another.<br>
-So when I went looking for a Bluetooth controller the presence of a Mac toolchain was a big factor in favor of <A HREF="https://www.nordicsemi.com/eng/Products/Bluetooth-Smart-Bluetooth-low-energy/nRF51822">Nordic Semiconductor's nRF51822</A>. Not to mention it's incredibly popular and relatively cheap.<br>But getting it all working wasn't quite as easy as I had hoped. Some old blog posts referring to outdated directory structures led me astray so I'm putting the simple recipe here.<br>
-Here's what I'm using - if you're reading this later and things have changed, don't assume anything is still the same.<br>
-<A HREF="https://www.nordicsemi.com/eng/Products/nRF51-DK">nF51 Developer Kit</A><br>
-From that page click on the "DOWNLOADS" tab (it's very small, look harder)<br>
-<em>Download:</em><br>
-- nRF5-SDK-zip - nRF5 SDK Zip File<br>
-- S130-SD-v2 - S130 nRF51 SoftDevice<br>
-- nRF5x-Command-Line-Tools-OSX - nRF5x toolset tar for OSX (nrfjprog and mergehex)<br>
-<em>Download</em><br>
-<A HREF="https://launchpad.net/gcc-arm-embedded">Latest verion of GCC ARM Embedded for Mac</A><br>
-<em>Download</em><br>
-<A HREF="https://www.segger.com/jlink-software.html">Segger software and documentation pack for Mac</A> - make sure to click on the blue download button not the text, the links go to different places.<br></p>
-<p><strong>Installing</strong><br>
-First you need to install GCC ARM Embedded. The easy way is to cd to <code>/usr/local</code> in terminal then <code>sudo tar xvfj ~/Downloads/gcc-arm-non-eabi...........tar.bz</code>Use the exact filename you received of course, version numbers will change. Add the bin directory to your path in .bash_profile or similar - making a soft link so you can refer to <code>/usr/local/gcc-arm-none-eabi</code> might be a good idea rather than having the entire version number in your path.<br>
-Next the nRF5 SDK should be unpacked. There is a file that must be edited so that the SDK makefiles can find your compiler installation - in version 11 the path to this file is <code>nRF5_SDK_11/components/toochain/gcc/Makefile.posix</code>.<br>
-Edit it so that GNU_INSTALL_ROOT points to your ARM GCC Embedded installtion's root, again that softlink would be useful here. If for any reason you need to change gcc versions you will only need to update the link and everywhere you refer to it will continue to work.<br>
-The command line tools from Nordic, <b>nrfjprog</b> and <b>mergehex</b> make life a lot simpler and I also added them to <code>/usr/bin</code> and put them in my path.<br>
-Finally there is the installer from Segger. I did install this while I was trying to use the Segger <code>jlinkexe</code> command line utility as a way to program the board but it did not work for me. I don't know if this package is required since I now use <b>mergehex</b> and <b>nrfjprog</b> - but I suspect it is required since Segger's J-Link is included on the development board.<br>
-That done you can go and try building an example fron the SDK. In terminal navigate to <code>nRF5_SDK_11/examples/ble_peripheral/ble_app_hrs/pca10028/s130/armgcc</code>The last three components of the path are meaningful - the nRF51 DK is identified by <b>pca10028</b>, the softdevice from Nordic driving the radio is <b>s130</b> and the toolchain is <b>armgcc</b>. Once there you should hopefully just be able to make and a folder called _build will be created with the results.</p>
-<p><img alt="Make Process" src="/images/nRF51822-setup/make.png"></p>
-<p>The app you just built is in the _build directory and is probably called <code>nrf51422_xxac_s130.hex</code>. You can merge these hex files, the softdevice (using its relative path, in the version 11 SDK) and the app, with the command line <code>mergehex -m ../../../../../../../components/softdevice/s130/hex/s130_nrf51_2.0.0_softdevice.hex nrf51422_xxac_s130.hex -o out.hex</code><br>
-Check the result and there will be an out.hex file larger than both the softdevice file and your app file.
-To program the board I use a sequence of nrfjprog commands - these are:<br>
-<code>nrfjprog --eraseall</code><br>
-<code>nrfjprog --program out.hex</code><br>
-<code>nrfjprog --verify out.hex</code><br>
-<code>nrfjprog --reset</code><br></p>
-<p><img alt="Programming" src="/images/nRF51822-setup/programming.png"></p>
-<p>If all is well, the example program will cause a LED to start flashing on the board. Now for the point of this exercise - interaction with an iOS device. You should download the nRF Toolbox app from the iOS app store. When you run it, if your board is running (LED still flashing?) then when you select the HRM option, and hit the connect button, you will see Nordic_HRM. Select that and you'll see the app communicating with the board and receiving a simulated heartbeat.<br></p>
-<p><img alt="Success!" src="/images/nRF51822-setup/success.jpg"></p>
-<p>This has been a quick rundown on how to get things working and a lot of detail has been glossed over. Now you have this working it should be possible to progress by building on existing projects.<br>
-<A HREF="https://devzone.nordicsemi.com/questions">Nordic Developer Zone</A> looks like it is using Stack Overflow software and there aren't many questions not answered by Nordic staff, so take a look. Happy embedded developing!</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/angry-murloc-build-light.html" rel="bookmark"
-                           title="Permalink to Angry Murloc Build Light">Angry Murloc Build Light</a></h1>
-                </header>
+		<script src="/theme/js/modernizr.js"></script>
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2012-05-08T12:00:00+10:00">
-                Published: Tue 08 May 2012
-        </abbr>
-		<br />
-        <abbr class="modified" title="2019-02-25T12:00:00+11:00">
-                Updated: Mon 25 February 2019
-        </abbr>
+		<!-- Feeds -->
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/adam-eberbach.html">Adam Eberbach</a>
-        </address>
-<p>In <a href="/category/development.html">Development</a>.</p>
-<p>tags: <a href="/tag/development.html">development</a> <a href="/tag/games.html">games</a> </p>
-</footer><!-- /.post-info -->                <p>Having more fun than usual with continuous integration</p>
-                <a class="readmore" href="/angry-murloc-build-light.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-                </section><!-- /#content -->
-        <section id="extras" class="body">
-        </section><!-- /#extras -->
+<script>var _gaq=[['_setAccount','UA-46719042-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
+		<!-- mathjax config similar to math.stackexchange -->
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+				inlineMath: [ ['$', '$'] ],
+				displayMath: [ ['$$', '$$']],
+				processEscapes: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+			},
+			messageStyle: "none",
+			"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+		});
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	</head>
+	<body>
+		<div class="off-canvas-wrap">
+			<div class="inner-wrap">
+				<!-- mobile top bar to activate nav -->
+				<nav class="tab-bar show-for-small">
+					<section class="left-small">
+						<a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+					</section>
 
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
+					<section class="middle tab-bar-section">
+						<h1 class="title">Gray&nbsp;Unicorn</h1>
+					</section>
+				</nav>
 
-</body>
+				<!-- mobile side bar nav -->
+				<aside class="left-off-canvas-menu">
+					<ul class="off-canvas-list">
+						<li><a href="">Home</a></li>
+						<li><label>Categories</label></li>
+							<li ><a href="/category/bicycles.html">Bicycles</a></li>
+							<li ><a href="/category/books.html">Books</a></li>
+							<li ><a href="/category/computers.html">Computers</a></li>
+							<li class="active"><a href="/category/development.html">Development</a></li>
+							<li ><a href="/category/games.html">Games</a></li>
+							<li ><a href="/category/making.html">Making</a></li>
+							<li ><a href="/category/random.html">Random</a></li>
+
+						<li><label>Links</label></li>
+
+						<li><label>Tags</label></li>
+							<li><a href="/tag/belt.html">belt</a></li>
+							<li><a href="/tag/bicycle.html">bicycle</a></li>
+							<li><a href="/tag/books.html">books</a></li>
+							<li><a href="/tag/computers.html">computers</a></li>
+							<li><a href="/tag/development.html">development</a></li>
+							<li><a href="/tag/drifter.html">drifter</a></li>
+							<li><a href="/tag/electronics.html">electronics</a></li>
+							<li><a href="/tag/games.html">games</a></li>
+							<li><a href="/tag/making.html">making</a></li>
+							<li><a href="/tag/random.html">random</a></li>
+							<li><a href="/tag/retrocomputing.html">retrocomputing</a></li>
+							<li><a href="/tag/shimano.html">shimano</a></li>
+							<li><a href="/tag/soma.html">SOMA</a></li>
+							<li><a href="/tag/spot.html">spot</a></li>
+
+						<li><label>Monthly Archives</label></li>
+									<li><a href="/posts/2016/04/index.html">April 2016 (1)</a></li>
+									<li><a href="/posts/2012/05/index.html">May 2012 (1)</a></li>
+
+						<li><label>Social</label></li>
+					</ul>	
+				</aside>
+
+				<!-- top bar nav -->
+				<nav class="top-bar hide-for-small-only" data-topbar>
+					<ul class="title-area">
+						<li class="name">
+							<h1><a href="/">Gray Unicorn</a></h1>
+						</li>
+					</ul>
+
+					<section class="top-bar-section">
+						<ul class="left">
+								<li ><a href="/category/bicycles.html">Bicycles</a></li>
+								<li ><a href="/category/books.html">Books</a></li>
+								<li ><a href="/category/computers.html">Computers</a></li>
+								<li class="active"><a href="/category/development.html">Development</a></li>
+								<li ><a href="/category/games.html">Games</a></li>
+								<li ><a href="/category/making.html">Making</a></li>
+								<li ><a href="/category/random.html">Random</a></li>
+						</ul>
+                        <ul class="right">                                                                                                                                           
+                                                                                                          
+····                                                                                                                                       
+                                     <li><a href="/pages/me.html">About me</a></li>                                    
+                                                                                                                                          
+                                                                                                                                             
+                        </ul>  
+					</section>
+				</nav>
+
+				<!-- Main Page Content and Sidebar -->
+				<section class="main-section">
+					<div class="row">
+						<!-- Main Content -->
+						<div class="medium-9 small-12 columns" role="content">
+							<div class="row">
+								<div class="small-12 columns">
+									<h2>Category: Development</h2>
+								</div>
+							</div>
+
+<article>
+	<h3><a href="/nrf51-developer-kit-setup-for-macos-x.html">nRF51 Developer Kit setup for macOS X</a></h3>
+	<h6>Written by <a href="/author/adam-eberbach.html">Adam Eberbach</a> in <a href="/category/development.html">Development</a> on Sat 23 April 2016. Tags: <a href="/tag/development.html">development</a>, </h6>
+	<p>Embedded Bluetooth Dev Setup</p>
+		<p class="continue"><a href="/nrf51-developer-kit-setup-for-macos-x.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="/angry-murloc-build-light.html">Angry Murloc Build Light</a></h3>
+	<h6>Written by <a href="/author/adam-eberbach.html">Adam Eberbach</a> in <a href="/category/development.html">Development</a> on Tue 08 May 2012. Tags: <a href="/tag/development.html">development</a>, <a href="/tag/games.html">games</a>, </h6>
+	<p>Having more fun than usual with continuous integration</p>
+		<p class="continue"><a href="/angry-murloc-build-light.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+
+
+						</div>
+						<!-- End Main Content -->
+						<!-- Sidebar -->
+						<aside class="medium-3 hide-for-small-only columns">
+							<div class="panel">
+								<h5>Links</h5>
+								<ul class="side-nav">
+								</ul>
+							</div>
+
+							<div class="panel">
+								<h5>Tags</h5>
+								<ul class="tag-cloud">
+								</ul>
+							</div>
+
+							<div class="panel">
+								<h5>Monthly Archives</h5>
+								<ul class="side-nav">
+											<li><a href="/posts/2016/04/index.html">April 2016 (1)</a></li>
+											<li><a href="/posts/2012/05/index.html">May 2012 (1)</a></li>
+								</ul>
+							</div>
+
+							<div class="panel">
+								<h5>Social</h5>
+								<ul class="side-nav">
+								</ul>
+							</div>
+						</aside>
+						<!-- End Sidebar -->
+					</div>
+
+					<!-- Footer -->
+					<footer class="row">
+						<div class="medium-9 small-12">
+							<hr/>
+							<p class="text-center">Powered by <a href="http://getpelican.com">Pelican</a> and <a href="http://foundation.zurb.com/">Zurb Foundation</a>. Theme by <a href="http://hamaluik.com">Kenton Hamaluik</a>.</p>
+						</div>
+					</footer>
+					<!-- End Footer -->
+				</section>
+				<a class="exit-off-canvas"></a>
+			</div><!--off-canvas inner-->
+		</div><!--off-canvas wrap-->
+
+		<script src="/theme/js/jquery.js"></script>
+		<script src="/theme/js/foundation.min.js"></script>
+		<script>
+			$(document).foundation();
+		</script>
+	</body>
 </html>

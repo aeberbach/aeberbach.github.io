@@ -1,49 +1,137 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-        <meta charset="utf-8" />
-        <title>Amiga 1200 Keyboard, part 3</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
-</head>
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="/">Gray Unicorn </a></h1>
-                <nav><ul>
-                    <li><a href="/pages/me.html">About me</a></li>
-                    <li><a href="/category/bicycles.html">Bicycles</a></li>
-                    <li><a href="/category/books.html">Books</a></li>
-                    <li class="active"><a href="/category/computers.html">Computers</a></li>
-                    <li><a href="/category/development.html">Development</a></li>
-                    <li><a href="/category/games.html">Games</a></li>
-                    <li><a href="/category/making.html">Making</a></li>
-                    <li><a href="/category/random.html">Random</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
-<section id="content" class="body">
-  <article>
-    <header>
-      <h1 class="entry-title">
-        <a href="/kb-3.html" rel="bookmark"
-           title="Permalink to Amiga 1200 Keyboard, part 3">Amiga 1200 Keyboard, part 3</a></h1>
-    </header>
+		<title>Gray Unicorn</title>
+		<meta name="description" content="">
+		<meta name="author" content="Adam Eberbach">
 
-    <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-01T00:00:00+11:00">
-                Published: Mon 01 April 2019
-        </abbr>
-		<br />
-        <abbr class="modified" title="2019-04-01T00:00:00+11:00">
-                Updated: Mon 01 April 2019
-        </abbr>
+		<link rel="stylesheet" href="/theme/css/foundation.css" />
+		<link rel="stylesheet" href="/theme/css/pygment/monokai.css" />
+		<link rel="stylesheet" href="/theme/css/custom.css" />
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/adam-eberbach.html">Adam Eberbach</a>
-        </address>
-<p>In <a href="/category/computers.html">Computers</a>.</p>
-<p>tags: <a href="/tag/computers.html">computers</a> <a href="/tag/development.html">development</a> <a href="/tag/retrocomputing.html">retrocomputing</a> </p>
-</footer><!-- /.post-info -->      <p>Drawing the schematic.</p>
+
+		<script src="/theme/js/modernizr.js"></script>
+
+		<!-- Feeds -->
+
+<script>var _gaq=[['_setAccount','UA-46719042-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+
+		<!-- mathjax config similar to math.stackexchange -->
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+				inlineMath: [ ['$', '$'] ],
+				displayMath: [ ['$$', '$$']],
+				processEscapes: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+			},
+			messageStyle: "none",
+			"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+		});
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	</head>
+	<body>
+		<div class="off-canvas-wrap">
+			<div class="inner-wrap">
+				<!-- mobile top bar to activate nav -->
+				<nav class="tab-bar show-for-small">
+					<section class="left-small">
+						<a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+					</section>
+
+					<section class="middle tab-bar-section">
+						<h1 class="title">Gray&nbsp;Unicorn</h1>
+					</section>
+				</nav>
+
+				<!-- mobile side bar nav -->
+				<aside class="left-off-canvas-menu">
+					<ul class="off-canvas-list">
+						<li><a href="">Home</a></li>
+						<li><label>Categories</label></li>
+							<li ><a href="/category/bicycles.html">Bicycles</a></li>
+							<li ><a href="/category/books.html">Books</a></li>
+							<li class="active"><a href="/category/computers.html">Computers</a></li>
+							<li ><a href="/category/development.html">Development</a></li>
+							<li ><a href="/category/games.html">Games</a></li>
+							<li ><a href="/category/making.html">Making</a></li>
+							<li ><a href="/category/random.html">Random</a></li>
+
+						<li><label>Links</label></li>
+
+						<li><label>Tags</label></li>
+							<li><a href="/tag/belt.html">belt</a></li>
+							<li><a href="/tag/bicycle.html">bicycle</a></li>
+							<li><a href="/tag/books.html">books</a></li>
+							<li><a href="/tag/computers.html">computers</a></li>
+							<li><a href="/tag/development.html">development</a></li>
+							<li><a href="/tag/drifter.html">drifter</a></li>
+							<li><a href="/tag/electronics.html">electronics</a></li>
+							<li><a href="/tag/games.html">games</a></li>
+							<li><a href="/tag/making.html">making</a></li>
+							<li><a href="/tag/random.html">random</a></li>
+							<li><a href="/tag/retrocomputing.html">retrocomputing</a></li>
+							<li><a href="/tag/shimano.html">shimano</a></li>
+							<li><a href="/tag/soma.html">SOMA</a></li>
+							<li><a href="/tag/spot.html">spot</a></li>
+
+						<li><label>Monthly Archives</label></li>
+									<li><a href="/posts/2019/05/index.html">May 2019 (1)</a></li>
+									<li><a href="/posts/2019/04/index.html">April 2019 (6)</a></li>
+									<li><a href="/posts/2019/03/index.html">March 2019 (3)</a></li>
+									<li><a href="/posts/2016/04/index.html">April 2016 (3)</a></li>
+									<li><a href="/posts/2015/09/index.html">September 2015 (1)</a></li>
+									<li><a href="/posts/2015/07/index.html">July 2015 (3)</a></li>
+									<li><a href="/posts/2014/05/index.html">May 2014 (3)</a></li>
+									<li><a href="/posts/2012/09/index.html">September 2012 (1)</a></li>
+									<li><a href="/posts/2012/07/index.html">July 2012 (1)</a></li>
+									<li><a href="/posts/2012/05/index.html">May 2012 (3)</a></li>
+
+						<li><label>Social</label></li>
+					</ul>	
+				</aside>
+
+				<!-- top bar nav -->
+				<nav class="top-bar hide-for-small-only" data-topbar>
+					<ul class="title-area">
+						<li class="name">
+							<h1><a href="/">Gray Unicorn</a></h1>
+						</li>
+					</ul>
+
+					<section class="top-bar-section">
+						<ul class="left">
+								<li ><a href="/category/bicycles.html">Bicycles</a></li>
+								<li ><a href="/category/books.html">Books</a></li>
+								<li class="active"><a href="/category/computers.html">Computers</a></li>
+								<li ><a href="/category/development.html">Development</a></li>
+								<li ><a href="/category/games.html">Games</a></li>
+								<li ><a href="/category/making.html">Making</a></li>
+								<li ><a href="/category/random.html">Random</a></li>
+						</ul>
+                        <ul class="right">                                                                                                                                           
+                                                                                                          
+····                                                                                                                                       
+                                     <li><a href="/pages/me.html">About me</a></li>                                    
+                                                                                                                                          
+                                                                                                                                             
+                        </ul>  
+					</section>
+				</nav>
+
+				<!-- Main Page Content and Sidebar -->
+				<section class="main-section">
+					<div class="row">
+						<!-- Main Content -->
+						<div class="medium-9 small-12 columns" role="content">
+<article>
+	<h2>Amiga 1200 Keyboard, part 3</h2>
+	<p>Drawing the schematic.</p>
 <p>In the last part the circuit was derived by tracing the membrane in the original A1200 keyboard. This time that circuit is going to be turned into a schematic drawing, with the output being a netlist - simply, a list of pins connected to parts (keyswitches, LED, connector) that are connected together.</p>
 <p>Because it makes for nice organisation they keys in the schematic go in roughly the same place they would be on a real keyboard. Compared to making a PCB schematic is not hard at all - wires can cross and go pretty much anywhere as long as you can keep track of them. Unless you see a big green dot you don't have a connection. Obviously you don't want to make something you can't read so keeping it neat is a good idea.</p>
 <p><a href="/images/a1200-kbd-3/schematic.jpg"><img alt="Part of schematic drawing" src="/images/a1200-kbd-3/thumb-schematic.jpg"></a></p>
@@ -88,20 +176,69 @@
 
 <p>This means that there is a net named "18", joining the pins of the components listed. I named is "18" because it matches pin 18 of the connector. And it's as simple as that. If you look at the netlist file you can manually check that all of the nets are connected the way you wanted them. This is a good idea because though it is not an exciting job it's a lot better than soldering bits of wire on your new PCB correcting in hardware the errors you should have fixed on paper.</p>
 <p>Next time - making the PCB.</p>
-    </div><!-- /.entry-content -->
+	<hr/>
+	<h6>Written by <a href="/author/adam-eberbach.html">Adam Eberbach</a> in <a href="/category/computers.html">Computers</a> on Mon 01 April 2019. Tags: <a href="/tag/computers.html">computers</a>, <a href="/tag/development.html">development</a>, <a href="/tag/retrocomputing.html">retrocomputing</a>, </h6>
+</article>
 
-  </article>
-</section>
-        <section id="extras" class="body">
-        </section><!-- /#extras -->
+<hr/>
+						</div>
+						<!-- End Main Content -->
+						<!-- Sidebar -->
+						<aside class="medium-3 hide-for-small-only columns">
+							<div class="panel">
+								<h5>Links</h5>
+								<ul class="side-nav">
+								</ul>
+							</div>
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
+							<div class="panel">
+								<h5>Tags</h5>
+								<ul class="tag-cloud">
+								</ul>
+							</div>
 
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
+							<div class="panel">
+								<h5>Monthly Archives</h5>
+								<ul class="side-nav">
+											<li><a href="/posts/2019/05/index.html">May 2019 (1)</a></li>
+											<li><a href="/posts/2019/04/index.html">April 2019 (6)</a></li>
+											<li><a href="/posts/2019/03/index.html">March 2019 (3)</a></li>
+											<li><a href="/posts/2016/04/index.html">April 2016 (3)</a></li>
+											<li><a href="/posts/2015/09/index.html">September 2015 (1)</a></li>
+											<li><a href="/posts/2015/07/index.html">July 2015 (3)</a></li>
+											<li><a href="/posts/2014/05/index.html">May 2014 (3)</a></li>
+											<li><a href="/posts/2012/09/index.html">September 2012 (1)</a></li>
+											<li><a href="/posts/2012/07/index.html">July 2012 (1)</a></li>
+											<li><a href="/posts/2012/05/index.html">May 2012 (3)</a></li>
+								</ul>
+							</div>
 
-</body>
+							<div class="panel">
+								<h5>Social</h5>
+								<ul class="side-nav">
+								</ul>
+							</div>
+						</aside>
+						<!-- End Sidebar -->
+					</div>
+
+					<!-- Footer -->
+					<footer class="row">
+						<div class="medium-9 small-12">
+							<hr/>
+							<p class="text-center">Powered by <a href="http://getpelican.com">Pelican</a> and <a href="http://foundation.zurb.com/">Zurb Foundation</a>. Theme by <a href="http://hamaluik.com">Kenton Hamaluik</a>.</p>
+						</div>
+					</footer>
+					<!-- End Footer -->
+				</section>
+				<a class="exit-off-canvas"></a>
+			</div><!--off-canvas inner-->
+		</div><!--off-canvas wrap-->
+
+		<script src="/theme/js/jquery.js"></script>
+		<script src="/theme/js/foundation.min.js"></script>
+		<script>
+			$(document).foundation();
+		</script>
+	</body>
 </html>
