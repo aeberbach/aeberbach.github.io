@@ -56,8 +56,9 @@
 						<li><label>Categories</label></li>
 							<li ><a href="/category/bicycles.html">Bicycles</a></li>
 							<li ><a href="/category/books.html">Books</a></li>
-							<li class="active"><a href="/category/computers.html">Computers</a></li>
+							<li ><a href="/category/computers.html">Computers</a></li>
 							<li ><a href="/category/development.html">Development</a></li>
+							<li class="active"><a href="/category/drafts.html">drafts</a></li>
 							<li ><a href="/category/games.html">Games</a></li>
 							<li ><a href="/category/making.html">Making</a></li>
 							<li ><a href="/category/random.html">Random</a></li>
@@ -81,6 +82,7 @@
 							<li><a href="/tag/spot.html">spot</a></li>
 
 						<li><label>Monthly Archives</label></li>
+									<li><a href="/posts/2019/08/index.html">August 2019 (1)</a></li>
 									<li><a href="/posts/2019/07/index.html">July 2019 (2)</a></li>
 									<li><a href="/posts/2019/05/index.html">May 2019 (2)</a></li>
 									<li><a href="/posts/2019/04/index.html">April 2019 (6)</a></li>
@@ -109,8 +111,9 @@
 						<ul class="left">
 								<li ><a href="/category/bicycles.html">Bicycles</a></li>
 								<li ><a href="/category/books.html">Books</a></li>
-								<li class="active"><a href="/category/computers.html">Computers</a></li>
+								<li ><a href="/category/computers.html">Computers</a></li>
 								<li ><a href="/category/development.html">Development</a></li>
+								<li class="active"><a href="/category/drafts.html">drafts</a></li>
 								<li ><a href="/category/games.html">Games</a></li>
 								<li ><a href="/category/making.html">Making</a></li>
 								<li ><a href="/category/random.html">Random</a></li>
@@ -131,19 +134,30 @@
 						<!-- Main Content -->
 						<div class="medium-9 small-12 columns" role="content">
 <article>
-	<h2>Amiga MMU Software</h2>
-	<h2>68030</h2>
-<p>Since getting the 3.1.4 software from Hyperion I have been seeing a message about no 68030.library being available, but then Workbench proceded to load and for a while I thought no more about it...
-Getting software on the Amiga had been pretty annoying. My storage is a disk module that has no master/slave setting so I have not tried to connect another drive. Also my power supply is suspect so I have not tried to boot two drives and therefore can't just fill a drive with software on another machine. I tried out Amiga Explorer with the serial port (and had too much fun wiring up a D-25 cable) and it worked, but things were so slow. I found that a PCMCIA card would let me transfer data over the network so I bought one, a D-Link DFE-670TXD. This card was mentioned in a few forums as working. TCP/IP would be much faster than 19.2K serial!</p>
-<p><img alt="Glorious 16-Bit Networking" src="/images/amiga1200-mmu/DFE-670TXD.jpg"></p>
-<p>Then I downloaded the Miami TCP stack and of course chose to install the 68020 version since the Amiga 1200 is a 68020 and I have a 68030 anyway. It connected to a network.I could ping it, even see ARP traffic. But it never worked with Amiga Explorer.
-Then with the keyboard project finished (sort of - keycaps are being made. Article to come...) and the case screws back in I decided to search a bit and get rid of the 68030.library warning. I grabbed the MMU package by Thomas Richter and installed and ...wow. Everything went faster. 
-And as soon as I tried Miami TCP again with Amiga Explorer it connected first try, and transferred data as quickly as I could wish. So there you go - you need that library.</p>
-<h2>Power Supply</h2>
-<p>When I got the Amiga it had an ancient half-height hard drive in it that I initially figured was bad - but later found that it was fine, the Amiga just did not supply enough power. In an external adapter in WinUAE it was recognised as a valid Workbench. Additionally FA/18 will play but with corrupted graphics eventually - also due to low power? I hope so. So I bought a MeanWell RPT-60B open frame power supply module and will fit it in a ventilated case (when that arrives). Since I will also want to power a couple of 5V devices from time to time including an OSSC (scan converter) I'm thinking of building a modular output side so I can add a 5V cable to power things from the supply rather than using a bunch of plugpacks. </p>
-<p><img alt="Open-frame Power Supply" src="/images/amiga1200-mmu/RPT-60B.jpg"></p>
+	<h2>Raspberry Pi 4 Model B Powered Case</h2>
+	<h2>New Raspberry Pi!</h2>
+<p>Cool! Naturally I ordered one. Right about the time that I bought the Prusa 3D printer. I wasn't planning on using the Pi 4 for the printer but I did try out the Pi Zero that the printer is designed to fit and performance is just horrible. Neat design Prusa, but the Pi Zero just isn't powerful enough.</p>
+<p>So the Pi 4 - my 1GB model, because 4GB models are backordered until 2023 or something - gets the job. But it requires USB-C power. USB-C is mainstream now but that just means new devices come with it, and I haven't hoarded enough old ones to have any spare. I have two that can supply the 15W the Pi needs and both are used every day for something else. Of course I could buy an official supply but it's still a plugpack and I just don't like plug packs. The narrow cable tangles more easily and the chunky plugpack covers more than one mains slot, usually. So I did the following - after a recent break where I shoved everything to one side for some other tasks - Hi Pete!</p>
+<h2>Power Supply Modules</h2>
+<p>Fixing the Amiga I found that the power supply was weak enough that it would occasionally crash or have graphics corruption. Probably it was the electrolytic capacitors but I just replaced the old Amiga module with a new Mean Well RPT-60B - more capable than the old module, more efficient, cheap. So when it came time to power the Pi I looked, expecting there would be a cheap module that could do that job too. There is - the Mean Well MFM-15-5. It's tiny. </p>
+<p>https://www.meanwell-web.com/content/files/pdfs/productPdfs/MW/MFM-15/MFM-15-spec.pdf</p>
+<p>Next, how to get mains into the module? I recently bought some IEC C8 AC inlets. I've got tons of cables and like the way things like the Apple TV just plug in and go. Problem solved.</p>
+<p>Finally, how to get power into the Raspberry Pi? People have been doing Power over Ethernet (PoE) with varying degrees of success so I figured it was possible. Worst case I could connect a USB-C cable and run power out and then back into the side. Turns out none of that would be necessary because the Pi can be powered from the header pins! Specifically, 4 and 6 need 5V and ground.</p>
+<p>To keep the Pi looking unaltered I chose to attach the pins to the bottom of the Pi. By heating and then pulling hard with a pair of pliers I was able to remove both pins 4 and 6, then clean up the holes with solder wick and push in some right-angled header pins. These pins make the Pi header look unaltered while providing two right-angled connection points underneath the Pi. </p>
+<h2>3D Design Time</h2>
+<p>I'm experimenting with Shapr3D on the iPad Pro. I bought a subscription last time they had a discount offer and I tried to use it, but mouse and keyboard still just feel better to me. I'm going to push ahead with Shapr3D on the next project but for this one i stuck with Autodesk's Fusion 360. Given that I'm unlikely to make $100k with my 3D designs this year (LOL) the license is free.</p>
+<p>So the basic problem was to produce a Raspberry Pi case with space for AC power inlet, AC-DC converter module and the usual Pi things like access to headers, camera connector etc. Another thing to think about was ventilation. I couldn't expect to make something as small as possible, completely exposed, and not run into the derating curve of the power module causing brownouts and Pi crashes. I tried to make open sides so that airflow was possible but it would not be possible to poke a paper clip into the mains side of the power supply. Anyone bent on getting a jolt will find it far easier to poke something into a mains socket than this power supply.</p>
+<h2>Printable?</h2>
+<p>After a few revisions the problem was down to how to make the thing most printable. I really wanted to have a pencil-case style cover to the power supply section where you just slide in the cover and escure with one screw, but the printer didn't like that. The thing to remember with 3D printing is that everything happens bottom-up - you can make a little overhang each layer, but if you make a big overhang then the plastic will just sag and look horrible, if it works at all. </p>
+<p>I also wanted to reduce the amount of plastic used. That meant not having thick columns of plastic all the way up from the base just to support a single nut in each corner. That's why the insides of the power supply section look like some kind of Bavarian castle with the nut-supporting part tapering down to a point at the base. Each layer has overhang, but it is not so great that the printer can't handle it.</p>
+<p>I borrowed some design ideas from Pusa on the way. The M2.5 nuts in the project are used in two ways, pushed up into a hexagonal cut so that the standard size bolts I wanted to use (20mm) can engage and hold down the lid of the Pi. The nuts in the power supply section are pushed in horizontally in the Bavarian castle bits to be at the correct height for some 8mm bolts.</p>
+<h2>Working</h2>
+<p>The final revision is printing right now. I printed one case last night with a time of 8.5 hours, today I cranked it up to use the finest setting the 0.4mm nozzle can handle - here's the time lapse.</p>
+<p><a href="/images/a1200-kbd-9/case-closed.jpg"><img alt="Case closed" src="/images/a1200-kbd-9/thumb-case-closed.jpg"></a></p>
+<p>Only 14 hours of printing...</p>
+<p>After the Pi 4 appeared and everone bought one twitter posts started appearing saying things like "here's another one to gather dust". Well problem solved - you have a Pi to make your 3D printer more useful. And then you use the printer to make the Pi better. And so on for ever.</p>
 	<hr/>
-	<h6>Written by <a href="/author/adam-eberbach.html">Adam Eberbach</a> in <a href="/category/computers.html">Computers</a> on Thu 16 May 2019. Tags: <a href="/tag/computers.html">computers</a>, <a href="/tag/retrocomputing.html">retrocomputing</a>, </h6>
+	<h6>Written by <a href="/author/adam-eberbach.html">Adam Eberbach</a> in <a href="/category/drafts.html">drafts</a> on Sat 10 August 2019. Tags: <a href="/tag/computers.html">computers</a>, <a href="/tag/development.html">development</a>, <a href="/tag/making.html">making</a>, </h6>
 </article>
 
 <hr/>
@@ -166,6 +180,7 @@ And as soon as I tried Miami TCP again with Amiga Explorer it connected first tr
 							<div class="panel">
 								<h5>Monthly Archives</h5>
 								<ul class="side-nav">
+											<li><a href="/posts/2019/08/index.html">August 2019 (1)</a></li>
 											<li><a href="/posts/2019/07/index.html">July 2019 (2)</a></li>
 											<li><a href="/posts/2019/05/index.html">May 2019 (2)</a></li>
 											<li><a href="/posts/2019/04/index.html">April 2019 (6)</a></li>
