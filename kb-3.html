@@ -54,6 +54,7 @@
 					<ul class="off-canvas-list">
 						<li><a href="">Home</a></li>
 						<li><label>Categories</label></li>
+							<li ><a href="/category/3dprinting.html">3DPrinting</a></li>
 							<li ><a href="/category/bicycles.html">Bicycles</a></li>
 							<li ><a href="/category/books.html">Books</a></li>
 							<li class="active"><a href="/category/computers.html">Computers</a></li>
@@ -65,6 +66,7 @@
 						<li><label>Links</label></li>
 
 						<li><label>Tags</label></li>
+							<li><a href="/tag/3dprinting.html">3dprinting</a></li>
 							<li><a href="/tag/belt.html">belt</a></li>
 							<li><a href="/tag/bicycle.html">bicycle</a></li>
 							<li><a href="/tag/books.html">books</a></li>
@@ -81,6 +83,7 @@
 							<li><a href="/tag/spot.html">spot</a></li>
 
 						<li><label>Monthly Archives</label></li>
+									<li><a href="/posts/2019/10/index.html">October 2019 (1)</a></li>
 									<li><a href="/posts/2019/08/index.html">August 2019 (1)</a></li>
 									<li><a href="/posts/2019/07/index.html">July 2019 (1)</a></li>
 									<li><a href="/posts/2019/05/index.html">May 2019 (2)</a></li>
@@ -108,6 +111,7 @@
 
 					<section class="top-bar-section">
 						<ul class="left">
+								<li ><a href="/category/3dprinting.html">3DPrinting</a></li>
 								<li ><a href="/category/bicycles.html">Bicycles</a></li>
 								<li ><a href="/category/books.html">Books</a></li>
 								<li class="active"><a href="/category/computers.html">Computers</a></li>
@@ -143,36 +147,36 @@
 <p>I could write a whole article about the keyboard matrix and try to make it good, but it's been done really well already - please take a look at <a href="http://blog.komar.be/how-to-make-a-keyboard-the-matrix/">komar's tech blog</a>.</p>
 <p>Because I just want to make a replacement keyboard I am not using diodes or changing the layout in any way from the original. The circuit is exactly the same right down to the flipped row/column connections on some of the keys like F6. I do not think that making all this completely regular could have had an effect, as these are just passive switches, but I'm not changing it. The keyboard should be better with mechanical switches, but it should not be electrically different - bugs and all.</p>
 <p>When the schematic is done the output is a netlist. This is just a text file that defines what's in the circuit and how the things are connected. The first part describes the components. Here are two entries (and part of a third) describing the switches:</p>
-<div class="highlight"><pre><span></span>  (components
-    (comp (ref K2)
-      (value F1)
-      (footprint MX_Alps_Hybrid:MXOnly-1.25U-NoLED)
-      (libsource (lib MX_Alps_Hybrids) (part MX-1.25U) (description &quot;&quot;))
-      (sheetpath (names /) (tstamps /))
-      (tstamp 5C7001B7))
-    (comp (ref K3)
-      (value F2)
-      (footprint MX_Alps_Hybrid:MXOnly-1.25U-NoLED)
-      (libsource (lib MX_Alps_Hybrids) (part MX-1.25U) (description &quot;&quot;))
-      (sheetpath (names /) (tstamps /))
-      (tstamp 5C70020E))
-    (comp (ref K4)
-      (value F3)
-      (footprint MX_Alps_Hybrid:MXOnly-1.25U-NoLED)
-      (libsource (lib MX_Alps_Hybrids) (part MX-1.25U) (description &quot;&quot;))
+<div class="highlight"><pre><span></span>  <span class="p">(</span><span class="n">components</span>
+    <span class="p">(</span><span class="n">comp</span> <span class="p">(</span><span class="k">ref</span> <span class="n">K2</span><span class="p">)</span>
+      <span class="p">(</span><span class="n">value</span> <span class="n">F1</span><span class="p">)</span>
+      <span class="p">(</span><span class="n">footprint</span> <span class="n">MX_Alps_Hybrid</span><span class="p">:</span><span class="n">MXOnly</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">25</span><span class="n">U</span><span class="o">-</span><span class="n">NoLED</span><span class="p">)</span>
+      <span class="p">(</span><span class="n">libsource</span> <span class="p">(</span><span class="n">lib</span> <span class="n">MX_Alps_Hybrids</span><span class="p">)</span> <span class="p">(</span><span class="n">part</span> <span class="n">MX</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">25</span><span class="n">U</span><span class="p">)</span> <span class="p">(</span><span class="n">description</span> <span class="ss">&quot;&quot;</span><span class="p">))</span>
+      <span class="p">(</span><span class="n">sheetpath</span> <span class="p">(</span><span class="k">names</span> <span class="o">/</span><span class="p">)</span> <span class="p">(</span><span class="n">tstamps</span> <span class="o">/</span><span class="p">))</span>
+      <span class="p">(</span><span class="n">tstamp</span> <span class="mi">5</span><span class="n">C7001B7</span><span class="p">))</span>
+    <span class="p">(</span><span class="n">comp</span> <span class="p">(</span><span class="k">ref</span> <span class="n">K3</span><span class="p">)</span>
+      <span class="p">(</span><span class="n">value</span> <span class="n">F2</span><span class="p">)</span>
+      <span class="p">(</span><span class="n">footprint</span> <span class="n">MX_Alps_Hybrid</span><span class="p">:</span><span class="n">MXOnly</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">25</span><span class="n">U</span><span class="o">-</span><span class="n">NoLED</span><span class="p">)</span>
+      <span class="p">(</span><span class="n">libsource</span> <span class="p">(</span><span class="n">lib</span> <span class="n">MX_Alps_Hybrids</span><span class="p">)</span> <span class="p">(</span><span class="n">part</span> <span class="n">MX</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">25</span><span class="n">U</span><span class="p">)</span> <span class="p">(</span><span class="n">description</span> <span class="ss">&quot;&quot;</span><span class="p">))</span>
+      <span class="p">(</span><span class="n">sheetpath</span> <span class="p">(</span><span class="k">names</span> <span class="o">/</span><span class="p">)</span> <span class="p">(</span><span class="n">tstamps</span> <span class="o">/</span><span class="p">))</span>
+      <span class="p">(</span><span class="n">tstamp</span> <span class="mi">5</span><span class="n">C70020E</span><span class="p">))</span>
+    <span class="p">(</span><span class="n">comp</span> <span class="p">(</span><span class="k">ref</span> <span class="n">K4</span><span class="p">)</span>
+      <span class="p">(</span><span class="n">value</span> <span class="n">F3</span><span class="p">)</span>
+      <span class="p">(</span><span class="n">footprint</span> <span class="n">MX_Alps_Hybrid</span><span class="p">:</span><span class="n">MXOnly</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">25</span><span class="n">U</span><span class="o">-</span><span class="n">NoLED</span><span class="p">)</span>
+      <span class="p">(</span><span class="n">libsource</span> <span class="p">(</span><span class="n">lib</span> <span class="n">MX_Alps_Hybrids</span><span class="p">)</span> <span class="p">(</span><span class="n">part</span> <span class="n">MX</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">25</span><span class="n">U</span><span class="p">)</span> <span class="p">(</span><span class="n">description</span> <span class="ss">&quot;&quot;</span><span class="p">))</span>
 </pre></div>
 
 
 <p>I'm using the excellent library by github user <a href="https://github.com/ai03-2725/MX_Alps_Hybrid.pretty">ai03-2725</a> - highly recommended. I don't love the schematic symbols, because all of the keys have a diode which when unconnected causes KiCAD to complain when transferring to PC. But the PCB footprints are excellent!</p>
 <p>Late in the netlist comes the description of the nets themselves - here's one of them:</p>
-<div class="highlight"><pre><span></span>    (net (code 198) (name /18)
-      (node (ref K36) (pin 1))
-      (node (ref K55) (pin 1))
-      (node (ref K3) (pin 1))
-      (node (ref J1) (pin 18))
-      (node (ref K74) (pin 1))
-      (node (ref K15) (pin 1))
-      (node (ref K68) (pin 1)))
+<div class="highlight"><pre><span></span>    <span class="p">(</span><span class="n">net</span> <span class="p">(</span><span class="n">code</span> <span class="mi">198</span><span class="p">)</span> <span class="p">(</span><span class="n">name</span> <span class="o">/</span><span class="mi">18</span><span class="p">)</span>
+      <span class="p">(</span><span class="n">node</span> <span class="p">(</span><span class="k">ref</span> <span class="n">K36</span><span class="p">)</span> <span class="p">(</span><span class="n">pin</span> <span class="mi">1</span><span class="p">))</span>
+      <span class="p">(</span><span class="n">node</span> <span class="p">(</span><span class="k">ref</span> <span class="n">K55</span><span class="p">)</span> <span class="p">(</span><span class="n">pin</span> <span class="mi">1</span><span class="p">))</span>
+      <span class="p">(</span><span class="n">node</span> <span class="p">(</span><span class="k">ref</span> <span class="n">K3</span><span class="p">)</span> <span class="p">(</span><span class="n">pin</span> <span class="mi">1</span><span class="p">))</span>
+      <span class="p">(</span><span class="n">node</span> <span class="p">(</span><span class="k">ref</span> <span class="n">J1</span><span class="p">)</span> <span class="p">(</span><span class="n">pin</span> <span class="mi">18</span><span class="p">))</span>
+      <span class="p">(</span><span class="n">node</span> <span class="p">(</span><span class="k">ref</span> <span class="n">K74</span><span class="p">)</span> <span class="p">(</span><span class="n">pin</span> <span class="mi">1</span><span class="p">))</span>
+      <span class="p">(</span><span class="n">node</span> <span class="p">(</span><span class="k">ref</span> <span class="n">K15</span><span class="p">)</span> <span class="p">(</span><span class="n">pin</span> <span class="mi">1</span><span class="p">))</span>
+      <span class="p">(</span><span class="n">node</span> <span class="p">(</span><span class="k">ref</span> <span class="n">K68</span><span class="p">)</span> <span class="p">(</span><span class="n">pin</span> <span class="mi">1</span><span class="p">)))</span>
 </pre></div>
 
 
@@ -202,6 +206,7 @@
 							<div class="panel">
 								<h5>Monthly Archives</h5>
 								<ul class="side-nav">
+											<li><a href="/posts/2019/10/index.html">October 2019 (1)</a></li>
 											<li><a href="/posts/2019/08/index.html">August 2019 (1)</a></li>
 											<li><a href="/posts/2019/07/index.html">July 2019 (1)</a></li>
 											<li><a href="/posts/2019/05/index.html">May 2019 (2)</a></li>
