@@ -138,24 +138,20 @@
 						<!-- Main Content -->
 						<div class="medium-9 small-12 columns" role="content">
 <article>
-	<h2>Amiga 1200 Internal power supply</h2>
-	<h2>I just don't like cables</h2>
-<p>Lots of people have updated their Amiga power brick with newer power supply modules because the older bricks are suffering from elderly capacitors, and power supplies like the <A HREF="https://www.meanwell-web.com/en-gb/ac-dc-triple-output-medical-open-frame-power-rpt--60b">Mean Well RPT-60B</A> are an ideal replacement. They give you more power capacity than the original and they are more convenient (and probably cheaper) than replacing capacitors or diagnosing the fault in an older power supply.</p>
-<h2>Internalizing it</h2>
-<p>I also used one of these supplies in my Commodore power brick - worked fine, and it stopped some graphics corruption and crashes I was seeing due to the supply failing. When I got the unit I was surprised to see that it fit really well in the space under the floppy drive in an Amiga 1200... got me thinking!</p>
-<p>I never use the floppy. If I need one in future I will use an external one to behave as DF0: - it's not hard to find the disk select line at the 23-pin connector and instead connect that to the disk-select line on the internal floppy header.</p>
-<p>Turns out I didn't mount it exactly in that space but I did lose the floppy. Using the 3D printer I made a new assembly to house the IEC C8 AC inlet, the power switch, and the mouse DB9 socket. The power supply is mounted on a plate that fits into slots at the back of this unit and is held down at the front with some M3 bolts. A cover protects the mains voltage section of the power supply. The entire unit mounts into the A1200 case using the holes that the floppy drive used to use.</p>
-<p><a href="/images/a1200-PS/PSU.jpg"><img alt="Power supply unit" src="/images/a1200-PS/thumb-PSU.jpg"></a></p>
-<p>The 3D printer didn't do the best job last night. Part of the reason for making the power supply assembly in three printed parts was to avoid bridging, supports and other extruded plastic hassles. Usually the Prusa does better than this though. I will probably revise to make it more printable by using some supports, thickening in places and make it a little nicer but structurally this is fine.</p>
-<p>Inside the machine I removed the original power connector and for good measure the rusty old RF modulator. Power cables come from the left side of the case to the power supply.</p>
-<p><a href="/images/a1200-PS/inside.jpg"><img alt="Power supply unit" src="/images/a1200-PS/thumb-inside.jpg"></a></p>
-<p>And that's all there is to it. The power cable enters the machine at the back right and it's easy to reach the power switch, no more bending down to the floor.</p>
-<p><a href="/images/a1200-PS/rear.jpg"><img alt="Power supply unit" src="/images/a1200-PS/thumb-rear.jpg"></a></p>
-<p>(The case screws aren't in - it does close completely with about 1mm to spare)</p>
-<p>I'll be checking this out as I go using a <A HREF="https://www.maximintegrated.com/en/products/ibutton/data-loggers/DS1922E.html">Maxim/Dallas Thermochron</A> button, which can be placed inside the machine and log temperature. I don't anticipate any problems as the ventilation here is probably better than in the brick and this is a very efficient supply, I never noticed the brick even getting warm.</p>
-<p>Of course, don't do anything like this unless you are competent and understand the risks. Making connections incorrectly or being careless could destroy your Amiga or even kill you.</p>
+	<h2>Amiga 1200 Latched Trapdoor</h2>
+	<h2>Building the ideal A1200</h2>
+<p>I've been working towards the A1200 I've always wanted. There always seems to be something still coming or something left to do. It will have a 50MHz 68030/68882 card in it (parts in the mail), so it needs a ventilated trapdoor. After designing and printing a couple I found that after a few cycles the catch part would fail. Now there's obviously a problem with my 3D printing setup and printing without a fan may increase layer adhesion, or switching filaments may help. But this is a quick fix.</p>
+<p>(There's another big problem with my 3D printing setup. I have a roll of Prusa Vanilla White filament. Looks great, is a nice match for the Amiga case, I just can't make it print. Their Urban Grey in the same material prints beautifully but as soon as I switch to Vanilla White the nozzle clogs and the gears grind through the filament trying to push it then I have to take the extruder servo off and clear it all. I have varied the termperature, done cold pulls, cleaned everything. No luck so far. Could have got a bad roll of filament? From Prusa? I don't think it is likely but I am running out of options.)</p>
+<h2>Simple latch</h2>
+<p>Very simple. The dimensions of the trapdoor and the inside ridge are the same as the original Amiga part, so every card should fit but please tell me if it doesn't.</p>
+<p><a href="/images/latch-trapdoor/outside.jpeg"><img alt="Outside" src="/images/latch-trapdoor/outside-thumb.jpeg"></a></p>
+<p>Twisting the knob with the screw slot causes the latch to twist and prevents the trapdoor falling out. Twisting it back lets you remove it.</p>
+<p><a href="/images/latch-trapdoor/inside.jpeg"><img alt="Inside" src="/images/latch-trapdoor/inside-thumb.jpeg"></a></p>
+<p>I printed this on a Prusa MK3S with an 0.25mm nozzle. The one you can see here is printed at the roughest setting available but still took 6 hours or so - must put that 0.6mm nozzle back on and see how it looks. And how Vanilla White behaves with that one too.</p>
+<h2>Where can I get one?</h2>
+<p><a href="https://pinshape.com/items/57455-3d-printed-ventilated-latched-amiga-1200-trapdoor">My account on Pinshape - free download.</a></p>
 	<hr/>
-	<h6>Written by <a href="/author/adam-eberbach.html">Adam Eberbach</a> in <a href="/category/computers.html">Computers</a> on Tue 13 August 2019. Tags: <a href="/tag/computers.html">computers</a>, <a href="/tag/development.html">development</a>, <a href="/tag/retrocomputing.html">retrocomputing</a>, <a href="/tag/making.html">making</a>, </h6>
+	<h6>Written by <a href="/author/adam-eberbach.html">Adam Eberbach</a> in <a href="/category/computers.html">Computers</a> on Wed 18 December 2019. Tags: <a href="/tag/computers.html">computers</a>, <a href="/tag/development.html">development</a>, <a href="/tag/retrocomputing.html">retrocomputing</a>, <a href="/tag/making.html">making</a>, </h6>
 </article>
 
 <hr/>
