@@ -140,35 +140,26 @@
 						<!-- Main Content -->
 						<div class="medium-9 small-12 columns" role="content">
 <article>
-	<h2>Amiga 1200 Keyboard, part 9</h2>
-	<h2>It's been a while!</h2>
-<p>Well not that long as far as time between blog posts goes. Last time I had decided that the way to mount this thing was 3D printing. Almost as soon as the last post was up I decided it would be educational and useful for all kinds of stuff, so I got one. I ordered the Prusa i3 MK3S kit direct. Couldn't believe when it shipped the same night and arrived in Australia in just a couple of days. And then I went to WWDC in San Jose, so it went untouched for about two weeks.</p>
-<h2>Prusa 3D Printer</h2>
-<p><a href="/images/a1200-kbd-9/prusa-printer.jpg"><img alt="Prusa i3 MK3S" src="/images/a1200-kbd-9/thumb-prusa-printer.jpg"></a></p>
-<p>I've never owned another 3D printer though I have used a couple. The really impressive thing with this machine is that you get everything right down to alcohol wipes, hex keys, pliers, filament, and an instruction manual the size of a thick glossy magazine with photography to match. You even get a pack of gummy bears. Check out any number of youtube videos for a full review of this kit but if you're wondering whether it's worth the premium over cheaper printers I'd say definitely yes. Has worked well from the first print (one nozzle jam but fixed easily enough).<br>
-Octoprint deserves its own post, but what a great piece of software. I'm using it. So much nicer to use a web interface over shuffling SD cards around.</p>
-<h2>Design and build</h2>
-<p>Previously pictures were shown of the aluminium mounts I made for the keyboard in the A1200.net case. I decided to stop using these and to change the design a bit for a few reasons. First, it's too hard to make, and with the machinery I have available it is a bit dangerous to be routing small pieces of aluminium angle. I sold a few boards and I wanted to be able to give those people 3D designs too, and I wanted the pieces to be easy to install.<br>
-I used Fusion 360 from Autodesk. It's good because it's powerful, and it's free for an individual if you derive less than $100k in revenue annually from using it. That's me. It sucks because so much of it is cloud-based. Every single time you want to export to STL you wait, and wait, and sometimes it eventually succeeds. I'm using Shapr3D on the iPad Pro also - fantastic so far.</p>
-<p><a href="/images/a1200-kbd-9/front-with-rails.jpg"><img alt="The front" src="/images/a1200-kbd-9/thumb-front-with-rails.jpg"></a></p>
-<p>In the A1200.net case there is some plastic molding right above the edge of the keyboard - that made fitting a piece of aluminium angle necessitate filing slots for those plastic fins to fit into or the case could not close. This could not continue with a 3D printed solution because plastic is just way more flexy and including slots would remove any stiffness it ever had to begin with. This problem almost had me thinking I would need to redesign the PCB.</p>
-<p><a href="/images/a1200-kbd-9/back-with-rails.jpg"><img alt="The back" src="/images/a1200-kbd-9/thumb-back-with-rails.jpg"></a></p>
-<p>Then I thought about putting a 10x3mm aluminium bar under the keyboard, supporting from behind and being supported in turn by the side rails - and it works! To avoid having a long piece of conductive metal in proximity to anything in the trap door (or the keyswitches) I printed 3cm lengths of rectangular section that fit nicely over the bar. This also raises the keyboard support so the PCB does not sag in the middle. The ends of the bar fit into the sockets on the side rail pieces, which then attach to the side of the keyboard with short M3 bolts. Finally the lower support rails attach with longer M3 bolts. </p>
-<p><a href="/images/a1200-kbd-9/kbd-in-case.jpg"><img alt="In the case" src="/images/a1200-kbd-9/thumb-kbd-in-case.jpg"></a></p>
-<p>This gets the keyboard in just the right spot. DSA key profile makes it all a good fit. I also checked it out in the original Amiga case, and though I had to revise the bottom rails to clear the round bumps either side everything was fine there too. It is a tighter fit in the original Amiga case but still good. There is plenty of room to clear any trapdoor accelerator you might have. Devices like Indivision, I don't know, I don't have one.</p>
-<p><a href="/images/a1200-kbd-9/case-closed.jpg"><img alt="Case closed" src="/images/a1200-kbd-9/thumb-case-closed.jpg"></a></p>
-<p><a href="/images/a1200-kbd-9/key-profile.jpg"><img alt="Key profile" src="/images/a1200-kbd-9/thumb-key-profile.jpg"></a></p>
-<h2>And that's it! (not really)</h2>
-<p>The Amiga is now fitted with the mechanical keyboard, 4GB solid state disk module, 3.1.4 ROMs. I got a PCMCIA adapter so transferring data from the PC is no problem. But I still need:<br>
-- Hyperion 3.1.4.1 update (Amiga on the Lake have mailed me a serial number for my OS, waiting)<br>
-- optical mouse (ordered from Amigakit, waiting)<br>
-- IDE interface and multiple internal CF card adapters (Amigakit, waiting)<br>
-- joystick (have a basic one, but I need to build up the ultimate Sanwa I have been collecting parts for)<br>
-- monitor solution - got the OSSC, have not had time to do much with it yet.<br>
-- figure out WHDLoad and get all my favorites like Dungeon Master and FA/18 Interceptor working again.<br>
-- proper Amiga keycaps. Time to start experimenting with laser engraving some of the blank keycaps I bought.<br></p>
+	<h2>Termtek TK-735</h2>
+	<p>Well it's cheap, let's take a chance!</br></p>
+<h2>What's a serial terminal?</h2>
+<p>You may have never used a serial terminal. I don't really know why I want to these days, I just like to have one. I can't explain why.</br>
+<a href="/images/tk735/vt525.jpeg"><img alt="VT525" src="/images/tk735/vt525-thumb.jpeg"></a></br>
+The gold standard (and the last DEC terminal) was the DEC VT-525, a pizza-box device in signature DEC style with places to connect serial, monitor, printer and keyboard. It had its problems; the plastic find on the sides of the case are prone to breaking off as a monitor base is dragged over them. The output transceiver chips are prone to dying if they encounter any stray voltage on the serial cables. The power switches drives by a long steel rod to actuate the power switch mounted way back on the PCB, this coupling can become loose, and the switches themselves are a push-on/push-off type that wears and becomes unreliable. Still, you won't find a working one for less than several hundred dollars, I expect they are still in use in enterprise.</br> 
+<a href="/images/tk735/vt220.jpeg"><img alt="VT220" src="/images/tk735/vt220-thumb.jpeg"></a></br>
+Then there are the other VT terminals, the ones that come with the big CRT either attached as in the early VT100 or as a separate unit like the VT220. I used amber VT220s in the old lab at uni before I was allowed to play in the Sony NEWS Station lab and I still don't think there is a better way to play Nethack.</br></p>
+<h2>Termtek TK-735</h2>
+<p><a href="/images/tk735/front.jpeg"><img alt="Complete" src="/images/tk735/front-thumb.jpeg"></a></br>
+<a href="/images/tk735/connectors.jpeg"><img alt="Complete" src="/images/tk735/connectors-thumb.jpeg"></a></br>
+There's almost no information about this thing, the brand is not even mentioned on the terminals wiki, but I found one on eBay for $30. From the description it appeared to be a VT525 clone but with ethernet? Like the VT252 it accepts a PS/2 keyboard, but the plug is on the side where you can't see it.</br>
+<a href="/images/tk735/inside.jpeg"><img alt="Complete" src="/images/tk735/inside-thumb.jpeg"></a></br>
+Connecting it up I just found a message saying that it was trying to connect to something. No keys did anything. And I wonder if that's why it was sold for so little, as it seemed dead?</br>
+<a href="/images/tk735/qume-qvt-72-plus.jpeg"><img alt="Complete" src="/images/tk735/qume-qvt-72-plus.jpeg"></a></br>
+Then I found a reference to another terminal from Termtek, a TK-635, being sold under the Qume brand as a "QVT 72 Plus". From the picture in the manual it looks almost like it could be the circuit board from my Termtek, designed to use a plugpack, in a curvy molded case. Same connector arrangement!</br>
+<a href="/images/tk735/setup.jpeg"><img alt="Setup Menu" src="/images/tk735/setup-thumb.jpeg"></a></br>
+I downloaded the manual for the Qume hoping that it would tell me the secret "enter setup" key combination and it said "Alt-ESC". So I tried it, and nothing. Then about five second later... yes! If randomly pressing keys you would almost never come across this combo especially as pressing other keys after seems to cancel it. Once you have that you have a working terminal. It looks like the ethernet connectivity of this thing is telnet to port 23, so perhaps not so useful today. Still, now I have a very clean and sturdy serial terminal again. It will probably sit around doing nothing until I hook it up to a Raspberry Pi or something but you don't need a good reason. Hopefully if arrived here because you want information on Termtek you have tried the secret setup key combination and you can now use it. Happy Nethacking!</br></p>
 	<hr/>
-	<h6>Written by <a href="/author/adam-eberbach.html">Adam Eberbach</a> in <a href="/category/computers.html">Computers</a> on Thu 18 July 2019. Tags: <a href="/tag/computers.html">computers</a>, <a href="/tag/development.html">development</a>, <a href="/tag/retrocomputing.html">retrocomputing</a>, <a href="/tag/making.html">making</a>, </h6>
+	<h6>Written by <a href="/author/adam-eberbach.html">Adam Eberbach</a> in <a href="/category/computers.html">Computers</a> on Wed 13 May 2020. Tags: <a href="/tag/computers.html">computers</a>, </h6>
 </article>
 
 <hr/>
