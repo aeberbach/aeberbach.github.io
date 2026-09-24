@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://www.grayunicorn.com/favicon.svg" />
+    <link rel="stylesheet" href="https://www.grayunicorn.com/main.css?h=dd4fb0f354fcfb80d0de" />
+    <link rel="alternate" type="application/rss+xml" title="Gray Unicorn" href="https://www.grayunicorn.com/blog/rss.xml" />
+    <script src="https://www.grayunicorn.com/theme-init.js?h=f7a49ca0a4e29341b5d4"></script>
+    
+    <title>Minipulse metal detector - 2</title>
+    <meta name="description" content="A complete metal detector" />
+    <meta property="og:title" content="Minipulse metal detector - 2" />
+    <meta property="og:description" content="A complete metal detector" />
+    <meta property="og:type" content="website" />
+
+    <meta property="og:image" content="https://www.grayunicorn.com/images/2019-11-09-minipulse2/detector-side.jpeg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://www.grayunicorn.com/images/2019-11-09-minipulse2/detector-side.jpeg" />
+
+
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <header class="site-header">
+  <div class="header-content">
+    <!-- Mobile hamburger button - far left on mobile -->
+    <button class="hamburger-toggle mobile-only" id="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="hamburger-line" d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path class="hamburger-line" d="M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path class="hamburger-line" d="M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <div class="site-title">
+      <a href="https://www.grayunicorn.com">
+        
+        <span class="title-text">Gray Unicorn</span>
+        
+      </a>
+    </div>
+
+    <div class="header-controls">
+      <nav class="main-navigation" role="navigation" aria-label="Main navigation">
+        <ul class="nav-list">
+          
+          <li><a href="https://www.grayunicorn.com/blog" class="nav-link">Blog</a></li>
+          
+        </ul>
+      </nav>
+
+      <!-- Mobile controls group - RSS and Search on right -->
+      <div class="mobile-controls">
+        
+        
+        <button type="button" class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar" title="Toggle sidebar">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="16" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+            
+            <line class="sidebar-line" x1="9" y1="4" x2="9" y2="20" stroke="currentColor" stroke-width="1.5"/>
+            
+          </svg>
+        </button>
+        <button type="button" class="theme-toggle" data-theme-cycle aria-label="Toggle theme: light, dark, or auto" title="Toggle theme">
+          <span class="theme-icon theme-icon-light" aria-hidden="true"></span>
+          <span class="theme-icon theme-icon-dark" aria-hidden="true"></span>
+          <span class="theme-icon theme-icon-auto" aria-hidden="true"></span>
+        </button>
+
+        <button class="search-toggle" id="search-toggle" data-search-trigger aria-label="Search articles">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+  <ul class="mobile-nav-list">
+    
+    <li><a href="https://www.grayunicorn.com/blog" class="mobile-nav-link">Blog</a></li>
+    
+  </ul>
+</nav>
+
+<div class="search-overlay" id="search-overlay">
+  <div class="search-container">
+    <div class="search-header">
+      <input type="text" class="search-input" id="search-input" placeholder="Search articles..." autocomplete="off">
+      <button class="search-close" id="search-close" aria-label="Close search">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2"/>
+          <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+
+<script>
+  // Theme toggle: cycles light -> dark -> auto (auto follows the OS, live-updating)
+  (function () {
+    const root = document.documentElement;
+    const btn = document.querySelector('[data-theme-cycle]');
+    if (!btn) return;
+    const order = ['light', 'dark', 'auto'];
+    const mql = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function systemTheme() { return mql.matches ? 'dark' : 'light'; }
+
+    function apply(mode) {
+      root.dataset.theme = mode === 'auto' ? systemTheme() : mode;
+      root.dataset.themeMode = mode;
+      btn.setAttribute('title', 'Theme: ' + mode + ' (click to change)');
+      try { localStorage.setItem('theme', mode); } catch (e) {}
+    }
+
+    btn.addEventListener('click', function () {
+      const current = localStorage.getItem('theme') || 'auto';
+      apply(order[(order.indexOf(current) + 1) % order.length]);
+    });
+
+    // Reflect the stored/initial mode in the tooltip on load
+    apply(localStorage.getItem('theme') || 'auto');
+
+    // Keep "auto" in sync when the OS theme changes
+    function onSystemChange() {
+      if ((localStorage.getItem('theme') || 'auto') === 'auto') {
+        root.dataset.theme = systemTheme();
+      }
+    }
+    if (mql.addEventListener) { mql.addEventListener('change', onSystemChange); }
+    else if (mql.addListener) { mql.addListener(onSystemChange); }
+  })();
+
+  // Sidebar show/hide toggle (persisted; disabled on pages without a sidebar)
+  function initSidebarToggle() {
+    var btn = document.getElementById('sidebar-toggle');
+    if (!btn) return;
+
+    // The sidebar element appears later in the document than this header, so
+    // this must run after the DOM is parsed (see the dispatch below).
+    if (!document.querySelector('.sidebar')) {
+      btn.disabled = true;
+      btn.setAttribute('aria-disabled', 'true');
+      return;
+    }
+
+    var root = document.documentElement;
+    function sync() {
+      btn.setAttribute('aria-pressed', root.dataset.sidebar === 'hidden' ? 'false' : 'true');
+    }
+    sync();
+
+    btn.addEventListener('click', function () {
+      if (root.dataset.sidebar === 'hidden') {
+        delete root.dataset.sidebar;
+        try { localStorage.setItem('sidebar', 'shown'); } catch (e) {}
+      } else {
+        root.dataset.sidebar = 'hidden';
+        try { localStorage.setItem('sidebar', 'hidden'); } catch (e) {}
+      }
+      sync();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSidebarToggle);
+  } else {
+    initSidebarToggle();
+  }
+
+  // Hamburger menu functionality
+  (function () {
+    const hamburgerToggle = document.getElementById('hamburger-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const body = document.body;
+
+    if (!hamburgerToggle || !mobileMenu) return;
+
+    hamburgerToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.contains('active');
+
+      if (isOpen) {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      } else {
+        mobileMenu.classList.add('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'true');
+        body.style.overflow = 'hidden';
+      }
+    });
+
+    // Close menu when clicking on a link
+    const mobileNavLinks = mobileMenu.querySelectorAll('.mobile-nav-link');
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      });
+    });
+
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      }
+    });
+  })();
+</script>
+
+      <main class="main-content with-sidebar sidebar-left">
+        <aside class="sidebar"><div class="sidebar-content">
+  <!-- Bio Section -->
+  <section class="bio-section">
+    <div class="avatar-container">
+      
+        <img src="/images/profile.jpg" alt="Adam Eberbach" class="avatar" />
+      
+    </div>
+    <h3 class="author-name">Adam Eberbach</h3>
+    <p class="bio-text">Computer Science graduate, started with C and Ada. Electronics, 3D design and printing, flight sims are what I do for fun.</p>
+  </section>
+
+  <!-- Recent Posts Section -->
+  
+  
+    <section class="recent-posts">
+      <h3 class="section-title">Recent Posts</h3>
+      <ul class="post-list">
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/26-09-18-zola/" class="post-link">
+              Switching to Zola
+            </a>
+            <time class="post-date" datetime="2026-09-18">
+              Sep 18, 2026
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/24-08-23-amigakeyboardsv2/" class="post-link">
+              Amiga A1200 and A600 keyboards, version 2
+            </a>
+            <time class="post-date" datetime="2024-08-23">
+              Aug 23, 2024
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/22-06-29-a1200leds/" class="post-link">
+              Amiga 1200 LED assembly
+            </a>
+            <time class="post-date" datetime="2022-06-29">
+              Jun 29, 2022
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/22-06-24-mac-video-4/" class="post-link">
+              Compact Macintosh video - 4
+            </a>
+            <time class="post-date" datetime="2022-06-24">
+              Jun 24, 2022
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/21-09-16-solidworks/" class="post-link">
+              The end of Solidworks
+            </a>
+            <time class="post-date" datetime="2021-09-16">
+              Sep 16, 2021
+            </time>
+          </li>
+        
+      </ul>
+    </section>
+  
+
+  <!-- Categories Section -->
+  
+  
+</div>
+</aside>
+        <div class="content">
+          
+<article class="blog-post">
+  <header class="post-header">
+    <h1 class="post-title">Minipulse metal detector - 2</h1>
+
+    <div class="post-meta">
+      <span class="post-byline">
+        <time class="post-date" datetime="2019-11-09">November 9, 2019</time>
+      </span>
+
+      <span class="post-reading-time">4 min read</span>
+
+      
+    </div>
+
+    
+
+    <!-- Monumental Blood Red Rule -->
+    <hr class="monumental-rule" />
+  </header>
+
+  
+  <figure class="post-hero">
+    <img src="https://www.grayunicorn.com/images/2019-11-09-minipulse2/detector-side.jpeg" alt="Minipulse metal detector - 2" />
+  </figure>
+  
+
+  
+
+  <div class="post-content">
+    <p>In a rare example of finishing a project that started some time ago, the metal detector is done. I started in 2016 and it was always going to be ready for the next camping trip. After becoming more comfortable with the 3D printer now it is.</p>
+<p>Powering such a thing is always a bit tricky and when the device needs 12V it's even harder. That's eight 1.5V batteries, a lot to manage. Or you could use the rechargeable 16850 Lithium ion cells, they are not expensive but you do need to buy a charger for them and some way to hold the cells in the device. A lot of people have done this and it's a good solution. However I decided to use the battery packs I already had for my drill/line-cutter/hedge trimmer, the Ryobi 18V system. These were the cheapest of all since they are just sitting in the garden shed most of the time. They're also big enough that two packs is going to be beyond the enthusiasm of even the most tireless kid to exhaust in a weekend. I think a module to convert the nominal 18V from the pack to 12V cost $2.80 or something on eBay. This does weigh more than the 16850 solution but I don't find it too heavy.
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/voltage-converter.ac7f228b2c0ed7b3.jpg" ><img src="https://www.grayunicorn.com/processed_images/voltage-converter.ec6001a7229ac1bf.jpg" alt="12V output, done dirt cheap" /></a>
+    <figcaption>12V output, done dirt cheap</figcaption>
+</figure>
+<p></a></p><p>So with that in mind I set out to make a 3D model of the underside of the drill these batteries connect to. It took three prototypes before I had one that would let the drill pack click in snugly without rattles, but on that third one I just decided to finish it and did everything down to the full case with holes for the headphone jack, coil plug and the lid. The final print was fantastic - having a 5 hour window for the print meant I selected best quality options and both lid and case turned out great. Or well enough anyway. PETG always seems to have a lot of stringing.</p><p><a href="/images/2019-11-09-minipulse2/housing.jpeg"></p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/housing.71828673a84a99e8.jpg" ><img src="https://www.grayunicorn.com/processed_images/housing.3492a201d8a1e11e.jpg" alt="Boxy. Like a Volvo 244DL" /></a>
+    <figcaption>Boxy. Like a Volvo 244DL</figcaption>
+</figure>
+<p></a></p><p>(On the way home to this print I stopped at the hardware store to pick up some 20mm electrical conduit for the wand - I found "20mm" PVC pipe before I got tot he electrical section so I got that instead - be warned, "20mm" PVC is internal diameter, "20mm" electrical conduit is outside diameter. Oh well the white stuff that is too big will be useful one day.)</p><p>Next up is the coil. Some years ago I printed a coil former with the aim of building a low capacitance coil, separating the coil windings and achieving a 90 degree crossing of the wires as much as possible. To protect this coil it needs a housing and the entire coil assembly needs to be adjustable to it stays relatively flat to the ground, that angle being adjustable depending on the user's height. The coil is 200mm diameter so any housing is very close to the capacity of my 3D printer...</p><p><a href="/images/2019-11-09-minipulse2/coil-housing.jpeg"></p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/coil-housing.1b3c4f3405df5bf3.jpg" ><img src="https://www.grayunicorn.com/processed_images/coil-housing.2bfd9e7f5f2e26b1.jpg" alt="Coil housing" /></a>
+    <figcaption>Coil housing</figcaption>
+</figure>
+<p></a></p><p>The angle adjustment is achieved by having interlocking vanes with a 3D-printed bolt holding it all together. It's a good idea to keep metal away from the coil so while I could have bought a much stronger nylon bolt and nut, I just printed a thread on the bolt and on the last plate of the fingers so that the coil angle can be adjusted and the bolt tightened. Fusion 360 makes this incredibly easy - just pick the "Thread" tool under the Create menu and make sure both tapped hole and bolt have the same kind of thread applied. I thought I would be looking up thread measurements and applying formula for hours here. The thread print takes a while, obviously the better it is printed the smoother the thread will be.</p><p><a href="/images/2019-11-09-minipulse2/coil-pivot.jpeg"></p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/coil-pivot.46b8db98365e63af.jpg" ><img src="https://www.grayunicorn.com/processed_images/coil-pivot.3402206d5f5667dd.jpg" alt="Coil pivot" /></a>
+    <figcaption>Coil pivot</figcaption>
+</figure>
+<p></a></p><p>Unless your printer is really dialled in, 3D printed threads don't work all that well unless you touch up the threads with a real tap &amp; die set.</p><p>Joining all the parts is the 20mm orange electrical conduit. Tarzan's Grip glue is great for joining this to printed parts. Because it expands to fit space by absorbing moisture it fills gaps. If the fit between conduit and printed part is something that is going to be held in place by expansion, like a printed cylinder fitting inside the conduit, it's secure. One piece of conduit acts as the wand of the detector, joining the coil pivot to the handle. Another is hidden, coming from the other side of the handle into the metal detector housing.</p><p><a href="/images/2019-11-09-minipulse2/handle.jpeg"></p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/handle.b91b859fd45e48d6.jpg" ><img src="https://www.grayunicorn.com/processed_images/handle.595b8040eebeb089.jpg" alt="Handle" /></a>
+    <figcaption>Handle</figcaption>
+</figure>
+<p></a></p><p>And the result is this. It's far from finished, but it is ready to use. When I rework this design I will try to decrease the size of the box, probably by making the battery mount from the rear as it does on the line cutter.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      <span class="tags-label">Tags:</span>
+      <div class="tag-list">
+        
+        <span class="tag">Amiga</span>
+        
+      </div>
+    </div>
+    
+
+    <div class="post-navigation">
+      <a href="https://www.grayunicorn.com/blog" class="back-to-blog">← Back to Blog</a>
+    </div>
+  </footer>
+</article>
+
+        </div>
+      </main>
+      <footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <p class="copyright">
+        © 2026 Adam Eberbach. All rights reserved.
+      </p>
+      <p class="theme-credit">
+        Powered by <a href="https://www.getzola.org" target="_blank" rel="noopener">Zola</a>
+        • <a href="https://github.com/jdrhyne/volks-typo" target="_blank" rel="noopener">Volks-Typo Theme</a>
+      </p>
+    </div>
+
+    <div class="social-links">
+      <a href="https://www.grayunicorn.com/blog/rss.xml" class="social-link" aria-label="RSS feed">
+        <span class="social-icon" style="-webkit-mask-image: url('https://www.grayunicorn.com/icons/rss.svg'); mask-image: url('https://www.grayunicorn.com/icons/rss.svg');" aria-hidden="true"></span>
+      </a>
+      
+      <a href="https://mastodon.online/@aeberbach" class="social-link" aria-label="Mastodon" target="_blank" rel="noopener">
+        <span class="social-icon" style="-webkit-mask-image: url('https://www.grayunicorn.com/icons/mastodon.svg'); mask-image: url('https://www.grayunicorn.com/icons/mastodon.svg');" aria-hidden="true"></span>
+      </a>
+      
+      <a href="https://github.com/aeberbach" class="social-link" aria-label="Github" target="_blank" rel="noopener">
+        <span class="social-icon" style="-webkit-mask-image: url('https://www.grayunicorn.com/icons/github.svg'); mask-image: url('https://www.grayunicorn.com/icons/github.svg');" aria-hidden="true"></span>
+      </a>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <script>window.VOLKS_SEARCH_URL = "https://www.grayunicorn.com/search/";</script>
+    <script src="https://www.grayunicorn.com/search.js?h=86f8110b674a65e81dce"></script>
+  </body>
+</html>

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://www.grayunicorn.com/favicon.svg" />
+    <link rel="stylesheet" href="https://www.grayunicorn.com/main.css?h=dd4fb0f354fcfb80d0de" />
+    <link rel="alternate" type="application/rss+xml" title="Gray Unicorn" href="https://www.grayunicorn.com/blog/rss.xml" />
+    <script src="https://www.grayunicorn.com/theme-init.js?h=f7a49ca0a4e29341b5d4"></script>
+    
+    <title>Topre Realforce RGB</title>
+    <meta name="description" content="Ultimate?" />
+    <meta property="og:title" content="Topre Realforce RGB" />
+    <meta property="og:description" content="Ultimate?" />
+    <meta property="og:type" content="website" />
+
+    <meta property="og:image" content="https://www.grayunicorn.com/images/2019-04-16-topre-realforce-rgb/dolch.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://www.grayunicorn.com/images/2019-04-16-topre-realforce-rgb/dolch.jpg" />
+
+
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <header class="site-header">
+  <div class="header-content">
+    <!-- Mobile hamburger button - far left on mobile -->
+    <button class="hamburger-toggle mobile-only" id="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="hamburger-line" d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path class="hamburger-line" d="M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path class="hamburger-line" d="M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <div class="site-title">
+      <a href="https://www.grayunicorn.com">
+        
+        <span class="title-text">Gray Unicorn</span>
+        
+      </a>
+    </div>
+
+    <div class="header-controls">
+      <nav class="main-navigation" role="navigation" aria-label="Main navigation">
+        <ul class="nav-list">
+          
+          <li><a href="https://www.grayunicorn.com/blog" class="nav-link">Blog</a></li>
+          
+        </ul>
+      </nav>
+
+      <!-- Mobile controls group - RSS and Search on right -->
+      <div class="mobile-controls">
+        
+        
+        <button type="button" class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar" title="Toggle sidebar">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="16" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+            
+            <line class="sidebar-line" x1="9" y1="4" x2="9" y2="20" stroke="currentColor" stroke-width="1.5"/>
+            
+          </svg>
+        </button>
+        <button type="button" class="theme-toggle" data-theme-cycle aria-label="Toggle theme: light, dark, or auto" title="Toggle theme">
+          <span class="theme-icon theme-icon-light" aria-hidden="true"></span>
+          <span class="theme-icon theme-icon-dark" aria-hidden="true"></span>
+          <span class="theme-icon theme-icon-auto" aria-hidden="true"></span>
+        </button>
+
+        <button class="search-toggle" id="search-toggle" data-search-trigger aria-label="Search articles">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+  <ul class="mobile-nav-list">
+    
+    <li><a href="https://www.grayunicorn.com/blog" class="mobile-nav-link">Blog</a></li>
+    
+  </ul>
+</nav>
+
+<div class="search-overlay" id="search-overlay">
+  <div class="search-container">
+    <div class="search-header">
+      <input type="text" class="search-input" id="search-input" placeholder="Search articles..." autocomplete="off">
+      <button class="search-close" id="search-close" aria-label="Close search">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2"/>
+          <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+
+<script>
+  // Theme toggle: cycles light -> dark -> auto (auto follows the OS, live-updating)
+  (function () {
+    const root = document.documentElement;
+    const btn = document.querySelector('[data-theme-cycle]');
+    if (!btn) return;
+    const order = ['light', 'dark', 'auto'];
+    const mql = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function systemTheme() { return mql.matches ? 'dark' : 'light'; }
+
+    function apply(mode) {
+      root.dataset.theme = mode === 'auto' ? systemTheme() : mode;
+      root.dataset.themeMode = mode;
+      btn.setAttribute('title', 'Theme: ' + mode + ' (click to change)');
+      try { localStorage.setItem('theme', mode); } catch (e) {}
+    }
+
+    btn.addEventListener('click', function () {
+      const current = localStorage.getItem('theme') || 'auto';
+      apply(order[(order.indexOf(current) + 1) % order.length]);
+    });
+
+    // Reflect the stored/initial mode in the tooltip on load
+    apply(localStorage.getItem('theme') || 'auto');
+
+    // Keep "auto" in sync when the OS theme changes
+    function onSystemChange() {
+      if ((localStorage.getItem('theme') || 'auto') === 'auto') {
+        root.dataset.theme = systemTheme();
+      }
+    }
+    if (mql.addEventListener) { mql.addEventListener('change', onSystemChange); }
+    else if (mql.addListener) { mql.addListener(onSystemChange); }
+  })();
+
+  // Sidebar show/hide toggle (persisted; disabled on pages without a sidebar)
+  function initSidebarToggle() {
+    var btn = document.getElementById('sidebar-toggle');
+    if (!btn) return;
+
+    // The sidebar element appears later in the document than this header, so
+    // this must run after the DOM is parsed (see the dispatch below).
+    if (!document.querySelector('.sidebar')) {
+      btn.disabled = true;
+      btn.setAttribute('aria-disabled', 'true');
+      return;
+    }
+
+    var root = document.documentElement;
+    function sync() {
+      btn.setAttribute('aria-pressed', root.dataset.sidebar === 'hidden' ? 'false' : 'true');
+    }
+    sync();
+
+    btn.addEventListener('click', function () {
+      if (root.dataset.sidebar === 'hidden') {
+        delete root.dataset.sidebar;
+        try { localStorage.setItem('sidebar', 'shown'); } catch (e) {}
+      } else {
+        root.dataset.sidebar = 'hidden';
+        try { localStorage.setItem('sidebar', 'hidden'); } catch (e) {}
+      }
+      sync();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSidebarToggle);
+  } else {
+    initSidebarToggle();
+  }
+
+  // Hamburger menu functionality
+  (function () {
+    const hamburgerToggle = document.getElementById('hamburger-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const body = document.body;
+
+    if (!hamburgerToggle || !mobileMenu) return;
+
+    hamburgerToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.contains('active');
+
+      if (isOpen) {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      } else {
+        mobileMenu.classList.add('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'true');
+        body.style.overflow = 'hidden';
+      }
+    });
+
+    // Close menu when clicking on a link
+    const mobileNavLinks = mobileMenu.querySelectorAll('.mobile-nav-link');
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      });
+    });
+
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      }
+    });
+  })();
+</script>
+
+      <main class="main-content with-sidebar sidebar-left">
+        <aside class="sidebar"><div class="sidebar-content">
+  <!-- Bio Section -->
+  <section class="bio-section">
+    <div class="avatar-container">
+      
+        <img src="/images/profile.jpg" alt="Adam Eberbach" class="avatar" />
+      
+    </div>
+    <h3 class="author-name">Adam Eberbach</h3>
+    <p class="bio-text">Computer Science graduate, started with C and Ada. Electronics, 3D design and printing, flight sims are what I do for fun.</p>
+  </section>
+
+  <!-- Recent Posts Section -->
+  
+  
+    <section class="recent-posts">
+      <h3 class="section-title">Recent Posts</h3>
+      <ul class="post-list">
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/26-09-18-zola/" class="post-link">
+              Switching to Zola
+            </a>
+            <time class="post-date" datetime="2026-09-18">
+              Sep 18, 2026
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/24-08-23-amigakeyboardsv2/" class="post-link">
+              Amiga A1200 and A600 keyboards, version 2
+            </a>
+            <time class="post-date" datetime="2024-08-23">
+              Aug 23, 2024
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/22-06-29-a1200leds/" class="post-link">
+              Amiga 1200 LED assembly
+            </a>
+            <time class="post-date" datetime="2022-06-29">
+              Jun 29, 2022
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/22-06-24-mac-video-4/" class="post-link">
+              Compact Macintosh video - 4
+            </a>
+            <time class="post-date" datetime="2022-06-24">
+              Jun 24, 2022
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/21-09-16-solidworks/" class="post-link">
+              The end of Solidworks
+            </a>
+            <time class="post-date" datetime="2021-09-16">
+              Sep 16, 2021
+            </time>
+          </li>
+        
+      </ul>
+    </section>
+  
+
+  <!-- Categories Section -->
+  
+  
+</div>
+</aside>
+        <div class="content">
+          
+<article class="blog-post">
+  <header class="post-header">
+    <h1 class="post-title">Topre Realforce RGB</h1>
+
+    <div class="post-meta">
+      <span class="post-byline">
+        <time class="post-date" datetime="2019-04-16">April 16, 2019</time>
+      </span>
+
+      <span class="post-reading-time">7 min read</span>
+
+      
+    </div>
+
+    
+
+    <!-- Monumental Blood Red Rule -->
+    <hr class="monumental-rule" />
+  </header>
+
+  
+  <figure class="post-hero">
+    <img src="https://www.grayunicorn.com/images/2019-04-16-topre-realforce-rgb/dolch.jpg" alt="Topre Realforce RGB" />
+  </figure>
+  
+
+  
+
+  <div class="post-content">
+    <h2>Taking the Topre obsession one step further</h2>
+Obviously, I like keyboards, and having tried out a lot of different MX switches and keycaps Topre was about the only direction left to go. Almost nobody has them in stock to try out and the closest you can come is probably watching YouTube demos - but at least if you don't like it the value doesn't drop much and they sell OK. But I loved the first one I bought A few weeks ago my standard was the 87UW55 - one at home and one in the office.
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/87UW55.57e0bfa2ce17894c.jpg" ><img src="https://www.grayunicorn.com/processed_images/87UW55.cf9b694f7bbcc2b7.jpg" alt="Topre 87UW55" /></a>
+    <figcaption>Topre 87UW55</figcaption>
+</figure>
+<p>(The Amiga board is MX of course and I keep one 104-key CODE in the workshop but that's all.)</p><p>Then a guy in the office bought a Topre Realforce RGB which I had forgotten was available. And I decided I had to be able to use my Dolch DSA keycaps on a Topre. Worth it? Not really!</p><p>It's pretty, but I didn't really want RGB. All I wanted was the ability to use MX keycaps on a keyboard as good as my 87UW55. And out fo the box this is a pretty bad keyboard. It rattles terribly, just feels like a really cheap product from a market somewhere. Fortunately that can be fixed. What follows is how to open and make your Realforce RGB as good as a Topre should.</p><p>First up there is one screw to remove, under a tamperproof sticker. Goodbye warranty!</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/single-screw.59b19a16a498162e.jpg" ><img src="https://www.grayunicorn.com/processed_images/single-screw.c886cd9178be0796.jpg" alt="Topre 87UW55" /></a>
+    <figcaption>Topre 87UW55</figcaption>
+</figure>
+<p>Opening up the case is a little tricky after that. You can see the clips at the back of the keyboard and they come out fairly easily with a pair of guitar picks inserted into the crack. Use just one and it will click itself back together again as soon as you move the pick.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/guitar-pick-back.71794f796a30a9cc.jpg" ><img src="https://www.grayunicorn.com/processed_images/guitar-pick-back.9f1401e9ce3a4faf.jpg" alt="Topre 87UW55" /></a>
+    <figcaption>Topre 87UW55</figcaption>
+</figure>
+<p>The front is a bit harder since you can't see the clips and they were pretty tight on mine. But put the guitar picks in and open the gap while levering up and the clips will click apart.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/guitar-pick-front.c5fb4bf2132fee81.jpg" ><img src="https://www.grayunicorn.com/processed_images/guitar-pick-front.94c2b786a8a570e2.jpg" alt="Topre 87UW55" /></a>
+    <figcaption>Topre 87UW55</figcaption>
+</figure>
+<p>With the case off you can carefully unplug the single USB connector from the back of the PCB and the two case halves are free. Here's the part where your keycaps plug in.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/plate.65775d6c0d6b9021.jpg" ><img src="https://www.grayunicorn.com/processed_images/plate.a280687b37191c52.jpg" alt="Topre 87UW55" /></a>
+    <figcaption>Topre 87UW55</figcaption>
+</figure>
+<p>Here's the back - that's a lot of screws.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/pcb-back.1be64c3a1512428c.jpg" ><img src="https://www.grayunicorn.com/processed_images/pcb-back.45a0d1510f6b5a11.jpg" alt="Topre 87UW55" /></a>
+    <figcaption>Topre 87UW55</figcaption>
+</figure>
+<p>Like an old bit of Sony gear there are a bunch of black screws all with an arrow pointing to them. There are also a bunch of silver screws. Every screw needs to be removed and put somewhere safely. Once that is done you can carefully lift the metal plate directly up from the PCB and hopefully this does not happen...</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/sproing.6a01227e269258ba.jpg" ><img src="https://www.grayunicorn.com/processed_images/sproing.c8495978b64999f8.jpg" alt="Topre 87UW55" /></a>
+    <figcaption>Topre 87UW55</figcaption>
+</figure>
+<p>If it does you get to see how the Topre switch works. The white disc in each key position on the PCB is solder mask under which are the electrical contacts. The spring provides negligible resistance, instead it acts to increase the capacitance detected across those contacts as the spring is depressed. A microprocessor detects that rising capacitance and turns it into a keycode sent as a USB HID device. The rubber dome provides the resistance you feel when you press a key. If you want to experiment with altering key weight on a Topre you need to swap rubber dones, not springs.</p><p>Having a few of the rubber domes or even one of the big units with multiple domes come off is not terrible. It's better if you manage to keep it all in the exact position because it's annoying to put back but often the rubber is not sticky enough to stay there. You will need some tweezers to reposition the springs and domes back on the PCB - way too delicate for fingers. Do that first so no dust gets under where the domes should be and put it aside. When everything else is done you can lower the plate carefully down on top of the PCB and then flip it over to put the screws back.</p><p>When the PCB is off the stems can be pushed out of the plate. Each clicks into an individual clear plastic housing. You might be able to push them far enough with a finger so that they drop out, or use a pencil. Either way do it so they fall on a cloth where you aren't going to lose them, they are light and will bounce. You probably cannot buy spares!</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/stems.118ee11fa690e040.jpg" ><img src="https://www.grayunicorn.com/processed_images/stems.16c565077d27c490.jpg" alt="Topre 87UW55" /></a>
+    <figcaption>Topre 87UW55</figcaption>
+</figure>
+<p>You can see the first part of the fix on the stems already - blue silicon rings. This is one kind of damper, another is a flat silicon ring. You can make dampers yourself if you have silicon sheet and two right-sized punches (and hours to waste) or you can buy flat dampers or silicon rings in various places. But be aware these are not the same as the red rings that go under Cherry MX caps. If you use those your keyboard will not work properly. I tried one and the keycap just doesn't return after being pressed down properly, also it feels like mush. With a dampening ring in place on top of each stem the stem cannot slap up against the top of its housing, with the sound of two bits of hard plastic rattling together. It's not pleasant.</p><p>The second part of the fix is lubrication. To do this right you need a very small applicator and you need to apply the right kind of grease in only the right place.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/lubricating.a2ea8fc9493a7b0c.jpg" ><img src="https://www.grayunicorn.com/processed_images/lubricating.9961f9b3d1116b82.jpg" alt="Topre 87UW55" /></a>
+    <figcaption>Topre 87UW55</figcaption>
+</figure>
+<p></a> The red stick in the picture is something for watchmakers to apply grease with, I bought a set and they are useful. The grease is going into just the corners of the stem housings, where the "ears" slide up and down vertically. If you use too much it will dampen the action of the keys and feel bad. Just a tiny bit on each of two corners will do.</p><p>Do not put any on the ring or the stem - this will make the key feel sticky and depending on how much there is you could feel a slight stickiness as the key is pressed down and the stem unsticks itself from the housing to move down. This is the second time I have disassembled this keyboard, this time to wipe off the grease on the stems. It did make the keyboard quieter but overall it was a bad idea.</p><p>The grease I used is <a href="https://www.tamiyausa.com/shop/maintenance-supplies/cera-grease-hg/">Tamiya Cera-Gease</a>, made for lubricating plastic gears. There are lots of kinds that will work but whatever you try be sure it is safe with plastic. Also probably not a black messy grease like Tamiya Molybdenum. The nozzle is too thick for the tiny amount you want to apply so squirt some out on a piece of foil and apply it with a watchmaking tool, or whittle a wooden stick or use a toothpick. I don't know if the fancy grease talked about in some forums would be appreciably better, maybe, but too little is probably better than too much.</p><p>Here's the finished keyboard.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/dolch.abfcc88f301d93b8.jpg" ><img src="https://www.grayunicorn.com/processed_images/dolch.6dc2b7069408a089.jpg" alt="Topre 87UW55" /></a>
+    <figcaption>Topre 87UW55</figcaption>
+</figure>
+<p>The caps are from <a href="https://pimpmykeyboard.com">Signature Plastics</a> and if you have ever bought any sets of eBay caps then you are in for a treat with these guys. Their space bars are straight, for one thing. They have OEM (regular cylindrical profile) as well as SA and these DSA keys. I love my Dolch set and I'm happy to be using them again. Right now you can buy them but they go in and out of production.</p><p>So out of the box prepare for disappointment. It's not an AUD$300 keyboard at all. And an identical model, called "R2" (but apparently no different) just got released in the USA at US$399! I just can't understand how they ship with such ugly keycaps, even the CODE keyboard had decent doubleshot backlit keys with a good font for under US$200.</p><p>However after this treatment I'm very happy with my new RGB and it sounds and feels as good as the 87UW55, possibly better. Now I'm wondering how good the 87WU55 would get if I did the same?</p>
+
+  </div>
+
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      <span class="tags-label">Tags:</span>
+      <div class="tag-list">
+        
+        <span class="tag">Amiga</span>
+        
+      </div>
+    </div>
+    
+
+    <div class="post-navigation">
+      <a href="https://www.grayunicorn.com/blog" class="back-to-blog">← Back to Blog</a>
+    </div>
+  </footer>
+</article>
+
+        </div>
+      </main>
+      <footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <p class="copyright">
+        © 2026 Adam Eberbach. All rights reserved.
+      </p>
+      <p class="theme-credit">
+        Powered by <a href="https://www.getzola.org" target="_blank" rel="noopener">Zola</a>
+        • <a href="https://github.com/jdrhyne/volks-typo" target="_blank" rel="noopener">Volks-Typo Theme</a>
+      </p>
+    </div>
+
+    <div class="social-links">
+      <a href="https://www.grayunicorn.com/blog/rss.xml" class="social-link" aria-label="RSS feed">
+        <span class="social-icon" style="-webkit-mask-image: url('https://www.grayunicorn.com/icons/rss.svg'); mask-image: url('https://www.grayunicorn.com/icons/rss.svg');" aria-hidden="true"></span>
+      </a>
+      
+      <a href="https://mastodon.online/@aeberbach" class="social-link" aria-label="Mastodon" target="_blank" rel="noopener">
+        <span class="social-icon" style="-webkit-mask-image: url('https://www.grayunicorn.com/icons/mastodon.svg'); mask-image: url('https://www.grayunicorn.com/icons/mastodon.svg');" aria-hidden="true"></span>
+      </a>
+      
+      <a href="https://github.com/aeberbach" class="social-link" aria-label="Github" target="_blank" rel="noopener">
+        <span class="social-icon" style="-webkit-mask-image: url('https://www.grayunicorn.com/icons/github.svg'); mask-image: url('https://www.grayunicorn.com/icons/github.svg');" aria-hidden="true"></span>
+      </a>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <script>window.VOLKS_SEARCH_URL = "https://www.grayunicorn.com/search/";</script>
+    <script src="https://www.grayunicorn.com/search.js?h=86f8110b674a65e81dce"></script>
+  </body>
+</html>

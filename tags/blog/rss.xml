@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>Gray Unicorn - Blog</title>
+      <link>https://www.grayunicorn.com</link>
+      <description>Random collection of project, infrequently updated</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://www.grayunicorn.com/tags/blog/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Fri, 18 Sep 2026 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Switching to Zola</title>
+          <pubDate>Fri, 18 Sep 2026 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.grayunicorn.com/blog/26-09-18-zola/</link>
+          <guid>https://www.grayunicorn.com/blog/26-09-18-zola/</guid>
+          <description xml:base="https://www.grayunicorn.com/blog/26-09-18-zola/">&lt;p&gt;Well, Publish by Sundell got me this far. No complaints but doesn&#39;t seem to have been updated recently (even longer ago than my last post here). And I intend writing some more in future, so time for a change.&lt;/p&gt;
+&lt;p&gt;I&#39;m trying out Zola and so far it seems pretty good. It&#39;s fast, easy to install, easy to configure, easy to preview pages locally. And it&#39;s written in Rust apparently, one of those things I should look at one of these days.&lt;/p&gt;
+&lt;p&gt;One gotcha is the documentation mentions shortcodes, which are no longer a thing! Instead they are replaced by Tera components. Here&#39;s the component that resizes an image to show the inline thumb version, linking to the full-size version if clicked. A supplied caption is displayed.&lt;/p&gt;
+&lt;pre&gt;
+{% component image_thumb(path: string, caption: string) -%}
+{% set thumb = resize_image(path=path, width=600, height=10, op=&quot;fit_width&quot;) %}
+{% set image = resize_image(path=path, width=5000, height=5000, op=&quot;fit&quot;) %}
+&amp;lt;figure&amp;gt;
+    &amp;lt;a href=&quot;{{ image.url }}&quot;&amp;gt;&amp;lt;img src=&quot;{{ thumb.url }}&quot; alt=&quot;{{ caption }}&quot;/&amp;gt;&amp;lt;/a&amp;gt;
+    {% if caption %}&amp;lt;figcaption&amp;gt;{{ caption }}&amp;lt;/figcaption&amp;gt;{% endif %}
+&amp;lt;/figure&amp;gt;
+{% endcomponent %}
+&lt;/pre&gt;
+&lt;p&gt;And here is how it is used in the markdown files:&lt;/p&gt;
+&lt;pre&gt;
+{{&amp;lt;image_thumb path=&quot;/images/moose.jpg&quot; caption=&quot;A majestic moose.&quot; /&amp;gt;}}
+&lt;/pre&gt;
+&lt;p&gt;It&#39;s not so hard and makes for much cleaner source. And this needs improving too since some images are higher than they are wide and it should handle that and not enlarge images when trying to create a thumb. All in good time.&lt;/p&gt;
+&lt;p&gt;In the conversion process I tried out using Copilot in Visual Studio Code to reformat the HTML, which after a couple of engine changes had some stuff that could be fixed or just plain removed. I wasn&#39;t all that impressed. It was quicker than doing it manually I guess? But too much &quot;shall I run this incredibly complicated awk, grep, perl command?&quot;  - what am I going to do, spend 20 minutes studying regex before approving? No, make a backup and see what happens. And then it takes several minutes to run, and then it isn&#39;t always right, I had several rollbacks. Sometimes it just removed the image tags altogether.
+</description>
+      </item>
+      <item>
+          <title>Changing to pages.github.io and Jekyll</title>
+          <pubDate>Fri, 10 Jul 2015 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.grayunicorn.com/blog/15-07-10-jekyll/</link>
+          <guid>https://www.grayunicorn.com/blog/15-07-10-jekyll/</guid>
+          <description xml:base="https://www.grayunicorn.com/blog/15-07-10-jekyll/">&lt;p&gt;For a while I used &lt;a href=&quot;https://laughingsquid.us&quot;&gt;Laughing Squid&lt;/a&gt; web hosting with &lt;a href=&quot;https://wordpress.com&quot;&gt;Wordpress&lt;/a&gt;. I didn&#39;t like it. Nothing specific about Wordpress but it&#39;s perhaps a little full-featured for what I do. Which is occasionally write something and add some pictures. I don&#39;t need all it does.&lt;/p&gt;
+&lt;p&gt;I also don&#39;t need what Laughing Squid does. Even though $6 monthly is pretty good I don&#39;t need it when &lt;a href=&quot;https://pages.github.com&quot;&gt;pages.github.io&lt;/a&gt; is free. Of course paid hosting has some advantages but I don&#39;t need those either.
+&lt;p&gt;The new workflow is editing markdown in &lt;a href=&quot;http://www.barebones.com/products/bbedit/&quot;&gt;BBEdit&lt;/a&gt; while viewing the result in &lt;a href=&quot;http://marked2app.com&quot;&gt;Marked 2&lt;/a&gt;. BBEdit can preview markdown of course but I just like Marked 2. When something is ready to publish it goes into the _posts directory in my &lt;a href=&quot;https://github.com/aeberbach&quot;&gt;github repo&lt;/a&gt; and once pushed to origin it&#39;s published.
+&lt;p&gt;While I convert things to clean markdown there will be some period when old articles don&#39;t appear. Some articles, like the one about &quot;Continuous Integration with Jenkins and Xcode&quot; probably won&#39;t be converted. They have aged, and are no longer accurate even if it was a good idea to do that in 2015 (it probably isn&#39;t).</description>
+      </item>
+    </channel>
+</rss>

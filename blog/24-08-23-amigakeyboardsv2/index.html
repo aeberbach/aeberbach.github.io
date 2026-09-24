@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://www.grayunicorn.com/favicon.svg" />
+    <link rel="stylesheet" href="https://www.grayunicorn.com/main.css?h=dd4fb0f354fcfb80d0de" />
+    <link rel="alternate" type="application/rss+xml" title="Gray Unicorn" href="https://www.grayunicorn.com/blog/rss.xml" />
+    <script src="https://www.grayunicorn.com/theme-init.js?h=f7a49ca0a4e29341b5d4"></script>
+    
+    <title>Amiga A1200 and A600 keyboards, version 2</title>
+    <meta name="description" content="Remaking a classic, for a classic" />
+    <meta property="og:title" content="Amiga A1200 and A600 keyboards, version 2" />
+    <meta property="og:description" content="Remaking a classic, for a classic" />
+    <meta property="og:type" content="website" />
+
+    <meta property="og:image" content="https://www.grayunicorn.com/images/2024-08-23-A600v2-and-A1200v2/A1200-complete-lid-closed.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://www.grayunicorn.com/images/2024-08-23-A600v2-and-A1200v2/A1200-complete-lid-closed.jpg" />
+
+
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <header class="site-header">
+  <div class="header-content">
+    <!-- Mobile hamburger button - far left on mobile -->
+    <button class="hamburger-toggle mobile-only" id="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="hamburger-line" d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path class="hamburger-line" d="M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path class="hamburger-line" d="M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <div class="site-title">
+      <a href="https://www.grayunicorn.com">
+        
+        <span class="title-text">Gray Unicorn</span>
+        
+      </a>
+    </div>
+
+    <div class="header-controls">
+      <nav class="main-navigation" role="navigation" aria-label="Main navigation">
+        <ul class="nav-list">
+          
+          <li><a href="https://www.grayunicorn.com/blog" class="nav-link">Blog</a></li>
+          
+        </ul>
+      </nav>
+
+      <!-- Mobile controls group - RSS and Search on right -->
+      <div class="mobile-controls">
+        
+        
+        <button type="button" class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar" title="Toggle sidebar">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="16" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+            
+            <line class="sidebar-line" x1="9" y1="4" x2="9" y2="20" stroke="currentColor" stroke-width="1.5"/>
+            
+          </svg>
+        </button>
+        <button type="button" class="theme-toggle" data-theme-cycle aria-label="Toggle theme: light, dark, or auto" title="Toggle theme">
+          <span class="theme-icon theme-icon-light" aria-hidden="true"></span>
+          <span class="theme-icon theme-icon-dark" aria-hidden="true"></span>
+          <span class="theme-icon theme-icon-auto" aria-hidden="true"></span>
+        </button>
+
+        <button class="search-toggle" id="search-toggle" data-search-trigger aria-label="Search articles">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+  <ul class="mobile-nav-list">
+    
+    <li><a href="https://www.grayunicorn.com/blog" class="mobile-nav-link">Blog</a></li>
+    
+  </ul>
+</nav>
+
+<div class="search-overlay" id="search-overlay">
+  <div class="search-container">
+    <div class="search-header">
+      <input type="text" class="search-input" id="search-input" placeholder="Search articles..." autocomplete="off">
+      <button class="search-close" id="search-close" aria-label="Close search">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2"/>
+          <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+
+<script>
+  // Theme toggle: cycles light -> dark -> auto (auto follows the OS, live-updating)
+  (function () {
+    const root = document.documentElement;
+    const btn = document.querySelector('[data-theme-cycle]');
+    if (!btn) return;
+    const order = ['light', 'dark', 'auto'];
+    const mql = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function systemTheme() { return mql.matches ? 'dark' : 'light'; }
+
+    function apply(mode) {
+      root.dataset.theme = mode === 'auto' ? systemTheme() : mode;
+      root.dataset.themeMode = mode;
+      btn.setAttribute('title', 'Theme: ' + mode + ' (click to change)');
+      try { localStorage.setItem('theme', mode); } catch (e) {}
+    }
+
+    btn.addEventListener('click', function () {
+      const current = localStorage.getItem('theme') || 'auto';
+      apply(order[(order.indexOf(current) + 1) % order.length]);
+    });
+
+    // Reflect the stored/initial mode in the tooltip on load
+    apply(localStorage.getItem('theme') || 'auto');
+
+    // Keep "auto" in sync when the OS theme changes
+    function onSystemChange() {
+      if ((localStorage.getItem('theme') || 'auto') === 'auto') {
+        root.dataset.theme = systemTheme();
+      }
+    }
+    if (mql.addEventListener) { mql.addEventListener('change', onSystemChange); }
+    else if (mql.addListener) { mql.addListener(onSystemChange); }
+  })();
+
+  // Sidebar show/hide toggle (persisted; disabled on pages without a sidebar)
+  function initSidebarToggle() {
+    var btn = document.getElementById('sidebar-toggle');
+    if (!btn) return;
+
+    // The sidebar element appears later in the document than this header, so
+    // this must run after the DOM is parsed (see the dispatch below).
+    if (!document.querySelector('.sidebar')) {
+      btn.disabled = true;
+      btn.setAttribute('aria-disabled', 'true');
+      return;
+    }
+
+    var root = document.documentElement;
+    function sync() {
+      btn.setAttribute('aria-pressed', root.dataset.sidebar === 'hidden' ? 'false' : 'true');
+    }
+    sync();
+
+    btn.addEventListener('click', function () {
+      if (root.dataset.sidebar === 'hidden') {
+        delete root.dataset.sidebar;
+        try { localStorage.setItem('sidebar', 'shown'); } catch (e) {}
+      } else {
+        root.dataset.sidebar = 'hidden';
+        try { localStorage.setItem('sidebar', 'hidden'); } catch (e) {}
+      }
+      sync();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSidebarToggle);
+  } else {
+    initSidebarToggle();
+  }
+
+  // Hamburger menu functionality
+  (function () {
+    const hamburgerToggle = document.getElementById('hamburger-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const body = document.body;
+
+    if (!hamburgerToggle || !mobileMenu) return;
+
+    hamburgerToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.contains('active');
+
+      if (isOpen) {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      } else {
+        mobileMenu.classList.add('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'true');
+        body.style.overflow = 'hidden';
+      }
+    });
+
+    // Close menu when clicking on a link
+    const mobileNavLinks = mobileMenu.querySelectorAll('.mobile-nav-link');
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      });
+    });
+
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      }
+    });
+  })();
+</script>
+
+      <main class="main-content with-sidebar sidebar-left">
+        <aside class="sidebar"><div class="sidebar-content">
+  <!-- Bio Section -->
+  <section class="bio-section">
+    <div class="avatar-container">
+      
+        <img src="/images/profile.jpg" alt="Adam Eberbach" class="avatar" />
+      
+    </div>
+    <h3 class="author-name">Adam Eberbach</h3>
+    <p class="bio-text">Computer Science graduate, started with C and Ada. Electronics, 3D design and printing, flight sims are what I do for fun.</p>
+  </section>
+
+  <!-- Recent Posts Section -->
+  
+  
+    <section class="recent-posts">
+      <h3 class="section-title">Recent Posts</h3>
+      <ul class="post-list">
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/26-09-18-zola/" class="post-link">
+              Switching to Zola
+            </a>
+            <time class="post-date" datetime="2026-09-18">
+              Sep 18, 2026
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/24-08-23-amigakeyboardsv2/" class="post-link">
+              Amiga A1200 and A600 keyboards, version 2
+            </a>
+            <time class="post-date" datetime="2024-08-23">
+              Aug 23, 2024
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/22-06-29-a1200leds/" class="post-link">
+              Amiga 1200 LED assembly
+            </a>
+            <time class="post-date" datetime="2022-06-29">
+              Jun 29, 2022
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/22-06-24-mac-video-4/" class="post-link">
+              Compact Macintosh video - 4
+            </a>
+            <time class="post-date" datetime="2022-06-24">
+              Jun 24, 2022
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/21-09-16-solidworks/" class="post-link">
+              The end of Solidworks
+            </a>
+            <time class="post-date" datetime="2021-09-16">
+              Sep 16, 2021
+            </time>
+          </li>
+        
+      </ul>
+    </section>
+  
+
+  <!-- Categories Section -->
+  
+  
+</div>
+</aside>
+        <div class="content">
+          
+<article class="blog-post">
+  <header class="post-header">
+    <h1 class="post-title">Amiga A1200 and A600 keyboards, version 2</h1>
+
+    <div class="post-meta">
+      <span class="post-byline">
+        <time class="post-date" datetime="2024-08-23">August 23, 2024</time>
+      </span>
+
+      <span class="post-reading-time">11 min read</span>
+
+      
+    </div>
+
+    
+
+    <!-- Monumental Blood Red Rule -->
+    <hr class="monumental-rule" />
+  </header>
+
+  
+  <figure class="post-hero">
+    <img src="https://www.grayunicorn.com/images/2024-08-23-A600v2-and-A1200v2/A1200-complete-lid-closed.jpg" alt="Amiga A1200 and A600 keyboards, version 2" />
+  </figure>
+  
+
+  
+
+  <div class="post-content">
+    <figure>
+    <a href="https://www.grayunicorn.com/processed_images/A600-complete.f39fec000ed9089a.jpg" ><img src="https://www.grayunicorn.com/processed_images/A600-complete.f326da5e1be9530d.jpg" alt="A600 with new keyboard" /></a>
+    <figcaption>A600 with new keyboard</figcaption>
+</figure>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/A1200-complete-lid-closed.20365dd8441870bd.jpg" ><img src="https://www.grayunicorn.com/processed_images/A1200-complete-lid-closed.df4a55d663511841.jpg" alt="A1200 with new keyboard" /></a>
+    <figcaption>A1200 with new keyboard</figcaption>
+</figure>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/A1200-cap-height-right.bfd5dbd13148ae0f.jpg" ><img src="https://www.grayunicorn.com/processed_images/A1200-cap-height-right.874bd9571d7218f2.jpg" alt="A1200 - cap height is perfect" /></a>
+    <figcaption>A1200 - cap height is perfect</figcaption>
+</figure>
+<p>Some time ago I designed a replacement Amiga 1200 keyboard using MX keyswitches. Shortly after that I made one for the Amiga 600 also. They worked great, mostly. There were a couple of problems though: - MX key switches are taller than the original switch mechanism, so keycaps sit up too high - Amiga key caps with correct legend and size are really hard/expensive to get - Caps Lock key with a window to show the original LED is almost impossible to get - the mount I designed for the Amiga 1200 fitted badly</p>
+<p>Then recently, Amibay user <a rel="external" href="https://www.amibay.com/members/steveed.32005/">steveed</a> solved the keycap problem, spending hours organising kits of Amiga-perfect keycaps from Signature Plastics. They are great! With these available I was inspired to redo the keyboards, without them I probably would not have.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/keycaps-packaged.1b6f60e775c1a07d.jpg" ><img src="https://www.grayunicorn.com/processed_images/keycaps-packaged.0bc9fe8a7ffa3b0d.jpg" alt="Set of new Amiga keycaps from steveed" /></a>
+    <figcaption>Set of new Amiga keycaps from steveed</figcaption>
+</figure>
+<p>This post is about the result of that work, showing off the new A600 and A1200 keyboards.</p>
+<h2>Physical construction</h2>
+<p>For both keyboards I used the <a rel="external" href="https://www.gateron.co/products/gateron-low-profile-mechanical-switch-set">Gateron KS-33</a>. I first tried these in a Nuphy Air 75 V2 which is now my favourite and I use it daily (but the firmware, terrible!).  I find the key travel perfect and really like the banana tactile keys, a slightly heavier version of the familiar brown. Red or silver (linear) and blue (clicky) styles are available too. The height of these switches is 8.8mm base-to-top, compared with 15mm for a regular MX. (Update: I now use a Keychron K1M-H3, I prefer 80% layout, but it uses the same Gateron switches.)</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/nuphyAir75v2.dc285de730374a7d.jpg" ><img src="https://www.grayunicorn.com/processed_images/nuphyAir75v2.ae6a6ee7d2dc5718.jpg" alt="Nuphy Air 75 V2" /></a>
+    <figcaption>Nuphy Air 75 V2</figcaption>
+</figure>
+<p>These switches only come in a 3-pin mount, one large central locating pin (also the housing for the internal spring) and two electrical pins. Because they do not have two extra side pins to set the location these would be very hard to mount straight if not using a plate - also because of the stabilizers available a plate is a must. These stabilizers mount level with the switch top, not the PCB. I looked into having a plate made but a simple laser-cut sheet is expensive, and won't work without some material under it providing thickess and room for the stabilizer wires, so if I have to print something may as well print the whole thing? The decision was helped by finding some "Milky White" PLA filament that prints sharp and is a great color match for the A1200 case. Also the availability of an ultra-reliable Prusa MK4 helped.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/ks-33-layout.95010c7af9b43551.jpg" ><img src="https://www.grayunicorn.com/processed_images/ks-33-layout.ccc2aa19403f1de6.jpg" alt="Pattern for KS-33 layout is simpler" /></a>
+    <figcaption>Pattern for KS-33 layout is simpler</figcaption>
+</figure>
+<p>Designing the PCB was a little easier after having done a couple of keyboards already. Position of the keys was already known, and routing the traces again was not hard, made easier by not having those two locating pins on every switch. The connector and FFC ribbon remain the same from the old version.</p>
+<p>Caps lock was always a problem. I once tried drilling a hole in a Caps Lock key and filling it with clear silicon to make a key with a window but it never really worked well. You just can't buy windowed keys that match the rest of the keys any more. A red glow under the Caps Lock key was visible, but not ideal.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/drilled-window-caps.b9f4cb981d535878.jpg" ><img src="https://www.grayunicorn.com/processed_images/drilled-window-caps.7d7cb27a76416805.jpg" alt="Keycaps with drilled windows, one with translucent silicon window" /></a>
+    <figcaption>Keycaps with drilled windows, one with translucent silicon window</figcaption>
+</figure>
+<p>To solve this I looked to a chip I read about recently, a Dual Inverter capable of supplying (or sinking) enough current to light LEDs. The idea is that the output of one inverter is chained to the other. When the input is high the output of the first inverter is low and the second is high. Make the input low and the output of the first inverter is high while the second is low. This means that with LEDs attached to those inverters one will be on at any given time.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/inverter-leds.d13bb665e1b384ab.jpg" ><img src="https://www.grayunicorn.com/processed_images/inverter-leds.6b259cc4ac1b7dff.jpg" alt="SN74LVC2ZGU04 dual inverter with LEDs on A600 PCB" /></a>
+    <figcaption>SN74LVC2ZGU04 dual inverter with LEDs on A600 PCB</figcaption>
+</figure>
+<p>Normally the Amiga shows a red LED when power is on. What I have done is take the Caps Lock signal from the Amiga and use it as the input to the inverter. When off it is high, so the red power LED, cathode connected to the first inverter, is on. When caps lock is on then no current flows through the red LED, but the blue LED, cathode connected to the second inverter, is lit. With these two side by side and visible through the translucent light pipe the effect is of a single lamp changing color. This LED section of the keyboard replaces the separate LED board in the A600 or A1200, and plugs into the same 4- or 5-pin header on the Amiga.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/A1200-complete-caps-lock.487658f90b70613d.jpg" ><img src="https://www.grayunicorn.com/processed_images/A1200-complete-caps-lock.1878b96bd9a5b717.jpg" alt="A1200 complete with new keyboard A1200 complete, caps lock on" /></a>
+    <figcaption>A1200 complete with new keyboard A1200 complete, caps lock on</figcaption>
+</figure>
+<p>Now when you open the A600 there are two cables to unplug before you can lift the top free, keyboard and LED. In the A1200 there are no cables to unplug. Don't know about you but I have forgotten the LED board many times when taking the lid off the A1200 and have broken the cable once. If you don't want to use this new LED idea the old LED is still there under the Caps Lock key and you can just break out the LED section of the keyboard PCB, it's routed so that it will snap out. If you do want the LED section but no color changing Caps Lock function, load one 0R resistor, leave off the inverter and blue LED parts, and the LEDs all work as normal.</p>
+<h2>Keyboard Plates</h2>
+<p>KiCad is an amazing piece of software, not only does it do the work of packages costing thousands it will generate a STEP file for use in 3D CAD software. With the STEP file I was able to make an Autodesk Inventor assembly and create the keyboard plates and mounts. The plates are in two pieces since the widest I can print is around 250mm. Each plate supports the switches and the stabilizers and is held to the PCB by the soldered switches. The stabilizer cuts took some adjusting, initial version (following the manufacturer's drawings) had the keys not springing back up as they should, but after a few tweaks they are smooth.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/A600-Inventor.fb8813092b99192a.jpg" ><img src="https://www.grayunicorn.com/processed_images/A600-Inventor.0200662e9bb0a2cf.jpg" alt="A600 Assembly render from Inventor showing front plates and mounting rails" /></a>
+    <figcaption>A600 Assembly render from Inventor showing front plates and mounting rails</figcaption>
+</figure>
+<p>Nobody makes an 8U/9U keyboard stabilizer now of course, and A600 uses an 8U space bar while A1200 uses a 9U. For this I needed to take a 2U stabilizer, discard the wire and bend a new wire using 1.0mm music wire from the hobby store. If this is not accurately bent the space bar will not bounce back up when you depress it, or will feel different when pressed on either side. If you think you will be bending more than one, make a jig. You will probably be bending more than one unless you make the jig though, because by hand it is very unlikely to be right first time! This is a square section of steel with a 1.0mm hole drilled 133.0mm from the edge. You definitely need a centre punch and cutting oil for this. When a wire has one end bent at a right angle and that end is inserted in the hole with the wire laying along the steel bar, bending it over the edge will make a good 133.5mm space bar wire. Not shown is the notch on the other side of the bar that lets me trim the bent ends to a consistent length, also very important.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/space-wire-bending-jig.0e65344a4532e6dc.jpg" ><img src="https://www.grayunicorn.com/processed_images/space-wire-bending-jig.85e8af0717e69d5c.jpg" alt="8U/9U space bar stabilizer wire bending jig" /></a>
+    <figcaption>8U/9U space bar stabilizer wire bending jig</figcaption>
+</figure>
+<p>The plates are 3mm thick in places and 0.5mm thick in others. The 3mm sections support key switches, slightly off the PCB, so that less of the switch pins poke through the PCB. Stabilizers are also supported by the plate and they snap in before everything is constructed with the wires hidden from view. The 0.5mm sections tie the 3mm sections together which is important to locate everything relative to the other parts. Where the plate contacts the top of the Amiga case it is in a 0.5mm section. This means the bottom of the keyboard PCB is 1.6mm (PCB) + 0.5mm (plate) down from the bottom of the case - there's a lot more room inside the case as a result. The supporting bar and the FFC connector protrude a bit but they should be well out of the way. My PiStorm32-Lite is installed with room to spare.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/under-keyboard-A1200.de9db946c717f6ab.jpg" ><img src="https://www.grayunicorn.com/processed_images/under-keyboard-A1200.7e01c93cc9ba3737.jpg" alt="PiStorm32-lite using Raspberry Pi 4 fits easily under this keyboard in A1200" /></a>
+    <figcaption>PiStorm32-lite using Raspberry Pi 4 fits easily under this keyboard in A1200</figcaption>
+</figure>
+<h2>Mounting the Keyboard</h2>
+<h3>A1200</h3>
+<p>For the A1200 there are two kinds of case bottoms, A1200.net and Commodore/Escom. Both have ridges along the side where the keyboard mount sits but they are in different positions, so different versions of the mount are required with the ridge cuts moved to suit. The bottom mount piece is common between both. (There was a mistake in my original mount design: the mounts sat too high so the case did not close exactly.)</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/left-rail-A1200.e7cee0cc3d1b87d8.jpg" ><img src="https://www.grayunicorn.com/processed_images/left-rail-A1200.c8beef55bc2ef0c4.jpg" alt="Left mount fits into moulded ridges at side of case" /></a>
+    <figcaption>Left mount fits into moulded ridges at side of case</figcaption>
+</figure>
+<p>Or so I thought! Someone asked why the mounts were not universal, and I couldn't think of a reason. By making the slots just a bit wider I came up with one that would fit in either case and saved a ton of work checking which version I needed to print and install and which to supply as spares.</p>
+<p>To keep the A1200 keyboard from flexing over its 450mm span the plate helps a little bit but an aluminium bar is still required to make it stiff enough. In the old version the keyboard could bounce slightly off the supporting bar - a little bit of double sided tape helped. The new version uses a right-angle extrusion and has five mounting points along the bar so it does not move around at all. The one shown here is slightly rough as it is the first one I made, yellow Kapton tape is under it for insulation.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/A1200-keyboard-rear.9273126026d7dc3d.jpg" ><img src="https://www.grayunicorn.com/processed_images/A1200-keyboard-rear.5961a0de4bfcd4a5.jpg" alt="Rear of keyboard showing aluminium extrusion, mounting pieces and rivets" /></a>
+    <figcaption>Rear of keyboard showing aluminium extrusion, mounting pieces and rivets</figcaption>
+</figure>
+<p>For the A1200 case top the only variation is the width of the light pipes - I have been sending the light pipe assembly for both cases. Having a gap either side of the light pipe looks bad, and having it not fit at all is worse.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/A1200-light-pipes-front.ce2aea5032080b9d.jpg" ><img src="https://www.grayunicorn.com/processed_images/A1200-light-pipes-front.d48eb3dbbe6112d3.jpg" alt="A1200 front panel showing light pipes (A1200.net case)" /></a>
+    <figcaption>A1200 front panel showing light pipes (A1200.net case)</figcaption>
+</figure>
+<p>The entire thing is put together with plastic rivets. I first bought these for another project. They make assembly quicker, they are non-conductive, the are compact, this is a perfect place to use them. M3 bolts and nylock nuts would work as well, if that's what you have.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/lower-mount-A1200.ab713d12b5c313d3.jpg" ><img src="https://www.grayunicorn.com/processed_images/lower-mount-A1200.a32df9d7da06c206.jpg" alt="A1200 lower mount showing switches, stabilizers" /></a>
+    <figcaption>A1200 lower mount showing switches, stabilizers</figcaption>
+</figure>
+<h3>A600</h3>
+<p>In the A600 the keyboard mounts between one long claw and two short claws opposing on the top of the case. The design of the plates is such that the top and bottom mount pieces sandwich the PCB and plates and fit between these claws with the top piece locating the keyboard exactly in the width of the case. These interlock, and since they are printed in PLA a very tiny dab of cyanoacrylate glue is enough to keep everything together. Do not use ultra-thin glue here as it will wick through the whole PCB and possibly destroy the entire keyboard. Do not use too much!</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/A600-gluing-rails.46a3483fa876e00a.jpg" ><img src="https://www.grayunicorn.com/processed_images/A600-gluing-rails.9c278802f04b9fab.jpg" alt="Gluing mounting rails on the A600 keyboard" /></a>
+    <figcaption>Gluing mounting rails on the A600 keyboard</figcaption>
+</figure>
+<p>Fitting the keyboard is exactly like the original - flexing the top of the case slightly makes it easy to put the keyboard in its place. Once it is pushed in under the claws and you can see that the top notch is sitting between the F key apertures it's in.</p>
+<p>Light pipes in the A600 are much simpler, just small pieces of translucent PETG to push into the LED holes.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/A600-leds-front.1575016816857106.jpg" ><img src="https://www.grayunicorn.com/processed_images/A600-leds-front.9f3adb9bcc58f626.jpg" alt="A600 LEDs" /></a>
+    <figcaption>A600 LEDs</figcaption>
+</figure>
+<h3>Cables</h3>
+<p>In the original design the FFC cable and Right-angled FFC connector were only available from one place, Mouser Electronics. Only a 32-way 178mm cable could be bought, also the only FFC connector available was 32-way. 178mm is a bit too long but the next shortest was far too short, and there are too many conductors as the A1200 requires 31 and the A600 requires 30. I got around this by trimming either one or two conductors from the Amiga side of the cable and just tucking in the extra length where it would fit.</p>
+<p>This keyboard design is no different - 32-way right-angle connector, 32-way cable. Using the white locking connector as the Amiga mainboards use is an option but more expensive and fairly tall. Be sure to insert the cable with the conductors on the right side, with the cable pushed as far to the left of the keyboard as it will go.</p>
+<p>You can get 31-way cables at Aliexpress! Just be sure to get the kind where the connector is on opposite sides of the cable, not the same side.</p>
+<h3>Where do I Get One?</h3>
+<p>I did sell some keyboards but I am probably not selling any more.
+You might find some for sale at <a rel="external" href="https://bitbinders.com/products/a1200-keyboard">bitbinders.com</a>.
+You can also find the git repo and can make your own PCBs and solder it all up. See:</br>
+<a rel="external" href="https://github.com/aeberbach/A1200KBv2">A1200 v2</a></br>
+<a rel="external" href="https://github.com/aeberbach/A600KBv2">A600 v2</a></br>
+Also there is now a version that uses the Big-Ass Enter Key (BAEK) and a wider left shift, like the A2000 keyboards. This eliminates the two blank keys that were often unused:</br>
+<a rel="external" href="https://github.com/aeberbach/A1200KBv2-BAEK">A1200 v2 BAEK</a></br></p>
+
+  </div>
+
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      <span class="tags-label">Tags:</span>
+      <div class="tag-list">
+        
+        <span class="tag">Amiga</span>
+        
+      </div>
+    </div>
+    
+
+    <div class="post-navigation">
+      <a href="https://www.grayunicorn.com/blog" class="back-to-blog">← Back to Blog</a>
+    </div>
+  </footer>
+</article>
+
+        </div>
+      </main>
+      <footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <p class="copyright">
+        © 2026 Adam Eberbach. All rights reserved.
+      </p>
+      <p class="theme-credit">
+        Powered by <a href="https://www.getzola.org" target="_blank" rel="noopener">Zola</a>
+        • <a href="https://github.com/jdrhyne/volks-typo" target="_blank" rel="noopener">Volks-Typo Theme</a>
+      </p>
+    </div>
+
+    <div class="social-links">
+      <a href="https://www.grayunicorn.com/blog/rss.xml" class="social-link" aria-label="RSS feed">
+        <span class="social-icon" style="-webkit-mask-image: url('https://www.grayunicorn.com/icons/rss.svg'); mask-image: url('https://www.grayunicorn.com/icons/rss.svg');" aria-hidden="true"></span>
+      </a>
+      
+      <a href="https://mastodon.online/@aeberbach" class="social-link" aria-label="Mastodon" target="_blank" rel="noopener">
+        <span class="social-icon" style="-webkit-mask-image: url('https://www.grayunicorn.com/icons/mastodon.svg'); mask-image: url('https://www.grayunicorn.com/icons/mastodon.svg');" aria-hidden="true"></span>
+      </a>
+      
+      <a href="https://github.com/aeberbach" class="social-link" aria-label="Github" target="_blank" rel="noopener">
+        <span class="social-icon" style="-webkit-mask-image: url('https://www.grayunicorn.com/icons/github.svg'); mask-image: url('https://www.grayunicorn.com/icons/github.svg');" aria-hidden="true"></span>
+      </a>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <script>window.VOLKS_SEARCH_URL = "https://www.grayunicorn.com/search/";</script>
+    <script src="https://www.grayunicorn.com/search.js?h=86f8110b674a65e81dce"></script>
+  </body>
+</html>

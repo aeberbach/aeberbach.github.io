@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>Gray Unicorn - Retrocomputing</title>
+      <link>https://www.grayunicorn.com</link>
+      <description>Random collection of project, infrequently updated</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://www.grayunicorn.com/tags/retrocomputing/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Wed, 13 May 2020 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Termtek TK-735</title>
+          <pubDate>Wed, 13 May 2020 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.grayunicorn.com/blog/20-05-13-tk735/</link>
+          <guid>https://www.grayunicorn.com/blog/20-05-13-tk735/</guid>
+          <description xml:base="https://www.grayunicorn.com/blog/20-05-13-tk735/">&lt;h2&gt;What&#39;s a serial terminal?&lt;/h2&gt;
+You may have never used a serial terminal. I don&#39;t really know why I want to these days, I just like to have one.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/vt525.bdff30907ff72a2e.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/vt525.5ab1b78f5220a7aa.jpg&quot; alt=&quot;VT525&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;VT525&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;The gold standard (and the last DEC terminal) was the DEC VT-525, a pizza-box device in signature DEC style with places to connect serial, monitor, printer and keyboard. It had its problems; the plastic fins on the sides of the case are prone to breaking off if a monitor base is dragged over them. The output transceiver chips are easily zapped if the serial cables pick up any stray voltage. The front power switch drives a long steel rod to actuate the actual power switch mounted way in the back of the case and that coupling can become loose. The mechanical switch itself is a push-on/push-off type that wears and becomes unreliable. Still, you won&#39;t find a working terminal for less than several hundred dollars and I expect they are still in use in some enterprises.&amp;lt;&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/vt220.798e32085b134ec0.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/vt220.d35d390a5a86cd21.jpg&quot; alt=&quot;VT220&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;VT220&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Then there are the other VT terminals, the ones that come with the big CRT either attached as in the early VT100 or as a separate unit like the VT220. I used amber VT220s in the old lab at uni before I was allowed to play in the Sony NEWS Station lab and I still don&#39;t think there is a better way to play Nethack.&lt;/p&gt;
+&lt;h2&gt;Termtek TK-735&lt;/h2&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/front.5ca5ac68c51b05ac.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/front.b7c1d162043e5141.jpg&quot; alt=&quot;Featureless Front Panel&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Featureless Front Panel&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/connectors.09c3ed670ead317b.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/connectors.adb9d94bafc85ebd.jpg&quot; alt=&quot;Connectors&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Connectors&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;There&#39;s almost no information about this thing, the brand is not even mentioned on the terminals wiki, but I found one on eBay for $30. From the description it appeared to be a VT525 clone but with ethernet? Like the VT252 it accepts a PS/2 keyboard, but the plug is on the side where you can&#39;t see it.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/inside.8ae116a3e545d046.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/inside.d0c3b639cf852ea3.jpg&quot; alt=&quot;Inside the Box&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Inside the Box&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Connecting it up I just found a message saying that it was trying to connect to something. No keys did anything. And I wonder if that&#39;s why it was sold for so little, as it seemed dead?&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/qume-qvt-72-plus.8a3ac30515fb59ba.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/qume-qvt-72-plus.113874ac9f150d75.jpg&quot; alt=&quot;Qume Manual Picture&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Qume Manual Picture&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Then I found a reference to another terminal from Termtek, a TK-635, being sold under the Qume brand as a &quot;QVT 72 Plus&quot;. From the picture in the manual it looks almost like it could be the circuit board from my Termtek, designed to use a plugpack, in a curvy molded case. Same connector arrangement!&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/setup.172812be1cfb92ea.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/setup.6908354fed795755.jpg&quot; alt=&quot;Setup Menu&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Setup Menu&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;I downloaded the manual for the Qume hoping that it would tell me the secret &quot;enter setup&quot; key combination and it said &quot;Alt-ESC&quot;. So I tried it, and nothing. Then about five seconds later... yes! If randomly pressing keys you would almost never come across this combo especially as pressing other keys after seems to cancel it. Once you have that you have a working terminal. It looks like the ethernet connectivity of this thing is telnet to port 23, so perhaps not so useful today. Still, now I have a very clean and sturdy serial terminal again. It will probably sit around doing nothing until I hook it up to a Raspberry Pi or something but you don&#39;t need a good reason. Hopefully if arrived here because you want information on Termtek you have tried the secret setup key combination and you can now use it. Happy Nethacking!&lt;/p&gt;
+</description>
+      </item>
+    </channel>
+</rss>

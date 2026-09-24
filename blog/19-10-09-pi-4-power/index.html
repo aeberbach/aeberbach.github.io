@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://www.grayunicorn.com/favicon.svg" />
+    <link rel="stylesheet" href="https://www.grayunicorn.com/main.css?h=dd4fb0f354fcfb80d0de" />
+    <link rel="alternate" type="application/rss+xml" title="Gray Unicorn" href="https://www.grayunicorn.com/blog/rss.xml" />
+    <script src="https://www.grayunicorn.com/theme-init.js?h=f7a49ca0a4e29341b5d4"></script>
+    
+    <title>Powering the Raspberry Pi 4</title>
+    <meta name="description" content="When you don&#39;t want a plugpack" />
+    <meta property="og:title" content="Powering the Raspberry Pi 4" />
+    <meta property="og:description" content="When you don&#39;t want a plugpack" />
+    <meta property="og:type" content="website" />
+
+    <meta property="og:image" content="https://www.grayunicorn.com/images/2019-10-09-RPi4-PSU-case/power_side.jpeg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://www.grayunicorn.com/images/2019-10-09-RPi4-PSU-case/power_side.jpeg" />
+
+
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <header class="site-header">
+  <div class="header-content">
+    <!-- Mobile hamburger button - far left on mobile -->
+    <button class="hamburger-toggle mobile-only" id="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="hamburger-line" d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path class="hamburger-line" d="M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path class="hamburger-line" d="M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <div class="site-title">
+      <a href="https://www.grayunicorn.com">
+        
+        <span class="title-text">Gray Unicorn</span>
+        
+      </a>
+    </div>
+
+    <div class="header-controls">
+      <nav class="main-navigation" role="navigation" aria-label="Main navigation">
+        <ul class="nav-list">
+          
+          <li><a href="https://www.grayunicorn.com/blog" class="nav-link">Blog</a></li>
+          
+        </ul>
+      </nav>
+
+      <!-- Mobile controls group - RSS and Search on right -->
+      <div class="mobile-controls">
+        
+        
+        <button type="button" class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar" title="Toggle sidebar">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="16" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+            
+            <line class="sidebar-line" x1="9" y1="4" x2="9" y2="20" stroke="currentColor" stroke-width="1.5"/>
+            
+          </svg>
+        </button>
+        <button type="button" class="theme-toggle" data-theme-cycle aria-label="Toggle theme: light, dark, or auto" title="Toggle theme">
+          <span class="theme-icon theme-icon-light" aria-hidden="true"></span>
+          <span class="theme-icon theme-icon-dark" aria-hidden="true"></span>
+          <span class="theme-icon theme-icon-auto" aria-hidden="true"></span>
+        </button>
+
+        <button class="search-toggle" id="search-toggle" data-search-trigger aria-label="Search articles">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+  <ul class="mobile-nav-list">
+    
+    <li><a href="https://www.grayunicorn.com/blog" class="mobile-nav-link">Blog</a></li>
+    
+  </ul>
+</nav>
+
+<div class="search-overlay" id="search-overlay">
+  <div class="search-container">
+    <div class="search-header">
+      <input type="text" class="search-input" id="search-input" placeholder="Search articles..." autocomplete="off">
+      <button class="search-close" id="search-close" aria-label="Close search">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2"/>
+          <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+
+<script>
+  // Theme toggle: cycles light -> dark -> auto (auto follows the OS, live-updating)
+  (function () {
+    const root = document.documentElement;
+    const btn = document.querySelector('[data-theme-cycle]');
+    if (!btn) return;
+    const order = ['light', 'dark', 'auto'];
+    const mql = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function systemTheme() { return mql.matches ? 'dark' : 'light'; }
+
+    function apply(mode) {
+      root.dataset.theme = mode === 'auto' ? systemTheme() : mode;
+      root.dataset.themeMode = mode;
+      btn.setAttribute('title', 'Theme: ' + mode + ' (click to change)');
+      try { localStorage.setItem('theme', mode); } catch (e) {}
+    }
+
+    btn.addEventListener('click', function () {
+      const current = localStorage.getItem('theme') || 'auto';
+      apply(order[(order.indexOf(current) + 1) % order.length]);
+    });
+
+    // Reflect the stored/initial mode in the tooltip on load
+    apply(localStorage.getItem('theme') || 'auto');
+
+    // Keep "auto" in sync when the OS theme changes
+    function onSystemChange() {
+      if ((localStorage.getItem('theme') || 'auto') === 'auto') {
+        root.dataset.theme = systemTheme();
+      }
+    }
+    if (mql.addEventListener) { mql.addEventListener('change', onSystemChange); }
+    else if (mql.addListener) { mql.addListener(onSystemChange); }
+  })();
+
+  // Sidebar show/hide toggle (persisted; disabled on pages without a sidebar)
+  function initSidebarToggle() {
+    var btn = document.getElementById('sidebar-toggle');
+    if (!btn) return;
+
+    // The sidebar element appears later in the document than this header, so
+    // this must run after the DOM is parsed (see the dispatch below).
+    if (!document.querySelector('.sidebar')) {
+      btn.disabled = true;
+      btn.setAttribute('aria-disabled', 'true');
+      return;
+    }
+
+    var root = document.documentElement;
+    function sync() {
+      btn.setAttribute('aria-pressed', root.dataset.sidebar === 'hidden' ? 'false' : 'true');
+    }
+    sync();
+
+    btn.addEventListener('click', function () {
+      if (root.dataset.sidebar === 'hidden') {
+        delete root.dataset.sidebar;
+        try { localStorage.setItem('sidebar', 'shown'); } catch (e) {}
+      } else {
+        root.dataset.sidebar = 'hidden';
+        try { localStorage.setItem('sidebar', 'hidden'); } catch (e) {}
+      }
+      sync();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSidebarToggle);
+  } else {
+    initSidebarToggle();
+  }
+
+  // Hamburger menu functionality
+  (function () {
+    const hamburgerToggle = document.getElementById('hamburger-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const body = document.body;
+
+    if (!hamburgerToggle || !mobileMenu) return;
+
+    hamburgerToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.contains('active');
+
+      if (isOpen) {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      } else {
+        mobileMenu.classList.add('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'true');
+        body.style.overflow = 'hidden';
+      }
+    });
+
+    // Close menu when clicking on a link
+    const mobileNavLinks = mobileMenu.querySelectorAll('.mobile-nav-link');
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      });
+    });
+
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      }
+    });
+  })();
+</script>
+
+      <main class="main-content with-sidebar sidebar-left">
+        <aside class="sidebar"><div class="sidebar-content">
+  <!-- Bio Section -->
+  <section class="bio-section">
+    <div class="avatar-container">
+      
+        <img src="/images/profile.jpg" alt="Adam Eberbach" class="avatar" />
+      
+    </div>
+    <h3 class="author-name">Adam Eberbach</h3>
+    <p class="bio-text">Computer Science graduate, started with C and Ada. Electronics, 3D design and printing, flight sims are what I do for fun.</p>
+  </section>
+
+  <!-- Recent Posts Section -->
+  
+  
+    <section class="recent-posts">
+      <h3 class="section-title">Recent Posts</h3>
+      <ul class="post-list">
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/26-09-18-zola/" class="post-link">
+              Switching to Zola
+            </a>
+            <time class="post-date" datetime="2026-09-18">
+              Sep 18, 2026
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/24-08-23-amigakeyboardsv2/" class="post-link">
+              Amiga A1200 and A600 keyboards, version 2
+            </a>
+            <time class="post-date" datetime="2024-08-23">
+              Aug 23, 2024
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/22-06-29-a1200leds/" class="post-link">
+              Amiga 1200 LED assembly
+            </a>
+            <time class="post-date" datetime="2022-06-29">
+              Jun 29, 2022
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/22-06-24-mac-video-4/" class="post-link">
+              Compact Macintosh video - 4
+            </a>
+            <time class="post-date" datetime="2022-06-24">
+              Jun 24, 2022
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/21-09-16-solidworks/" class="post-link">
+              The end of Solidworks
+            </a>
+            <time class="post-date" datetime="2021-09-16">
+              Sep 16, 2021
+            </time>
+          </li>
+        
+      </ul>
+    </section>
+  
+
+  <!-- Categories Section -->
+  
+  
+</div>
+</aside>
+        <div class="content">
+          
+<article class="blog-post">
+  <header class="post-header">
+    <h1 class="post-title">Powering the Raspberry Pi 4</h1>
+
+    <div class="post-meta">
+      <span class="post-byline">
+        <time class="post-date" datetime="2019-10-09">October 9, 2019</time>
+      </span>
+
+      <span class="post-reading-time">4 min read</span>
+
+      
+    </div>
+
+    
+
+    <!-- Monumental Blood Red Rule -->
+    <hr class="monumental-rule" />
+  </header>
+
+  
+  <figure class="post-hero">
+    <img src="https://www.grayunicorn.com/images/2019-10-09-RPi4-PSU-case/power_side.jpeg" alt="Powering the Raspberry Pi 4" />
+  </figure>
+  
+
+  
+
+  <div class="post-content">
+    <p>If you have ever used a Raspberry Pi you have probably used plugpacks, and you may have decided not to buy one at first because you had ten lying around already. And then you found the Pi wouldn't run using anything but a genuine Raspberry Pi foundation unit. I did.When the Raspberry Pi 4 appeared with a requirement for a USB-C 15W power supply I thought I would probably buy the Pi official Pi supply for that too. But having just done the Amiga Internal PSU using a Mean Well module and some 3D printing I decided I would rather do the same here. And in 2019 I don't have ten USB-C plugpacks lying around anyway.Sure enough they have the <a href="https://www.meanwell.com/webapp/product/search.aspx?prod=MFM-15">MFM-15-5</a> - a 5V, 15W supply for around AUD$16. It would handle a Raspberry Pi easily, if only it had a housing. So I made one. I have a theory on these things - they have to be decent as well as cheap because the engineers who are supposed to buy them and use them in products can see them, unlike what is inside a sealed plugpack.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/main_body.b3dc74b6f2a7d2ef.png" ><img src="https://www.grayunicorn.com/processed_images/main_body.df79c0f1f0d732fe.png" alt="Main body of case" /></a>
+    <figcaption>Main body of case</figcaption>
+</figure>
+<p>With Fusion360 I made a few versions of a housing for the Pi with an attached compartment for the power supply module. The IEC C8 plug snaps into place on one side and the 5V output connects via two wires to the Pi in the other compartment.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/psu_top.7c40a64c0dbcf6ab.png" ><img src="https://www.grayunicorn.com/processed_images/psu_top.c364b625c8908b37.png" alt="Case lid for PSU side" /></a>
+    <figcaption>Case lid for PSU side</figcaption>
+</figure>
+<p>There are two separate lids so that you can leave the Pi lid off if you want while keeping the mains power covered.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/pi_top.1af2798521022cee.png" ><img src="https://www.grayunicorn.com/processed_images/pi_top.c2b6ceda7c18558a.png" alt="Case lid for Pi side" /></a>
+    <figcaption>Case lid for Pi side</figcaption>
+</figure>
+<p>Powering the Pi is pretty easy since the power pins are available on the header. It would have been OK to plug the power into the top of the header but then other headers, or hats, would not fit. Instead I took some longer right-angled header pins and took out the GND and 5V pins from the main header, inserting the right angled pins instead. Then the power wire can attach on the bottom of the Pi leaving the header available.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/pwr_pins.27079f9e75693971.jpg" ><img src="https://www.grayunicorn.com/processed_images/pwr_pins.26960494f2abd8d7.jpg" alt="Detail of 90 degree power pins added" /></a>
+    <figcaption>Detail of 90 degree power pins added</figcaption>
+</figure>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/power_wires.c0b20872dbedfe54.jpg" ><img src="https://www.grayunicorn.com/processed_images/power_wires.b18bbab2d8cab4f4.jpg" alt="Leads from PSU attach to new pins" /></a>
+    <figcaption>Leads from PSU attach to new pins</figcaption>
+</figure>
+<p>The power supply module connects to the mains plug on one side with the 5V wires going into the Pi side through the ventilation holes. It's held down with a cable tie.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/psu_detail.138f84ed6b1e35f5.jpg" ><img src="https://www.grayunicorn.com/processed_images/psu_detail.2725a83713147823.jpg" alt="Tiny 5W PSU attached with cable tie" /></a>
+    <figcaption>Tiny 5W PSU attached with cable tie</figcaption>
+</figure>
+<p>When all hooked up you don't need to see the power supply wiring at all. The Pi has everything available.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/ready_to_use.644bcba0c978edc9.jpg" ><img src="https://www.grayunicorn.com/processed_images/ready_to_use.fc773b5e55c8caaa.jpg" alt="Pin in case with PSU sealed" /></a>
+    <figcaption>Pin in case with PSU sealed</figcaption>
+</figure>
+<p>The big difference is you plug in a regular mains cable. No plugpacks! I used a standard C8 panel mount socket, that's the same mains cable as a Mac mini or many of the bigger plugpacks use, so plenty in the junk box.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/power_side.263854f671c6280f.jpg" ><img src="https://www.grayunicorn.com/processed_images/power_side.7d1b3b1f2ea03ada.jpg" alt="C8 mains socket on side of case" /></a>
+    <figcaption>C8 mains socket on side of case</figcaption>
+</figure>
+<p>The main use I have for this thing is on the 3D printer itself, running <A HREF="https://octoprint.org">Octoprint</A> - Official Pi 4 support is not ready yet but I have found the Pi 4 test builds very stable. It can do other things like <A HREF="https://pi-hole.net">Pi-hole</A> while attached to the printer housing but it needs to be close to the printer to take care of the webcam.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/on_printer.cd49b90a6b69c9fa.jpg" ><img src="https://www.grayunicorn.com/processed_images/on_printer.63393e0e3beb2c46.jpg" alt="Pi mounted on printer housing" /></a>
+    <figcaption>Pi mounted on printer housing</figcaption>
+</figure>
+<p>You can download the STL file at <a href="https://www.printables.com/model/88156-raspberry-pi-4-model-b-case-with-integrated-power-">my page on Printables</a> - it's free and is one of my most popular designs.</p>
+<h3>Brief Autodesk Fusion 360 rant...</h3>
+Autodesk's website sucks. Hard to navigate, too many confusing options. You don't just download the product, you download a "downloader". The app itself is OK once you're doing something. BUT the cloud-based nature of everything makes it a pretty bad experience. If you like waiting a few minutes every time you want to load a project, or waiting again when you want to produce some STL output then you'll love Fusion360! I wish they could have just written a local Mac application. Not that it's any better in the Windows version, I have been using both. Maybe if you're paying for an expensive license they will sell you a local "cloud" server or something. And the licensing has just changed. No more "Startup" license for everyone, now the free license has a few restrictions on what the product can do and the Startup requires some qualification. I'm not sure how (or if) this will affect me yet.edit June 2021: Dumped Fusion360. Tried Shapr3D but it's not good enough yet. Found a way to legally use Solidworks without paying $10,000! I'm very happy with it. 
+<p>Once again, don't do anything like this unless you are competent and understand the risks. Making connections incorrectly or being careless could destroy your Pi or even kill you.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      <span class="tags-label">Tags:</span>
+      <div class="tag-list">
+        
+        <span class="tag">RaspberryPi</span>
+        
+      </div>
+    </div>
+    
+
+    <div class="post-navigation">
+      <a href="https://www.grayunicorn.com/blog" class="back-to-blog">← Back to Blog</a>
+    </div>
+  </footer>
+</article>
+
+        </div>
+      </main>
+      <footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <p class="copyright">
+        © 2026 Adam Eberbach. All rights reserved.
+      </p>
+      <p class="theme-credit">
+        Powered by <a href="https://www.getzola.org" target="_blank" rel="noopener">Zola</a>
+        • <a href="https://github.com/jdrhyne/volks-typo" target="_blank" rel="noopener">Volks-Typo Theme</a>
+      </p>
+    </div>
+
+    <div class="social-links">
+      <a href="https://www.grayunicorn.com/blog/rss.xml" class="social-link" aria-label="RSS feed">
+        <span class="social-icon" style="-webkit-mask-image: url('https://www.grayunicorn.com/icons/rss.svg'); mask-image: url('https://www.grayunicorn.com/icons/rss.svg');" aria-hidden="true"></span>
+      </a>
+      
+      <a href="https://mastodon.online/@aeberbach" class="social-link" aria-label="Mastodon" target="_blank" rel="noopener">
+        <span class="social-icon" style="-webkit-mask-image: url('https://www.grayunicorn.com/icons/mastodon.svg'); mask-image: url('https://www.grayunicorn.com/icons/mastodon.svg');" aria-hidden="true"></span>
+      </a>
+      
+      <a href="https://github.com/aeberbach" class="social-link" aria-label="Github" target="_blank" rel="noopener">
+        <span class="social-icon" style="-webkit-mask-image: url('https://www.grayunicorn.com/icons/github.svg'); mask-image: url('https://www.grayunicorn.com/icons/github.svg');" aria-hidden="true"></span>
+      </a>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <script>window.VOLKS_SEARCH_URL = "https://www.grayunicorn.com/search/";</script>
+    <script src="https://www.grayunicorn.com/search.js?h=86f8110b674a65e81dce"></script>
+  </body>
+</html>

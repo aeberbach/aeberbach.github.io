@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://www.grayunicorn.com/favicon.svg" />
+    <link rel="stylesheet" href="https://www.grayunicorn.com/main.css?h=dd4fb0f354fcfb80d0de" />
+    <link rel="alternate" type="application/rss+xml" title="Gray Unicorn" href="https://www.grayunicorn.com/blog/rss.xml" />
+    <script src="https://www.grayunicorn.com/theme-init.js?h=f7a49ca0a4e29341b5d4"></script>
+    
+    <title>Amiga 1200 Keyboard, part 9</title>
+    <meta name="description" content="Done" />
+    <meta property="og:title" content="Amiga 1200 Keyboard, part 9" />
+    <meta property="og:description" content="Done" />
+    <meta property="og:type" content="website" />
+
+    <meta property="og:image" content="https://www.grayunicorn.com/images/2019-07-18-a1200-kbd-9/front-with-rails.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://www.grayunicorn.com/images/2019-07-18-a1200-kbd-9/front-with-rails.jpg" />
+
+
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <header class="site-header">
+  <div class="header-content">
+    <!-- Mobile hamburger button - far left on mobile -->
+    <button class="hamburger-toggle mobile-only" id="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="hamburger-line" d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path class="hamburger-line" d="M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path class="hamburger-line" d="M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <div class="site-title">
+      <a href="https://www.grayunicorn.com">
+        
+        <span class="title-text">Gray Unicorn</span>
+        
+      </a>
+    </div>
+
+    <div class="header-controls">
+      <nav class="main-navigation" role="navigation" aria-label="Main navigation">
+        <ul class="nav-list">
+          
+          <li><a href="https://www.grayunicorn.com/blog" class="nav-link">Blog</a></li>
+          
+        </ul>
+      </nav>
+
+      <!-- Mobile controls group - RSS and Search on right -->
+      <div class="mobile-controls">
+        
+        
+        <button type="button" class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar" title="Toggle sidebar">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="16" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+            
+            <line class="sidebar-line" x1="9" y1="4" x2="9" y2="20" stroke="currentColor" stroke-width="1.5"/>
+            
+          </svg>
+        </button>
+        <button type="button" class="theme-toggle" data-theme-cycle aria-label="Toggle theme: light, dark, or auto" title="Toggle theme">
+          <span class="theme-icon theme-icon-light" aria-hidden="true"></span>
+          <span class="theme-icon theme-icon-dark" aria-hidden="true"></span>
+          <span class="theme-icon theme-icon-auto" aria-hidden="true"></span>
+        </button>
+
+        <button class="search-toggle" id="search-toggle" data-search-trigger aria-label="Search articles">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+  <ul class="mobile-nav-list">
+    
+    <li><a href="https://www.grayunicorn.com/blog" class="mobile-nav-link">Blog</a></li>
+    
+  </ul>
+</nav>
+
+<div class="search-overlay" id="search-overlay">
+  <div class="search-container">
+    <div class="search-header">
+      <input type="text" class="search-input" id="search-input" placeholder="Search articles..." autocomplete="off">
+      <button class="search-close" id="search-close" aria-label="Close search">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2"/>
+          <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+
+<script>
+  // Theme toggle: cycles light -> dark -> auto (auto follows the OS, live-updating)
+  (function () {
+    const root = document.documentElement;
+    const btn = document.querySelector('[data-theme-cycle]');
+    if (!btn) return;
+    const order = ['light', 'dark', 'auto'];
+    const mql = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function systemTheme() { return mql.matches ? 'dark' : 'light'; }
+
+    function apply(mode) {
+      root.dataset.theme = mode === 'auto' ? systemTheme() : mode;
+      root.dataset.themeMode = mode;
+      btn.setAttribute('title', 'Theme: ' + mode + ' (click to change)');
+      try { localStorage.setItem('theme', mode); } catch (e) {}
+    }
+
+    btn.addEventListener('click', function () {
+      const current = localStorage.getItem('theme') || 'auto';
+      apply(order[(order.indexOf(current) + 1) % order.length]);
+    });
+
+    // Reflect the stored/initial mode in the tooltip on load
+    apply(localStorage.getItem('theme') || 'auto');
+
+    // Keep "auto" in sync when the OS theme changes
+    function onSystemChange() {
+      if ((localStorage.getItem('theme') || 'auto') === 'auto') {
+        root.dataset.theme = systemTheme();
+      }
+    }
+    if (mql.addEventListener) { mql.addEventListener('change', onSystemChange); }
+    else if (mql.addListener) { mql.addListener(onSystemChange); }
+  })();
+
+  // Sidebar show/hide toggle (persisted; disabled on pages without a sidebar)
+  function initSidebarToggle() {
+    var btn = document.getElementById('sidebar-toggle');
+    if (!btn) return;
+
+    // The sidebar element appears later in the document than this header, so
+    // this must run after the DOM is parsed (see the dispatch below).
+    if (!document.querySelector('.sidebar')) {
+      btn.disabled = true;
+      btn.setAttribute('aria-disabled', 'true');
+      return;
+    }
+
+    var root = document.documentElement;
+    function sync() {
+      btn.setAttribute('aria-pressed', root.dataset.sidebar === 'hidden' ? 'false' : 'true');
+    }
+    sync();
+
+    btn.addEventListener('click', function () {
+      if (root.dataset.sidebar === 'hidden') {
+        delete root.dataset.sidebar;
+        try { localStorage.setItem('sidebar', 'shown'); } catch (e) {}
+      } else {
+        root.dataset.sidebar = 'hidden';
+        try { localStorage.setItem('sidebar', 'hidden'); } catch (e) {}
+      }
+      sync();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSidebarToggle);
+  } else {
+    initSidebarToggle();
+  }
+
+  // Hamburger menu functionality
+  (function () {
+    const hamburgerToggle = document.getElementById('hamburger-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const body = document.body;
+
+    if (!hamburgerToggle || !mobileMenu) return;
+
+    hamburgerToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.contains('active');
+
+      if (isOpen) {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      } else {
+        mobileMenu.classList.add('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'true');
+        body.style.overflow = 'hidden';
+      }
+    });
+
+    // Close menu when clicking on a link
+    const mobileNavLinks = mobileMenu.querySelectorAll('.mobile-nav-link');
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      });
+    });
+
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      }
+    });
+  })();
+</script>
+
+      <main class="main-content with-sidebar sidebar-left">
+        <aside class="sidebar"><div class="sidebar-content">
+  <!-- Bio Section -->
+  <section class="bio-section">
+    <div class="avatar-container">
+      
+        <img src="/images/profile.jpg" alt="Adam Eberbach" class="avatar" />
+      
+    </div>
+    <h3 class="author-name">Adam Eberbach</h3>
+    <p class="bio-text">Computer Science graduate, started with C and Ada. Electronics, 3D design and printing, flight sims are what I do for fun.</p>
+  </section>
+
+  <!-- Recent Posts Section -->
+  
+  
+    <section class="recent-posts">
+      <h3 class="section-title">Recent Posts</h3>
+      <ul class="post-list">
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/26-09-18-zola/" class="post-link">
+              Switching to Zola
+            </a>
+            <time class="post-date" datetime="2026-09-18">
+              Sep 18, 2026
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/24-08-23-amigakeyboardsv2/" class="post-link">
+              Amiga A1200 and A600 keyboards, version 2
+            </a>
+            <time class="post-date" datetime="2024-08-23">
+              Aug 23, 2024
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/22-06-29-a1200leds/" class="post-link">
+              Amiga 1200 LED assembly
+            </a>
+            <time class="post-date" datetime="2022-06-29">
+              Jun 29, 2022
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/22-06-24-mac-video-4/" class="post-link">
+              Compact Macintosh video - 4
+            </a>
+            <time class="post-date" datetime="2022-06-24">
+              Jun 24, 2022
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/21-09-16-solidworks/" class="post-link">
+              The end of Solidworks
+            </a>
+            <time class="post-date" datetime="2021-09-16">
+              Sep 16, 2021
+            </time>
+          </li>
+        
+      </ul>
+    </section>
+  
+
+  <!-- Categories Section -->
+  
+  
+</div>
+</aside>
+        <div class="content">
+          
+<article class="blog-post">
+  <header class="post-header">
+    <h1 class="post-title">Amiga 1200 Keyboard, part 9</h1>
+
+    <div class="post-meta">
+      <span class="post-byline">
+        <time class="post-date" datetime="2019-07-18">July 18, 2019</time>
+      </span>
+
+      <span class="post-reading-time">4 min read</span>
+
+      
+    </div>
+
+    
+
+    <!-- Monumental Blood Red Rule -->
+    <hr class="monumental-rule" />
+  </header>
+
+  
+  <figure class="post-hero">
+    <img src="https://www.grayunicorn.com/images/2019-07-18-a1200-kbd-9/front-with-rails.jpg" alt="Amiga 1200 Keyboard, part 9" />
+  </figure>
+  
+
+  
+
+  <div class="post-content">
+    <h2>It's been a while!</h2>
+Well not that long as far as time between blog posts goes. Last time I had decided that the way to mount this thing was 3D printing. Almost as soon as the last post was up I decided it would be educational and useful for all kinds of stuff, so I got one. I ordered the Prusa i3 MK3S kit direct. Couldn't believe when it shipped the same night and arrived in Australia in just a couple of days. And then I went to WWDC in San Jose, so it went untouched for about two weeks.<
+<h2>Prusa 3D Printer</h2>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/prusa-printer.18af43eec8a618a0.jpg" ><img src="https://www.grayunicorn.com/processed_images/prusa-printer.516663403f1e62da.jpg" alt="Prusa i3 MK3S" /></a>
+    <figcaption>Prusa i3 MK3S</figcaption>
+</figure>
+<p></a></p><p>I've never owned another 3D printer though I have used a couple. The really impressive thing with this machine is that you get everything right down to alcohol wipes, hex keys, pliers, filament, and an instruction manual the size of a thick glossy magazine with photography to match. You even get a pack of gummy bears. Check out any number of youtube videos for a full review of this kit but if you're wondering whether it's worth the premium over cheaper printers I'd say definitely yes. Has worked well from the first print (one nozzle jam but fixed easily enough).</p><p>Octoprint deserves its own post, but what a great piece of software. I'm using it. So much nicer to use a web interface over shuffling SD cards around.</p><h2>Design and build</h2><p>Previously pictures were shown of the aluminium mounts I made for the keyboard in the A1200.net case. I decided to stop using these and to change the design a bit for a few reasons. First, it's too hard to make, and with the machinery I have available it is a bit dangerous to be routing small pieces of aluminium angle. I sold a few boards and I wanted to be able to give those people 3D designs too, and I wanted the pieces to be easy to install.</p><p>I used Fusion 360 from Autodesk. It's good because it's powerful, and it's free for an individual if you derive less than $100k in revenue annually from using it. That's me. It sucks because so much of it is cloud-based. Every single time you want to export to STL you wait, and wait, and sometimes it eventually succeeds. I'm using Shapr3D on the iPad Pro also - fantastic so far.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/front-with-rails.7253ea6d2bdd7523.jpg" ><img src="https://www.grayunicorn.com/processed_images/front-with-rails.4b3672eb110aa8d0.jpg" alt="The front" /></a>
+    <figcaption>The front</figcaption>
+</figure>
+<p></a></p><p>In the A1200.net case there is some plastic molding right above the edge of the keyboard - that made fitting a piece of aluminium angle necessitate filing slots for those plastic fins to fit into or the case could not close. This could not continue with a 3D printed solution because plastic is just way more flexy and including slots would remove any stiffness it ever had to begin with. This problem almost had me thinking I would need to redesign the PCB.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/back-with-rails.09776351c3abc432.jpg" ><img src="https://www.grayunicorn.com/processed_images/back-with-rails.1ac4f60821bf95fc.jpg" alt="The back" /></a>
+    <figcaption>The back</figcaption>
+</figure>
+<p></a></p><p>Then I thought about putting a 10x3mm aluminium bar under the keyboard, supporting from behind and being supported in turn by the side rails - and it works! To avoid having a long piece of conductive metal in proximity to anything in the trap door (or the keyswitches) I printed 3cm lengths of rectangular section that fit nicely over the bar. This also raises the keyboard support so the PCB does not sag in the middle. The ends of the bar fit into the sockets on the side rail pieces, which then attach to the side of the keyboard with short M3 bolts. Finally the lower support rails attach with longer M3 bolts.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/kbd-in-case.2987389ed5f7534e.jpg" ><img src="https://www.grayunicorn.com/processed_images/kbd-in-case.09e4d90101dabdd0.jpg" alt="In the case" /></a>
+    <figcaption>In the case</figcaption>
+</figure>
+<p></a></p><p>This gets the keyboard in just the right spot. DSA key profile makes it all a good fit. I also checked it out in the original Amiga case, and though I had to revise the bottom rails to clear the round bumps either side everything was fine there too. It is a tighter fit in the original Amiga case but still good. There is plenty of room to clear any trapdoor accelerator you might have. Devices like Indivision, I don't know, I don't have one.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/case-closed.b639be61a8a9b936.jpg" ><img src="https://www.grayunicorn.com/processed_images/case-closed.9fbd5bcb095aeade.jpg" alt="Case closed" /></a>
+    <figcaption>Case closed</figcaption>
+</figure>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/key-profile.4158f0bd93db1565.jpg" ><img src="https://www.grayunicorn.com/processed_images/key-profile.72d096a42d5b6d23.jpg" alt="Key profile" /></a>
+    <figcaption>Key profile</figcaption>
+</figure>
+<p></a></p><h2>And that's it! (not really)</h2><p>The Amiga is now fitted with the mechanical keyboard, 4GB solid state disk module, 3.1.4 ROMs. I got a PCMCIA adapter so transferring data from the PC is no problem. But I still need:</p>Hyperion 3.1.4.1 update (Amiga on the Lake have mailed me a serial number for my OS, waiting)optical mouse (ordered from Amigakit, waiting)IDE interface and multiple internal CF card adapters (Amigakit, waiting)joystick (have a basic one, but I need to build up the ultimate Sanwa I have been collecting parts for)monitor solution - got the OSSC, have not had time to do much with it yet.figure out WHDLoad and get all my favorites like Dungeon Master and FA/18 Interceptor working again.proper Amiga keycaps. Time to start experimenting with laser engraving some of the blank keycaps I bought.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      <span class="tags-label">Tags:</span>
+      <div class="tag-list">
+        
+        <span class="tag">Amiga</span>
+        
+      </div>
+    </div>
+    
+
+    <div class="post-navigation">
+      <a href="https://www.grayunicorn.com/blog" class="back-to-blog">← Back to Blog</a>
+    </div>
+  </footer>
+</article>
+
+        </div>
+      </main>
+      <footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <p class="copyright">
+        © 2026 Adam Eberbach. All rights reserved.
+      </p>
+      <p class="theme-credit">
+        Powered by <a href="https://www.getzola.org" target="_blank" rel="noopener">Zola</a>
+        • <a href="https://github.com/jdrhyne/volks-typo" target="_blank" rel="noopener">Volks-Typo Theme</a>
+      </p>
+    </div>
+
+    <div class="social-links">
+      <a href="https://www.grayunicorn.com/blog/rss.xml" class="social-link" aria-label="RSS feed">
+        <span class="social-icon" style="-webkit-mask-image: url('https://www.grayunicorn.com/icons/rss.svg'); mask-image: url('https://www.grayunicorn.com/icons/rss.svg');" aria-hidden="true"></span>
+      </a>
+      
+      <a href="https://mastodon.online/@aeberbach" class="social-link" aria-label="Mastodon" target="_blank" rel="noopener">
+        <span class="social-icon" style="-webkit-mask-image: url('https://www.grayunicorn.com/icons/mastodon.svg'); mask-image: url('https://www.grayunicorn.com/icons/mastodon.svg');" aria-hidden="true"></span>
+      </a>
+      
+      <a href="https://github.com/aeberbach" class="social-link" aria-label="Github" target="_blank" rel="noopener">
+        <span class="social-icon" style="-webkit-mask-image: url('https://www.grayunicorn.com/icons/github.svg'); mask-image: url('https://www.grayunicorn.com/icons/github.svg');" aria-hidden="true"></span>
+      </a>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <script>window.VOLKS_SEARCH_URL = "https://www.grayunicorn.com/search/";</script>
+    <script src="https://www.grayunicorn.com/search.js?h=86f8110b674a65e81dce"></script>
+  </body>
+</html>

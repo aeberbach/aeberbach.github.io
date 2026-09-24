@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://www.grayunicorn.com/favicon.svg" />
+    <link rel="stylesheet" href="https://www.grayunicorn.com/main.css?h=dd4fb0f354fcfb80d0de" />
+    <link rel="alternate" type="application/rss+xml" title="Gray Unicorn" href="https://www.grayunicorn.com/blog/rss.xml" />
+    <script src="https://www.grayunicorn.com/theme-init.js?h=f7a49ca0a4e29341b5d4"></script>
+    
+    <title>Minipule Metal Detector</title>
+    <meta name="description" content="Constructing PCB and coil" />
+    <meta property="og:title" content="Minipule Metal Detector" />
+    <meta property="og:description" content="Constructing PCB and coil" />
+    <meta property="og:type" content="website" />
+
+    <meta property="og:image" content="https://www.grayunicorn.com/images/2016-04-13-minipulse/sync-check.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://www.grayunicorn.com/images/2016-04-13-minipulse/sync-check.png" />
+
+
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <header class="site-header">
+  <div class="header-content">
+    <!-- Mobile hamburger button - far left on mobile -->
+    <button class="hamburger-toggle mobile-only" id="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="hamburger-line" d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path class="hamburger-line" d="M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path class="hamburger-line" d="M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <div class="site-title">
+      <a href="https://www.grayunicorn.com">
+        
+        <span class="title-text">Gray Unicorn</span>
+        
+      </a>
+    </div>
+
+    <div class="header-controls">
+      <nav class="main-navigation" role="navigation" aria-label="Main navigation">
+        <ul class="nav-list">
+          
+          <li><a href="https://www.grayunicorn.com/blog" class="nav-link">Blog</a></li>
+          
+        </ul>
+      </nav>
+
+      <!-- Mobile controls group - RSS and Search on right -->
+      <div class="mobile-controls">
+        
+        
+        <button type="button" class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar" title="Toggle sidebar">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="16" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+            
+            <line class="sidebar-line" x1="9" y1="4" x2="9" y2="20" stroke="currentColor" stroke-width="1.5"/>
+            
+          </svg>
+        </button>
+        <button type="button" class="theme-toggle" data-theme-cycle aria-label="Toggle theme: light, dark, or auto" title="Toggle theme">
+          <span class="theme-icon theme-icon-light" aria-hidden="true"></span>
+          <span class="theme-icon theme-icon-dark" aria-hidden="true"></span>
+          <span class="theme-icon theme-icon-auto" aria-hidden="true"></span>
+        </button>
+
+        <button class="search-toggle" id="search-toggle" data-search-trigger aria-label="Search articles">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+  <ul class="mobile-nav-list">
+    
+    <li><a href="https://www.grayunicorn.com/blog" class="mobile-nav-link">Blog</a></li>
+    
+  </ul>
+</nav>
+
+<div class="search-overlay" id="search-overlay">
+  <div class="search-container">
+    <div class="search-header">
+      <input type="text" class="search-input" id="search-input" placeholder="Search articles..." autocomplete="off">
+      <button class="search-close" id="search-close" aria-label="Close search">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2"/>
+          <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+
+<script>
+  // Theme toggle: cycles light -> dark -> auto (auto follows the OS, live-updating)
+  (function () {
+    const root = document.documentElement;
+    const btn = document.querySelector('[data-theme-cycle]');
+    if (!btn) return;
+    const order = ['light', 'dark', 'auto'];
+    const mql = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function systemTheme() { return mql.matches ? 'dark' : 'light'; }
+
+    function apply(mode) {
+      root.dataset.theme = mode === 'auto' ? systemTheme() : mode;
+      root.dataset.themeMode = mode;
+      btn.setAttribute('title', 'Theme: ' + mode + ' (click to change)');
+      try { localStorage.setItem('theme', mode); } catch (e) {}
+    }
+
+    btn.addEventListener('click', function () {
+      const current = localStorage.getItem('theme') || 'auto';
+      apply(order[(order.indexOf(current) + 1) % order.length]);
+    });
+
+    // Reflect the stored/initial mode in the tooltip on load
+    apply(localStorage.getItem('theme') || 'auto');
+
+    // Keep "auto" in sync when the OS theme changes
+    function onSystemChange() {
+      if ((localStorage.getItem('theme') || 'auto') === 'auto') {
+        root.dataset.theme = systemTheme();
+      }
+    }
+    if (mql.addEventListener) { mql.addEventListener('change', onSystemChange); }
+    else if (mql.addListener) { mql.addListener(onSystemChange); }
+  })();
+
+  // Sidebar show/hide toggle (persisted; disabled on pages without a sidebar)
+  function initSidebarToggle() {
+    var btn = document.getElementById('sidebar-toggle');
+    if (!btn) return;
+
+    // The sidebar element appears later in the document than this header, so
+    // this must run after the DOM is parsed (see the dispatch below).
+    if (!document.querySelector('.sidebar')) {
+      btn.disabled = true;
+      btn.setAttribute('aria-disabled', 'true');
+      return;
+    }
+
+    var root = document.documentElement;
+    function sync() {
+      btn.setAttribute('aria-pressed', root.dataset.sidebar === 'hidden' ? 'false' : 'true');
+    }
+    sync();
+
+    btn.addEventListener('click', function () {
+      if (root.dataset.sidebar === 'hidden') {
+        delete root.dataset.sidebar;
+        try { localStorage.setItem('sidebar', 'shown'); } catch (e) {}
+      } else {
+        root.dataset.sidebar = 'hidden';
+        try { localStorage.setItem('sidebar', 'hidden'); } catch (e) {}
+      }
+      sync();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSidebarToggle);
+  } else {
+    initSidebarToggle();
+  }
+
+  // Hamburger menu functionality
+  (function () {
+    const hamburgerToggle = document.getElementById('hamburger-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const body = document.body;
+
+    if (!hamburgerToggle || !mobileMenu) return;
+
+    hamburgerToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.contains('active');
+
+      if (isOpen) {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      } else {
+        mobileMenu.classList.add('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'true');
+        body.style.overflow = 'hidden';
+      }
+    });
+
+    // Close menu when clicking on a link
+    const mobileNavLinks = mobileMenu.querySelectorAll('.mobile-nav-link');
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      });
+    });
+
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      }
+    });
+  })();
+</script>
+
+      <main class="main-content with-sidebar sidebar-left">
+        <aside class="sidebar"><div class="sidebar-content">
+  <!-- Bio Section -->
+  <section class="bio-section">
+    <div class="avatar-container">
+      
+        <img src="/images/profile.jpg" alt="Adam Eberbach" class="avatar" />
+      
+    </div>
+    <h3 class="author-name">Adam Eberbach</h3>
+    <p class="bio-text">Computer Science graduate, started with C and Ada. Electronics, 3D design and printing, flight sims are what I do for fun.</p>
+  </section>
+
+  <!-- Recent Posts Section -->
+  
+  
+    <section class="recent-posts">
+      <h3 class="section-title">Recent Posts</h3>
+      <ul class="post-list">
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/26-09-18-zola/" class="post-link">
+              Switching to Zola
+            </a>
+            <time class="post-date" datetime="2026-09-18">
+              Sep 18, 2026
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/24-08-23-amigakeyboardsv2/" class="post-link">
+              Amiga A1200 and A600 keyboards, version 2
+            </a>
+            <time class="post-date" datetime="2024-08-23">
+              Aug 23, 2024
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/22-06-29-a1200leds/" class="post-link">
+              Amiga 1200 LED assembly
+            </a>
+            <time class="post-date" datetime="2022-06-29">
+              Jun 29, 2022
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/22-06-24-mac-video-4/" class="post-link">
+              Compact Macintosh video - 4
+            </a>
+            <time class="post-date" datetime="2022-06-24">
+              Jun 24, 2022
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/21-09-16-solidworks/" class="post-link">
+              The end of Solidworks
+            </a>
+            <time class="post-date" datetime="2021-09-16">
+              Sep 16, 2021
+            </time>
+          </li>
+        
+      </ul>
+    </section>
+  
+
+  <!-- Categories Section -->
+  
+  
+</div>
+</aside>
+        <div class="content">
+          
+<article class="blog-post">
+  <header class="post-header">
+    <h1 class="post-title">Minipule Metal Detector</h1>
+
+    <div class="post-meta">
+      <span class="post-byline">
+        <time class="post-date" datetime="2016-04-13">April 13, 2016</time>
+      </span>
+
+      <span class="post-reading-time">8 min read</span>
+
+      
+    </div>
+
+    
+
+    <!-- Monumental Blood Red Rule -->
+    <hr class="monumental-rule" />
+  </header>
+
+  
+  <figure class="post-hero">
+    <img src="https://www.grayunicorn.com/images/2016-04-13-minipulse/sync-check.png" alt="Minipule Metal Detector" />
+  </figure>
+  
+
+  
+
+  <div class="post-content">
+    <p>We met a guy in Beechworth travelling with his family while camping. He came over to borrow some tea and while talking mentioned that he did a bit of prospecting. "As in gold?" we asked, interested. Beechworth is part of Victoria's "golden triangle" and our campground was on a flat below a hillside full of old mining shafts. "Sure" he said, and pulled out a glass tube with at least an ounce of gold in small nuggets rattling around. I guessed it was worth about US$1600... And all you need to find it is a $5000 metal detector, or $10000 for a really good one. I was prepared to spend about $200 for a new camping toy and so this project was started.</p>
+<h2>The Kit</h2>
+Searching around I found several forums full of DIY detector builds - the <a href="https://www.geotech1.com/forums/forum.php">Geotech forum</a> is the one I spent most time on. There is an active community of builders and it didn't seem too hard. I settled on the Minipulse kit, from the <a href="https://diydetector.co.uk/store/index.php">DiyDetector</a> shop - reasonably priced at £34.00. It was delivered in around ten days. 
+<p>Right away I worried about the ICs - all rattling around in one bag, surely the pins would be bent? At the very least I'd be buying new sockets. The PCB is a quality item. Holes plated through, flowed ground plane, heavy fibreglass substrate.
+<p>And here are all the parts in a bit more order. I was going to separate them into small containers by construction step (there are 9 steps) but I found it just as easy to take them from this mat as each step was complete.
+<p>The electrolytics are decidedly cheap, nasty-looking things - brand names like "Forever" and "Suntan". I'm not looking for audiophile stuff like Black Gate or Cerafine but I have replaced too many bulging, leaky electrolytics in the past ten years. Anyway I used them. That's about the only complaint I have about the parts. You can see from the individually labelled resistors that silverdog has gone to a lot of trouble to make this as easy as possible to put together right.
+<p>The <a href="http://silverdog.co.uk/shop2/library/minipulserevd.pdf">instruction manual</a> is available before you buy the kit so you can see what you'll be building. The manual stresses that you should follow the build steps in order and perform the tests at the end of each step. This post describes following those steps and shows the result of each test.
+<p>I have one very tiny criticism (in steps 7 and 8) but otherwise it's very, very good. Up front I'll say this is a great kit. Buy with confidence.
+<h2>Step 1</h2>
+The first step is an easy one, getting a 5V supply using a 79L05. I confused myself by looking for a TO220 package before realising it was a TO-92. That done, an easy step.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/negative-supply.49e1321f949bf06a.jpg" ><img src="https://www.grayunicorn.com/processed_images/negative-supply.fe5af99b4cc2309f.jpg" alt="Negative Supply" /></a>
+    <figcaption>Negative Supply</figcaption>
+</figure>
+<h2>Step 2</h2>
+Another easy step! This thing will be done in no time. A 78L05 provides +5V.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/positive-supply.03cfcca5267e6239.jpg" ><img src="https://www.grayunicorn.com/processed_images/positive-supply.0f2834069bbdf3d4.jpg" alt="Positive Supply" /></a>
+    <figcaption>Positive Supply</figcaption>
+</figure>
+<h2>Step 3</h2>
+Now starts the analogue stuff so I'm out of my comfort zone. I picked up a 470nF capacitor instead of the 47nF here, my only component mistake - I just don't do enough electronics to read "473J100" without having to stop and think. When that was fixed the test showed I was very close to the expected result - at least close enough to go on.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/tx-oscillator.c9cd60b5fffcb091.jpg" ><img src="https://www.grayunicorn.com/processed_images/tx-oscillator.8598467c72b0612e.jpg" alt="TX Oscillator" /></a>
+    <figcaption>TX Oscillator</figcaption>
+</figure>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/frequency-check.79c049a60d87e2c5.png" ><img src="https://www.grayunicorn.com/processed_images/frequency-check.e9cfab59f2196b7e.png" alt="Frequency Check" /></a>
+    <figcaption>Frequency Check</figcaption>
+</figure>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/pulse-width.c31ef353d4e45b85.png" ><img src="https://www.grayunicorn.com/processed_images/pulse-width.790d939f89c6fa6e.png" alt="Pulse Width" /></a>
+    <figcaption>Pulse Width</figcaption>
+</figure>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/sync-check.92dc5e25573f0047.png" ><img src="https://www.grayunicorn.com/processed_images/sync-check.8cae78667cff6ec6.png" alt="Sync Check" /></a>
+    <figcaption>Sync Check</figcaption>
+</figure>
+<p>OK, something isn't exactly right. My pulse width appears to be ~45uS. I do have a higher supply voltage, 13.8V from a fixed supply intended to power a ham radio. I don't have an adjustable supply or any batteries to do an actual 12V supply. The frequency is OK, and it's in sync with the pulse from U2, so I think it's OK to go ahead.
+<p>The manual also suggests putting on headphones and listening for an induced noise when the coil is close. It works!
+<p>Update! Forum user teleno reported that switching out the TLC555 chips supplied in the kit for NE555 chips brings the pulse to 58uS. Good thing everyone has ten or so NE555s in the junk box. (Mine must be around 30 years old!) I now see around 54uS and I'm a lot happier with that result. If the TLC555 45uS pulse is OK, the kit manual needs to be updated to say so.
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/NE555-54us-pulse.e6b644c4275c2546.png" ><img src="https://www.grayunicorn.com/processed_images/NE555-54us-pulse.60c0e1796c7fb9bc.png" alt="555?" /></a>
+    <figcaption>555?</figcaption>
+</figure>
+<h2>Step 4</h2>
+My coil inductance is 370uH, or at least to the degree that my very cheap <a href="https://www.amazon.com/MASTECH-Portable-Digital-Capacitance-Inductance/dp/B07J2F7F7L/ref=sr_1_1?dchild=1&keywords=Mastech+MY6243&qid=1589974588&sr=8-1">Mastech MY6243 LCR Digital Multimeter, Capacitance and Inductance Tester</a> can measure it. (I bought it just for this project - usually I only do digital electronics, never anything with a coil!) On this basis I did not adjust the damping resistor but I might later.
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/flyback.f2a7d7120cdf4886.png" ><img src="https://www.grayunicorn.com/processed_images/flyback.b767886e3485dc2c.png" alt="Flyback" /></a>
+    <figcaption>Flyback</figcaption>
+</figure>
+<p>That's a little high but once again I'm going with it and moving on.<
+<h2>Step 5</h2>
+OK, now it's time to hook up the coil since I need to measure voltages changing as a metallic object comes close to it. There is no conventional coil connector supplied with the kit but I would like to be able to use a commercial coil maybe, so I bought the pair of connectors. I wasn't sure about how to wire it up but the manual makes it clear. Did I mention this is a great kit?</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/rx-preamp.fff56033a654f83a.jpg" ><img src="https://www.grayunicorn.com/processed_images/rx-preamp.4e6225a8eeb7626a.jpg" alt="RX Preamp" /></a>
+    <figcaption>RX Preamp</figcaption>
+</figure>
+<p>At this point some of the uneasiness from previous steps evaporated. Clearly something is working properly.
+<h2>Step 6</h2>
+This step includes the two 16-pin devices, whose sockets were the most mangled from being stuck in the plastic bag with all the rest. They straightened out OK though. It is a thoughtful step to include sockets even for the cheap chips like the 555, they are easily destroyed with clumsy soldering and a pain to desolder. With the socket you can get the pins (almost) as hot as you like and not worry about pausing between pins.
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/sample-pulse-generator.6d7a7a8dc43e5ca2.jpg" ><img src="https://www.grayunicorn.com/processed_images/sample-pulse-generator.524e28dc609dac8c.jpg" alt="Sample Pulse Generator" /></a>
+    <figcaption>Sample Pulse Generator</figcaption>
+</figure>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/sample-pulse-delay.b7c9b385cc7247f1.png" ><img src="https://www.grayunicorn.com/processed_images/sample-pulse-delay.e2648c287d545c43.png" alt="Sample Pulse Delay" /></a>
+    <figcaption>Sample Pulse Delay</figcaption>
+</figure>
+<h2>Step 7</h2>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/sampling-integrator.8ff26a1482e72bc3.jpg" ><img src="https://www.grayunicorn.com/processed_images/sampling-integrator.da1b0b91206b4932.jpg" alt="Sampling Integrator" /></a>
+    <figcaption>Sampling Integrator</figcaption>
+</figure>
+<p>The section parts list says it's time to use the TL062 op-amp, but a TL072 is supplied. For all intensive porpoises that's the same thing, and the full parts list makes that clear but maybe it could be mentioned in the section parts list also?<
+<p>The test in this step is about the opposite of the one in step 5 - this time the voltage at the test point goes up rather than down as the metallic object nears the coil.
+<h2>Step 8</h2>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/second-integrator.dd096a47ec476f0f.jpg" ><img src="https://www.grayunicorn.com/processed_images/second-integrator.6bc1ef0d7002aeec.jpg" alt="Second Integrator" /></a>
+    <figcaption>Second Integrator</figcaption>
+</figure>
+<p>Just like in Step 7 the op-amp supplied is an equivalent, a TL071 instead of a TL061.</p><p>The test step here is a tricky adjustment to make on the oscilloscope, I would almost suggest doing it on the meter instead - the voltage you are watching dances around a bit and it is hard to get it at zero but it doesn't have to be exact.
+<p>I couldn't capture everything in this short clip so here's the explanation. The self-adjusting threshold causes the voltage at TP9 to adjust back to 0 in the absence of a moving target. The display here shows the voltage as a target (the big acetone can from previous clips) moves close to the coil, pauses and then moves away. All working!
+<h2>Step 9</h2>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/complete-board.7d7ea2b81ed89c31.jpg" ><img src="https://www.grayunicorn.com/processed_images/complete-board.7981dbbc583cdb8a.jpg" alt="Complete Board" /></a>
+    <figcaption>Complete Board</figcaption>
+</figure>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/connected-board.05852087921a8f93.jpg" ><img src="https://www.grayunicorn.com/processed_images/connected-board.2217a0230b77a78b.jpg" alt="All Connected" /></a>
+    <figcaption>All Connected</figcaption>
+</figure>
+<p>Oh wow, that's a horrible sound from the included mini-speaker. I guess when the sound indicates that you've found something it's much more welcome. Anyway - it works! Obviously there is more tweaking to do and I need to go back and look at the scope, but that's a wrap. It detects metal.
+<h2>Conclusion</h2>
+Building this kit is going to take around three hours at an absolute minimum and you should probably budget more like a whole day if you are not very experienced. I took around five hours in all, including winding the coil (and many more 3D printing a coil former, but that's another story). If you have only ever made LEDs flash with an Arduino this might be too much for you, but then again if you go slow and ask questions in the forum it can probably be done. Just be cautious and don't guess.<p>After building the whole thing I have one more complaint about the PCB - the holes for the resistors are often far too large. When you put the component into the holes and bend the leads a little they just rattle around. It looks like a uniform hole size was used for all of the resistors, a comfortable fit for the 2W units but less so for the 1/4W, which are the majority.
+<p>I'm pretty happy to have a metal detector, especially one so cheap! But there's still a long way to go before it can go in the car and find some gold. I need to do a lot of work putting it in a case and building the head cover, hand grip, making a battery system etc. More posts to come...
+  </div>
+
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      <span class="tags-label">Tags:</span>
+      <div class="tag-list">
+        
+        <span class="tag">Electronics</span>
+        
+      </div>
+    </div>
+    
+
+    <div class="post-navigation">
+      <a href="https://www.grayunicorn.com/blog" class="back-to-blog">← Back to Blog</a>
+    </div>
+  </footer>
+</article>
+
+        </div>
+      </main>
+      <footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <p class="copyright">
+        © 2026 Adam Eberbach. All rights reserved.
+      </p>
+      <p class="theme-credit">
+        Powered by <a href="https://www.getzola.org" target="_blank" rel="noopener">Zola</a>
+        • <a href="https://github.com/jdrhyne/volks-typo" target="_blank" rel="noopener">Volks-Typo Theme</a>
+      </p>
+    </div>
+
+    <div class="social-links">
+      <a href="https://www.grayunicorn.com/blog/rss.xml" class="social-link" aria-label="RSS feed">
+        <span class="social-icon" style="-webkit-mask-image: url('https://www.grayunicorn.com/icons/rss.svg'); mask-image: url('https://www.grayunicorn.com/icons/rss.svg');" aria-hidden="true"></span>
+      </a>
+      
+      <a href="https://mastodon.online/@aeberbach" class="social-link" aria-label="Mastodon" target="_blank" rel="noopener">
+        <span class="social-icon" style="-webkit-mask-image: url('https://www.grayunicorn.com/icons/mastodon.svg'); mask-image: url('https://www.grayunicorn.com/icons/mastodon.svg');" aria-hidden="true"></span>
+      </a>
+      
+      <a href="https://github.com/aeberbach" class="social-link" aria-label="Github" target="_blank" rel="noopener">
+        <span class="social-icon" style="-webkit-mask-image: url('https://www.grayunicorn.com/icons/github.svg'); mask-image: url('https://www.grayunicorn.com/icons/github.svg');" aria-hidden="true"></span>
+      </a>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <script>window.VOLKS_SEARCH_URL = "https://www.grayunicorn.com/search/";</script>
+    <script src="https://www.grayunicorn.com/search.js?h=86f8110b674a65e81dce"></script>
+  </body>
+</html>

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://www.grayunicorn.com/favicon.svg" />
+    <link rel="stylesheet" href="https://www.grayunicorn.com/main.css?h=dd4fb0f354fcfb80d0de" />
+    <link rel="alternate" type="application/rss+xml" title="Gray Unicorn" href="https://www.grayunicorn.com/blog/rss.xml" />
+    <script src="https://www.grayunicorn.com/theme-init.js?h=f7a49ca0a4e29341b5d4"></script>
+    
+    <title>Amiga 1200!</title>
+    <meta name="description" content="I never had an A1200 before." />
+    <meta property="og:title" content="Amiga 1200!" />
+    <meta property="og:description" content="I never had an A1200 before." />
+    <meta property="og:type" content="website" />
+
+    <meta property="og:image" content="https://www.grayunicorn.com/images/2019-03-09-amiga1200/new-case.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://www.grayunicorn.com/images/2019-03-09-amiga1200/new-case.jpg" />
+
+
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <header class="site-header">
+  <div class="header-content">
+    <!-- Mobile hamburger button - far left on mobile -->
+    <button class="hamburger-toggle mobile-only" id="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="hamburger-line" d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path class="hamburger-line" d="M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path class="hamburger-line" d="M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <div class="site-title">
+      <a href="https://www.grayunicorn.com">
+        
+        <span class="title-text">Gray Unicorn</span>
+        
+      </a>
+    </div>
+
+    <div class="header-controls">
+      <nav class="main-navigation" role="navigation" aria-label="Main navigation">
+        <ul class="nav-list">
+          
+          <li><a href="https://www.grayunicorn.com/blog" class="nav-link">Blog</a></li>
+          
+        </ul>
+      </nav>
+
+      <!-- Mobile controls group - RSS and Search on right -->
+      <div class="mobile-controls">
+        
+        
+        <button type="button" class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar" title="Toggle sidebar">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="16" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+            
+            <line class="sidebar-line" x1="9" y1="4" x2="9" y2="20" stroke="currentColor" stroke-width="1.5"/>
+            
+          </svg>
+        </button>
+        <button type="button" class="theme-toggle" data-theme-cycle aria-label="Toggle theme: light, dark, or auto" title="Toggle theme">
+          <span class="theme-icon theme-icon-light" aria-hidden="true"></span>
+          <span class="theme-icon theme-icon-dark" aria-hidden="true"></span>
+          <span class="theme-icon theme-icon-auto" aria-hidden="true"></span>
+        </button>
+
+        <button class="search-toggle" id="search-toggle" data-search-trigger aria-label="Search articles">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+  <ul class="mobile-nav-list">
+    
+    <li><a href="https://www.grayunicorn.com/blog" class="mobile-nav-link">Blog</a></li>
+    
+  </ul>
+</nav>
+
+<div class="search-overlay" id="search-overlay">
+  <div class="search-container">
+    <div class="search-header">
+      <input type="text" class="search-input" id="search-input" placeholder="Search articles..." autocomplete="off">
+      <button class="search-close" id="search-close" aria-label="Close search">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2"/>
+          <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+
+<script>
+  // Theme toggle: cycles light -> dark -> auto (auto follows the OS, live-updating)
+  (function () {
+    const root = document.documentElement;
+    const btn = document.querySelector('[data-theme-cycle]');
+    if (!btn) return;
+    const order = ['light', 'dark', 'auto'];
+    const mql = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function systemTheme() { return mql.matches ? 'dark' : 'light'; }
+
+    function apply(mode) {
+      root.dataset.theme = mode === 'auto' ? systemTheme() : mode;
+      root.dataset.themeMode = mode;
+      btn.setAttribute('title', 'Theme: ' + mode + ' (click to change)');
+      try { localStorage.setItem('theme', mode); } catch (e) {}
+    }
+
+    btn.addEventListener('click', function () {
+      const current = localStorage.getItem('theme') || 'auto';
+      apply(order[(order.indexOf(current) + 1) % order.length]);
+    });
+
+    // Reflect the stored/initial mode in the tooltip on load
+    apply(localStorage.getItem('theme') || 'auto');
+
+    // Keep "auto" in sync when the OS theme changes
+    function onSystemChange() {
+      if ((localStorage.getItem('theme') || 'auto') === 'auto') {
+        root.dataset.theme = systemTheme();
+      }
+    }
+    if (mql.addEventListener) { mql.addEventListener('change', onSystemChange); }
+    else if (mql.addListener) { mql.addListener(onSystemChange); }
+  })();
+
+  // Sidebar show/hide toggle (persisted; disabled on pages without a sidebar)
+  function initSidebarToggle() {
+    var btn = document.getElementById('sidebar-toggle');
+    if (!btn) return;
+
+    // The sidebar element appears later in the document than this header, so
+    // this must run after the DOM is parsed (see the dispatch below).
+    if (!document.querySelector('.sidebar')) {
+      btn.disabled = true;
+      btn.setAttribute('aria-disabled', 'true');
+      return;
+    }
+
+    var root = document.documentElement;
+    function sync() {
+      btn.setAttribute('aria-pressed', root.dataset.sidebar === 'hidden' ? 'false' : 'true');
+    }
+    sync();
+
+    btn.addEventListener('click', function () {
+      if (root.dataset.sidebar === 'hidden') {
+        delete root.dataset.sidebar;
+        try { localStorage.setItem('sidebar', 'shown'); } catch (e) {}
+      } else {
+        root.dataset.sidebar = 'hidden';
+        try { localStorage.setItem('sidebar', 'hidden'); } catch (e) {}
+      }
+      sync();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSidebarToggle);
+  } else {
+    initSidebarToggle();
+  }
+
+  // Hamburger menu functionality
+  (function () {
+    const hamburgerToggle = document.getElementById('hamburger-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const body = document.body;
+
+    if (!hamburgerToggle || !mobileMenu) return;
+
+    hamburgerToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.contains('active');
+
+      if (isOpen) {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      } else {
+        mobileMenu.classList.add('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'true');
+        body.style.overflow = 'hidden';
+      }
+    });
+
+    // Close menu when clicking on a link
+    const mobileNavLinks = mobileMenu.querySelectorAll('.mobile-nav-link');
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      });
+    });
+
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      }
+    });
+  })();
+</script>
+
+      <main class="main-content with-sidebar sidebar-left">
+        <aside class="sidebar"><div class="sidebar-content">
+  <!-- Bio Section -->
+  <section class="bio-section">
+    <div class="avatar-container">
+      
+        <img src="/images/profile.jpg" alt="Adam Eberbach" class="avatar" />
+      
+    </div>
+    <h3 class="author-name">Adam Eberbach</h3>
+    <p class="bio-text">Computer Science graduate, started with C and Ada. Electronics, 3D design and printing, flight sims are what I do for fun.</p>
+  </section>
+
+  <!-- Recent Posts Section -->
+  
+  
+    <section class="recent-posts">
+      <h3 class="section-title">Recent Posts</h3>
+      <ul class="post-list">
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/26-09-18-zola/" class="post-link">
+              Switching to Zola
+            </a>
+            <time class="post-date" datetime="2026-09-18">
+              Sep 18, 2026
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/24-08-23-amigakeyboardsv2/" class="post-link">
+              Amiga A1200 and A600 keyboards, version 2
+            </a>
+            <time class="post-date" datetime="2024-08-23">
+              Aug 23, 2024
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/22-06-29-a1200leds/" class="post-link">
+              Amiga 1200 LED assembly
+            </a>
+            <time class="post-date" datetime="2022-06-29">
+              Jun 29, 2022
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/22-06-24-mac-video-4/" class="post-link">
+              Compact Macintosh video - 4
+            </a>
+            <time class="post-date" datetime="2022-06-24">
+              Jun 24, 2022
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/21-09-16-solidworks/" class="post-link">
+              The end of Solidworks
+            </a>
+            <time class="post-date" datetime="2021-09-16">
+              Sep 16, 2021
+            </time>
+          </li>
+        
+      </ul>
+    </section>
+  
+
+  <!-- Categories Section -->
+  
+  
+</div>
+</aside>
+        <div class="content">
+          
+<article class="blog-post">
+  <header class="post-header">
+    <h1 class="post-title">Amiga 1200!</h1>
+
+    <div class="post-meta">
+      <span class="post-byline">
+        <time class="post-date" datetime="2019-03-09">March 9, 2019</time>
+      </span>
+
+      <span class="post-reading-time">5 min read</span>
+
+      
+    </div>
+
+    
+
+    <!-- Monumental Blood Red Rule -->
+    <hr class="monumental-rule" />
+  </header>
+
+  
+  <figure class="post-hero">
+    <img src="https://www.grayunicorn.com/images/2019-03-09-amiga1200/new-case.jpg" alt="Amiga 1200!" />
+  </figure>
+  
+
+  
+
+  <div class="post-content">
+    <p>To be clear, I love old computers far beyond their actual practical worth. I love that you can take them apart like LEGO, clean them, put them back together and they work again. When you're the kind of person that just compulsively takes things apart it's addictive - imagine a pen that you can unscrew in front of you, of course you do it, right? Then imagine the pen is filthy from sitting in a storage space for 10 years of so and you have an air compressor and can blast that dust right out of there and make it like new again - even better.</p><p>So it is with old computers. The Amiga was my first real computer. In about 1987 I was in the wrong tertiary degree course for the wrong reasons. A friend bought an Amiga 1000 and once I saw it I suddenly realized this! I quit the degree immediately, primarily to work to make enough money to get that computer but also to get back to study because I knew that Computer Science was the degree I should have been in. I started with an Amiga 1000.</p></p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/amiga1000.4462d7b2670747b2.jpg" ><img src="https://www.grayunicorn.com/processed_images/amiga1000.f31df6477f50bc5a.jpg" alt="The Original." /></a>
+    <figcaption>The Original.</figcaption>
+</figure>
+<p>It took a couple of years of studying mathematics while working because I hadn't been a great student in conventional secondary school but pretty soon I was beginning a CS degree and I upgraded to the Amiga 2500 complete with 68020 and flicker fixer! And embarked on a four-year argument with various professors who would say "that's not compatible" - maybe that was half correct, but I got all my work done on it. (Worked fine to connect to the VAX.)</p><p>Years later I had a PCB made for a little project at PCBFast in Melbourne. Much later, 2018, I heard the owner is retiring and they are closing down - and would any former customers like a few old computers? I couldn't get there fast enough.</p><p>I picked up a couple of really nice Pentium II machines made by Intergraph, an old Dell and sundry monitors, bringing my collection to one 15", two 17" and two 19". No NOS 21" Trinitron as I had hoped for but oh well! Sadly I could not transport or find space for some of the industrial gear, like CNC drill machines, that were sold for scrap. Talking about this online someone local thought that if liked that old stuff maybe I would like an Amiga 1200 with various accessories that he thought might be in storage somewhere? HELL YEAH!</p><p>I never had an Amiga 1200 but my friend Pete did and it was pretty cool. Like my big box machine, more powerful but in half the space and 1/4 the price. We got a lot of gaming done, even a little work. Eventually, sadly, Commodore died and I got a 486 and never had another Amiga. I did finish the degree and things went well. Started in embedded C, then C++, then mobile - now Android and iOS.
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/old-box.8ae5bbf9f37e8f50.jpg" ><img src="https://www.grayunicorn.com/processed_images/old-box.8cdbeae82d0efe27.jpg" alt="How old did you say this was?" /></a>
+    <figcaption>How old did you say this was?</figcaption>
+</figure>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/originals.c160086cb674c2d9.jpg" ><img src="https://www.grayunicorn.com/processed_images/originals.a1f413786b4177f0.jpg" alt="Old stuff" /></a>
+    <figcaption>Old stuff</figcaption>
+</figure>
+<p></a></p><p>So I got the Amiga, and it did not disappoint. Covered in dust and a little mouse poo the box showed promise, probably repairable if not actually working. I kind of expected years of neglect to have made all the capacitors leak and the board to be too far gone for anything to work at all but it did! After a complete board clean with cotton buds and isopropyl alcohol and a replacement of all electrolytic capacitors it booted, asking me for a Workbench. Which I didn't have - the included original disk folder had a corrupt workbench disk! Oh well, the Install disk boots and a couple of the games I have tried seem to boot also.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/68030.ce25d879e8001f95.jpg" ><img src="https://www.grayunicorn.com/processed_images/68030.603360694a688fea.jpg" alt="OMG A 68030!" /></a>
+    <figcaption>OMG A 68030!</figcaption>
+</figure>
+<p></a></p><p>I was really excited about this thing, perhaps irrationally so. A few years ago A1200.net ran a kickstarter for an Amiga 1200 case replacement. I bought one (transparent!) before I even got my computer.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/new-case.6b5834029b189e02.jpg" ><img src="https://www.grayunicorn.com/processed_images/new-case.c9ac7277ee832cb9.jpg" alt="So 90's" /></a>
+    <figcaption>So 90's</figcaption>
+</figure>
+<p></a></p><p>I also picked up the awesome <a href="https://github.com/ChuckyGang/DiagROM">DiagROM</a> images, and a <a href="https://gglabs.us">GGLabs</a> A1200 ROM set, and the adapter to burn new ones if I need to. All I can do right now is boot to DiagROM - everything tests fine. I started looking for an Indivision AGA MK2 because I was convinced it was the only way to get good video out of my new machine, remembering the scarcity of 15kHz monitors back in the day - NEC 3D anyone? But there are a couple of Dell U2711 panels at work that nobody seems to be using, wonder if I can buy then a new 27" and bring one home - they are reputed to work beautifully with an Amiga with only a 23-pin to VGA video adapter.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/disks.fd7b0d3d60300fcf.jpg" ><img src="https://www.grayunicorn.com/processed_images/disks.eaa6547b56cbdd03.jpg" alt="I bet disk 3 of everything is broken..." /></a>
+    <figcaption>I bet disk 3 of everything is broken...</figcaption>
+</figure>
+<p></a></p><p>Though there is a big box of disks I don't expect too many to work. The hard drive included was a definite NOPE! I picked up a 4GB flash module that sits right on the header for not too much. Right now I'm waiting for the Hyperion 3.1.4 Kickstart/Workbench set to arrive. And I'm thinking about the keyboard. I love mechanical keyboards. Having an Amiga that can play <a href="http://nethack.org">Nethack</a> and Infocom text adventures on its own mechanical keyboard would be pretty cool. I'm far from the first to think about replacing the original KB with a mechanical but maybe I'll just go and build one.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      <span class="tags-label">Tags:</span>
+      <div class="tag-list">
+        
+        <span class="tag">Amiga</span>
+        
+      </div>
+    </div>
+    
+
+    <div class="post-navigation">
+      <a href="https://www.grayunicorn.com/blog" class="back-to-blog">← Back to Blog</a>
+    </div>
+  </footer>
+</article>
+
+        </div>
+      </main>
+      <footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <p class="copyright">
+        © 2026 Adam Eberbach. All rights reserved.
+      </p>
+      <p class="theme-credit">
+        Powered by <a href="https://www.getzola.org" target="_blank" rel="noopener">Zola</a>
+        • <a href="https://github.com/jdrhyne/volks-typo" target="_blank" rel="noopener">Volks-Typo Theme</a>
+      </p>
+    </div>
+
+    <div class="social-links">
+      <a href="https://www.grayunicorn.com/blog/rss.xml" class="social-link" aria-label="RSS feed">
+        <span class="social-icon" style="-webkit-mask-image: url('https://www.grayunicorn.com/icons/rss.svg'); mask-image: url('https://www.grayunicorn.com/icons/rss.svg');" aria-hidden="true"></span>
+      </a>
+      
+      <a href="https://mastodon.online/@aeberbach" class="social-link" aria-label="Mastodon" target="_blank" rel="noopener">
+        <span class="social-icon" style="-webkit-mask-image: url('https://www.grayunicorn.com/icons/mastodon.svg'); mask-image: url('https://www.grayunicorn.com/icons/mastodon.svg');" aria-hidden="true"></span>
+      </a>
+      
+      <a href="https://github.com/aeberbach" class="social-link" aria-label="Github" target="_blank" rel="noopener">
+        <span class="social-icon" style="-webkit-mask-image: url('https://www.grayunicorn.com/icons/github.svg'); mask-image: url('https://www.grayunicorn.com/icons/github.svg');" aria-hidden="true"></span>
+      </a>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <script>window.VOLKS_SEARCH_URL = "https://www.grayunicorn.com/search/";</script>
+    <script src="https://www.grayunicorn.com/search.js?h=86f8110b674a65e81dce"></script>
+  </body>
+</html>

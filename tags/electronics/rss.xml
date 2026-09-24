@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>Gray Unicorn - Electronics</title>
+      <link>https://www.grayunicorn.com</link>
+      <description>Random collection of project, infrequently updated</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://www.grayunicorn.com/tags/electronics/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Wed, 13 Apr 2016 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Minipule Metal Detector</title>
+          <pubDate>Wed, 13 Apr 2016 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.grayunicorn.com/blog/16-04-13-minipulse/</link>
+          <guid>https://www.grayunicorn.com/blog/16-04-13-minipulse/</guid>
+          <description xml:base="https://www.grayunicorn.com/blog/16-04-13-minipulse/">&lt;p&gt;We met a guy in Beechworth travelling with his family while camping. He came over to borrow some tea and while talking mentioned that he did a bit of prospecting. &quot;As in gold?&quot; we asked, interested. Beechworth is part of Victoria&#39;s &quot;golden triangle&quot; and our campground was on a flat below a hillside full of old mining shafts. &quot;Sure&quot; he said, and pulled out a glass tube with at least an ounce of gold in small nuggets rattling around. I guessed it was worth about US$1600... And all you need to find it is a $5000 metal detector, or $10000 for a really good one. I was prepared to spend about $200 for a new camping toy and so this project was started.&lt;/p&gt;
+&lt;h2&gt;The Kit&lt;/h2&gt;
+Searching around I found several forums full of DIY detector builds - the &lt;a href=&quot;https://www.geotech1.com/forums/forum.php&quot;&gt;Geotech forum&lt;/a&gt; is the one I spent most time on. There is an active community of builders and it didn&#39;t seem too hard. I settled on the Minipulse kit, from the &lt;a href=&quot;https://diydetector.co.uk/store/index.php&quot;&gt;DiyDetector&lt;/a&gt; shop - reasonably priced at £34.00. It was delivered in around ten days. 
+&lt;p&gt;Right away I worried about the ICs - all rattling around in one bag, surely the pins would be bent? At the very least I&#39;d be buying new sockets. The PCB is a quality item. Holes plated through, flowed ground plane, heavy fibreglass substrate.
+&lt;p&gt;And here are all the parts in a bit more order. I was going to separate them into small containers by construction step (there are 9 steps) but I found it just as easy to take them from this mat as each step was complete.
+&lt;p&gt;The electrolytics are decidedly cheap, nasty-looking things - brand names like &quot;Forever&quot; and &quot;Suntan&quot;. I&#39;m not looking for audiophile stuff like Black Gate or Cerafine but I have replaced too many bulging, leaky electrolytics in the past ten years. Anyway I used them. That&#39;s about the only complaint I have about the parts. You can see from the individually labelled resistors that silverdog has gone to a lot of trouble to make this as easy as possible to put together right.
+&lt;p&gt;The &lt;a href=&quot;http://silverdog.co.uk/shop2/library/minipulserevd.pdf&quot;&gt;instruction manual&lt;/a&gt; is available before you buy the kit so you can see what you&#39;ll be building. The manual stresses that you should follow the build steps in order and perform the tests at the end of each step. This post describes following those steps and shows the result of each test.
+&lt;p&gt;I have one very tiny criticism (in steps 7 and 8) but otherwise it&#39;s very, very good. Up front I&#39;ll say this is a great kit. Buy with confidence.
+&lt;h2&gt;Step 1&lt;/h2&gt;
+The first step is an easy one, getting a 5V supply using a 79L05. I confused myself by looking for a TO220 package before realising it was a TO-92. That done, an easy step.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/negative-supply.49e1321f949bf06a.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/negative-supply.fe5af99b4cc2309f.jpg&quot; alt=&quot;Negative Supply&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Negative Supply&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2&gt;Step 2&lt;/h2&gt;
+Another easy step! This thing will be done in no time. A 78L05 provides +5V.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/positive-supply.03cfcca5267e6239.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/positive-supply.0f2834069bbdf3d4.jpg&quot; alt=&quot;Positive Supply&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Positive Supply&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2&gt;Step 3&lt;/h2&gt;
+Now starts the analogue stuff so I&#39;m out of my comfort zone. I picked up a 470nF capacitor instead of the 47nF here, my only component mistake - I just don&#39;t do enough electronics to read &quot;473J100&quot; without having to stop and think. When that was fixed the test showed I was very close to the expected result - at least close enough to go on.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/tx-oscillator.c9cd60b5fffcb091.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/tx-oscillator.8598467c72b0612e.jpg&quot; alt=&quot;TX Oscillator&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;TX Oscillator&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/frequency-check.79c049a60d87e2c5.png&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/frequency-check.e9cfab59f2196b7e.png&quot; alt=&quot;Frequency Check&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Frequency Check&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/pulse-width.c31ef353d4e45b85.png&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/pulse-width.790d939f89c6fa6e.png&quot; alt=&quot;Pulse Width&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Pulse Width&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/sync-check.92dc5e25573f0047.png&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/sync-check.8cae78667cff6ec6.png&quot; alt=&quot;Sync Check&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Sync Check&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;OK, something isn&#39;t exactly right. My pulse width appears to be ~45uS. I do have a higher supply voltage, 13.8V from a fixed supply intended to power a ham radio. I don&#39;t have an adjustable supply or any batteries to do an actual 12V supply. The frequency is OK, and it&#39;s in sync with the pulse from U2, so I think it&#39;s OK to go ahead.
+&lt;p&gt;The manual also suggests putting on headphones and listening for an induced noise when the coil is close. It works!
+&lt;p&gt;Update! Forum user teleno reported that switching out the TLC555 chips supplied in the kit for NE555 chips brings the pulse to 58uS. Good thing everyone has ten or so NE555s in the junk box. (Mine must be around 30 years old!) I now see around 54uS and I&#39;m a lot happier with that result. If the TLC555 45uS pulse is OK, the kit manual needs to be updated to say so.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/NE555-54us-pulse.e6b644c4275c2546.png&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/NE555-54us-pulse.60c0e1796c7fb9bc.png&quot; alt=&quot;555?&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;555?&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2&gt;Step 4&lt;/h2&gt;
+My coil inductance is 370uH, or at least to the degree that my very cheap &lt;a href=&quot;https://www.amazon.com/MASTECH-Portable-Digital-Capacitance-Inductance/dp/B07J2F7F7L/ref=sr_1_1?dchild=1&amp;keywords=Mastech+MY6243&amp;qid=1589974588&amp;sr=8-1&quot;&gt;Mastech MY6243 LCR Digital Multimeter, Capacitance and Inductance Tester&lt;/a&gt; can measure it. (I bought it just for this project - usually I only do digital electronics, never anything with a coil!) On this basis I did not adjust the damping resistor but I might later.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/flyback.f2a7d7120cdf4886.png&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/flyback.b767886e3485dc2c.png&quot; alt=&quot;Flyback&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Flyback&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;That&#39;s a little high but once again I&#39;m going with it and moving on.&lt;
+&lt;h2&gt;Step 5&lt;/h2&gt;
+OK, now it&#39;s time to hook up the coil since I need to measure voltages changing as a metallic object comes close to it. There is no conventional coil connector supplied with the kit but I would like to be able to use a commercial coil maybe, so I bought the pair of connectors. I wasn&#39;t sure about how to wire it up but the manual makes it clear. Did I mention this is a great kit?&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/rx-preamp.fff56033a654f83a.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/rx-preamp.4e6225a8eeb7626a.jpg&quot; alt=&quot;RX Preamp&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;RX Preamp&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;At this point some of the uneasiness from previous steps evaporated. Clearly something is working properly.
+&lt;h2&gt;Step 6&lt;/h2&gt;
+This step includes the two 16-pin devices, whose sockets were the most mangled from being stuck in the plastic bag with all the rest. They straightened out OK though. It is a thoughtful step to include sockets even for the cheap chips like the 555, they are easily destroyed with clumsy soldering and a pain to desolder. With the socket you can get the pins (almost) as hot as you like and not worry about pausing between pins.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/sample-pulse-generator.6d7a7a8dc43e5ca2.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/sample-pulse-generator.524e28dc609dac8c.jpg&quot; alt=&quot;Sample Pulse Generator&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Sample Pulse Generator&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/sample-pulse-delay.b7c9b385cc7247f1.png&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/sample-pulse-delay.e2648c287d545c43.png&quot; alt=&quot;Sample Pulse Delay&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Sample Pulse Delay&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2&gt;Step 7&lt;/h2&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/sampling-integrator.8ff26a1482e72bc3.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/sampling-integrator.da1b0b91206b4932.jpg&quot; alt=&quot;Sampling Integrator&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Sampling Integrator&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;The section parts list says it&#39;s time to use the TL062 op-amp, but a TL072 is supplied. For all intensive porpoises that&#39;s the same thing, and the full parts list makes that clear but maybe it could be mentioned in the section parts list also?&lt;
+&lt;p&gt;The test in this step is about the opposite of the one in step 5 - this time the voltage at the test point goes up rather than down as the metallic object nears the coil.
+&lt;h2&gt;Step 8&lt;/h2&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/second-integrator.dd096a47ec476f0f.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/second-integrator.6bc1ef0d7002aeec.jpg&quot; alt=&quot;Second Integrator&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Second Integrator&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Just like in Step 7 the op-amp supplied is an equivalent, a TL071 instead of a TL061.&lt;/p&gt;&lt;p&gt;The test step here is a tricky adjustment to make on the oscilloscope, I would almost suggest doing it on the meter instead - the voltage you are watching dances around a bit and it is hard to get it at zero but it doesn&#39;t have to be exact.
+&lt;p&gt;I couldn&#39;t capture everything in this short clip so here&#39;s the explanation. The self-adjusting threshold causes the voltage at TP9 to adjust back to 0 in the absence of a moving target. The display here shows the voltage as a target (the big acetone can from previous clips) moves close to the coil, pauses and then moves away. All working!
+&lt;h2&gt;Step 9&lt;/h2&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/complete-board.7d7ea2b81ed89c31.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/complete-board.7981dbbc583cdb8a.jpg&quot; alt=&quot;Complete Board&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Complete Board&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/connected-board.05852087921a8f93.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/connected-board.2217a0230b77a78b.jpg&quot; alt=&quot;All Connected&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;All Connected&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Oh wow, that&#39;s a horrible sound from the included mini-speaker. I guess when the sound indicates that you&#39;ve found something it&#39;s much more welcome. Anyway - it works! Obviously there is more tweaking to do and I need to go back and look at the scope, but that&#39;s a wrap. It detects metal.
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+Building this kit is going to take around three hours at an absolute minimum and you should probably budget more like a whole day if you are not very experienced. I took around five hours in all, including winding the coil (and many more 3D printing a coil former, but that&#39;s another story). If you have only ever made LEDs flash with an Arduino this might be too much for you, but then again if you go slow and ask questions in the forum it can probably be done. Just be cautious and don&#39;t guess.&lt;p&gt;After building the whole thing I have one more complaint about the PCB - the holes for the resistors are often far too large. When you put the component into the holes and bend the leads a little they just rattle around. It looks like a uniform hole size was used for all of the resistors, a comfortable fit for the 2W units but less so for the 1/4W, which are the majority.
+&lt;p&gt;I&#39;m pretty happy to have a metal detector, especially one so cheap! But there&#39;s still a long way to go before it can go in the car and find some gold. I need to do a lot of work putting it in a case and building the head cover, hand grip, making a battery system etc. More posts to come...</description>
+      </item>
+      <item>
+          <title>Armada - Ernest Cline</title>
+          <pubDate>Mon, 13 Jul 2015 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.grayunicorn.com/blog/15-07-13-armada/</link>
+          <guid>https://www.grayunicorn.com/blog/15-07-13-armada/</guid>
+          <description xml:base="https://www.grayunicorn.com/blog/15-07-13-armada/">&lt;p&gt;In thinking about this post I thought of &lt;a href=&quot;https://mikecanex.wordpress.com/2011/06/08/wwdc-1997-video-steve-jobs-handles-a-public-insult/&quot;&gt;Steve Jobs at Apple WWDC in 1997&lt;/a&gt; - I&#39;m the relative nobody about to criticise the famous achiever. It is with great humility and disappointment that I say that I did not love &lt;a href=&quot;https://www.goodreads.com/book/show/16278318-armada&quot;&gt;Armada&lt;/a&gt; Ernie&#39;s latest book.
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Ready_Player_One&quot;&gt;Ready Player One&lt;/a&gt; was incredible. I emailed friends about it and listened to the music and searched for the URL leading to the first gate. I liked it so much that I went and found a hardcover first edition, signed. It&#39;s on the shelf next to Patrick O&#39;Brian and David Mitchell. Cline probably isn&#39;t quite as familiar with Homer, but for sheer enjoyment (and nostalgia) Ready Player One is right up there.&lt;/p&gt;
+&lt;p&gt;Armada isn&#39;t. I got through it in multiple short sessions on the train. But unlike RP1 I didn&#39;t sit down on the platform to finish chapters, I just closed it and went home. The barrage of cultural references I did not mind, they were expected - &lt;a href=&quot;https://www.youtube.com/watch?v=I3fhKo6MCI4&quot;&gt;Lloyd, Lloyd all null and void&lt;/a&gt; is the only one I had to look up. I liked the book, I just felt flat about not liking it more.
+&lt;h2&gt;SPOILERS!&lt;/h2&gt;
+So what&#39;s wrong with Armada? I always felt I knew what was going to happen. From the first mention of a missing father I expected him to turn up. Once he did turn up I expected him to nobly sacrifice himself for the cause. As soon as Last Starfighter was mentioned I knew the video game would become reality.
+&lt;p&gt;What was the point of the big buildup with &quot;Zack Attack&quot;? Was it background for Zack&#39;s disobeying the order to not follow the Glaive into the hangar? Also, what a very understanding Admiral he turned out to be.
+&lt;p&gt;Tethered drones, are you nuts? How would any kind of tether be expected to survive for any length of time in combat? The whole communications disruption mechanism was clumsy and this band-aid stuck out a mile. (note from 2026: obviously I wrote that before Ukraine was covered in optical fibre from tethered drones. Things change!)
+&lt;p&gt;And haven&#39;t we already been through this with OASIS? And Ender&#39;s Game? Even the lesson of War Games is in there - and it was telegraphed very early leaving the end to play out with nothing much left to say.
+&lt;p&gt;And everyone rocks out on the far side of the moon. Sorry but this is going too far. Cringeworthy in fact.
+&lt;h3&gt;Footnote&lt;/h3&gt;
+Apparently the questioner at WWDC 1997 was &lt;a href=&quot;http://www.quora.com/History-of-Apple-Inc/Whos-the-guy-that-insults-Steve-Jobs-in-this-clip-of-WWDC-1997?srid=iKUi&amp;share=1&quot;&gt;Robert Hamisch&lt;/a&gt; - did he manage to insult Jobs, or hand him one of the greatest opportunities ever? I&#39;m sure Ernest Cline has noticed some criticism of Armada and will respond with another great book.
+&lt;p&gt;I won&#39;t say don&#39;t buy Armada, it isn&#39;t the worst thing I have read this year by far. It&#39;s an OK book. It just isn&#39;t what you might hope for.</description>
+      </item>
+    </channel>
+</rss>

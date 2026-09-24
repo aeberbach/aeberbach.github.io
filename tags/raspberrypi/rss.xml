@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>Gray Unicorn - RaspberryPi</title>
+      <link>https://www.grayunicorn.com</link>
+      <description>Random collection of project, infrequently updated</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://www.grayunicorn.com/tags/raspberrypi/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Wed, 09 Oct 2019 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Powering the Raspberry Pi 4</title>
+          <pubDate>Wed, 09 Oct 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.grayunicorn.com/blog/19-10-09-pi-4-power/</link>
+          <guid>https://www.grayunicorn.com/blog/19-10-09-pi-4-power/</guid>
+          <description xml:base="https://www.grayunicorn.com/blog/19-10-09-pi-4-power/">&lt;p&gt;If you have ever used a Raspberry Pi you have probably used plugpacks, and you may have decided not to buy one at first because you had ten lying around already. And then you found the Pi wouldn&#39;t run using anything but a genuine Raspberry Pi foundation unit. I did.When the Raspberry Pi 4 appeared with a requirement for a USB-C 15W power supply I thought I would probably buy the Pi official Pi supply for that too. But having just done the Amiga Internal PSU using a Mean Well module and some 3D printing I decided I would rather do the same here. And in 2019 I don&#39;t have ten USB-C plugpacks lying around anyway.Sure enough they have the &lt;a href=&quot;https://www.meanwell.com/webapp/product/search.aspx?prod=MFM-15&quot;&gt;MFM-15-5&lt;/a&gt; - a 5V, 15W supply for around AUD$16. It would handle a Raspberry Pi easily, if only it had a housing. So I made one. I have a theory on these things - they have to be decent as well as cheap because the engineers who are supposed to buy them and use them in products can see them, unlike what is inside a sealed plugpack.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/main_body.b3dc74b6f2a7d2ef.png&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/main_body.df79c0f1f0d732fe.png&quot; alt=&quot;Main body of case&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Main body of case&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;With Fusion360 I made a few versions of a housing for the Pi with an attached compartment for the power supply module. The IEC C8 plug snaps into place on one side and the 5V output connects via two wires to the Pi in the other compartment.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/psu_top.7c40a64c0dbcf6ab.png&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/psu_top.c364b625c8908b37.png&quot; alt=&quot;Case lid for PSU side&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Case lid for PSU side&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;There are two separate lids so that you can leave the Pi lid off if you want while keeping the mains power covered.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/pi_top.1af2798521022cee.png&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/pi_top.c2b6ceda7c18558a.png&quot; alt=&quot;Case lid for Pi side&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Case lid for Pi side&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Powering the Pi is pretty easy since the power pins are available on the header. It would have been OK to plug the power into the top of the header but then other headers, or hats, would not fit. Instead I took some longer right-angled header pins and took out the GND and 5V pins from the main header, inserting the right angled pins instead. Then the power wire can attach on the bottom of the Pi leaving the header available.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/pwr_pins.27079f9e75693971.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/pwr_pins.26960494f2abd8d7.jpg&quot; alt=&quot;Detail of 90 degree power pins added&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Detail of 90 degree power pins added&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/power_wires.c0b20872dbedfe54.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/power_wires.b18bbab2d8cab4f4.jpg&quot; alt=&quot;Leads from PSU attach to new pins&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Leads from PSU attach to new pins&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;The power supply module connects to the mains plug on one side with the 5V wires going into the Pi side through the ventilation holes. It&#39;s held down with a cable tie.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/psu_detail.138f84ed6b1e35f5.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/psu_detail.2725a83713147823.jpg&quot; alt=&quot;Tiny 5W PSU attached with cable tie&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Tiny 5W PSU attached with cable tie&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;When all hooked up you don&#39;t need to see the power supply wiring at all. The Pi has everything available.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/ready_to_use.644bcba0c978edc9.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/ready_to_use.fc773b5e55c8caaa.jpg&quot; alt=&quot;Pin in case with PSU sealed&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Pin in case with PSU sealed&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;The big difference is you plug in a regular mains cable. No plugpacks! I used a standard C8 panel mount socket, that&#39;s the same mains cable as a Mac mini or many of the bigger plugpacks use, so plenty in the junk box.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/power_side.263854f671c6280f.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/power_side.7d1b3b1f2ea03ada.jpg&quot; alt=&quot;C8 mains socket on side of case&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;C8 mains socket on side of case&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;The main use I have for this thing is on the 3D printer itself, running &lt;A HREF=&quot;https://octoprint.org&quot;&gt;Octoprint&lt;/A&gt; - Official Pi 4 support is not ready yet but I have found the Pi 4 test builds very stable. It can do other things like &lt;A HREF=&quot;https://pi-hole.net&quot;&gt;Pi-hole&lt;/A&gt; while attached to the printer housing but it needs to be close to the printer to take care of the webcam.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/on_printer.cd49b90a6b69c9fa.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/on_printer.63393e0e3beb2c46.jpg&quot; alt=&quot;Pi mounted on printer housing&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Pi mounted on printer housing&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;You can download the STL file at &lt;a href=&quot;https://www.printables.com/model/88156-raspberry-pi-4-model-b-case-with-integrated-power-&quot;&gt;my page on Printables&lt;/a&gt; - it&#39;s free and is one of my most popular designs.&lt;/p&gt;
+&lt;h3&gt;Brief Autodesk Fusion 360 rant...&lt;/h3&gt;
+Autodesk&#39;s website sucks. Hard to navigate, too many confusing options. You don&#39;t just download the product, you download a &quot;downloader&quot;. The app itself is OK once you&#39;re doing something. BUT the cloud-based nature of everything makes it a pretty bad experience. If you like waiting a few minutes every time you want to load a project, or waiting again when you want to produce some STL output then you&#39;ll love Fusion360! I wish they could have just written a local Mac application. Not that it&#39;s any better in the Windows version, I have been using both. Maybe if you&#39;re paying for an expensive license they will sell you a local &quot;cloud&quot; server or something. And the licensing has just changed. No more &quot;Startup&quot; license for everyone, now the free license has a few restrictions on what the product can do and the Startup requires some qualification. I&#39;m not sure how (or if) this will affect me yet.edit June 2021: Dumped Fusion360. Tried Shapr3D but it&#39;s not good enough yet. Found a way to legally use Solidworks without paying $10,000! I&#39;m very happy with it. 
+&lt;p&gt;Once again, don&#39;t do anything like this unless you are competent and understand the risks. Making connections incorrectly or being careless could destroy your Pi or even kill you.&lt;/p&gt;
+</description>
+      </item>
+    </channel>
+</rss>

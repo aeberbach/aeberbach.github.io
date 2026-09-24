@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://www.grayunicorn.com/favicon.svg" />
+    <link rel="stylesheet" href="https://www.grayunicorn.com/main.css?h=dd4fb0f354fcfb80d0de" />
+    <link rel="alternate" type="application/rss+xml" title="Gray Unicorn" href="https://www.grayunicorn.com/blog/rss.xml" />
+    <script src="https://www.grayunicorn.com/theme-init.js?h=f7a49ca0a4e29341b5d4"></script>
+    
+    <title>Amiga 1200 Keyboard, part 6</title>
+    <meta name="description" content="Need to think more about mounting" />
+    <meta property="og:title" content="Amiga 1200 Keyboard, part 6" />
+    <meta property="og:description" content="Need to think more about mounting" />
+    <meta property="og:type" content="website" />
+
+    <meta property="og:image" content="https://www.grayunicorn.com/images/2019-04-23-a1200-kbd-6/key-height.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://www.grayunicorn.com/images/2019-04-23-a1200-kbd-6/key-height.jpg" />
+
+
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <header class="site-header">
+  <div class="header-content">
+    <!-- Mobile hamburger button - far left on mobile -->
+    <button class="hamburger-toggle mobile-only" id="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="hamburger-line" d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path class="hamburger-line" d="M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path class="hamburger-line" d="M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <div class="site-title">
+      <a href="https://www.grayunicorn.com">
+        
+        <span class="title-text">Gray Unicorn</span>
+        
+      </a>
+    </div>
+
+    <div class="header-controls">
+      <nav class="main-navigation" role="navigation" aria-label="Main navigation">
+        <ul class="nav-list">
+          
+          <li><a href="https://www.grayunicorn.com/blog" class="nav-link">Blog</a></li>
+          
+        </ul>
+      </nav>
+
+      <!-- Mobile controls group - RSS and Search on right -->
+      <div class="mobile-controls">
+        
+        
+        <button type="button" class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar" title="Toggle sidebar">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="16" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+            
+            <line class="sidebar-line" x1="9" y1="4" x2="9" y2="20" stroke="currentColor" stroke-width="1.5"/>
+            
+          </svg>
+        </button>
+        <button type="button" class="theme-toggle" data-theme-cycle aria-label="Toggle theme: light, dark, or auto" title="Toggle theme">
+          <span class="theme-icon theme-icon-light" aria-hidden="true"></span>
+          <span class="theme-icon theme-icon-dark" aria-hidden="true"></span>
+          <span class="theme-icon theme-icon-auto" aria-hidden="true"></span>
+        </button>
+
+        <button class="search-toggle" id="search-toggle" data-search-trigger aria-label="Search articles">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+  <ul class="mobile-nav-list">
+    
+    <li><a href="https://www.grayunicorn.com/blog" class="mobile-nav-link">Blog</a></li>
+    
+  </ul>
+</nav>
+
+<div class="search-overlay" id="search-overlay">
+  <div class="search-container">
+    <div class="search-header">
+      <input type="text" class="search-input" id="search-input" placeholder="Search articles..." autocomplete="off">
+      <button class="search-close" id="search-close" aria-label="Close search">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2"/>
+          <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+
+<script>
+  // Theme toggle: cycles light -> dark -> auto (auto follows the OS, live-updating)
+  (function () {
+    const root = document.documentElement;
+    const btn = document.querySelector('[data-theme-cycle]');
+    if (!btn) return;
+    const order = ['light', 'dark', 'auto'];
+    const mql = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function systemTheme() { return mql.matches ? 'dark' : 'light'; }
+
+    function apply(mode) {
+      root.dataset.theme = mode === 'auto' ? systemTheme() : mode;
+      root.dataset.themeMode = mode;
+      btn.setAttribute('title', 'Theme: ' + mode + ' (click to change)');
+      try { localStorage.setItem('theme', mode); } catch (e) {}
+    }
+
+    btn.addEventListener('click', function () {
+      const current = localStorage.getItem('theme') || 'auto';
+      apply(order[(order.indexOf(current) + 1) % order.length]);
+    });
+
+    // Reflect the stored/initial mode in the tooltip on load
+    apply(localStorage.getItem('theme') || 'auto');
+
+    // Keep "auto" in sync when the OS theme changes
+    function onSystemChange() {
+      if ((localStorage.getItem('theme') || 'auto') === 'auto') {
+        root.dataset.theme = systemTheme();
+      }
+    }
+    if (mql.addEventListener) { mql.addEventListener('change', onSystemChange); }
+    else if (mql.addListener) { mql.addListener(onSystemChange); }
+  })();
+
+  // Sidebar show/hide toggle (persisted; disabled on pages without a sidebar)
+  function initSidebarToggle() {
+    var btn = document.getElementById('sidebar-toggle');
+    if (!btn) return;
+
+    // The sidebar element appears later in the document than this header, so
+    // this must run after the DOM is parsed (see the dispatch below).
+    if (!document.querySelector('.sidebar')) {
+      btn.disabled = true;
+      btn.setAttribute('aria-disabled', 'true');
+      return;
+    }
+
+    var root = document.documentElement;
+    function sync() {
+      btn.setAttribute('aria-pressed', root.dataset.sidebar === 'hidden' ? 'false' : 'true');
+    }
+    sync();
+
+    btn.addEventListener('click', function () {
+      if (root.dataset.sidebar === 'hidden') {
+        delete root.dataset.sidebar;
+        try { localStorage.setItem('sidebar', 'shown'); } catch (e) {}
+      } else {
+        root.dataset.sidebar = 'hidden';
+        try { localStorage.setItem('sidebar', 'hidden'); } catch (e) {}
+      }
+      sync();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSidebarToggle);
+  } else {
+    initSidebarToggle();
+  }
+
+  // Hamburger menu functionality
+  (function () {
+    const hamburgerToggle = document.getElementById('hamburger-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const body = document.body;
+
+    if (!hamburgerToggle || !mobileMenu) return;
+
+    hamburgerToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.contains('active');
+
+      if (isOpen) {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      } else {
+        mobileMenu.classList.add('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'true');
+        body.style.overflow = 'hidden';
+      }
+    });
+
+    // Close menu when clicking on a link
+    const mobileNavLinks = mobileMenu.querySelectorAll('.mobile-nav-link');
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      });
+    });
+
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      }
+    });
+  })();
+</script>
+
+      <main class="main-content with-sidebar sidebar-left">
+        <aside class="sidebar"><div class="sidebar-content">
+  <!-- Bio Section -->
+  <section class="bio-section">
+    <div class="avatar-container">
+      
+        <img src="/images/profile.jpg" alt="Adam Eberbach" class="avatar" />
+      
+    </div>
+    <h3 class="author-name">Adam Eberbach</h3>
+    <p class="bio-text">Computer Science graduate, started with C and Ada. Electronics, 3D design and printing, flight sims are what I do for fun.</p>
+  </section>
+
+  <!-- Recent Posts Section -->
+  
+  
+    <section class="recent-posts">
+      <h3 class="section-title">Recent Posts</h3>
+      <ul class="post-list">
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/26-09-18-zola/" class="post-link">
+              Switching to Zola
+            </a>
+            <time class="post-date" datetime="2026-09-18">
+              Sep 18, 2026
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/24-08-23-amigakeyboardsv2/" class="post-link">
+              Amiga A1200 and A600 keyboards, version 2
+            </a>
+            <time class="post-date" datetime="2024-08-23">
+              Aug 23, 2024
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/22-06-29-a1200leds/" class="post-link">
+              Amiga 1200 LED assembly
+            </a>
+            <time class="post-date" datetime="2022-06-29">
+              Jun 29, 2022
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/22-06-24-mac-video-4/" class="post-link">
+              Compact Macintosh video - 4
+            </a>
+            <time class="post-date" datetime="2022-06-24">
+              Jun 24, 2022
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/21-09-16-solidworks/" class="post-link">
+              The end of Solidworks
+            </a>
+            <time class="post-date" datetime="2021-09-16">
+              Sep 16, 2021
+            </time>
+          </li>
+        
+      </ul>
+    </section>
+  
+
+  <!-- Categories Section -->
+  
+  
+</div>
+</aside>
+        <div class="content">
+          
+<article class="blog-post">
+  <header class="post-header">
+    <h1 class="post-title">Amiga 1200 Keyboard, part 6</h1>
+
+    <div class="post-meta">
+      <span class="post-byline">
+        <time class="post-date" datetime="2019-04-23">April 23, 2019</time>
+      </span>
+
+      <span class="post-reading-time">6 min read</span>
+
+      
+    </div>
+
+    
+
+    <!-- Monumental Blood Red Rule -->
+    <hr class="monumental-rule" />
+  </header>
+
+  
+  <figure class="post-hero">
+    <img src="https://www.grayunicorn.com/images/2019-04-23-a1200-kbd-6/key-height.jpg" alt="Amiga 1200 Keyboard, part 6" />
+  </figure>
+  
+
+  
+
+  <div class="post-content">
+    <h2>Fitting the PCB</h2>
+The PCB is back! It's really big, barely goes in my backpack with the zip shut. I can get a 104-key modern board in my backpack but not this PCB! It arrived right on time and very carefully packed. This is a simple board so the difficulty rating is pretty low but the manufacturer really has done a great job and I would not hesitate to use them again.
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/fit.a7ac3fad2b268178.jpg" ><img src="https://www.grayunicorn.com/processed_images/fit.342970222867a589.jpg" alt="Testing Fit" /></a>
+    <figcaption>Testing Fit</figcaption>
+</figure>
+<h2>Does it work?</h2>
+Building it was easy. The PCB-mount switches stuffed in easily and so did the FFC connector and LED. It works! With DiagROM in the system I tried it out and every key generates the right codes, except for Help and Del. This was my fault - I forgot to solder those two switches! But everything is fine, right down to the Caps Lock LED turning on and off.
+<h2>Does it fit?</h2>
+No. I kind of expected to find a few things that needed fixing and I did. This is what comes of not having a piece of 2mm material to fit in place and see where the problems might be before having a PCB made.
+</p>Too high! The board sits perfectly across the width of the case, right on the thin ledges provided in the bottom case mold. Unfortunately in this position the keyswitches sit up too high.Too thick! The PCB material is too thick to fit under the clips at the front of the Amiga case. That's OK, I can route it back and add a strip of metal attached to the front of the PCB that will fit. As mentioned it is too high anyway.No LED window! The A1200 case has a small PCB with three LEDs in it. The original keyboard has a hole cut out to allow the lid to close. I overlooked this.Flexy! This will definitely require aluminium angle at the top edge to stop the flex, as expected.WTF? Check out the weird footprint below - this happened with the TAB key and the numpad '(' - both keys on the top left of a group. Both showed that they had the right footprint in KiCAD. Both corrected instantly as soon as I selected the footprint again, while making rev 2. You can see the central pin for the keyswitch has moved down. Easily fixed with a round file but I would rather it is in the right place.
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/bad-footprint.c634f0c6b387e15d.jpg" ><img src="https://www.grayunicorn.com/processed_images/bad-footprint.88e3420fab390707.jpg" alt="Bad Footprint" /></a>
+    <figcaption>Bad Footprint</figcaption>
+</figure>
+<p>Though I want the stiffness of 2mm PCB material here it's too thick to go in the clips at the bottom of the case. I will need to cut the board back and attach a piece of 1mm aluminium, stepped down to the level of the clips.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/too-thick.04cfbe9142535e5d.jpg" ><img src="https://www.grayunicorn.com/processed_images/too-thick.d683446ab44880b7.jpg" alt="Too Thick" /></a>
+    <figcaption>Too Thick</figcaption>
+</figure>
+<p>And the keycaps sit too high when the PCB is sitting on top of the case supports. The entire PCB needs to be lowered within the case.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/key-height.2cf4f95245eb9dab.jpg" ><img src="https://www.grayunicorn.com/processed_images/key-height.b1f920277923889a.jpg" alt="Too High" /></a>
+    <figcaption>Too High</figcaption>
+</figure>
+<h2>Make it fit - lower It</h2>
+Sitting up on the supports makes the keys too high. The only thing to do is trim the edge of the board so that it can drop down inside the case, below the supports, but still be supported somehow. There is room for screws and brackets if careful. Is there an aluminium extrusion somewhere that could do this? A quick search produced no joy, at one end Bunnings with a lot of standard and chunky extrusions that don't look useful and at the other end a lot of industrial suppliers that can probably do anything but say "call us for a quote". Small quantities of unusual angle could easily cost more than my whole project, so I gave that up.
+<p>Then I thought about routing some aluminium. For a Mac mini project some time ago I routed a CD slot in a sheet of aluminium. It does dull your router bits but if everything is well supported and you are careful, no problem. (That's what using a router is really - 95% preparation, 5% cutting.) If I took some 3mm thick right angle and routed in from the outside corner I could create a step-shaped piece that would sit on the case ledge, then drop down to support the keyboard. The height this drops the keyboard by would be controlled by the depth of the cut with any excess trimmed off the top so the case can close. With 3mm of thickness, that allows for 2mm siting on the ledge (plenty) and 1mm of material left to support the keyboard (plenty). I did not like the idea of putting my fingers 10mm from a spinning router bit so I first made a rebate along the edge of a piece of thick ply then placed the angle wrapping around the timber with one face in the rebate. Then attached with screws through the face that won't be routed, so that the face that will be routed is exposed and securely fixed.
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/attach-angle.f3f3a07b8a5a9c18.jpg" ><img src="https://www.grayunicorn.com/processed_images/attach-angle.5000b56aaacff49b.jpg" alt="Securely Mounted" /></a>
+    <figcaption>Securely Mounted</figcaption>
+</figure>
+<p>Then gradually increasing the size of the cut I added in a new rebate to the outside of the extrusion so that with the PCB resting inside the original angle, the new cut would sit on top of the original case keyboard supports. This picture shows the PCB sitting in the new cut, where the case supports will go. Later I trimmed off the excess height you can see above the PCB.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/angle-groove.ce034253348431a0.jpg" ><img src="https://www.grayunicorn.com/processed_images/angle-groove.e440e74dcc441fce.jpg" alt="Securely Mounted" /></a>
+    <figcaption>Securely Mounted</figcaption>
+</figure>
+<p>While this works, obviously I need a 3D printer. It would have been much easier and much quicker to design something to the exact dimensions required and then print it. I spent hours thinking about how to safely route this thin extrusion, then more time measuring and setting up the router for the cut. I don't need the side supports to span any distance or to prevent any flex, just not collapse so printed ABS or similar would have been perfect.</p><p>Having done as much as I could with rev 1 I was reasonably happy. I did not expect to get everything right first time. Time for rev 2!</p>
+<h2>The Changes:</h2>
+The F-row and the main body are too close together. I don't know how that happened but after a careful measurement that is fixed. I printed the artwork on A4 paper, carefully stuck it together and then made a test fit board with the paper showing key position. The next board should be spot on.The positioning of the FFC connector at the top of the board is too close to the edge, requiring cuts to a piece of angle aluminium if I am to use one for stiffness at the top of the board. Moving it down between the F-row and the main body of keys will fix that and might even make it easier to route.A large rectangular route is added so the existing LED PCB will fit as it did in the original keyboard.reduce the size of the board to allow for the aluminium angle so there should be no need to shave off the edge of the rev 2 PCB with the router.Added holes around the board to attach the mounting rails and the top brace/bottom piece.Added a 9U space bar on top of the 7U space bar so if one becomes available it will fit in just by moving the stabilizers.Changed to blue MX switches, they will sound great here and it's not like I will be using this keyboard in an office where people will complain.Changed to a black PCB finish.<p>Electrically these are no change. I re-routed the board with the changes above and came up with something very much like the first PCB, only with more vias. As mentioned I concentrated on making tracks on one side run vertically and tracks on the other side run horizontally. It's nice to do a two-layer board with no vias at all but getting rid of the last one might cost you hours of rework - so when it costs no more it is worth it?
+  </div>
+
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      <span class="tags-label">Tags:</span>
+      <div class="tag-list">
+        
+        <span class="tag">Amiga</span>
+        
+      </div>
+    </div>
+    
+
+    <div class="post-navigation">
+      <a href="https://www.grayunicorn.com/blog" class="back-to-blog">← Back to Blog</a>
+    </div>
+  </footer>
+</article>
+
+        </div>
+      </main>
+      <footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <p class="copyright">
+        © 2026 Adam Eberbach. All rights reserved.
+      </p>
+      <p class="theme-credit">
+        Powered by <a href="https://www.getzola.org" target="_blank" rel="noopener">Zola</a>
+        • <a href="https://github.com/jdrhyne/volks-typo" target="_blank" rel="noopener">Volks-Typo Theme</a>
+      </p>
+    </div>
+
+    <div class="social-links">
+      <a href="https://www.grayunicorn.com/blog/rss.xml" class="social-link" aria-label="RSS feed">
+        <span class="social-icon" style="-webkit-mask-image: url('https://www.grayunicorn.com/icons/rss.svg'); mask-image: url('https://www.grayunicorn.com/icons/rss.svg');" aria-hidden="true"></span>
+      </a>
+      
+      <a href="https://mastodon.online/@aeberbach" class="social-link" aria-label="Mastodon" target="_blank" rel="noopener">
+        <span class="social-icon" style="-webkit-mask-image: url('https://www.grayunicorn.com/icons/mastodon.svg'); mask-image: url('https://www.grayunicorn.com/icons/mastodon.svg');" aria-hidden="true"></span>
+      </a>
+      
+      <a href="https://github.com/aeberbach" class="social-link" aria-label="Github" target="_blank" rel="noopener">
+        <span class="social-icon" style="-webkit-mask-image: url('https://www.grayunicorn.com/icons/github.svg'); mask-image: url('https://www.grayunicorn.com/icons/github.svg');" aria-hidden="true"></span>
+      </a>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <script>window.VOLKS_SEARCH_URL = "https://www.grayunicorn.com/search/";</script>
+    <script src="https://www.grayunicorn.com/search.js?h=86f8110b674a65e81dce"></script>
+  </body>
+</html>

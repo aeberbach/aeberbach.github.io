@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://www.grayunicorn.com/favicon.svg" />
+    <link rel="stylesheet" href="https://www.grayunicorn.com/main.css?h=dd4fb0f354fcfb80d0de" />
+    <link rel="alternate" type="application/rss+xml" title="Gray Unicorn" href="https://www.grayunicorn.com/blog/rss.xml" />
+    <script src="https://www.grayunicorn.com/theme-init.js?h=f7a49ca0a4e29341b5d4"></script>
+    
+    <title>A New Bike for Winter</title>
+    <meta name="description" content="" />
+    <meta property="og:title" content="A New Bike for Winter" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+
+    <meta property="og:image" content="https://www.grayunicorn.com/images/2012-05-01-new-bike-for-winter/bikeright.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://www.grayunicorn.com/images/2012-05-01-new-bike-for-winter/bikeright.jpg" />
+
+
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <header class="site-header">
+  <div class="header-content">
+    <!-- Mobile hamburger button - far left on mobile -->
+    <button class="hamburger-toggle mobile-only" id="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="hamburger-line" d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path class="hamburger-line" d="M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path class="hamburger-line" d="M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <div class="site-title">
+      <a href="https://www.grayunicorn.com">
+        
+        <span class="title-text">Gray Unicorn</span>
+        
+      </a>
+    </div>
+
+    <div class="header-controls">
+      <nav class="main-navigation" role="navigation" aria-label="Main navigation">
+        <ul class="nav-list">
+          
+          <li><a href="https://www.grayunicorn.com/blog" class="nav-link">Blog</a></li>
+          
+        </ul>
+      </nav>
+
+      <!-- Mobile controls group - RSS and Search on right -->
+      <div class="mobile-controls">
+        
+        
+        <button type="button" class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar" title="Toggle sidebar">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="16" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+            
+            <line class="sidebar-line" x1="9" y1="4" x2="9" y2="20" stroke="currentColor" stroke-width="1.5"/>
+            
+          </svg>
+        </button>
+        <button type="button" class="theme-toggle" data-theme-cycle aria-label="Toggle theme: light, dark, or auto" title="Toggle theme">
+          <span class="theme-icon theme-icon-light" aria-hidden="true"></span>
+          <span class="theme-icon theme-icon-dark" aria-hidden="true"></span>
+          <span class="theme-icon theme-icon-auto" aria-hidden="true"></span>
+        </button>
+
+        <button class="search-toggle" id="search-toggle" data-search-trigger aria-label="Search articles">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+  <ul class="mobile-nav-list">
+    
+    <li><a href="https://www.grayunicorn.com/blog" class="mobile-nav-link">Blog</a></li>
+    
+  </ul>
+</nav>
+
+<div class="search-overlay" id="search-overlay">
+  <div class="search-container">
+    <div class="search-header">
+      <input type="text" class="search-input" id="search-input" placeholder="Search articles..." autocomplete="off">
+      <button class="search-close" id="search-close" aria-label="Close search">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2"/>
+          <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+
+<script>
+  // Theme toggle: cycles light -> dark -> auto (auto follows the OS, live-updating)
+  (function () {
+    const root = document.documentElement;
+    const btn = document.querySelector('[data-theme-cycle]');
+    if (!btn) return;
+    const order = ['light', 'dark', 'auto'];
+    const mql = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function systemTheme() { return mql.matches ? 'dark' : 'light'; }
+
+    function apply(mode) {
+      root.dataset.theme = mode === 'auto' ? systemTheme() : mode;
+      root.dataset.themeMode = mode;
+      btn.setAttribute('title', 'Theme: ' + mode + ' (click to change)');
+      try { localStorage.setItem('theme', mode); } catch (e) {}
+    }
+
+    btn.addEventListener('click', function () {
+      const current = localStorage.getItem('theme') || 'auto';
+      apply(order[(order.indexOf(current) + 1) % order.length]);
+    });
+
+    // Reflect the stored/initial mode in the tooltip on load
+    apply(localStorage.getItem('theme') || 'auto');
+
+    // Keep "auto" in sync when the OS theme changes
+    function onSystemChange() {
+      if ((localStorage.getItem('theme') || 'auto') === 'auto') {
+        root.dataset.theme = systemTheme();
+      }
+    }
+    if (mql.addEventListener) { mql.addEventListener('change', onSystemChange); }
+    else if (mql.addListener) { mql.addListener(onSystemChange); }
+  })();
+
+  // Sidebar show/hide toggle (persisted; disabled on pages without a sidebar)
+  function initSidebarToggle() {
+    var btn = document.getElementById('sidebar-toggle');
+    if (!btn) return;
+
+    // The sidebar element appears later in the document than this header, so
+    // this must run after the DOM is parsed (see the dispatch below).
+    if (!document.querySelector('.sidebar')) {
+      btn.disabled = true;
+      btn.setAttribute('aria-disabled', 'true');
+      return;
+    }
+
+    var root = document.documentElement;
+    function sync() {
+      btn.setAttribute('aria-pressed', root.dataset.sidebar === 'hidden' ? 'false' : 'true');
+    }
+    sync();
+
+    btn.addEventListener('click', function () {
+      if (root.dataset.sidebar === 'hidden') {
+        delete root.dataset.sidebar;
+        try { localStorage.setItem('sidebar', 'shown'); } catch (e) {}
+      } else {
+        root.dataset.sidebar = 'hidden';
+        try { localStorage.setItem('sidebar', 'hidden'); } catch (e) {}
+      }
+      sync();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSidebarToggle);
+  } else {
+    initSidebarToggle();
+  }
+
+  // Hamburger menu functionality
+  (function () {
+    const hamburgerToggle = document.getElementById('hamburger-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const body = document.body;
+
+    if (!hamburgerToggle || !mobileMenu) return;
+
+    hamburgerToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.contains('active');
+
+      if (isOpen) {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      } else {
+        mobileMenu.classList.add('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'true');
+        body.style.overflow = 'hidden';
+      }
+    });
+
+    // Close menu when clicking on a link
+    const mobileNavLinks = mobileMenu.querySelectorAll('.mobile-nav-link');
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      });
+    });
+
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      }
+    });
+  })();
+</script>
+
+      <main class="main-content with-sidebar sidebar-left">
+        <aside class="sidebar"><div class="sidebar-content">
+  <!-- Bio Section -->
+  <section class="bio-section">
+    <div class="avatar-container">
+      
+        <img src="/images/profile.jpg" alt="Adam Eberbach" class="avatar" />
+      
+    </div>
+    <h3 class="author-name">Adam Eberbach</h3>
+    <p class="bio-text">Computer Science graduate, started with C and Ada. Electronics, 3D design and printing, flight sims are what I do for fun.</p>
+  </section>
+
+  <!-- Recent Posts Section -->
+  
+  
+    <section class="recent-posts">
+      <h3 class="section-title">Recent Posts</h3>
+      <ul class="post-list">
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/26-09-18-zola/" class="post-link">
+              Switching to Zola
+            </a>
+            <time class="post-date" datetime="2026-09-18">
+              Sep 18, 2026
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/24-08-23-amigakeyboardsv2/" class="post-link">
+              Amiga A1200 and A600 keyboards, version 2
+            </a>
+            <time class="post-date" datetime="2024-08-23">
+              Aug 23, 2024
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/22-06-29-a1200leds/" class="post-link">
+              Amiga 1200 LED assembly
+            </a>
+            <time class="post-date" datetime="2022-06-29">
+              Jun 29, 2022
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/22-06-24-mac-video-4/" class="post-link">
+              Compact Macintosh video - 4
+            </a>
+            <time class="post-date" datetime="2022-06-24">
+              Jun 24, 2022
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://www.grayunicorn.com/blog/21-09-16-solidworks/" class="post-link">
+              The end of Solidworks
+            </a>
+            <time class="post-date" datetime="2021-09-16">
+              Sep 16, 2021
+            </time>
+          </li>
+        
+      </ul>
+    </section>
+  
+
+  <!-- Categories Section -->
+  
+  
+</div>
+</aside>
+        <div class="content">
+          
+<article class="blog-post">
+  <header class="post-header">
+    <h1 class="post-title">A New Bike for Winter</h1>
+
+    <div class="post-meta">
+      <span class="post-byline">
+        <time class="post-date" datetime="2012-05-01">May 1, 2012</time>
+      </span>
+
+      <span class="post-reading-time">8 min read</span>
+
+      
+    </div>
+
+    
+
+    <!-- Monumental Blood Red Rule -->
+    <hr class="monumental-rule" />
+  </header>
+
+  
+  <figure class="post-hero">
+    <img src="https://www.grayunicorn.com/images/2012-05-01-new-bike-for-winter/bikeright.jpg" alt="A New Bike for Winter" />
+  </figure>
+  
+
+  
+
+  <div class="post-content">
+    <p>I don't mind riding in winter but I hate the functional bits of my bike getting covered in mud and grit. I hate the sound of a grinding chain or a derailleur that isn't adjusted right. I hate rattles. In the past I have made a habit of disassembling everything and cleaning every little bit before lubricating and reassembling for that perfect smooth ride, but then if it rains the drivetrain soon picks up dirt and grit again. It takes hours to do this properly.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/disassemblecassette.656f5509c0714474.jpg" ><img src="https://www.grayunicorn.com/processed_images/disassemblecassette.e4b3e7a5e281d94a.jpg" alt="Cleaning the cassette" /></a>
+    <figcaption>Cleaning the cassette</figcaption>
+</figure>
+</p><p>The easiest way to avoid grit on the chain is to have no chain, and the best way to stop the gears picking up mud is to hide them inside the hub in a nice oil bath. I set out to find a belt-driven bike with Internal Gear Hub (IGH), hydraulic disc brakes front &amp; rear. Going to an IGH means a big drop in the number of gears, considering my "27 speed" mountain bike, or "18 speed" road bike. But do you get that many speeds? No, chain alignment issues mean you get far fewer. Even so I was sure I wanted at least an 11 speed hub rather than the more commonly available 8, and the <a href="http://www.rohloff.de/en/products/speedhub/">Rohloff Speedhub</a> is just a bit too expensive. That narrowed it down to <a href=" http://www.shimano.com/publish/content/global_cycle/en/us/index/products/0/alfine.html">Shimano Alfine 11</a>. There seems to be about one choice in belts, the <a href="http://www.carbondrivesystems.com">Gates</a> range. I've been looking for a while and found a few options – <a href="http://civiacycles.com/bikes/bryant/">Bryant Civia</a> looks like a fine bike and there are others. Having had carbon bikes for a while (even the mountain bike) I wanted something a bit lighter than steel, so the <a href="http://beltbik.es/spot-brand/2012/acme-0">Spot Acme</a> with its alloy frame and carbon fork stood out. I pre-ordered it and received it on the 24th of April.</p>
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/bikeright.9621e74743270e0c.jpg" ><img src="https://www.grayunicorn.com/processed_images/bikeright.d5a7c2ecb0267155.jpg" alt="Right profile" /></a>
+    <figcaption>Right profile</figcaption>
+</figure>
+<p>The finish really surprised me out of the box because it looks a lot better than it appears on the web site. Also you don't notice the profile of the tubes with the photos that Spot show – the down tube has a profile that could almost be intended to act as a mudguard, it is wider facing the road and curves gently on top. The whole package is a pleasant blend of brushed aluminium with black highlights, all the components are black. The chain guard is not something I have had on a bike for a long time. If I have a chain guard should I also have a basket and some streamers? It might come off, the belt isn't going to get grease on me after all.
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/braincrafted.3c69b48f0c849abd.jpg" ><img src="https://www.grayunicorn.com/processed_images/braincrafted.58dbb41965ed3152.jpg" alt="Designed by Spot in Colorado" /></a>
+    <figcaption>Designed by Spot in Colorado</figcaption>
+</figure>
+</p><p>Under the water bottle mount on the down tube, right about where my <a href="http://www.bikepedia.com/quickbike/BikeSpecs.aspx?year=1999&brand=Trek&model=Elite+XC+9.8">old Trek</a> says "Made in USA" is this sticker – "Braincrafted in Golden, Colorado" – I'm not sure exactly what that means but I think it must mean "Designed in Colorado, made somewhere we're not convinced has any marketing appeal" – oh well. Apple do the same kind of thing with their "Designed by Apple in California" tag.</p><p>What's great?Smooth. So smooth, it's a silent bike, just like I wanted. There are minor rattles over major bumps but nothing to complain about.</p><p>The build quality impresses me. I really like the attention to detail on the welds, and the adjustment system for the belt is a thing of beauty. On the right seat stay is a gap where a small keyed part slots in while the bike is in operation, but comes out should you need to remove the belt. (Unlike a chain you can't break a belt, at least not if you want to use it again. Gates claim the belt will last about twice as long as a chain.)
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/chaintensioner.0015a02651c74a4e.jpg" ><img src="https://www.grayunicorn.com/processed_images/chaintensioner.17743a8af91ff5cd.jpg" alt="Chainstay adjustment" /></a>
+    <figcaption>Chainstay adjustment</figcaption>
+</figure>
+</p><p>What's not great?Not much, but a couple of things are not perfect. The disc brakes are fine, Avid Elixir 1 – for non-race situations they're going to satisfy just about anyone. The discs are another matter. I have a front disc brake on another bike, an Avid Code 5 – maybe a few steps up in the Avid product range, but I think out of production now. Anyway the disc that came with that brake was machined perfectly flat. The Shimano discs on this bike are stamped and are nowhere near flat. This means that until the pads wear the discs flat these brakes will not be operating at maximum efficiency because the full surface area of the pad isn't in contact with the disc. The picture should make it obvious, you can see after the first ride where the disc is starting to wear in, the raised parts are beginning to flatten but there's a long way to go. How much would a quick machining pass have cost, Shimano?
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/discwear.1b25758d0bd20da5.jpg" ><img src="https://www.grayunicorn.com/processed_images/discwear.196829270158914d.jpg" alt="Stamped metal discs" /></a>
+    <figcaption>Stamped metal discs</figcaption>
+</figure>
+</p><p>I'm not in love with the bars, being more used to riding thicker bars with bar ends. When I stand up I like to get the weight forward. Also I have to say the stem is pretty ugly, having a roughly finished chrome section on the front. This is probably the first area on the bike I'll change.On the gears the Alfine 11's change mechanism takes some getting used to. No doubt it is still bedding in a little and I shouldn't expect it to be the same but shifting is not a thought-free process. Up a hill under load you need to back off just a little to allow the gears to downshift. The entire shift process is just a little disconcerting when you're used to the solid clunk of a conventional derailleur. But it is great to have 11 speeds, in a line, that can be selected while the bike is standing still. I like the range too, without crunching any numbers I feel like I get all the speed at the top end and more granny-gear at the low end than I did with the "27 speed" bike.
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/rearstaybreak.8bc82484590a4e99.jpg" ><img src="https://www.grayunicorn.com/processed_images/rearstaybreak.0f5503040b049f42.jpg" alt="Where the belt comes out" /></a>
+    <figcaption>Where the belt comes out</figcaption>
+</figure>
+</p><p>These supplied pedals are horrible, and weigh a ton. I didn't even install them, having some <a href="13">Shimano SPD PD-M520</a> pedals waiting.
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/pedals.673f23ec07130368.jpg" ><img src="https://www.grayunicorn.com/processed_images/pedals.c402c1ce35acaff4.jpg" alt="I don't think so!" /></a>
+    <figcaption>I don't think so!</figcaption>
+</figure>
+</p><p>Lights were easy to fit, except that I noticed the bars are very thin. To fit the first bell I tried needed three rubber spacers wrapped around the bar tube before I could tighten the screw on the bell. (You're supposed to have a bell where I ride on Melbourne's bike paths. On about half the people the effect is to make them calm and to keep walking straight while you pass them, which is great. They lift a hand as if to say "thanks for letting me know". Some jump violently to one side when they hear a bell, sometimes right into your path. Some just get angry because they think the bell means "Move!" and they don't see why they should, so they don't, but that's what you want anyway.)
+<figure>
+    <a href="https://www.grayunicorn.com/processed_images/brassbell.9d2a50f57d4d680d.jpg" ><img src="https://www.grayunicorn.com/processed_images/brassbell.28ef8d9edc919555.jpg" alt="The new King" /></a>
+    <figcaption>The new King</figcaption>
+</figure>
+</p><p>I became aware of a bell named "the King of Ding" by <a href="https://www.ridepdw.com">Portland Design Works</a> and I was pretty sure I was going to buy one – but then I saw one next to the bell I did buy. The PDW bell is a prince, at best. The bell you see pictured is some generic Chinese thing, same price, is subjectively up to twice as loud and is a much better design in that firstly the brass dome doesn't unscrew, and secondly the dinger can be positioned around the bell to wherever you want it.I used my existing Blackburn bottle carrier, it is light and strong and it even matches the frame.I'm still shopping for mudguards. I might pick some up at WWDC this year (yes, I did get a ticket) because I haven't seen anything I like locally. <a href="http://www.joe-bike.com">Joe Bike</a> in Portland, OR has some amazing wooden veneers… until then it's the old Zefal Flamingo, with the bend modified by heat gun. The way these things stick up in the air, unmodified, is ridiculous. Final ThoughtBelts and internal gear hubs are probably always going to be less efficient than clean and well-adjusted chains and derailleurs – <a href="http://en.wikipedia.org/wiki/Hub_gear">Wikipedia says</a> around 2% lower efficiency for the hub in commuter applications, Gates claim that the Carbon Drive system has equal efficiency to a chain. (Of course they would say that). But that's considering a clean, well-lubricated and well-adjusted chain &amp; derailleur. I expect this bike to maintain its smooth and quiet riding characteristics even after a winter of riding through the kind of grit and mud that you find on bike trails. Most of the bikes that I pass (or that pass me) make plenty of drivetrain noise – if you can hear the bike you can hear wasted effort. I'll update in the spring to tell whether or not this theory has worked out. Where to buy?I got it from <a href="http://www.blackmountainsports.com.au">Black Mountain Sports</a> in Brisbane who imported and shipped it to me for less that it would have cost me to import directly. I was surprised. Had never heard of them before Spot referred me, I'd be happy to buy through them again.
+  </div>
+
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      <span class="tags-label">Tags:</span>
+      <div class="tag-list">
+        
+        <span class="tag">Game</span>
+        
+      </div>
+    </div>
+    
+
+    <div class="post-navigation">
+      <a href="https://www.grayunicorn.com/blog" class="back-to-blog">← Back to Blog</a>
+    </div>
+  </footer>
+</article>
+
+        </div>
+      </main>
+      <footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <p class="copyright">
+        © 2026 Adam Eberbach. All rights reserved.
+      </p>
+      <p class="theme-credit">
+        Powered by <a href="https://www.getzola.org" target="_blank" rel="noopener">Zola</a>
+        • <a href="https://github.com/jdrhyne/volks-typo" target="_blank" rel="noopener">Volks-Typo Theme</a>
+      </p>
+    </div>
+
+    <div class="social-links">
+      <a href="https://www.grayunicorn.com/blog/rss.xml" class="social-link" aria-label="RSS feed">
+        <span class="social-icon" style="-webkit-mask-image: url('https://www.grayunicorn.com/icons/rss.svg'); mask-image: url('https://www.grayunicorn.com/icons/rss.svg');" aria-hidden="true"></span>
+      </a>
+      
+      <a href="https://mastodon.online/@aeberbach" class="social-link" aria-label="Mastodon" target="_blank" rel="noopener">
+        <span class="social-icon" style="-webkit-mask-image: url('https://www.grayunicorn.com/icons/mastodon.svg'); mask-image: url('https://www.grayunicorn.com/icons/mastodon.svg');" aria-hidden="true"></span>
+      </a>
+      
+      <a href="https://github.com/aeberbach" class="social-link" aria-label="Github" target="_blank" rel="noopener">
+        <span class="social-icon" style="-webkit-mask-image: url('https://www.grayunicorn.com/icons/github.svg'); mask-image: url('https://www.grayunicorn.com/icons/github.svg');" aria-hidden="true"></span>
+      </a>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <script>window.VOLKS_SEARCH_URL = "https://www.grayunicorn.com/search/";</script>
+    <script src="https://www.grayunicorn.com/search.js?h=86f8110b674a65e81dce"></script>
+  </body>
+</html>

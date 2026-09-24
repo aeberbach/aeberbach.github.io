@@ -1,0 +1,916 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>Gray Unicorn - Amiga</title>
+      <link>https://www.grayunicorn.com</link>
+      <description>Random collection of project, infrequently updated</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://www.grayunicorn.com/tags/amiga/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Fri, 23 Aug 2024 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Amiga A1200 and A600 keyboards, version 2</title>
+          <pubDate>Fri, 23 Aug 2024 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.grayunicorn.com/blog/24-08-23-amigakeyboardsv2/</link>
+          <guid>https://www.grayunicorn.com/blog/24-08-23-amigakeyboardsv2/</guid>
+          <description xml:base="https://www.grayunicorn.com/blog/24-08-23-amigakeyboardsv2/">&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/A600-complete.f39fec000ed9089a.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/A600-complete.f326da5e1be9530d.jpg&quot; alt=&quot;A600 with new keyboard&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;A600 with new keyboard&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/A1200-complete-lid-closed.20365dd8441870bd.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/A1200-complete-lid-closed.df4a55d663511841.jpg&quot; alt=&quot;A1200 with new keyboard&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;A1200 with new keyboard&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/A1200-cap-height-right.bfd5dbd13148ae0f.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/A1200-cap-height-right.874bd9571d7218f2.jpg&quot; alt=&quot;A1200 - cap height is perfect&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;A1200 - cap height is perfect&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Some time ago I designed a replacement Amiga 1200 keyboard using MX keyswitches. Shortly after that I made one for the Amiga 600 also. They worked great, mostly. There were a couple of problems though: - MX key switches are taller than the original switch mechanism, so keycaps sit up too high - Amiga key caps with correct legend and size are really hard/expensive to get - Caps Lock key with a window to show the original LED is almost impossible to get - the mount I designed for the Amiga 1200 fitted badly&lt;/p&gt;
+&lt;p&gt;Then recently, Amibay user &lt;a rel=&quot;external&quot; href=&quot;https://www.amibay.com/members/steveed.32005/&quot;&gt;steveed&lt;/a&gt; solved the keycap problem, spending hours organising kits of Amiga-perfect keycaps from Signature Plastics. They are great! With these available I was inspired to redo the keyboards, without them I probably would not have.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/keycaps-packaged.1b6f60e775c1a07d.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/keycaps-packaged.0bc9fe8a7ffa3b0d.jpg&quot; alt=&quot;Set of new Amiga keycaps from steveed&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Set of new Amiga keycaps from steveed&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;This post is about the result of that work, showing off the new A600 and A1200 keyboards.&lt;/p&gt;
+&lt;h2&gt;Physical construction&lt;/h2&gt;
+&lt;p&gt;For both keyboards I used the &lt;a rel=&quot;external&quot; href=&quot;https://www.gateron.co/products/gateron-low-profile-mechanical-switch-set&quot;&gt;Gateron KS-33&lt;/a&gt;. I first tried these in a Nuphy Air 75 V2 which is now my favourite and I use it daily (but the firmware, terrible!).  I find the key travel perfect and really like the banana tactile keys, a slightly heavier version of the familiar brown. Red or silver (linear) and blue (clicky) styles are available too. The height of these switches is 8.8mm base-to-top, compared with 15mm for a regular MX. (Update: I now use a Keychron K1M-H3, I prefer 80% layout, but it uses the same Gateron switches.)&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/nuphyAir75v2.dc285de730374a7d.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/nuphyAir75v2.ae6a6ee7d2dc5718.jpg&quot; alt=&quot;Nuphy Air 75 V2&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Nuphy Air 75 V2&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;These switches only come in a 3-pin mount, one large central locating pin (also the housing for the internal spring) and two electrical pins. Because they do not have two extra side pins to set the location these would be very hard to mount straight if not using a plate - also because of the stabilizers available a plate is a must. These stabilizers mount level with the switch top, not the PCB. I looked into having a plate made but a simple laser-cut sheet is expensive, and won&#39;t work without some material under it providing thickess and room for the stabilizer wires, so if I have to print something may as well print the whole thing? The decision was helped by finding some &quot;Milky White&quot; PLA filament that prints sharp and is a great color match for the A1200 case. Also the availability of an ultra-reliable Prusa MK4 helped.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/ks-33-layout.95010c7af9b43551.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/ks-33-layout.ccc2aa19403f1de6.jpg&quot; alt=&quot;Pattern for KS-33 layout is simpler&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Pattern for KS-33 layout is simpler&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Designing the PCB was a little easier after having done a couple of keyboards already. Position of the keys was already known, and routing the traces again was not hard, made easier by not having those two locating pins on every switch. The connector and FFC ribbon remain the same from the old version.&lt;/p&gt;
+&lt;p&gt;Caps lock was always a problem. I once tried drilling a hole in a Caps Lock key and filling it with clear silicon to make a key with a window but it never really worked well. You just can&#39;t buy windowed keys that match the rest of the keys any more. A red glow under the Caps Lock key was visible, but not ideal.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/drilled-window-caps.b9f4cb981d535878.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/drilled-window-caps.7d7cb27a76416805.jpg&quot; alt=&quot;Keycaps with drilled windows, one with translucent silicon window&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Keycaps with drilled windows, one with translucent silicon window&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;To solve this I looked to a chip I read about recently, a Dual Inverter capable of supplying (or sinking) enough current to light LEDs. The idea is that the output of one inverter is chained to the other. When the input is high the output of the first inverter is low and the second is high. Make the input low and the output of the first inverter is high while the second is low. This means that with LEDs attached to those inverters one will be on at any given time.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/inverter-leds.d13bb665e1b384ab.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/inverter-leds.6b259cc4ac1b7dff.jpg&quot; alt=&quot;SN74LVC2ZGU04 dual inverter with LEDs on A600 PCB&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;SN74LVC2ZGU04 dual inverter with LEDs on A600 PCB&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Normally the Amiga shows a red LED when power is on. What I have done is take the Caps Lock signal from the Amiga and use it as the input to the inverter. When off it is high, so the red power LED, cathode connected to the first inverter, is on. When caps lock is on then no current flows through the red LED, but the blue LED, cathode connected to the second inverter, is lit. With these two side by side and visible through the translucent light pipe the effect is of a single lamp changing color. This LED section of the keyboard replaces the separate LED board in the A600 or A1200, and plugs into the same 4- or 5-pin header on the Amiga.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/A1200-complete-caps-lock.487658f90b70613d.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/A1200-complete-caps-lock.1878b96bd9a5b717.jpg&quot; alt=&quot;A1200 complete with new keyboard A1200 complete, caps lock on&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;A1200 complete with new keyboard A1200 complete, caps lock on&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Now when you open the A600 there are two cables to unplug before you can lift the top free, keyboard and LED. In the A1200 there are no cables to unplug. Don&#39;t know about you but I have forgotten the LED board many times when taking the lid off the A1200 and have broken the cable once. If you don&#39;t want to use this new LED idea the old LED is still there under the Caps Lock key and you can just break out the LED section of the keyboard PCB, it&#39;s routed so that it will snap out. If you do want the LED section but no color changing Caps Lock function, load one 0R resistor, leave off the inverter and blue LED parts, and the LEDs all work as normal.&lt;/p&gt;
+&lt;h2&gt;Keyboard Plates&lt;/h2&gt;
+&lt;p&gt;KiCad is an amazing piece of software, not only does it do the work of packages costing thousands it will generate a STEP file for use in 3D CAD software. With the STEP file I was able to make an Autodesk Inventor assembly and create the keyboard plates and mounts. The plates are in two pieces since the widest I can print is around 250mm. Each plate supports the switches and the stabilizers and is held to the PCB by the soldered switches. The stabilizer cuts took some adjusting, initial version (following the manufacturer&#39;s drawings) had the keys not springing back up as they should, but after a few tweaks they are smooth.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/A600-Inventor.fb8813092b99192a.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/A600-Inventor.0200662e9bb0a2cf.jpg&quot; alt=&quot;A600 Assembly render from Inventor showing front plates and mounting rails&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;A600 Assembly render from Inventor showing front plates and mounting rails&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Nobody makes an 8U/9U keyboard stabilizer now of course, and A600 uses an 8U space bar while A1200 uses a 9U. For this I needed to take a 2U stabilizer, discard the wire and bend a new wire using 1.0mm music wire from the hobby store. If this is not accurately bent the space bar will not bounce back up when you depress it, or will feel different when pressed on either side. If you think you will be bending more than one, make a jig. You will probably be bending more than one unless you make the jig though, because by hand it is very unlikely to be right first time! This is a square section of steel with a 1.0mm hole drilled 133.0mm from the edge. You definitely need a centre punch and cutting oil for this. When a wire has one end bent at a right angle and that end is inserted in the hole with the wire laying along the steel bar, bending it over the edge will make a good 133.5mm space bar wire. Not shown is the notch on the other side of the bar that lets me trim the bent ends to a consistent length, also very important.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/space-wire-bending-jig.0e65344a4532e6dc.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/space-wire-bending-jig.85e8af0717e69d5c.jpg&quot; alt=&quot;8U/9U space bar stabilizer wire bending jig&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;8U/9U space bar stabilizer wire bending jig&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;The plates are 3mm thick in places and 0.5mm thick in others. The 3mm sections support key switches, slightly off the PCB, so that less of the switch pins poke through the PCB. Stabilizers are also supported by the plate and they snap in before everything is constructed with the wires hidden from view. The 0.5mm sections tie the 3mm sections together which is important to locate everything relative to the other parts. Where the plate contacts the top of the Amiga case it is in a 0.5mm section. This means the bottom of the keyboard PCB is 1.6mm (PCB) + 0.5mm (plate) down from the bottom of the case - there&#39;s a lot more room inside the case as a result. The supporting bar and the FFC connector protrude a bit but they should be well out of the way. My PiStorm32-Lite is installed with room to spare.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/under-keyboard-A1200.de9db946c717f6ab.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/under-keyboard-A1200.7e01c93cc9ba3737.jpg&quot; alt=&quot;PiStorm32-lite using Raspberry Pi 4 fits easily under this keyboard in A1200&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;PiStorm32-lite using Raspberry Pi 4 fits easily under this keyboard in A1200&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2&gt;Mounting the Keyboard&lt;/h2&gt;
+&lt;h3&gt;A1200&lt;/h3&gt;
+&lt;p&gt;For the A1200 there are two kinds of case bottoms, A1200.net and Commodore/Escom. Both have ridges along the side where the keyboard mount sits but they are in different positions, so different versions of the mount are required with the ridge cuts moved to suit. The bottom mount piece is common between both. (There was a mistake in my original mount design: the mounts sat too high so the case did not close exactly.)&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/left-rail-A1200.e7cee0cc3d1b87d8.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/left-rail-A1200.c8beef55bc2ef0c4.jpg&quot; alt=&quot;Left mount fits into moulded ridges at side of case&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Left mount fits into moulded ridges at side of case&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Or so I thought! Someone asked why the mounts were not universal, and I couldn&#39;t think of a reason. By making the slots just a bit wider I came up with one that would fit in either case and saved a ton of work checking which version I needed to print and install and which to supply as spares.&lt;/p&gt;
+&lt;p&gt;To keep the A1200 keyboard from flexing over its 450mm span the plate helps a little bit but an aluminium bar is still required to make it stiff enough. In the old version the keyboard could bounce slightly off the supporting bar - a little bit of double sided tape helped. The new version uses a right-angle extrusion and has five mounting points along the bar so it does not move around at all. The one shown here is slightly rough as it is the first one I made, yellow Kapton tape is under it for insulation.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/A1200-keyboard-rear.9273126026d7dc3d.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/A1200-keyboard-rear.5961a0de4bfcd4a5.jpg&quot; alt=&quot;Rear of keyboard showing aluminium extrusion, mounting pieces and rivets&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Rear of keyboard showing aluminium extrusion, mounting pieces and rivets&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;For the A1200 case top the only variation is the width of the light pipes - I have been sending the light pipe assembly for both cases. Having a gap either side of the light pipe looks bad, and having it not fit at all is worse.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/A1200-light-pipes-front.ce2aea5032080b9d.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/A1200-light-pipes-front.d48eb3dbbe6112d3.jpg&quot; alt=&quot;A1200 front panel showing light pipes (A1200.net case)&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;A1200 front panel showing light pipes (A1200.net case)&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;The entire thing is put together with plastic rivets. I first bought these for another project. They make assembly quicker, they are non-conductive, the are compact, this is a perfect place to use them. M3 bolts and nylock nuts would work as well, if that&#39;s what you have.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/lower-mount-A1200.ab713d12b5c313d3.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/lower-mount-A1200.a32df9d7da06c206.jpg&quot; alt=&quot;A1200 lower mount showing switches, stabilizers&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;A1200 lower mount showing switches, stabilizers&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h3&gt;A600&lt;/h3&gt;
+&lt;p&gt;In the A600 the keyboard mounts between one long claw and two short claws opposing on the top of the case. The design of the plates is such that the top and bottom mount pieces sandwich the PCB and plates and fit between these claws with the top piece locating the keyboard exactly in the width of the case. These interlock, and since they are printed in PLA a very tiny dab of cyanoacrylate glue is enough to keep everything together. Do not use ultra-thin glue here as it will wick through the whole PCB and possibly destroy the entire keyboard. Do not use too much!&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/A600-gluing-rails.46a3483fa876e00a.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/A600-gluing-rails.9c278802f04b9fab.jpg&quot; alt=&quot;Gluing mounting rails on the A600 keyboard&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Gluing mounting rails on the A600 keyboard&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Fitting the keyboard is exactly like the original - flexing the top of the case slightly makes it easy to put the keyboard in its place. Once it is pushed in under the claws and you can see that the top notch is sitting between the F key apertures it&#39;s in.&lt;/p&gt;
+&lt;p&gt;Light pipes in the A600 are much simpler, just small pieces of translucent PETG to push into the LED holes.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/A600-leds-front.1575016816857106.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/A600-leds-front.9f3adb9bcc58f626.jpg&quot; alt=&quot;A600 LEDs&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;A600 LEDs&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h3&gt;Cables&lt;/h3&gt;
+&lt;p&gt;In the original design the FFC cable and Right-angled FFC connector were only available from one place, Mouser Electronics. Only a 32-way 178mm cable could be bought, also the only FFC connector available was 32-way. 178mm is a bit too long but the next shortest was far too short, and there are too many conductors as the A1200 requires 31 and the A600 requires 30. I got around this by trimming either one or two conductors from the Amiga side of the cable and just tucking in the extra length where it would fit.&lt;/p&gt;
+&lt;p&gt;This keyboard design is no different - 32-way right-angle connector, 32-way cable. Using the white locking connector as the Amiga mainboards use is an option but more expensive and fairly tall. Be sure to insert the cable with the conductors on the right side, with the cable pushed as far to the left of the keyboard as it will go.&lt;/p&gt;
+&lt;p&gt;You can get 31-way cables at Aliexpress! Just be sure to get the kind where the connector is on opposite sides of the cable, not the same side.&lt;/p&gt;
+&lt;h3&gt;Where do I Get One?&lt;/h3&gt;
+&lt;p&gt;I did sell some keyboards but I am probably not selling any more.
+You might find some for sale at &lt;a rel=&quot;external&quot; href=&quot;https://bitbinders.com/products/a1200-keyboard&quot;&gt;bitbinders.com&lt;/a&gt;.
+You can also find the git repo and can make your own PCBs and solder it all up. See:&lt;/br&gt;
+&lt;a rel=&quot;external&quot; href=&quot;https://github.com/aeberbach/A1200KBv2&quot;&gt;A1200 v2&lt;/a&gt;&lt;/br&gt;
+&lt;a rel=&quot;external&quot; href=&quot;https://github.com/aeberbach/A600KBv2&quot;&gt;A600 v2&lt;/a&gt;&lt;/br&gt;
+Also there is now a version that uses the Big-Ass Enter Key (BAEK) and a wider left shift, like the A2000 keyboards. This eliminates the two blank keys that were often unused:&lt;/br&gt;
+&lt;a rel=&quot;external&quot; href=&quot;https://github.com/aeberbach/A1200KBv2-BAEK&quot;&gt;A1200 v2 BAEK&lt;/a&gt;&lt;/br&gt;&lt;/p&gt;
+</description>
+      </item>
+      <item>
+          <title>Amiga 1200 LED assembly</title>
+          <pubDate>Wed, 29 Jun 2022 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.grayunicorn.com/blog/22-06-29-a1200leds/</link>
+          <guid>https://www.grayunicorn.com/blog/22-06-29-a1200leds/</guid>
+          <description xml:base="https://www.grayunicorn.com/blog/22-06-29-a1200leds/">&lt;p&gt;I am not the first person to make a new A1200 LED board but it looked like a fun challenge and was something different - answering the question - can you print light pipes? This is for my ReAmiga 1.5. I have a roll of transparent Prusament PETG. When printed it comes out looking like an ice cube due to all the layer boundaries. The transparent A1200.net case I want to use means this transparent filament is a good match when making mounts for my keyboard and other parts.&lt;/p&gt;
+&lt;p&gt;While the A1200.net case is patterned on later model A1200 cases and uses 16mm rectangular holes for the LEDs, older A1200 cases used 15mm LED holes. If you look at my &lt;a rel=&quot;external&quot; href=&quot;https://www.printables.com/@aeberbach&quot;&gt;Printables&lt;/a&gt; page for this project you can find both versions of the clear pieces as well as the black base they slot into.&lt;/p&gt;
+&lt;p&gt;PCB manufacture was by JLCPCB. These days they are pushing the use of aluminium substrate, and selecting it added no cost to the job. I am not a fan of these boards. The edges are sharp and heat is sucked away from the place you are trying to solder. (Of course this is an advantage after soldering when there is too much heat in a design and the substrate can act as a heatsink.) It&#39;s also really sharp around the edges. I discovered a less-than-optimal feature in my original board and had a second batch made in conventional fibreglass.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/images/2022-06-29-amiga-leds/bare-board-off.png&quot;&gt;&lt;img src=&quot;/images/2022-06-29-amiga-leds/bare-board-off_thumb.png&quot; alt=&quot;Assembled board&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Shipping is by far the most expensive part of this project. I&#39;m using the most economical LEDs I could find on Mouser in 0805 size, the smallest I like to solder by hand. They drop 2.2V and have a maximum current of 20mA. I targeted 15mA and settled on a 186 ohm resistor.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/images/2022-06-29-amiga-leds/bare-board-on.png&quot;&gt;&lt;img src=&quot;/images/2022-06-29-amiga-leds/bare-board-on_thumb.png&quot; alt=&quot;Assembled board, power on&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Another thing I did was use a 4-pin right angled header instead of soldering wire direct to the PCB. Whenever I have removed an A1200 cover I have not liked the dangling wire. Sometimes I forget it&#39;s there and yank the wire. These wire connections break. Also I don&#39;t love soldering ordinary PVC-insulated wire to PCBs as the insulation melts and shrinks back. It would be nice to have rolls of PTFE-insulated cable in the right size and color at hand but that&#39;s expensive. Instead I made a cable connecting the 5-position mainboard end to the 4-position LED board end. Maybe I should have made it 5-position both ends? The colors are marked on the PCB silk screen.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/images/2022-06-29-amiga-leds/reverse.png&quot;&gt;&lt;img src=&quot;/images/2022-06-29-amiga-leds/reverse_thumb.png&quot; alt=&quot;Four-pin connector&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The design of the light pipes is the most interesting part of this project. The clear filament does look like a frosty ice cube when layer boundaries are involved. If the clear pieces are printed so that all of the layer boundaries are perpendicular to the desired direction of light then too much light is scattered by the time it reaches your eye. This makes the light blur more around the sides of the LED assembly and become less bright at the top. If the clear assembly is printed flat on the printer then the layers do deviate from what would be an ideal direction, from the LED to the visible part, but the transmission of light is vastly improved. I have not experimented with this idea but coating the vertical sides of the clear parts in an opaque paint might make the LEDS just a little clearer if no light is escaping the sides, and wrapping them in a reflective opaque material might make them marginally brighter? Simply extending the black light pipe housing part upward might achieve the goal of reducing light bleed.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/images/2022-06-29-amiga-leds/assembled.png&quot;&gt;&lt;img src=&quot;/images/2022-06-29-amiga-leds/assembled_thumb.png&quot; alt=&quot;Assembled&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The datasheet for these LEDs will give the brightness output for a particular current. It would be possible to look at those curves and get a brightness output for each that is equivalent by varying the resistor value I suppose, but even then the subjective difference between orange and green might make them appear to output different levels. Here&#39;s the green by itself, which I think looks almost perfect:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/images/2022-06-29-amiga-leds/in-clear-case-green-on.png&quot;&gt;&lt;img src=&quot;/images/2022-06-29-amiga-leds/in-clear-case-green-on_thumb.png&quot; alt=&quot;Almost perfect&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Here&#39;s the orange - noticeably brighter.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/images/2022-06-29-amiga-leds/in-clear-case-orange-on.png&quot;&gt;&lt;img src=&quot;/images/2022-06-29-amiga-leds/in-clear-case-orange-on_thumb.png&quot; alt=&quot;Bright orange!&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Next time I have everything apart I will try a slightly higher resistor value on the orange.&lt;/p&gt;
+</description>
+      </item>
+      <item>
+          <title>Amiga DB23 Floppy Drive connector</title>
+          <pubDate>Thu, 26 Aug 2021 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.grayunicorn.com/blog/21-08-26-amiga-db23/</link>
+          <guid>https://www.grayunicorn.com/blog/21-08-26-amiga-db23/</guid>
+          <description xml:base="https://www.grayunicorn.com/blog/21-08-26-amiga-db23/">&lt;p&gt;In between the Mac screen stuff going on I have some other projects happening. I&#39;m in the middle of a &lt;a href=&quot;http://www.reamiga.info/?page_id=38&quot;&gt;ReAmiga 1200&lt;/a&gt; build and when the very last chip I needed arrived I made some progress. Which is me all over, I would much rather be building physical things than writing code most of the time. Progress was stopped by a faulty Paula chip but I got thinking about the new machine&#39;s storage.&lt;/p&gt;&lt;p&gt;The ReAmiga allows floppy drive swapping on the mainboard, so an external drive can be DF0: - removing the internal floppy and adding an internal power supply wouldn&#39;t reduce compatibility at all. I really like the &lt;a href=&quot;https://centuriontech.eu/product/goex_sd/&quot;&gt;Goex from Centuriontech.eu&lt;/a&gt; and decided to make it externally housed with a better control knob and display panel (that&#39;s another story). What you can&#39;t get easily in 2021 is the 23-pin male DSUB connector.&lt;/p&gt;&lt;p&gt;The 23-pin version of these connectors appears to have been more or less a Commodore whim just as the 19-pin was Apple&#39;s. Nobody knows about them today - most manufacturers don&#39;t even show them as obsolete products, while the 25-pin style is plentiful and still available. I heard about someone having a small quantity manufactured in the last few years but originals are no longer to be found at a sane price, I saw one listed for over $800 on eBay last week. No doubt the seller hoping someone was that desparate...&lt;/p&gt;&lt;p&gt;(Could I have found one connector, under $10, if I looked hard enough? Of course! But I like making things.)&lt;/p&gt;&lt;p&gt;I bought some pins from Mouser and 3D printed some designs to try and make my own and discovered that these things need some really fine tolerances to fit and work. Initial plans to print a one piece front didn&#39;t work because the printer isn&#39;t quite accurate enough. Forget about putting numbers near every pin like the old ones used to have - I used a triangle marker near pin 1 but it is near impossible to see. In the design program it is easy to forget just how small these thngs are, then in the slicer realise that a feature that is just five layers high isn&#39;t going to come out as you hoped.&lt;/p&gt;&lt;p&gt;After a few iterations I had a rear part with a rear hole size that allowed the crimped part of the pin to pass through but not the barrel. I also made a front part that would accept the pins and hold them correctly in the trapezoid pattern, behind a shroud like the original plug. I had to mess with that front part a little - chamfering the holes where the pins insert was a good idea to aid insertion but too much chamfer allowed the barrels to be pulled forward out of the rear part, leaving pins staggered after removal. Eventually I arrived at chamfer dimensions that hold the barrel steady and help get all the pins inserted. Drilling out the front printed holes with a 1mm drill bit in a pin vise made it much easier to get the pins through.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/images/2021-08-26-amiga-db23/5-mouser-pins.jpeg&quot;&gt;&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/5-mouser-pins.6b356e1935a1fe09.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/5-mouser-pins.1a214645942d555e.jpg&quot; alt=&quot;Pins from Mouser&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Pins from Mouser&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Originally I decided to try a friction fit where the widest part of the pin (&quot;barrel&quot;), above the pin itself, would fit so tightly into the printed housing that it would not come out when inserted and removed from a socket. This wasn&#39;t a terrible plan but getting the pins fitted required a lot of force and after a few bent pins it clearly wasn&#39;t going to be a reliable method. Then I decided to try the split front approach on the basis that the barrel was still the largest part of the pin and could be sandwiched between the two parts.&lt;/p&gt;&lt;p&gt;(Maybe there are pins that would have been easier to design for, I did not find them.)&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/images/2021-08-26-amiga-db23/1-wires-through.jpeg&quot;&gt;&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/1-wires-through.1b39721f7f561401.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/1-wires-through.9d2232dfcaaa1b32.jpg&quot; alt=&quot;Wires thread through first&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Wires thread through first&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;The wires thread through the back printed assembly. Know your crimper - mine is an &lt;a href=&quot;https://www.engineertools-jp.com/pa092021&quot;&gt;Engineer PA-20&lt;/a&gt;. Get the connector in exactly the right spot in the tool and the wire fully inserted before crimping or the pin bends like a banana.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/images/2021-08-26-amiga-db23/2-pins-back.jpeg&quot;&gt;&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/2-pins-back.72c057f165f3635e.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/2-pins-back.6d61b7b7ac09c6b4.jpg&quot; alt=&quot;Pins push into back assembly&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Pins push into back assembly&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Once crimped, the wire and pin pass back though the holes and the barrel is seated.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/images/2021-08-26-amiga-db23/3-pins-front-back.jpeg&quot;&gt;&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/3-pins-front-back.318adbc772764f72.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/3-pins-front-back.ce8efa3c46baa9ac.jpg&quot; alt=&quot;Pins go into front piece&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Pins go into front piece&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;The pins all need to be inserted through the front printed part. Chamfers around the tops of the holes help to align but there is a fair bit of friction here. Best to put the shroud facing down on a flat surface and push gently down once sure the pins are aligned in the holes.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/images/2021-08-26-amiga-db23/4-front-back-together.jpeg&quot;&gt;&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/4-front-back-together.6f8015b93e23822e.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/4-front-back-together.9b4e5d3a00ffa8f1.jpg&quot; alt=&quot;Pieces push together&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Pieces push together&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Once together the two pieces are held together by the shell ridges. The pins are held in place between the two pieces.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/images/2021-08-26-amiga-db23/6-shell-open.jpeg&quot;&gt;&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/6-shell-open.7be5df6b21f49acf.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/6-shell-open.0ef134dae6a4813a.jpg&quot; alt=&quot;Shell open&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Shell open&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Functionally complete, next thing was to make it robust. I made a shell that uses two ridges top and bottom (four total) to retain the front and back pin assembly in the joined position. The final step was a cable clamp to make sure insertion and removal does not tug any of the wires out of its pin.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/images/2021-08-26-amiga-db23/7-connector-bottom.jpeg&quot;&gt;&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/7-connector-bottom.deaaf8d4adbeed21.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/7-connector-bottom.5792f3f8e5a7c2ac.jpg&quot; alt=&quot;Connector bottom&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Connector bottom&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Doing this made it obvious why we now use USB for nearly everything, so many wires! I was lucky to have picked up a 20 metre cable someone was throwing out, this 25-conductor stuff is expensive if you can even find it.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/images/2021-08-26-amiga-db23/8-connector-top.jpeg&quot;&gt;&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/8-connector-top.726f732373d3beae.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/8-connector-top.e278d84d1e5a648c.jpg&quot; alt=&quot;Connector finished&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Connector finished&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;(Thanks to the anonymous person that gave me the pictured cork floppy disk coaster, I use it constantly.)&lt;/p&gt;&lt;/p&gt;
+</description>
+      </item>
+      <item>
+          <title>Amiga 600 port relocator</title>
+          <pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.grayunicorn.com/blog/20-10-01-a600-port-relocator/</link>
+          <guid>https://www.grayunicorn.com/blog/20-10-01-a600-port-relocator/</guid>
+          <description xml:base="https://www.grayunicorn.com/blog/20-10-01-a600-port-relocator/">&lt;p&gt;Amiga 600 port relocator&lt;/h1&gt;&lt;p&gt;The Amiga 600 has ports right where you don&#39;t want them. They&#39;re on the right of the machine in the perfect place for the cables to get in the way of where the mouse is going to be rolling around on the desk. Also the typical DE-9 connector does not fit, only molded ones will fit, because the A600 case molding interferes with the lugs on the standard plug.&lt;/p&gt;
+&lt;p&gt;(It&#39;s called a DE-9 because the shell size in the series is &#39;E&#39; and it has 9 pins. Many people call it a DB-9 - not correct, but I guess if people know what you mean...)
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/side.b4c3a46aefbd5be9.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/side.0c9ff6c5a0d02efd.jpg&quot; alt=&quot;Side ports&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Side ports&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;To get around this I though of making a port relocator so that the two side ports are connected to a pair of DE-9 plugs, connected to a single stacked dual DE-9 plug at the rear of the machine. Any such plugs would need to be chopped to fit in space allowed by the A600 case, so I had to find some that would not fall apart when one lug is removed as is required for the right plug. The left plug needs less modification but still must have a corner trimmed off.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/side-rear.7dfea4973dbfb90a.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/side-rear.27d46792dfe27aeb.jpg&quot; alt=&quot;From an angle&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;From an angle&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/rear.ea43462b13fcf060.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/rear.3a82639110c7cfb2.jpg&quot; alt=&quot;Plug in here&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Plug in here&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;One kind of connector that can be cut in this way is made by Amphenol, and is sold by &lt;a href=&quot;https://www.digikey.com.au/product-detail/en/ID09S33E4GX00LF/609-5771-ND/1536372&quot;&gt;Digikey&lt;/a&gt; and probably other places too. The face of the connector is crimped all round to the body.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/chopped.c4144c5e99900fe7.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/chopped.c50d3ebf9ea5f44d.jpg&quot; alt=&quot;Chopped connectors&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Chopped connectors&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;PCB design was done in KiCAD. There is nothing but connectors, header and PCB. It is necessary to use two PCBs here because the connectors sit up above the base of the machine. Using 2.4mm substrate on the top board and a 2.54mm-spaced header including 2.54mm spacer between the boards makes the lower board able to pass under the floppy drive bulge. Using 2.4mm substrate for the lower board also should result in a nice solid assembly that has room for slim rubber feet underneath. The eighteen-pin header connects the two 9-pin ports between the boards. The four-pin header is only for extra stability, it connects to nothing.&lt;/p&gt;&lt;p&gt;I have not built this (that&#39;s why pictures show a cardboard mockup). If you do I would be interested to know how it works. Maybe I will one day if I get some cheap way of making simple PCBs. Most people use cables for this apparently, but then that still sticks out the right side of the machine...&lt;/p&gt;
+&lt;p&gt;Find the whole project on my &lt;a href=&quot;https://github.com/aeberbach/A600-side-port-relocator&quot;&gt;github account&lt;/a&gt;.</description>
+      </item>
+      <item>
+          <title>New 3D files for keyboard in A1200.net case</title>
+          <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.grayunicorn.com/blog/20-05-30-new-a1200-stl/</link>
+          <guid>https://www.grayunicorn.com/blog/20-05-30-new-a1200-stl/</guid>
+          <description xml:base="https://www.grayunicorn.com/blog/20-05-30-new-a1200-stl/">&lt;p&gt;New 3D files for keyboard in A1200.net case&lt;/h1&gt;&lt;/p&gt;
+&lt;p&gt;In the last couple of weeks John &quot;Chucky&quot; Hertell announced the release of the &lt;a href=&quot;http://www.reamiga.info/?page_id=38&quot;&gt;ReAmiga 1200&lt;/a&gt; revision 1.5 and I decided to get started on building one. I&#39;m also thinking I need one of those cool &lt;a href=&quot;http://www.amigawarp.eu&quot;&gt;Warp 1260&lt;/a&gt; cards when they are released, and that it would be good to switch into the clear A1200 case, an &lt;a href=&quot;https://www.a1200.net/new-amiga-1200-cases/&quot;&gt;A1200.net reproduction&lt;/a&gt;, when I do it.&lt;/p&gt;&lt;p&gt;The A1200.net case is pretty neat - for one it has brass inserts for the screws, the original had self-tapping screws into plastic. Mine is the transparent version and has signatures from some of the original Amiga people molded into the bottom as the original Macintosh and A1000 did.&lt;/p&gt;&lt;p&gt;(I don&#39;t much like their new keyboard prototype. It uses the old Amiga keys, or their reproduction Amiga keys. I far prefer Cherry MX keyswitches even if it is harder to fit the keyboard with correct keys, with their keys you are stuck with OEM profile.)&lt;/p&gt;&lt;p&gt;The good news and bad news is that the A1200 case are NOT &quot;perfect replicas of Commodore design&quot; as the web site says. They offer more features such as cutouts for a Gotek LCD, and USB ports. Unfortunately the key cutout is very slightly different, so much so that I think I may need a fourth revision of the PCB to cater for both cases. Internally the detail inside the front of the case and the mounting rails on the sides for the keyboard are very different - not so much if you are just placing an Amiga keyboard with its sheet steel supports but it matters if making 3D-printed supports for a PCB.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/base-support.b8bc4acd22053130.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/base-support.504495ff7fa8f46c.jpg&quot; alt=&quot;In the case&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;In the case&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;The new designs on &lt;a href=&quot;https://github.com/aeberbach/A1200KB&quot;&gt;GitHub&lt;/a&gt; are designed to sit better in place on the ribs that strengthen the case. At the front the supports are designed to both support the bottom of the keyboard PCB and to direct air that enters through the front vents under the keyboard PCB into the body of the machine. Behind the PCB an aluminium bar (10x3mm section) supports the span of the keyboard and is insulated with a 3D-printed strip that also serves to support the board. Generally it is a bit neater and better fitting, a product of getting more familiar with the design tools and the 3D printer.&lt;/p&gt;
+</description>
+      </item>
+      <item>
+          <title>Amiga 1200 Complete</title>
+          <pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.grayunicorn.com/blog/20-02-11-a1200-complete/</link>
+          <guid>https://www.grayunicorn.com/blog/20-02-11-a1200-complete/</guid>
+          <description xml:base="https://www.grayunicorn.com/blog/20-02-11-a1200-complete/">&lt;p&gt;The Amiga I was given last year has just about everything I wanted to add to it - this is the summary.&lt;/p&gt;
+&lt;h2&gt;Re-capping&lt;/h2&gt;
+Like just about every Amiga, new electrolytic capacitors. It’s an easy job and even if it works at first, best to do it and be sure. Only the one behind the keyboard connector is at all difficult to reach.
+&lt;h2&gt;Hyperion Workbench 3.1.4 + update&lt;/h2&gt;
+I bought the kit from Amiga on the Lake when it was available for under fifty bucks. The whole kit was two ROMs and five floppies. I don’t know if it is the best version available but it works for the software I want to run. If you want this there are people still selling it for reasonable prices, but eBay opportunists asking $150 are dreaming. (That 3.5&quot; floppy box in the photo - I think that came free with one of the first ten packs of floppies I ever bought.)
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/workbench.9095672e3a16ce63.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/workbench.c8fbcc8993002588.jpg&quot; alt=&quot;Power Supply&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Power Supply&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2&gt;Internal Power Supply&lt;/h2&gt;
+This has been the subject of another post, but briefly the floppy drive is gone and a MeanWell RPT-60B module sits in its place. The power switch and mains cable socket are mounted in a 3D printed assembly that also holds the 9-pin mouse socket. Way nicer than having a power brick attached!
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/powersupply.653b12f744131ef6.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/powersupply.9a4ccc771feddf23.jpg&quot; alt=&quot;Power Supply&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Power Supply&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2&gt;Floppy shuffle&lt;/h2&gt;
+With the power supply there is no room for an internal floppy. Not that one is needed often, but you do occasionally want need a DF0: to exist. After some schematic investigations I shuffled the drive select signal so that the first drive connected to the external connector is DF0:, then the one connected to the daisy chain of that first drive is DF1:, and so on. It’s easy to do with some short wires and by lifting some of the port resistors at the back of the board.
+&lt;p&gt;Where there’s no floppy connected a dummy plug with the required diode sits on the external floppy connector. Basically it tells the Amiga Workbench that there’s nothing wrong with the internal floppy (that isn’t there) and don’t wait for it to be ready when booting.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/shuffle.83945f6ed23f0bfb.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/shuffle.5a334f9bc36c105d.jpg&quot; alt=&quot;Shuffling the drive ID&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Shuffling the drive ID&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2&gt;Mouse&lt;/h2&gt;
+An optical unit from AmigaKit. I don’t know how we ever used ball mouses, so horrible. One complaint I have is that it is way too light compared to all the other mice I use (containing batteries etc.) - so I might have to open it up and add some weights.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/ports.8228671af0bb377b.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/ports.a3cc692ee2a07b0b.jpg&quot; alt=&quot;Slightly more modern ports.&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Slightly more modern ports.&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2&gt;Indivision AGA MK2 CR&lt;/h2&gt;
+These are out of production now and hard to find. I looked for months and finally found one for not too much (though still way over their new cost back when they were available). But it is worth it - without it there would be no way to get the best out of the giant monitor. Though there is an annoying mode change flicker, and there is an overlay when changing modes, I now run a Workbench at a reasonable size. SO much better than using an OSSC - even with a great quality SCART cable I think this is better. The OSSC is excellent if you want a zero-delay arcade-accurate solution but I care as much about text.&lt;/p&gt;&lt;p&gt;The DVI connector that comes with this card carries an analog signal too so the monitor connects easily, using a DVI-VGA physical adapter from the junk box. Because the power connector and input power filter was removed from the motherboard there is room, after moving a couple of capacitors, for a 3D-printed unit to bring this DVI socket out to the back of the case.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/indivision.6653266ea354b62a.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/indivision.2f053f53fc2751cb.jpg&quot; alt=&quot;Individual Computers Indivision AGA MK2 CR&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Individual Computers Indivision AGA MK2 CR&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2&gt;Monitor&lt;/h2&gt;
+It’s an Apple Studio Display, 21” from the blue &amp;amp; white G3 years. Not to be moved without careful planning! It’s so big the base only barely fits on the shelf without overhang. But it’s pretty amazing quality, a Trinitron tube with the two horizontal wires of the aperture grille just visible. This monitor connected via USB to the Macs of the time and adjustment was through software. The only physical controls are contrast and brightness, power and the colour button on the left (which appears to do nothing with no Mac connected). I expect I will be replacing capacitors in this monitor sooner or later but it will be worth it. There are a couple of monitors I would rather have, like the Graphite version or perhaps the legendary Sony GDM-FW900, but I&#39;m not going to find one of those.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/monitor.538ac9aa8050e3d3.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/monitor.bfdb3a8177ec1ecd.jpg&quot; alt=&quot;Blueberry Apple 21&amp;quot; Studio Display&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Blueberry Apple 21&amp;quot; Studio Display&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2&gt;Keyboard&lt;/h2&gt;
+The Amiga 1200 keyboard was just mush and the years did not improve it. Again this was the subject of another post, but this is the third revision of my A1200 keyboard replacement PCB using Cherry MX switches. It mounts inside the Amiga with some 3D-printed rails and an aluminium rod for stiffness. I’m using genuine Cherry MX brown switches on this one - perhaps a little better than the Gateron clones and of course they cost more. The MX keyswitches are not compatible with Amiga keys so I had to make a few from blanks with laser toner and a cheap laser engraver. Not perfect but OK for now. Unfortunately my timing was bad, just as I was about to investigate having keys made it was the Golden Week holiday, now this Coronavirus lockdown has happened, but I will talk to some manufacturers about having a full international Amiga MX set produced soon - maybe crowdfunded?
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/keyboard.0d4163c46ebeac2e.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/keyboard.a5a42dd267023ea2.jpg&quot; alt=&quot;My A1200 keyboard in place&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;My A1200 keyboard in place&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2&gt;Speakers&lt;/h2&gt;
+Apple M6082 are classic beige speakers, not from Commodore but at least from around the time of the Amiga. The beige/colour logo style is probably my favourite Apple has gone through. They are a good size and sound great - once you replace the drivers. The diaphragm in these units had basically fallen away around the edge of the speaker so I replaced the drivers with car speakers. One day I might get the original speakers re-coned. Lots of inputs if you want to use them with other sources too.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/m6082.e3e40a969237771d.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/m6082.7f9264030a04e117.jpg&quot; alt=&quot;AppleDesign Powered Speakers&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;AppleDesign Powered Speakers&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2&gt;Desk&lt;/h2&gt;I have had this ladder-shelf thing for a while. It’s a bit like an IKEA Ivar shelf unit but much more solid, American Cherry timber. We had a kitchen made recently and the cutout from the messmate benchtop left over when the sink was fitted was a good size - trimmed it up, used two sliding drawer units and the Amiga just slides away when not in use.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/all.11628c8089436374.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/all.77a613a56d14435b.jpg&quot; alt=&quot;Complete&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Complete&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2&gt;PCMCIA&lt;/h2&gt;
+By far the easiest way to get data onto an Amiga is to use a Mac. The Mac will download Amiga archives, decompress them and put them onto a FAT-formatted compact flash easily. On the Amiga the fat95 and cf133 packages (see aminet) mount this card once inserted in the PCMCIA adapter. When I bulk downloaded a lot of software it made it easy for me to decompress and arrange all the files so that I could put the CF in the Amiga and see all the icons at the top level. “The Unarchiver” handles .lha files just like any modern archive and there’s even a command line version to download if you are scripting.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/pcmcia.47424d24fb59e02d.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/pcmcia.f92ba444ca88269d.jpg&quot; alt=&quot;PCMCIA&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;PCMCIA&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2&gt;4xEIDE’99 buffered disk interface&lt;/h2&gt;
+Apparently there are better IDE interfaces, certainly there are faster ones. This works well enough for me and makes two drives possible. I have the two CF cards on the primary interface and the secondary is free in case I want to add another unit. It does need software installed for anything but the primary master interface to work correctly.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/cfassembly.1f68e3af01f71413.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/cfassembly.58b99459432d3881.jpg&quot; alt=&quot;Drive interface and drive stack&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Drive interface and drive stack&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2&gt;Two CF card slots&lt;/h2&gt;
+I’m not a big fan of cutting holes in a case to fit extras. However there was already a hole in this one, looks like someone had made space for a ribbon cable to exit to an external drive. So enlarging it to make a place for two CF card readers to sit seemed reasonable. The only good CF card readers I found on eBay were intended to mount in a PC case but are no bigger than the others once the backplane metal is removed. To make a nice compact unit I removed jumpers and soldered one as master, one as slave, then stacked them running the power pins through both to power both from one cable. Unlike many eBay CF adapters these work correctly with the system drive activity LED. A 3D-printed assembly holds them both nicely in place.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/cfoutside.8618069fb4ac411a.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/cfoutside.525ad2073d2bb7a7.jpg&quot; alt=&quot;CF Cards accessible&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;CF Cards accessible&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2&gt;Microbotics MX1230A&lt;/h2&gt;
+The accelerator came with the Amiga, but was 33MHz. After replacing all of the capacitors on the card I obtained a 50MHz CPU, FPU and crystal, also a 5V 32x32 128M SIMM to max it out. The SIMM is recognised as 64M only - my theory is that this is related to Workbench version since the card looks to be in top condition, no chance of an address circuit being out. I would like to check it but I have no schematic for the card and no time to see if this actually works as 128M under the Workbench current at the time of this card&#39;s release. The included SetXA/AutoXA programs tell me there is no Microbotics card installed but the MMULib software from aminet installs fine; no issues accessing 68030 instructions, WHDLoad can access the 64M of memory. 64M is plenty of memory for what I need though it would be better to see all of it of course. There are 68040 and 68060 options available but when I had an Amiga many years ago 68030 is what I wanted, so that’s what I have.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/microbotics.927f783bcfad5751.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/microbotics.32f2a2056a94c3c2.jpg&quot; alt=&quot;Microbotics M1230XA&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Microbotics M1230XA&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2&gt;Optical Drive&lt;/h2&gt;
+Nah, there’s no optical drive, it’s 2020!
+&lt;h2&gt;What’s Next?&lt;/h2&gt;
+Maybe if Individual Computers release a 68060 I will think about it, the Indivision is such a quality item and their preview of the heatsink for the upcoming card looks amazing. Not only that it is supposed to dramatically improve IDE speeds. Certainly I have to build a joystick, I have a Sanwa arcade stick ready to go into a case (WICO Command until then). But the 20+ GB of Amiga software I have waiting for attention will certainly take up some time...</description>
+      </item>
+      <item>
+          <title>Amiga 1200 Latched Trapdoor</title>
+          <pubDate>Wed, 18 Dec 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.grayunicorn.com/blog/19-12-18-a1200-trapdoor/</link>
+          <guid>https://www.grayunicorn.com/blog/19-12-18-a1200-trapdoor/</guid>
+          <description xml:base="https://www.grayunicorn.com/blog/19-12-18-a1200-trapdoor/">&lt;p&gt;Building my ideal A1200&lt;/h2&gt;&lt;p&gt;I&#39;ve been working towards the A1200 I&#39;ve always wanted. There always seems to be something still coming or something left to do. It will have a 50MHz 68030/68882 card in it (parts in the mail), so it needs a ventilated trapdoor. After designing and printing a couple I found that after a few cycles the catch part would fail. Now there&#39;s obviously a problem with my 3D printing setup and printing without a fan may increase layer adhesion, or switching filaments may help. But this is a quick fix.&lt;/p&gt;&lt;p&gt;(There&#39;s another big problem with my 3D printing setup. I have a roll of Prusa Vanilla White filament. Looks great, is a nice match for the Amiga case, I just can&#39;t make it print. Their Urban Grey in the same material prints beautifully but as soon as I switch to Vanilla White the nozzle clogs and the gears grind through the filament trying to push it then I have to take the extruder servo off and clear it all. I have varied the termperature, done cold pulls, cleaned everything. No luck so far. Could have got a bad roll of filament? From Prusa? I don&#39;t think it is likely but I am running out of options.)&lt;/p&gt;
+&lt;h2&gt;Simple latch&lt;/h2&gt;
+Very simple. The dimensions of the trapdoor and the inside ridge are the same as the original Amiga part, so every card should fit but please tell me if it doesn&#39;t.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/outside.274ad1973a947c8c.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/outside.344ae49af9a0cc4e.jpg&quot; alt=&quot;Outside&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Outside&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Twisting the knob with the screw slot causes the latch to twist and prevents the trapdoor falling out. Twisting it back lets you remove it.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/inside.f3ec1d25056bb263.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/inside.4a626ba3c2774654.jpg&quot; alt=&quot;Inside&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Inside&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;I printed this on a Prusa MK3S with an 0.25mm nozzle. The one you can see here is printed at the roughest setting available but still took 6 hours or so - must put that 0.6mm nozzle back on and see how it looks. And how Vanilla White behaves with that one too.&lt;/p&gt;
+&lt;h2&gt;Where can I get one?&lt;/h2&gt;
+&lt;a href=&quot;https://www.printables.com/model/81156-amiga-1200-ventilated-latched-trapdoor-cover&quot;&gt;My account on Printables - free download.&lt;/a&gt;</description>
+      </item>
+      <item>
+          <title>Amiga 600 Keyboard</title>
+          <pubDate>Tue, 17 Dec 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.grayunicorn.com/blog/19-12-17-a600-keyboard/</link>
+          <guid>https://www.grayunicorn.com/blog/19-12-17-a600-keyboard/</guid>
+          <description xml:base="https://www.grayunicorn.com/blog/19-12-17-a600-keyboard/">&lt;h2&gt;What about my A600?&lt;/h2&gt;
+A while ago I made a mechanical keyboard for the Amiga 1200, and it was a success. I&#39;m using one, and I&#39;ve just finished a Rev 3 version of the PCB that should be back in a week or so. But Amiga 600 owners said &quot;What about a keyboard for the A600?&quot; - &quot;I don&#39;t have one&quot; I said - so very kindly, user ExtremeWays on the English Amiga Board sent me one to develop the project with. Excuse gone!
+&lt;h2&gt;The A600&lt;/h2&gt;
+The 600 is a great little computer. It isn&#39;t AGA like the 1200 but it is compact, has IDE and PCMCIA built in and if you buy a Vampire board is one of the faster Amigas around. The keyboard is the same mushy membrane, plunger and spring arrangement found on the 1200, only it has 30 connections to the Amiga rather than 31.
+&lt;h2&gt;Circuit&lt;/h2&gt;
+I put this off for months but once started it was easy. The A600 schematic is available in PDF format and includes an accurate keyswitch matrix so I didn&#39;t need to trace out the membrane connections as with the A1200. Having some experience and a library of FFC and MX parts to work with helped a lot too.
+&lt;h2&gt;PCB&lt;/h2&gt;
+With a much smaller space to work in and a very simple clip-to-mount scheme there was never much question about the substrate - it was going to have to provide all the strength, no room for bracing, so 3.2mm thickness (the maximum my PCB maker offers) was chosen. The size of the board was exactly that of the metal assembly in the original keyboard too so that it fits into the clips. Once again the FFC connector mounts on the reverse of the keyboard with the keyswitches mounted on the front. Because there is no number pad the routing is relatively easy, there is no &quot;split&quot; with some traces from the ribbon connector going both left and right.
+&lt;p&gt;I considered making the LED board part of this board but it would have added complexity, made precise alignment even more important and replaced a functional board that most people already have for no benefit.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/PCB.b8ffb66307fd5e34.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/PCB.250df1fb2fc48057.jpg&quot; alt=&quot;PCB&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;PCB&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2&gt;First test&lt;/h2&gt;
+With a 3.2mm substrate the solder remains fairly flat to the board, with the keyswitch pins only just protruding from the plated through holes. This is great because it&#39;s fairly easy to clean off the flux residue with cotton buds and alcohol, no sharp pins tearing the cotton apart.
+&lt;p&gt;When the board was done I noticed the machine had a 2.0 ROM fitted. I had turned it on when it arrived but not tried to boot anything. Since I only have 3.1.4 ROMs and Workbench nothing worked, could do nothing except for reboot and see that the Caps Lock LED was toggling! To get around this I used a &lt;a href=&quot;https://gglabs.us/node/2067&quot;&gt;F2R16 module&lt;/a&gt; and loaded the latest &lt;a href=&quot;http://www.diagrom.com&quot;&gt;DiagROM&lt;/a&gt; - you rock Chucky!
+&lt;p&gt;Once DiagROM loaded I tested the keys - of course forgetting that testing &lt;code&gt;Esc&lt;/code&gt; quits the keyboard test routine a few times along the way - and everything was perfect.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/test-fit.a8a56ff663eec399.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/test-fit.5cdb3e96990e71f1.jpg&quot; alt=&quot;Test&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Test&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2&gt;Mounting&lt;/h2&gt;
+One long, and two small, plastic clips hold the keyboard to the top case of the A600. These essentially give the PCB the depth that it doesn&#39;t have compared to the original keyboard module, so it fits in to the clips exactly the same way. Unfortunately there is so little room in the Amiga that the programming headers on the F2R16 module stick up and obstruct the PCB when it is fitted into the clips, so I had to remove them - will have to replace them before reprogramming or work out a way to keep them low.
+&lt;p&gt;The MX keyswitch sits up a tiny bit higher than the original keyswitches and I just don&#39;t think there is a way around that. Inside the Amiga the bottom of the board just can&#39;t sit any lower, plastic mouldings in the case get in the way. I did try mounting one PCB with the top of the substrate flush with the top of the clips - used a router to make a groove in the PCB, then designed a 3D-printed clip to hold it in place but it was not a success. While the keycaps arrived at the perfect height, the case could not close.
+&lt;p&gt;If you&#39;re making one, print two sections of rail from the STL files. One has a tiny bit trimmed off so that it fits between the two small case clips. Two short sections of rail go either side of the long case clip. These must be fixed in place (glued) so that the keyboard is perfectly centred. Also don&#39;t make the two small pieces of rail too long or they will obstruct moulding in the lower half of the case when you try to close it up.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/mounting.5567ef091d8b8014.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/mounting.330baa2c59c661dd.jpg&quot; alt=&quot;Mounting&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Mounting&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2&gt;Keycaps&lt;/h2&gt;
+Weird keycaps are familiar to anyone that has tried to replace Amiga keys. The A600 makes this even worse, with 1.5U Esc key, 1U BS, 1U Del, 1.5U Shift etc. - these are impossible to buy. Then you get to the 1.25U Help, 2U Tab, 1.25U F and Amiga keys - also unobtainable. I decided to make some.
+&lt;p&gt;I used a laser engraver from eBay, called &quot;INSMA&quot;, claiming to be 3000mW. This piece of garbage makes me angry every time I use it. Awful software, next to no safety, absolutely broken as designed - the USB plug can&#39;t even reach its socket properly through the plastic case! The power supply exploded and was replaced. Deep breath, stop thinking about it...
+&lt;p&gt;In the end I made some caps by dipping blanks in laser toner and then engraving to fuse the toner. Not great, just OK. Took way too long and was way too frustrating. Don&#39;t buy a cheap laser engraver because they are just junk.
+&lt;h2&gt;Space&lt;/h2&gt;
+One of Commodore&#39;s weirdest features has always been the space bar. I&#39;m sure others have used 9U spacebars but I can&#39;t name any machines off-hand. The A600 doesn&#39;t use that, it uses an 8U spacebar! Now Signature Plastics does sell 8U and 9U spacebars but they are the only source I know of. If they sell out and decide not to make more that could be it, so I went for a 7U spacebar.
+&lt;p&gt;The original plan was to use a conventional 7U arrangement and to make 1/2U spacer blocks that plug into the 3 holes I placed in the PCB for that purpose. I found they were a little too tall and skinny to fix securely so made an integrated spacer and stabiliser unit:
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/printed-spacebar-unit.a86558850969b186.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/printed-spacebar-unit.7dcff8f6bca4a0fa.jpg&quot; alt=&quot;Space unit&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Space unit&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;I did not expect the 3D printer to be able to consistently produce prints that would allow the key stabilisers to work smoothly, but it does. The whole thing fastens to the PCB with two M3 nuts and bolts. You can buy wire for 7U stabilisers but I didn&#39;t have any so again bent a used bicycle spoke. At 1.8mm this is the perfect substitute wire. Just bend accurately and at a good right angle or you get a spacebar that will go down but doesn&#39;t come back up.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/spacebar-in-place.a406d4a6a651eeff.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/spacebar-in-place.f1f2509bb3d41a77.jpg&quot; alt=&quot;Space unit in place&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Space unit in place&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2&gt;The result!&lt;/h2&gt;
+This is it! If I&#39;m ever going to get back to the Infocom text adventures or Amiga assembly code I might have to do it on an A600. This keyboard really feels good.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/complete.95afbbce7d5317b6.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/complete.c24fc710c25d4c6b.jpg&quot; alt=&quot;Complete&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Complete&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2&gt;Where can I get one!?&lt;/h2&gt;
+Chances are I have none for sale - but you can ask. More likely you will need to go to my &lt;a href=&quot;https://github.com/aeberbach/A600KB&quot;&gt;repository on GitHub&lt;/a&gt; and have the PCBs made yourself. This is pretty expensive if you have one made, much more affordable if you can get 5 others who will pitch in and want a PCB too. You will also need to download the STL files and print the 3D-printed parts yourself. Apart from PCB and printing, you need 78 MX PCB-mount switches, a 32-way FFC connector (Mouser part number 538-52044-3245), a 32-way ribbon cable (Mouser part number 538-15168-0400), stabilisers, keycaps and one 3mm LED.</description>
+      </item>
+      <item>
+          <title>Minipulse metal detector - 2</title>
+          <pubDate>Sat, 09 Nov 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.grayunicorn.com/blog/19-11-09-minipulse-2/</link>
+          <guid>https://www.grayunicorn.com/blog/19-11-09-minipulse-2/</guid>
+          <description xml:base="https://www.grayunicorn.com/blog/19-11-09-minipulse-2/">&lt;p&gt;In a rare example of finishing a project that started some time ago, the metal detector is done. I started in 2016 and it was always going to be ready for the next camping trip. After becoming more comfortable with the 3D printer now it is.&lt;/p&gt;
+&lt;p&gt;Powering such a thing is always a bit tricky and when the device needs 12V it&#39;s even harder. That&#39;s eight 1.5V batteries, a lot to manage. Or you could use the rechargeable 16850 Lithium ion cells, they are not expensive but you do need to buy a charger for them and some way to hold the cells in the device. A lot of people have done this and it&#39;s a good solution. However I decided to use the battery packs I already had for my drill/line-cutter/hedge trimmer, the Ryobi 18V system. These were the cheapest of all since they are just sitting in the garden shed most of the time. They&#39;re also big enough that two packs is going to be beyond the enthusiasm of even the most tireless kid to exhaust in a weekend. I think a module to convert the nominal 18V from the pack to 12V cost $2.80 or something on eBay. This does weigh more than the 16850 solution but I don&#39;t find it too heavy.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/voltage-converter.ac7f228b2c0ed7b3.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/voltage-converter.ec6001a7229ac1bf.jpg&quot; alt=&quot;12V output, done dirt cheap&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;12V output, done dirt cheap&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;So with that in mind I set out to make a 3D model of the underside of the drill these batteries connect to. It took three prototypes before I had one that would let the drill pack click in snugly without rattles, but on that third one I just decided to finish it and did everything down to the full case with holes for the headphone jack, coil plug and the lid. The final print was fantastic - having a 5 hour window for the print meant I selected best quality options and both lid and case turned out great. Or well enough anyway. PETG always seems to have a lot of stringing.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/images/2019-11-09-minipulse2/housing.jpeg&quot;&gt;&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/housing.71828673a84a99e8.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/housing.3492a201d8a1e11e.jpg&quot; alt=&quot;Boxy. Like a Volvo 244DL&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Boxy. Like a Volvo 244DL&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;(On the way home to this print I stopped at the hardware store to pick up some 20mm electrical conduit for the wand - I found &quot;20mm&quot; PVC pipe before I got tot he electrical section so I got that instead - be warned, &quot;20mm&quot; PVC is internal diameter, &quot;20mm&quot; electrical conduit is outside diameter. Oh well the white stuff that is too big will be useful one day.)&lt;/p&gt;&lt;p&gt;Next up is the coil. Some years ago I printed a coil former with the aim of building a low capacitance coil, separating the coil windings and achieving a 90 degree crossing of the wires as much as possible. To protect this coil it needs a housing and the entire coil assembly needs to be adjustable to it stays relatively flat to the ground, that angle being adjustable depending on the user&#39;s height. The coil is 200mm diameter so any housing is very close to the capacity of my 3D printer...&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/images/2019-11-09-minipulse2/coil-housing.jpeg&quot;&gt;&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/coil-housing.1b3c4f3405df5bf3.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/coil-housing.2bfd9e7f5f2e26b1.jpg&quot; alt=&quot;Coil housing&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Coil housing&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;The angle adjustment is achieved by having interlocking vanes with a 3D-printed bolt holding it all together. It&#39;s a good idea to keep metal away from the coil so while I could have bought a much stronger nylon bolt and nut, I just printed a thread on the bolt and on the last plate of the fingers so that the coil angle can be adjusted and the bolt tightened. Fusion 360 makes this incredibly easy - just pick the &quot;Thread&quot; tool under the Create menu and make sure both tapped hole and bolt have the same kind of thread applied. I thought I would be looking up thread measurements and applying formula for hours here. The thread print takes a while, obviously the better it is printed the smoother the thread will be.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/images/2019-11-09-minipulse2/coil-pivot.jpeg&quot;&gt;&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/coil-pivot.46b8db98365e63af.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/coil-pivot.3402206d5f5667dd.jpg&quot; alt=&quot;Coil pivot&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Coil pivot&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Unless your printer is really dialled in, 3D printed threads don&#39;t work all that well unless you touch up the threads with a real tap &amp;amp; die set.&lt;/p&gt;&lt;p&gt;Joining all the parts is the 20mm orange electrical conduit. Tarzan&#39;s Grip glue is great for joining this to printed parts. Because it expands to fit space by absorbing moisture it fills gaps. If the fit between conduit and printed part is something that is going to be held in place by expansion, like a printed cylinder fitting inside the conduit, it&#39;s secure. One piece of conduit acts as the wand of the detector, joining the coil pivot to the handle. Another is hidden, coming from the other side of the handle into the metal detector housing.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/images/2019-11-09-minipulse2/handle.jpeg&quot;&gt;&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/handle.b91b859fd45e48d6.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/handle.595b8040eebeb089.jpg&quot; alt=&quot;Handle&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Handle&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;And the result is this. It&#39;s far from finished, but it is ready to use. When I rework this design I will try to decrease the size of the box, probably by making the battery mount from the rear as it does on the line cutter.&lt;/p&gt;
+</description>
+      </item>
+      <item>
+          <title>Amiga 1200 Internal power supply</title>
+          <pubDate>Tue, 13 Aug 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.grayunicorn.com/blog/19-08-13-a1200-internal-psu/</link>
+          <guid>https://www.grayunicorn.com/blog/19-08-13-a1200-internal-psu/</guid>
+          <description xml:base="https://www.grayunicorn.com/blog/19-08-13-a1200-internal-psu/">&lt;h2&gt;I just don&#39;t like cables&lt;/h2&gt;
+Lots of people have updated their Amiga power brick with newer power supply modules because the older bricks are suffering from elderly capacitors, and power supplies like the &lt;A HREF=&quot;https://www.meanwell-web.com/en-gb/ac-dc-triple-output-medical-open-frame-power-rpt--60b&quot;&gt;Mean Well RPT-60B&lt;/A&gt; are an ideal replacement. They give you more power capacity than the original and they are more convenient (and probably cheaper) than replacing capacitors or diagnosing the fault in an older power supply.
+&lt;h2&gt;Internalizing it&lt;/h2&gt;
+I also used one of these supplies in my Commodore power brick - worked fine, and it stopped some graphics corruption and crashes I was seeing due to the supply failing. When I got the unit I was surprised to see that it fit really well in the space under the floppy drive in an Amiga 1200... got me thinking!
+&lt;p&gt;I never use the floppy. If I need one in future I will use an external one to behave as DF0: - it&#39;s not hard to find the disk select line at the 23-pin connector and instead connect that to the disk-select line on the internal floppy header.
+&lt;p&gt;Turns out I didn&#39;t mount it exactly in that space but I did lose the floppy. Using the 3D printer I made a new assembly to house the IEC C8 AC inlet, the power switch, and the mouse DB9 socket. The power supply is mounted on a plate that fits into slots at the back of this unit and is held down at the front with some M3 bolts. A cover protects the mains voltage section of the power supply. The entire unit mounts into the A1200 case using the holes that the floppy drive used to use.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/PSU.0b251b0597fdad96.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/PSU.9731f1fcd1d9b767.jpg&quot; alt=&quot;Power supply unit&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Power supply unit&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;The 3D printer didn&#39;t do the best job last night. Part of the reason for making the power supply assembly in three printed parts was to avoid bridging, supports and other extruded plastic hassles. Usually the Prusa does better than this though. I will probably revise to make it more printable by using some supports, thickening in places and make it a little nicer but structurally this is fine.&lt;/p&gt;&lt;p&gt;Inside the machine I removed the original power connector and for good measure the rusty old RF modulator. Power cables come from the left side of the case to the power supply.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/inside.ff188142c4b82e45.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/inside.328e173187e8b533.jpg&quot; alt=&quot;Open Case, Rear&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Open Case, Rear&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;And that&#39;s all there is to it. The power cable enters the machine at the back right and it&#39;s easy to reach the power switch, no more bending down to the floor.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/rear.cd1c4be217a27a33.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/rear.53f6b5bc7a4fe6dc.jpg&quot; alt=&quot;New Power Socket and Switch&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;New Power Socket and Switch&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;(The case screws aren&#39;t in - it does close completely with about 1mm to spare)&lt;/p&gt;&lt;p&gt;I&#39;ll be checking this out as I go using a &lt;a href=&quot;https://www.maximintegrated.com/en/products/ibutton/data-loggers/DS1922E.html&quot;&gt;Maxim/Dallas Thermochron button&lt;/a&gt;, a compact temperature logger that can fit inside the case and record temperature over time as the machine is used. I don&#39;t anticipate any problems as the ventilation here is probably better than in the brick and this is a very efficient supply, I never noticed the brick even getting warm.&lt;/p&gt;&lt;p&gt;Of course, don&#39;t do anything like this unless you are competent and understand the risks. Making connections incorrectly or being careless could destroy your Amiga or even kill you.&lt;/p&gt;
+</description>
+      </item>
+      <item>
+          <title>Amiga 1200 Keyboard, part 9</title>
+          <pubDate>Thu, 18 Jul 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.grayunicorn.com/blog/19-07-18-a1200-kb-9/</link>
+          <guid>https://www.grayunicorn.com/blog/19-07-18-a1200-kb-9/</guid>
+          <description xml:base="https://www.grayunicorn.com/blog/19-07-18-a1200-kb-9/">&lt;h2&gt;It&#39;s been a while!&lt;/h2&gt;
+Well not that long as far as time between blog posts goes. Last time I had decided that the way to mount this thing was 3D printing. Almost as soon as the last post was up I decided it would be educational and useful for all kinds of stuff, so I got one. I ordered the Prusa i3 MK3S kit direct. Couldn&#39;t believe when it shipped the same night and arrived in Australia in just a couple of days. And then I went to WWDC in San Jose, so it went untouched for about two weeks.&lt;
+&lt;h2&gt;Prusa 3D Printer&lt;/h2&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/prusa-printer.18af43eec8a618a0.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/prusa-printer.516663403f1e62da.jpg&quot; alt=&quot;Prusa i3 MK3S&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Prusa i3 MK3S&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;I&#39;ve never owned another 3D printer though I have used a couple. The really impressive thing with this machine is that you get everything right down to alcohol wipes, hex keys, pliers, filament, and an instruction manual the size of a thick glossy magazine with photography to match. You even get a pack of gummy bears. Check out any number of youtube videos for a full review of this kit but if you&#39;re wondering whether it&#39;s worth the premium over cheaper printers I&#39;d say definitely yes. Has worked well from the first print (one nozzle jam but fixed easily enough).&lt;/p&gt;&lt;p&gt;Octoprint deserves its own post, but what a great piece of software. I&#39;m using it. So much nicer to use a web interface over shuffling SD cards around.&lt;/p&gt;&lt;h2&gt;Design and build&lt;/h2&gt;&lt;p&gt;Previously pictures were shown of the aluminium mounts I made for the keyboard in the A1200.net case. I decided to stop using these and to change the design a bit for a few reasons. First, it&#39;s too hard to make, and with the machinery I have available it is a bit dangerous to be routing small pieces of aluminium angle. I sold a few boards and I wanted to be able to give those people 3D designs too, and I wanted the pieces to be easy to install.&lt;/p&gt;&lt;p&gt;I used Fusion 360 from Autodesk. It&#39;s good because it&#39;s powerful, and it&#39;s free for an individual if you derive less than $100k in revenue annually from using it. That&#39;s me. It sucks because so much of it is cloud-based. Every single time you want to export to STL you wait, and wait, and sometimes it eventually succeeds. I&#39;m using Shapr3D on the iPad Pro also - fantastic so far.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/front-with-rails.7253ea6d2bdd7523.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/front-with-rails.4b3672eb110aa8d0.jpg&quot; alt=&quot;The front&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;The front&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;In the A1200.net case there is some plastic molding right above the edge of the keyboard - that made fitting a piece of aluminium angle necessitate filing slots for those plastic fins to fit into or the case could not close. This could not continue with a 3D printed solution because plastic is just way more flexy and including slots would remove any stiffness it ever had to begin with. This problem almost had me thinking I would need to redesign the PCB.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/back-with-rails.09776351c3abc432.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/back-with-rails.1ac4f60821bf95fc.jpg&quot; alt=&quot;The back&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;The back&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Then I thought about putting a 10x3mm aluminium bar under the keyboard, supporting from behind and being supported in turn by the side rails - and it works! To avoid having a long piece of conductive metal in proximity to anything in the trap door (or the keyswitches) I printed 3cm lengths of rectangular section that fit nicely over the bar. This also raises the keyboard support so the PCB does not sag in the middle. The ends of the bar fit into the sockets on the side rail pieces, which then attach to the side of the keyboard with short M3 bolts. Finally the lower support rails attach with longer M3 bolts.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/kbd-in-case.2987389ed5f7534e.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/kbd-in-case.09e4d90101dabdd0.jpg&quot; alt=&quot;In the case&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;In the case&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;This gets the keyboard in just the right spot. DSA key profile makes it all a good fit. I also checked it out in the original Amiga case, and though I had to revise the bottom rails to clear the round bumps either side everything was fine there too. It is a tighter fit in the original Amiga case but still good. There is plenty of room to clear any trapdoor accelerator you might have. Devices like Indivision, I don&#39;t know, I don&#39;t have one.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/case-closed.b639be61a8a9b936.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/case-closed.9fbd5bcb095aeade.jpg&quot; alt=&quot;Case closed&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Case closed&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/key-profile.4158f0bd93db1565.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/key-profile.72d096a42d5b6d23.jpg&quot; alt=&quot;Key profile&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Key profile&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;h2&gt;And that&#39;s it! (not really)&lt;/h2&gt;&lt;p&gt;The Amiga is now fitted with the mechanical keyboard, 4GB solid state disk module, 3.1.4 ROMs. I got a PCMCIA adapter so transferring data from the PC is no problem. But I still need:&lt;/p&gt;Hyperion 3.1.4.1 update (Amiga on the Lake have mailed me a serial number for my OS, waiting)optical mouse (ordered from Amigakit, waiting)IDE interface and multiple internal CF card adapters (Amigakit, waiting)joystick (have a basic one, but I need to build up the ultimate Sanwa I have been collecting parts for)monitor solution - got the OSSC, have not had time to do much with it yet.figure out WHDLoad and get all my favorites like Dungeon Master and FA/18 Interceptor working again.proper Amiga keycaps. Time to start experimenting with laser engraving some of the blank keycaps I bought.&lt;/p&gt;
+</description>
+      </item>
+      <item>
+          <title>Amiga MMU Software</title>
+          <pubDate>Thu, 16 May 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.grayunicorn.com/blog/19-05-16-amiga-mmu/</link>
+          <guid>https://www.grayunicorn.com/blog/19-05-16-amiga-mmu/</guid>
+          <description xml:base="https://www.grayunicorn.com/blog/19-05-16-amiga-mmu/">&lt;h2&gt;68030&lt;/h2&gt;
+Since getting the 3.1.4 software from Hyperion I have been seeing a message about no 68030.library being available, but then Workbench proceded to load and for a while I thought no more about it...
+&lt;p&gt;Getting software on the Amiga had been pretty annoying. My storage is a disk module that has no master/slave setting so I have not tried to connect another drive. Also my power supply is suspect so I have not tried to boot two drives and therefore can&#39;t just fill a drive with software on another machine. I tried out Amiga Explorer with the serial port (and had too much fun wiring up a D-25 cable) and it worked, but things were so slow. I found that a PCMCIA card would let me transfer data over the network so I bought one, a D-Link DFE-670TXD. This card was mentioned in a few forums as working. TCP/IP would be much faster than 19.2K serial!
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/DFE-670TXD.35711435a4ab5403.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/DFE-670TXD.ff2e7df95724ef53.jpg&quot; alt=&quot;Glorious 16-Bit Networking&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Glorious 16-Bit Networking&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Then I downloaded the Miami TCP stack and of course chose to install the 68020 version since the Amiga 1200 is a 68020 and I have a 68030 anyway. It connected to a network.I could ping it, even see ARP traffic. But it never worked with Amiga Explorer.&lt;/p&gt;&lt;p&gt;With the keyboard project finished (sort of - keycaps are being made. Article to come...) and the case screws back in I decided to search a bit and get rid of the 68030.library warning. I grabbed the MMU package by Thomas Richter and installed and ...wow. Everything went faster. And as soon as I tried Miami TCP again with Amiga Explorer it connected first try, and transferred data as quickly as I could wish. So there you go - you need that library.&lt;/p&gt;
+&lt;h2&gt;Power Supply&lt;/h2&gt;
+When I got the Amiga it had an ancient half-height hard drive in it that I initially figured was bad - but later found that it was fine, the Amiga just did not supply enough power. In an external adapter in WinUAE it was recognised as a valid Workbench. Additionally FA/18 will play but with corrupted graphics eventually - also due to low power? I hope so. So I bought a MeanWell RPT-60B open frame power supply module and will fit it in a ventilated case (when that arrives). Since I will also want to power a couple of 5V devices from time to time including an OSSC (scan converter) I&#39;m thinking of building a modular output so I can add a 5V cable to power things from the supply rather than using a bunch of plugpacks.</description>
+      </item>
+      <item>
+          <title>Amiga 1200 Keyboard, part 8</title>
+          <pubDate>Sat, 04 May 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.grayunicorn.com/blog/19-05-04-a1200-kb-8/</link>
+          <guid>https://www.grayunicorn.com/blog/19-05-04-a1200-kb-8/</guid>
+          <description xml:base="https://www.grayunicorn.com/blog/19-05-04-a1200-kb-8/">&lt;h2&gt;New PCB&lt;/h2&gt;
+The new board came back as expected, again with fantastic service from &lt;a href=&quot;ourpcb.com.au&quot;&gt;Our PCB&lt;/a&gt;. Mark checked my design thoroughly and detected a piece of copper that would have shorted out a few keys in the design - he deleted it for me before forwarding the job for manufacturing. I can&#39;t stress how good these guys are for a hobbyist in Australia!
+&lt;h2&gt;Soldering it up&lt;/h2&gt;
+No surprises here. The keyswitches all mounted in the holes they were supposed to go in, one LED in the CapsLock key, and the FFC connector in its place. Soldering was easy. And as soon as the soldering was done I plugged it in to DiagROM and everything tested perfectly. This is a board with no cuts or extra wires!
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/construction.823c1a5cde63ac21.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/construction.70c1b5054f3bb2a9.jpg&quot; alt=&quot;Soldering it up&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Soldering it up&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2&gt;Mounting rails and stiffness&lt;/h2&gt;
+Once again I used some aluminium angle thick enough to turn into a compound set of angles with a router blade, as previous angles. This time however the PCB has mounting holes designed in. To fit the rails I used a spring-loaded punch to mark the location of required holes, then drilled the holes and used a M3 tap to make a threaded hole ready for a M3 screw. The rails then attached to the PCB with two screws per side and the keyboard sits exactly where it is supposed to be.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/thread.f13ce3bddf0910c1.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/thread.72a0184161e67590.jpg&quot; alt=&quot;Tapped thread in al angle&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Tapped thread in al angle&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;At the bottom of the keyboard is space for another piece of aluminium that engages with the bottom of the case and sets the position of the keyboard vertically. This is a thin piece, so instead of cutting threads I just made holes and put nuts on the other side. At the top of the keyboard there is a rail made of aluminium angle. Its purpose is just to make the keyboard feel stiff. 2mm is a thick board, but in the centre it does move when a key is pressed - but with the rail in place fastened firmly to the top of the PCB it is nice and stiff, fels as good as any keyboard I have.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/soldered.8e4e204ed328635f.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/soldered.825cf434c5e68d94.jpg&quot; alt=&quot;Ready to install&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Ready to install&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2&gt;Keycaps&lt;/h2&gt;When you look at the A1200 there are a few gaps, it&#39;s like a grin with teeth missing. I think the way to fix this is to buy blank keycaps and to buy a laser engraver. It should be possible by experimenting with laser power and drawing speed to produce a full set of Amiga keys just like the originals. And that&#39;s the next project. But first, time to boot some Infocom adventures and maybe some 68000 assembly programming with my new keyboard :D
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/complete.01060a776e8dd3e4.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/complete.21a75f70a7efc1de.jpg&quot; alt=&quot;Ready to use&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Ready to use&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2&gt;And that&#39;s it!&lt;/h2&gt;
+The Amiga is now fitted with the mechanical keyboard, 4GB solid state disk module, 3.1.4 ROMs. But I still need: - optical mouse - joystick (have a basic one, but I need to build up the ultimate Sanwa I have been collecting parts for) - monitor solution (waiting for my OSSC to arrive, or one day Indivision AGA Mk 2?) - better way to transfer data (Amiga Explorer is slow with the native serial port...) - figure out WHDLoad and get all my favorites like Dungeon Master and FA/18 Interceptor working again.</description>
+      </item>
+      <item>
+          <title>Amiga 1200 Keyboard, part 7</title>
+          <pubDate>Sat, 27 Apr 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.grayunicorn.com/blog/19-04-27-a1200-kb-7/</link>
+          <guid>https://www.grayunicorn.com/blog/19-04-27-a1200-kb-7/</guid>
+          <description xml:base="https://www.grayunicorn.com/blog/19-04-27-a1200-kb-7/">&lt;h2&gt;Salvaging the parts&lt;/h2&gt;
+Building rev 2 means a whole new PCB. Rev 1 is no good any more but there are $50+ worth of parts on the board and they need to be reused. Desoldering used to be hard but now is not much of a challenge...
+&lt;p&gt;This is the FFC connector that joins the keyboard to the Amiga. You could possibly remove this from a board with basic soldering methods but it would very likely not be as neat or as easy as with my new desoldering tool.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/ffc-extracted.ab93594fc8d4192d.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/ffc-extracted.a4265799deefaa3b.jpg&quot; alt=&quot;Desoldered FFC&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Desoldered FFC&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h3&gt;Melt and pull&lt;/h3&gt;
+Level 0 desoldering. This works where things have one or two leads only. You melt the joint(s) with your iron then pull the part out. Burned fingers are likely. Not to be confused with more sophisticated melt and pull methods like hot air or infrared.
+&lt;h3&gt;Solder wick&lt;/h3&gt;
+Level 1 desoldering. A copper braid is placed on the joint to be desoldered and then heated. The heat travels through the copper braid and it soaks up the molten solder using capillary action. Some braid is pre-fluxed and this tends to work better, solder flows better with flux. If your braid isn&#39;t pre-fluxed try applying some to it - buy a flux pen to start with - and see the difference. This method is likely to succeed where there is plenty of room around the joint and where there is a high tolerance to heat. Delicate glass-bodied diodes or vintage ceramic caps may suffer from the higher heat of this method.
+&lt;h3&gt;Solder pump&lt;/h3&gt;
+Level 2 desoldering. There are pumps and there are pumps. The best manual pump I know of is the mighty &lt;a href=&quot;https://duckduckgo.com/soldapullt?ia=products&quot;&gt;SOLDAPULLT&lt;/a&gt; - at the price why would you buy anything else? It has about four times the volume of the rubbish pumps a lot of hobbyist stores sell so it can actually move the solder. It has a tip that doesn&#39;t melt and if you do damage a tip it stands up to re-trimming with a sharp knife well - or you can just buy a replacement.&lt;/p&gt;&lt;p&gt;These things do require maintenance to remain effective. Silicon grease keeps the air piston moving air, while regularly emptying out the sucked solder keeps it from getting blocked up. I have had mine for at least 20 years and I am still using the first tip - obviously not a heavy user, but heavy enough. There is really a lot of complete garbage sold pretending to have the ability to pump solder and not a lot of it does - the Chinese aluminium things are a great example. There&#39;s al alternative available from Engineer tools - this may be OK, I have never had an Engineer brand tool that wasn&#39;t reasonably good. However I will trust the soldapullt. I could have stripped the entire board with the soldapullt but it would have taken a bit longer.
+&lt;h3&gt;Solder vacuum&lt;/h3&gt;
+Level 3 desoldering. As with manual pumps there are levels of quality! And I though one day I might aspire to owning a Hakko - but with the price of the ZD-985 desoldering station I decided to follow sensible tool advice:&lt;/p&gt;&lt;p&gt;&quot;investigate the cheapest tool you can. If you use it enough that you need more than that buy the best&quot;&lt;/p&gt;&lt;p&gt;Here&#39;s Dave from EEVBLOG having way too much fun with the ZD-985.&lt;/p&gt;&lt;p&gt;I think I paid $138 delivered and mine worked out of the box, unlike Dave&#39;s! He finds it has some problems but is obviously enjoying himself when he gets started. BTW that solder sucker he shows at 1:48 is a great example of the kind of pump that doesn&#39;t work.&lt;/p&gt;&lt;p&gt;I found this worked GREAT! Until it didn&#39;t. My fault though. Regular maintenance is as important here as it is with the manual solder pump but technique is maybe as important. When I started using the pump I soon found it blocked up in the nozzle with solid solder gathering just short of the collection chamber. Repeated poking with the supplied cleaning stick got rid of that but why was it there?
+&lt;p&gt;Dave shows that the technique is to put the tip of the vacuum over the joint and as soon as it melts to use the tip to wiggle the component lead around while applying suction with the trigger. This allows air to flow all around the lead and hopefully all of the solder will be vacuumed away leaving the lead free. What I was doing wrong was letting go of the trigger too early. If you keep the vacuum going while pulling the tip away from the board this allows a large amount of air to chase the melted solder up into the collection chamber, keeping it from settling in the tube and blocking everything up. Before doing it properly I blocked up the gun with just a quarter of the keyswitches. After figuring out the technique I finished the rest of the board with no more blockages and took a very satisfying button-sized lump of collected solder out of the collection chamber at the end. All the components came out easily, even the 32-pin connector pictured at the top of this post.
+&lt;h3&gt;Level 4 and beyond...&lt;/h3&gt;
+Beyond me that is. Hot air rework stations. Heating pads. Infra-red. Maybe if I win a lottery and have time to go and learn to use them properly.
+&lt;h3&gt;Final desoldering note, much later...&lt;/h3&gt;
+&quot;level&quot; should not really be taken to imply that a higher level is always better. Sometimes a bit of wick is all you need. Sometimes the solder gun is perfect for the job. Sometimes it&#39;s terrible. What can help nop matter the method is more &lt;em&gt;flux&lt;/em&gt;. This can be liquid flux or more flux from the solder currently on your bench. The advantage of adding solder can be that it brings the melting point of whatever mystery solder you are trying to remove closer to the melting point you&#39;re used to. Take it easy when you desolder or you&#39;ll soon be learning how to repair PCBs!
+&lt;h2&gt;rev 2&lt;/h2&gt;
+The rev 2 PCB is back in a couple of days so it won&#39;t be long. I&#39;ve been thinking about keycaps and populating all the weird Amiga keys - it&#39;s pretty easy to get blank keycaps in any size and laser engraving machines are under $100. That could work...</description>
+      </item>
+      <item>
+          <title>Amiga 1200 Keyboard, part 6</title>
+          <pubDate>Tue, 23 Apr 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.grayunicorn.com/blog/19-04-23-a1200-kb-6/</link>
+          <guid>https://www.grayunicorn.com/blog/19-04-23-a1200-kb-6/</guid>
+          <description xml:base="https://www.grayunicorn.com/blog/19-04-23-a1200-kb-6/">&lt;h2&gt;Fitting the PCB&lt;/h2&gt;
+The PCB is back! It&#39;s really big, barely goes in my backpack with the zip shut. I can get a 104-key modern board in my backpack but not this PCB! It arrived right on time and very carefully packed. This is a simple board so the difficulty rating is pretty low but the manufacturer really has done a great job and I would not hesitate to use them again.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/fit.a7ac3fad2b268178.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/fit.342970222867a589.jpg&quot; alt=&quot;Testing Fit&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Testing Fit&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2&gt;Does it work?&lt;/h2&gt;
+Building it was easy. The PCB-mount switches stuffed in easily and so did the FFC connector and LED. It works! With DiagROM in the system I tried it out and every key generates the right codes, except for Help and Del. This was my fault - I forgot to solder those two switches! But everything is fine, right down to the Caps Lock LED turning on and off.
+&lt;h2&gt;Does it fit?&lt;/h2&gt;
+No. I kind of expected to find a few things that needed fixing and I did. This is what comes of not having a piece of 2mm material to fit in place and see where the problems might be before having a PCB made.
+&lt;/p&gt;Too high! The board sits perfectly across the width of the case, right on the thin ledges provided in the bottom case mold. Unfortunately in this position the keyswitches sit up too high.Too thick! The PCB material is too thick to fit under the clips at the front of the Amiga case. That&#39;s OK, I can route it back and add a strip of metal attached to the front of the PCB that will fit. As mentioned it is too high anyway.No LED window! The A1200 case has a small PCB with three LEDs in it. The original keyboard has a hole cut out to allow the lid to close. I overlooked this.Flexy! This will definitely require aluminium angle at the top edge to stop the flex, as expected.WTF? Check out the weird footprint below - this happened with the TAB key and the numpad &#39;(&#39; - both keys on the top left of a group. Both showed that they had the right footprint in KiCAD. Both corrected instantly as soon as I selected the footprint again, while making rev 2. You can see the central pin for the keyswitch has moved down. Easily fixed with a round file but I would rather it is in the right place.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/bad-footprint.c634f0c6b387e15d.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/bad-footprint.88e3420fab390707.jpg&quot; alt=&quot;Bad Footprint&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Bad Footprint&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Though I want the stiffness of 2mm PCB material here it&#39;s too thick to go in the clips at the bottom of the case. I will need to cut the board back and attach a piece of 1mm aluminium, stepped down to the level of the clips.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/too-thick.04cfbe9142535e5d.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/too-thick.d683446ab44880b7.jpg&quot; alt=&quot;Too Thick&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Too Thick&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;And the keycaps sit too high when the PCB is sitting on top of the case supports. The entire PCB needs to be lowered within the case.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/key-height.2cf4f95245eb9dab.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/key-height.b1f920277923889a.jpg&quot; alt=&quot;Too High&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Too High&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2&gt;Make it fit - lower It&lt;/h2&gt;
+Sitting up on the supports makes the keys too high. The only thing to do is trim the edge of the board so that it can drop down inside the case, below the supports, but still be supported somehow. There is room for screws and brackets if careful. Is there an aluminium extrusion somewhere that could do this? A quick search produced no joy, at one end Bunnings with a lot of standard and chunky extrusions that don&#39;t look useful and at the other end a lot of industrial suppliers that can probably do anything but say &quot;call us for a quote&quot;. Small quantities of unusual angle could easily cost more than my whole project, so I gave that up.
+&lt;p&gt;Then I thought about routing some aluminium. For a Mac mini project some time ago I routed a CD slot in a sheet of aluminium. It does dull your router bits but if everything is well supported and you are careful, no problem. (That&#39;s what using a router is really - 95% preparation, 5% cutting.) If I took some 3mm thick right angle and routed in from the outside corner I could create a step-shaped piece that would sit on the case ledge, then drop down to support the keyboard. The height this drops the keyboard by would be controlled by the depth of the cut with any excess trimmed off the top so the case can close. With 3mm of thickness, that allows for 2mm siting on the ledge (plenty) and 1mm of material left to support the keyboard (plenty). I did not like the idea of putting my fingers 10mm from a spinning router bit so I first made a rebate along the edge of a piece of thick ply then placed the angle wrapping around the timber with one face in the rebate. Then attached with screws through the face that won&#39;t be routed, so that the face that will be routed is exposed and securely fixed.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/attach-angle.f3f3a07b8a5a9c18.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/attach-angle.5000b56aaacff49b.jpg&quot; alt=&quot;Securely Mounted&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Securely Mounted&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Then gradually increasing the size of the cut I added in a new rebate to the outside of the extrusion so that with the PCB resting inside the original angle, the new cut would sit on top of the original case keyboard supports. This picture shows the PCB sitting in the new cut, where the case supports will go. Later I trimmed off the excess height you can see above the PCB.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/angle-groove.ce034253348431a0.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/angle-groove.e440e74dcc441fce.jpg&quot; alt=&quot;Securely Mounted&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Securely Mounted&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;While this works, obviously I need a 3D printer. It would have been much easier and much quicker to design something to the exact dimensions required and then print it. I spent hours thinking about how to safely route this thin extrusion, then more time measuring and setting up the router for the cut. I don&#39;t need the side supports to span any distance or to prevent any flex, just not collapse so printed ABS or similar would have been perfect.&lt;/p&gt;&lt;p&gt;Having done as much as I could with rev 1 I was reasonably happy. I did not expect to get everything right first time. Time for rev 2!&lt;/p&gt;
+&lt;h2&gt;The Changes:&lt;/h2&gt;
+The F-row and the main body are too close together. I don&#39;t know how that happened but after a careful measurement that is fixed. I printed the artwork on A4 paper, carefully stuck it together and then made a test fit board with the paper showing key position. The next board should be spot on.The positioning of the FFC connector at the top of the board is too close to the edge, requiring cuts to a piece of angle aluminium if I am to use one for stiffness at the top of the board. Moving it down between the F-row and the main body of keys will fix that and might even make it easier to route.A large rectangular route is added so the existing LED PCB will fit as it did in the original keyboard.reduce the size of the board to allow for the aluminium angle so there should be no need to shave off the edge of the rev 2 PCB with the router.Added holes around the board to attach the mounting rails and the top brace/bottom piece.Added a 9U space bar on top of the 7U space bar so if one becomes available it will fit in just by moving the stabilizers.Changed to blue MX switches, they will sound great here and it&#39;s not like I will be using this keyboard in an office where people will complain.Changed to a black PCB finish.&lt;p&gt;Electrically these are no change. I re-routed the board with the changes above and came up with something very much like the first PCB, only with more vias. As mentioned I concentrated on making tracks on one side run vertically and tracks on the other side run horizontally. It&#39;s nice to do a two-layer board with no vias at all but getting rid of the last one might cost you hours of rework - so when it costs no more it is worth it?</description>
+      </item>
+      <item>
+          <title>Topre Realforce RGB</title>
+          <pubDate>Tue, 16 Apr 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.grayunicorn.com/blog/19-04-16-topre-realforce-rgb/</link>
+          <guid>https://www.grayunicorn.com/blog/19-04-16-topre-realforce-rgb/</guid>
+          <description xml:base="https://www.grayunicorn.com/blog/19-04-16-topre-realforce-rgb/">&lt;h2&gt;Taking the Topre obsession one step further&lt;/h2&gt;
+Obviously, I like keyboards, and having tried out a lot of different MX switches and keycaps Topre was about the only direction left to go. Almost nobody has them in stock to try out and the closest you can come is probably watching YouTube demos - but at least if you don&#39;t like it the value doesn&#39;t drop much and they sell OK. But I loved the first one I bought A few weeks ago my standard was the 87UW55 - one at home and one in the office.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/87UW55.57e0bfa2ce17894c.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/87UW55.cf9b694f7bbcc2b7.jpg&quot; alt=&quot;Topre 87UW55&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Topre 87UW55&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;(The Amiga board is MX of course and I keep one 104-key CODE in the workshop but that&#39;s all.)&lt;/p&gt;&lt;p&gt;Then a guy in the office bought a Topre Realforce RGB which I had forgotten was available. And I decided I had to be able to use my Dolch DSA keycaps on a Topre. Worth it? Not really!&lt;/p&gt;&lt;p&gt;It&#39;s pretty, but I didn&#39;t really want RGB. All I wanted was the ability to use MX keycaps on a keyboard as good as my 87UW55. And out fo the box this is a pretty bad keyboard. It rattles terribly, just feels like a really cheap product from a market somewhere. Fortunately that can be fixed. What follows is how to open and make your Realforce RGB as good as a Topre should.&lt;/p&gt;&lt;p&gt;First up there is one screw to remove, under a tamperproof sticker. Goodbye warranty!&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/single-screw.59b19a16a498162e.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/single-screw.c886cd9178be0796.jpg&quot; alt=&quot;Topre 87UW55&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Topre 87UW55&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Opening up the case is a little tricky after that. You can see the clips at the back of the keyboard and they come out fairly easily with a pair of guitar picks inserted into the crack. Use just one and it will click itself back together again as soon as you move the pick.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/guitar-pick-back.71794f796a30a9cc.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/guitar-pick-back.9f1401e9ce3a4faf.jpg&quot; alt=&quot;Topre 87UW55&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Topre 87UW55&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;The front is a bit harder since you can&#39;t see the clips and they were pretty tight on mine. But put the guitar picks in and open the gap while levering up and the clips will click apart.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/guitar-pick-front.c5fb4bf2132fee81.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/guitar-pick-front.94c2b786a8a570e2.jpg&quot; alt=&quot;Topre 87UW55&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Topre 87UW55&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;With the case off you can carefully unplug the single USB connector from the back of the PCB and the two case halves are free. Here&#39;s the part where your keycaps plug in.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/plate.65775d6c0d6b9021.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/plate.a280687b37191c52.jpg&quot; alt=&quot;Topre 87UW55&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Topre 87UW55&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Here&#39;s the back - that&#39;s a lot of screws.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/pcb-back.1be64c3a1512428c.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/pcb-back.45a0d1510f6b5a11.jpg&quot; alt=&quot;Topre 87UW55&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Topre 87UW55&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Like an old bit of Sony gear there are a bunch of black screws all with an arrow pointing to them. There are also a bunch of silver screws. Every screw needs to be removed and put somewhere safely. Once that is done you can carefully lift the metal plate directly up from the PCB and hopefully this does not happen...&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/sproing.6a01227e269258ba.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/sproing.c8495978b64999f8.jpg&quot; alt=&quot;Topre 87UW55&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Topre 87UW55&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;If it does you get to see how the Topre switch works. The white disc in each key position on the PCB is solder mask under which are the electrical contacts. The spring provides negligible resistance, instead it acts to increase the capacitance detected across those contacts as the spring is depressed. A microprocessor detects that rising capacitance and turns it into a keycode sent as a USB HID device. The rubber dome provides the resistance you feel when you press a key. If you want to experiment with altering key weight on a Topre you need to swap rubber dones, not springs.&lt;/p&gt;&lt;p&gt;Having a few of the rubber domes or even one of the big units with multiple domes come off is not terrible. It&#39;s better if you manage to keep it all in the exact position because it&#39;s annoying to put back but often the rubber is not sticky enough to stay there. You will need some tweezers to reposition the springs and domes back on the PCB - way too delicate for fingers. Do that first so no dust gets under where the domes should be and put it aside. When everything else is done you can lower the plate carefully down on top of the PCB and then flip it over to put the screws back.&lt;/p&gt;&lt;p&gt;When the PCB is off the stems can be pushed out of the plate. Each clicks into an individual clear plastic housing. You might be able to push them far enough with a finger so that they drop out, or use a pencil. Either way do it so they fall on a cloth where you aren&#39;t going to lose them, they are light and will bounce. You probably cannot buy spares!&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/stems.118ee11fa690e040.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/stems.16c565077d27c490.jpg&quot; alt=&quot;Topre 87UW55&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Topre 87UW55&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;You can see the first part of the fix on the stems already - blue silicon rings. This is one kind of damper, another is a flat silicon ring. You can make dampers yourself if you have silicon sheet and two right-sized punches (and hours to waste) or you can buy flat dampers or silicon rings in various places. But be aware these are not the same as the red rings that go under Cherry MX caps. If you use those your keyboard will not work properly. I tried one and the keycap just doesn&#39;t return after being pressed down properly, also it feels like mush. With a dampening ring in place on top of each stem the stem cannot slap up against the top of its housing, with the sound of two bits of hard plastic rattling together. It&#39;s not pleasant.&lt;/p&gt;&lt;p&gt;The second part of the fix is lubrication. To do this right you need a very small applicator and you need to apply the right kind of grease in only the right place.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/lubricating.a2ea8fc9493a7b0c.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/lubricating.9961f9b3d1116b82.jpg&quot; alt=&quot;Topre 87UW55&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Topre 87UW55&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/a&gt; The red stick in the picture is something for watchmakers to apply grease with, I bought a set and they are useful. The grease is going into just the corners of the stem housings, where the &quot;ears&quot; slide up and down vertically. If you use too much it will dampen the action of the keys and feel bad. Just a tiny bit on each of two corners will do.&lt;/p&gt;&lt;p&gt;Do not put any on the ring or the stem - this will make the key feel sticky and depending on how much there is you could feel a slight stickiness as the key is pressed down and the stem unsticks itself from the housing to move down. This is the second time I have disassembled this keyboard, this time to wipe off the grease on the stems. It did make the keyboard quieter but overall it was a bad idea.&lt;/p&gt;&lt;p&gt;The grease I used is &lt;a href=&quot;https://www.tamiyausa.com/shop/maintenance-supplies/cera-grease-hg/&quot;&gt;Tamiya Cera-Gease&lt;/a&gt;, made for lubricating plastic gears. There are lots of kinds that will work but whatever you try be sure it is safe with plastic. Also probably not a black messy grease like Tamiya Molybdenum. The nozzle is too thick for the tiny amount you want to apply so squirt some out on a piece of foil and apply it with a watchmaking tool, or whittle a wooden stick or use a toothpick. I don&#39;t know if the fancy grease talked about in some forums would be appreciably better, maybe, but too little is probably better than too much.&lt;/p&gt;&lt;p&gt;Here&#39;s the finished keyboard.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/dolch.abfcc88f301d93b8.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/dolch.6dc2b7069408a089.jpg&quot; alt=&quot;Topre 87UW55&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Topre 87UW55&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;The caps are from &lt;a href=&quot;https://pimpmykeyboard.com&quot;&gt;Signature Plastics&lt;/a&gt; and if you have ever bought any sets of eBay caps then you are in for a treat with these guys. Their space bars are straight, for one thing. They have OEM (regular cylindrical profile) as well as SA and these DSA keys. I love my Dolch set and I&#39;m happy to be using them again. Right now you can buy them but they go in and out of production.&lt;/p&gt;&lt;p&gt;So out of the box prepare for disappointment. It&#39;s not an AUD$300 keyboard at all. And an identical model, called &quot;R2&quot; (but apparently no different) just got released in the USA at US$399! I just can&#39;t understand how they ship with such ugly keycaps, even the CODE keyboard had decent doubleshot backlit keys with a good font for under US$200.&lt;/p&gt;&lt;p&gt;However after this treatment I&#39;m very happy with my new RGB and it sounds and feels as good as the 87UW55, possibly better. Now I&#39;m wondering how good the 87WU55 would get if I did the same?&lt;/p&gt;
+</description>
+      </item>
+      <item>
+          <title>Amiga 1200 Keyboard, part 5</title>
+          <pubDate>Sun, 14 Apr 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.grayunicorn.com/blog/19-04-14-a1200-kb-5/</link>
+          <guid>https://www.grayunicorn.com/blog/19-04-14-a1200-kb-5/</guid>
+          <description xml:base="https://www.grayunicorn.com/blog/19-04-14-a1200-kb-5/">&lt;h2&gt;Making the PCB.&lt;/h2&gt;
+One weekend morning I got up thinking it was time to get this done! Could I use an autorouter? It would be quick, and the first rev isn&#39;t going to be perfect. Plenty of time for making a pretty hand route later as there would be things to fix, surely?
+&lt;p&gt;But no. KiCAD and autorouters don&#39;t really mix any more. Once upon a time the ability to use an autorouter was in KiCAD although the routing code itself wasn&#39;t; the idea being that you install a .JAR file containing the autorouter code, export a Specctra Design (.DSN) file from KiCAD, click the menu item and the routed PCB is done. There are a few web sites about it from a few years ago. In the end it didn&#39;t work for me and I wasted a couple of hours I could have used routing the board. The stories of success are just a little too old and too many small details have changed.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/placement.2cdb63845dac05e5.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/placement.e52c100a41b74b51.jpg&quot; alt=&quot;Placing Footprints&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Placing Footprints&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Using the fantastic MX footprints included in the KiCAD library from &lt;a href=&quot;https://github.com/ai03-2725/MX_Alps_Hybrid.pretty&quot;&gt;ai03-2725&lt;/a&gt; made placing the switches in the right place easy. One box is placed next to another - &#39;E&#39; key next to &#39;W&#39; key and so on. Soon all the keys are in place, according to my measured offsets (see last article).&lt;/p&gt;&lt;p&gt;Before geting started you set up the basic board parameters and design rules. I need to pass traces through between the pins of the FFC connector, so my smallest trace needs to be 0.35mm. The PCB maker has a question when placing an order and it looks like things begin to get more expensive when a hole is less than 0.60mm - so I&#39;ll use 0.60.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/ratsnest.67fbd692c73ea117.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/ratsnest.65d512d6d0f45f8f.jpg&quot; alt=&quot;Rat&#39;s Nest&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Rat&#39;s Nest&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Routing a board in KiCAD is a lot like every other PCB package I have used. It starts with a rats nest display, which really doesn&#39;t tell you anything except that nothing is connected, so you hide it. Select the layer on which you want to place a track. Click on one point to connect and the line will drag out, interactively routing itself around things it can&#39;t be connected to. If you try and put the trace between two pins that are too close together it just won&#39;t go there, instead it will route itself all over the board in an effort to get there. The end result is that you end up with a circuit with no design rule violations. I have used a system that could highlight the places tracks got too close, but you could still make the mistake and violate your own rules. I have also used a system with no checking and it&#39;s only when you get the PCB back you find the wrong things are connected. Overall, the KiCAD interactive router is good.&lt;/p&gt;&lt;p&gt;For rev 1 of the board I tried to use no vias with two layers - not because it matters but because when making a PCB years ago I was told vias make the board more expensive. In the end I think there are threein total, so not bad. But this is a little like writing code in 2019 and using lookup tables and integer approximations for trigonometry, because sinf() is so slow! In fact sinf() is fast now, faster than your lookup table, and in same way the number of vias no longer matters. Don&#39;t waste your time.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/perpendicular.4a693abfdf8c73da.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/perpendicular.2b03222227c43d30.jpg&quot; alt=&quot;Rat&#39;s Nest&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Rat&#39;s Nest&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;What you should do is use vias wherever you need them. Above I said &quot;two layers&quot;, meaning there are copper tracks on the front and the back of the PCB. Between those layers the holes that the component pins go through are plated through, so both sides are electrically connected. So a trace can come up to a pin on the front of the board, and another trace can go away from that pin on the rear of the board and they will be electrically connected. If you want a trace to switch sides without going to a pin first, you use a via which is really just a through hole that no component will go in.&lt;/p&gt;&lt;p&gt;When routing it is a good idea to keep your options open. No sooner do you make a trace hug close to the existing routing to keep plenty of space on one side then you find you need space on the side you took it all away from. Also you need to be able to move long distances without thinking too hard and as the board gets more crowded it can be impossible. If you try to make all your connections more or less direct then soon you have created a maze that can&#39;t be solved. My solution to this is to make one layer (top) run mostly east-west, and the other layer (bottom) run north-south. If the trace has to change direction, use a via rather than allowing a trace on one layer to fence in other connections. This problem gets dramatically worse once many connections have been made.&lt;/p&gt;&lt;p&gt;Once done - and you&#39;re sure it&#39;s right - it&#39;s time to submit the job to the manufacturer. You don&#39;t &quot;export&quot; this, you &quot;plot&quot; it. In the olden days that&#39;s how they used to do it (I have read) and all the PCB software still calls it &quot;plot&quot;, and you make &quot;gerbers&quot; - not baby food, not legendary blades, but the &lt;a href=&quot;https://en.wikipedia.org/wiki/Gerber_format&quot;&gt;RS-274X file format&lt;/a&gt;. These describe the layers that need to be made with various processes to make your board. There is the copper (both sides), the mask (the paint-like stuff that covers all the copper that should not be exposed), the board outline (where the board will be cut out) and the silk screen. This last one is not essential but very useful for including information on the board like where to place components.&lt;/p&gt;&lt;p&gt;The service I am using is called OurPCB. It looks easy - there is a list of things to choose, like the weight of the substrate material, copper thickness, the board size, how many you want made, how fast, and many other things. Then it tells you how much this will cost. It&#39;s real money alright but nothing like as expensive as this used to be.&lt;/p&gt;&lt;p&gt;About 20 minutes after submitting the order I got an email back saying that one of my files (solder mask) was missing. I submitted that and all was well. Great service! &lt;a href=&quot;https://www.ourpcb.com.au&quot;&gt;OurPCB&lt;/a&gt; is highly recommended.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/keyboard-pcb.c83d42ffed87144b.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/keyboard-pcb.b55f0867db2d63bd.jpg&quot; alt=&quot;It&#39;s real!&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;It&#39;s real!&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;About 8 days later, right on time, I got a delivery at work - PCBs. The next article will be all about adding components and making it fit into the computer.&lt;/p&gt;
+</description>
+      </item>
+      <item>
+          <title>Amiga 1200 Keyboard, part 4</title>
+          <pubDate>Thu, 04 Apr 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.grayunicorn.com/blog/19-04-04-a1200-kb-4/</link>
+          <guid>https://www.grayunicorn.com/blog/19-04-04-a1200-kb-4/</guid>
+          <description xml:base="https://www.grayunicorn.com/blog/19-04-04-a1200-kb-4/">&lt;h2&gt;Keyboard considerations.&lt;/h2&gt;
+(This isn&#39;t a cooking show but you&#39;re going to see pictures of a rev 1 keyboard PCB here to illustrate some of the things I want to talk about. So here&#39;s one I prepared earlier.) Although this is the fourth step it was always the gateway part of the project. The cost and difficulty of making a PCB has come down dramatically, largely due to Chinese manufacturing with local presence. How much would you expect a two-layer PCB of around .06m² to cost? Around $40, shipped in a week, in one-off quantities and that only gets cheaper if you scale up.
+&lt;p&gt;Around the time I was ready to make the PCB I discovered I&#39;m not the only one. A Canadian that goes by Kipper2K on various Amiga forums is &lt;a href=&quot;http://eab.abime.net/showthread.php?t=94643&quot;&gt;doing one too&lt;/a&gt;. He has a record of good Amiga projects and this one is no exception, it looks great. It will be compatible with more models than just the A1200, it will come with custom MX keycaps that are the right size and it&#39;s a two-board design (base and place PCBs). Price will be around $200. Any thought I had of doing a kickstarter with my keyboard evaporated when I saw this on the way - if you&#39;re after an Amiga mechanical keyboard, and you should be, jump on it. I hope I can get a set of his MX-compatible keycaps!
+&lt;h2&gt;Connectors&lt;/h2&gt;
+A big concerns was how to connect a new PCB to the Amiga. The original connects via a 31-way FFC ribbon with a 1.25mm contact pitch. Searching on all the big electronics sellers I did not find any of these and for a while considered modifying the Amiga to use a more available connector. But Dave Curran of &lt;a href=&quot;http://www.tynemouthsoftware.co.uk&quot;&gt;Tynemouth Software&lt;/a&gt; gave me a tip - he uses a 32-way socket in one of his products and just aligns the 31-way ribbon to the correct edge, just as the Amiga 1200 uses ROM sockets that are one row too long. All I would need to do is find a right-angle 32-way FFC socket and FFC cables and problem solved.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/trimmed-ribbon.645cd6d67a511c5b.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/trimmed-ribbon.6b72fddaf402b052.jpg&quot; alt=&quot;Trimmed ribbon in Amiga ZIF socket drawing&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Trimmed ribbon in Amiga ZIF socket drawing&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Fortunately there was stock at Mouser. One style of 32-way cable is available, 15cm long, contacts on opposite sides. I bought samples and carefully snipped off one connector and found it fit in the Amiga keyboard connector as well as the original. There is also a right angle connector available though not ZIF - which is OK because this end of the cable can be left in once inserted. However the contacts opposite sides thing means the connector has to mount on the back of the PCB - but that then turns the pin order around so that the order is left to right just as I had drawn it. Apart from the cable being 5cm longer than ideal this couldn&#39;t have worked out better!&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/keyboard-connector.35b23f857e4415b6.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/keyboard-connector.3e0c39ad971ded43.jpg&quot; alt=&quot;Connector ready to join the board drawing&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Connector ready to join the board drawing&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2&gt;Switch placement&lt;/h2&gt;
+While I anticipated spending a lot more time getting every individual key in position I only had to measure a few offsets. The fantastic keyboard symbol library from &lt;a href=&quot;https://github.com/ai03-2725/MX_Alps_Hybrid.pretty&quot;&gt;ai03-2725&lt;/a&gt; shows key outline. Once one key in a group is placed accurately all the adjacent keys can be placed just like LEGO. A quick laser print of the overlay layer showed that all the keys lined up with the holes in the top cover with only one reference point measured per group.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/images/2019-04-04-a1200-kbd-4/key-group-offsets.jpg&quot;&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/key-group-offsets.fb3c1199bb175533.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/key-group-offsets.139921f9246c8146.jpg&quot; alt=&quot;Measuring up drawing&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Measuring up drawing&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2&gt;Dealing with Amiga-sized keys&lt;/h2&gt;
+Basically - I&#39;m not, yet.
+&lt;p&gt;The most obvious problem is that the 9U (nine units of width, where a standard keycap like &#39;Q&#39; is one) spacebar that Commodore loved so much is not really available. Signature Plastics sell a 9U spacebar in SA profile but I don&#39;t really want SA here, it&#39;s not a C=64. For now I will use 7U with a 1U space on each side, it will be a little like the IBM Model M with a gap either side of the bar. PCB will be visible in this gap. Oh well. In future I may use a double footprint for the spacebar where the switch is in the same place but the stabilizers are in both 7U and 9U positions. Then either can be loaded depending on what spacebar is available.&lt;/p&gt;&lt;p&gt;Next problem is the 1.25U F-keys. The Amiga has only 10 and so used wider keycaps to space them out better along the top of the keyboard. Initially I will use 1U F-keys because i have them and because it&#39;s not much of a gap. An easy fix will be to get some 1.25U blank keycaps. These will fill the spaces and having no legends won&#39;t bother me at all on those keys.&lt;/p&gt;&lt;p&gt;Finally the odd-sized modifiers, like &quot;Amiga&quot; and long Shift - fortunately all these are available if not common. I bought a very full set from AliExpress with about 140 caps in it and I will be able to populate the board fully if not perfectly. There are no keys with &quot;Amiga&quot; legends of course.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/cheap-keycaps.d79f956f3871e9cb.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/cheap-keycaps.ad1e9d5a9e015415.jpg&quot; alt=&quot;Economical keys&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Economical keys&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;The real fix for all these issues is to hope I can get my hands on a custom set produced by Kipper2K.&lt;/p&gt;&lt;h2&gt;Substrate&lt;/h2&gt;&lt;p&gt;The original keyboard has a metal plate supporting the plastic assembly on which springs and sliders move to operate the membrane contacts. It&#39;s stiff. I thought about reusing this plate but that would not work for a few reasons. With a PCB and MX switches on top the keyboard would be too high. I would also have to modify an original keyboard and those are a bit scarce.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/key-height.225225d2c873c99f.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/key-height.242c202c75cde086.jpg&quot; alt=&quot;Economical keys&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Economical keys&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;2mm fibreglass is available from the PCB manufacturer - is it stiff enough to span 420mm and support 90 keys? Almost certainly not, but 150mm would be stiff enough in height. If I was to support the top and bottom edge of the board with aluminium angle it should be OK - this is one of those things where you have to wait and see. I couldn&#39;t get a big sheet of FR4 to experiment, not even from the PCB manufacturer, they have nothing local - if you want anything it gets ordered from China. Getting a full run of first revision PCBs made cost about the same as buying blank sheets!&lt;/p&gt;
+&lt;h2&gt;Color&lt;/h2&gt;
+I&#39;m using a translucent Amiga case so color is important. I like blue, with yellow silk screen on top.</description>
+      </item>
+      <item>
+          <title>Amiga 1200 Keyboard, part 3</title>
+          <pubDate>Mon, 01 Apr 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.grayunicorn.com/blog/19-04-01-a1200-kb-3/</link>
+          <guid>https://www.grayunicorn.com/blog/19-04-01-a1200-kb-3/</guid>
+          <description xml:base="https://www.grayunicorn.com/blog/19-04-01-a1200-kb-3/">&lt;h2&gt;Drawing the schematic.&lt;/h2&gt;&lt;p&gt;In the last part the circuit was derived by tracing the membrane in the original A1200 keyboard. This time that circuit is going to be turned into a schematic drawing, with the output being a netlist - simply, a list of pins connected to parts (keyswitches, LED, connector) that are connected together.&lt;/p&gt;&lt;p&gt;Because it makes for nice organisation they keys in the schematic go in roughly the same place they would be on a real keyboard. Compared to making a PCB schematic is not hard at all - wires can cross and go pretty much anywhere as long as you can keep track of them. Unless you see a big green dot you don&#39;t have a connection. Obviously you don&#39;t want to make something you can&#39;t read so keeping it neat is a good idea.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/schematic.2f3ec97ebedf4110.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/schematic.92a03db8b458ba10.jpg&quot; alt=&quot;Part of schematic drawing&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Part of schematic drawing&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Looking at the circuit you can see that it is a matrix. The keys, with two terminals each, could be directly connected to the controller, for around 200 connections from keyboard to controller. Or like a joystick they could all use one common connection and then there would only be 100 wires or so, one from each switch plus one common. But better still is to use a matrix where a key is defined by two connections, and when those connections are bridged the controller derives a unique key. The minimum you would need is rows + columns connections - so in a really simple keyboard like this standalone numpad:&lt;/p&gt;&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/numpad.ba1562fff977d48c.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/numpad.8b0259be513576c7.jpg&quot; alt=&quot;GoldTouch numpad&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;GoldTouch numpad&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;The minimum would be only 10 connections from matrix to controller because there are 4 column and 6 rows. All this minimisation is good because connections cost time and money. The Amiga however has a special set of keys with their own connections not shared with the regular matrix. These are keys like CTRL, L-AMIGA etc - the ones that can&#39;t be blocked by another key. Ignoring the connections to the LED that lights when CAPSLOCK is pressed it uses 29 connections to the controller chip, via the ribbon cable that emerges from the top of the membrane.&lt;/p&gt;&lt;p&gt;I could write a whole article about the keyboard matrix and try to make it good, but it&#39;s been done really well already - please take a look at &lt;a href=&quot;http://blog.komar.be/how-to-make-a-keyboard-the-matrix/&quot;&gt;komar&#39;s tech blog&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Because I just want to make a replacement keyboard I am not using diodes or changing the layout in any way from the original. The circuit is exactly the same right down to the flipped row/column connections on some of the keys like F6. I do not think that making all this completely regular could have had an effect, as these are just passive switches, but I&#39;m not changing it. The keyboard should be better with mechanical switches, but it should not be electrically different - bugs and all.&lt;/p&gt;&lt;p&gt;When the schematic is done the output is a netlist. This is just a text file that defines what&#39;s in the circuit and how the things are connected. The first part describes the components. Here are two entries (and part of a third) describing the switches:&lt;/p&gt;&lt;pre&gt;&lt;code&gt;
+    (comp (ref K2)
+      (value F1)
+      (footprint MX_Alps_Hybrid:MXOnly-1.25U-NoLED)
+      (libsource (lib MX_Alps_Hybrids) (part MX-1.25U) (description &quot;&quot;))
+      (sheetpath (names /) (tstamps /))
+      (tstamp 5C7001B7))
+    (comp (ref K3)
+      (value F2)
+      (footprint MX_Alps_Hybrid:MXOnly-1.25U-NoLED)
+      (libsource (lib MX_Alps_Hybrids) (part MX-1.25U) (description &quot;&quot;))
+      (sheetpath (names /) (tstamps /))
+      (tstamp 5C70020E))
+    (comp (ref K4)
+      (value F3)
+      (footprint MX_Alps_Hybrid:MXOnly-1.25U-NoLED)
+      (libsource (lib MX_Alps_Hybrids) (part MX-1.25U) (description &quot;&quot;))
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;I&#39;m using the excellent library by github user &lt;a href=&quot;https://github.com/ai03-2725/MX_Alps_Hybrid.pretty&quot;&gt;ai03-2725&lt;/a&gt; - highly recommended. I don&#39;t love the schematic symbols, because all of the keys have a diode which when unconnected causes KiCAD to complain when transferring to PC. But the PCB footprints are excellent!&lt;/p&gt;&lt;p&gt;Late in the netlist comes the description of the nets themselves - here&#39;s one of them:&lt;/p&gt;&lt;pre&gt;&lt;code&gt;    (net (code 198) (name /18)
+      (node (ref K36) (pin 1))
+      (node (ref K55) (pin 1))
+      (node (ref K3) (pin 1))
+      (node (ref J1) (pin 18))
+      (node (ref K74) (pin 1))
+      (node (ref K15) (pin 1))
+      (node (ref K68) (pin 1)))
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This means that there is a net named &quot;18&quot;, joining the pins of the components listed. I named is &quot;18&quot; because it matches pin 18 of the connector. And it&#39;s as simple as that. If you look at the netlist file you can manually check that all of the nets are connected the way you wanted them. This is a good idea because though it is not an exciting job it&#39;s a lot better than soldering bits of wire on your new PCB correcting in hardware the errors you should have fixed on paper.&lt;/p&gt;&lt;p&gt;Next time - making the PCB.</description>
+      </item>
+      <item>
+          <title>Amiga 1200 Keyboard, part 2</title>
+          <pubDate>Sat, 23 Mar 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.grayunicorn.com/blog/19-03-23-a1200-kb-2/</link>
+          <guid>https://www.grayunicorn.com/blog/19-03-23-a1200-kb-2/</guid>
+          <description xml:base="https://www.grayunicorn.com/blog/19-03-23-a1200-kb-2/">&lt;h2&gt;Deriving the circuit.&lt;/h2&gt;
+Lots of people make keyboards these days. It&#39;s not even a big thing; once you know your circuit you get a board made, buy switches, use an open-source controller to send USB HID keystrokes and you&#39;re done. So why not? I decided to dive right in.
+&lt;p&gt;First up, what software to use? In the past I have used Protel/Altium for various things; one thing I used it for a long time ago was the Mac mini drive adapter. Designed to connect a 3.5&quot; hard drive to the original G4 Mac mini where it expected a 2.5&quot; hard drive, it was pretty successful.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/mini-drive-adapter.fa5eaf86b2ed1f0a.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/mini-drive-adapter.95e1289f6fe48407.jpg&quot; alt=&quot;My Mac mini drive adapter&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;My Mac mini drive adapter&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;This was a big deal at the time because 2.5&quot; drives were not only usually slower, they were usually a lot smaller - and a lot more expensive. Existing adapters could connect a drive physically but would reverse the pins. Amusingly I once connected a 2.5&quot; hard drive in reverse and a piece of silicon detached itself from the drive PCB with a loud bang and a smoke trail. Don&#39;t do that.&lt;/p&gt;
+&lt;p&gt;Anyway, off to KiCAD. Things aren&#39;t as polished as you might wish - for example the Mac version I started with used white text on a light gray background - but it works really well. So probably I won&#39;t bother looking at the commercial solutions again, for the kind of work I do KiCAD is plenty.&lt;/p&gt;&lt;p&gt;To the schematic! How to design an Amiga keyboard? Well it&#39;s a membrane, and it connect to the mainboard by a flexible cable. There&#39;s no circuitry on the board, only a LED. So maybe I should make just a passive matrix and get it connected so that it looks just like the original, make a simple Amiga 1200 replacement? Which would mean extracting the circuit for the original keyboard. So I took the membrane out, pictured in the previous update.&lt;/p&gt;&lt;p&gt;The guy that made this membrane had fairly primitive CAD compared to today. Maybe it was even done by applying opaque tape to a transparency to produce artwork at double or even higher magnification, then reduced down to actual size? Anyway considering that I didn&#39;t feel too bad about deriving the circuit by tracing even if it had me dreaming of parallel lines. A light table would have been nice but a white piece of paper behind on a sunny day was enough.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/membrane-traced.bb2541e757d43a53.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/membrane-traced.4e2ef1e39871225b.jpg&quot; alt=&quot;A1200 keyboard membrane traced out&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;A1200 keyboard membrane traced out&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Yes, there are documents that describe the keyboard circuit. However making a PCB is kind of a permanent thing, you want to be sure before you enter your credit card details. So I decided the ribbon connector that goes to the A1200 mainboard would be numbered arbitrarily from left to right, giving pins 1 to 31. Each pin would connect from 1 to n other places. By writing a number in a box on this diagram I made I would come up with a map of connections of every key (and LED) in the matrix.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/key_map.bbbddff5eb692a56.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/key_map.fe3a491b44d7ede4.jpg&quot; alt=&quot;The key connection map&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;The key connection map&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;And that&#39;s the whole circuit.&lt;/p&gt;&lt;p&gt;A long time ago a grumpy old electrical engineer told me Protel for Windows was worthless because it didn&#39;t use netlists. I&#39;m not sure how right he was, but I believe in netlists. By writing down just what lines are connected to what key contacts you get a netlist - a list of pins that must be electrically connected together. From there it&#39;s just a matter of entering this information into KiCAD, and making sure that when you extract a netlist from the schematic you have drawn, it describes the same electrical connections. Going through the netlist net by net ensures that everything is as you want it to be, not missing a connection because you were one pixel off here or there when drawing lines in the schematic editor.&lt;/p&gt;
+</description>
+      </item>
+      <item>
+          <title>Amiga 1200 Keyboard, part 1</title>
+          <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.grayunicorn.com/blog/19-03-10-a1200-kb-1/</link>
+          <guid>https://www.grayunicorn.com/blog/19-03-10-a1200-kb-1/</guid>
+          <description xml:base="https://www.grayunicorn.com/blog/19-03-10-a1200-kb-1/">&lt;p&gt;This thing is just mush. And it&#39;s dirty, and yellowed.&lt;/p&gt;
+&lt;p&gt;With computers a thing I have always cared about is keyboards. Just like with audio equipment where the speakers matter because they are your direct link to the sound, the keyboard is your direct link to the machine. I started in computers playing Infocom text adventures on an IBM 5170 with a Model M. I bought keyboards from DEC, pre-merger, because they just felt good. I’ve had all manner of mechanical keyswitch boards and these days I love Topre 87UW55, one lives at work and I&#39;m using another now at home. (It&#39;s a shame the fantastic SA and DSA profile keycaps can’t be fitted to these boards, a spherical keyset might make these the ultimate.)&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/keycap-profiles.d44a0eee3eba5ad1.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/keycap-profiles.8d3060c156c59f7c.jpg&quot; alt=&quot;All the profiles&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;All the profiles&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Cherry MX and compatible are by far the most popular switches available and in the last few years there has been an absolute explosion of new switch variants especially from Chinese manufacturers - who are going through what Japanese manufacturing went through and after producing a lot of absoluter crap are now offering some pretty good stuff. For what it’s worth I prefer tactile without click, brown or clear stem colors in the Cherry range. My original FILCO sold me on Cherry brown stem switches and I still think they are the best, barring Topre.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/cherry_key_switch_module_mx_brown_large.e04d3bbc81600067.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/cherry_key_switch_module_mx_brown_large.1c26b1221cf309f9.jpg&quot; alt=&quot;Single Keyswitch&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Single Keyswitch&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;But Amigas 1200s have a keyboard based on a membrane, a series of conductive pads bridged by a carbonized rubber foot attached to a key that is held off the pads by a spring. You press they key, the spring compresses, contact is made. Works OK; feels mushy. Some of the earlier Amigas had mechanical but later ones were built to a budget. Why not a mechanical in an A1200 though? Without an A1200 in my possession I wasn’t sure right away if this would be possible. But I did find out that the A1200 membranes are available for replacement, so obviously sometimes it’s required and disassembly is not beyond most people. A mechanical board should never need replacing. Membranes do.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/membrane.7aaf2d6a3873e879.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/membrane.c4d4701a4e92298d.jpg&quot; alt=&quot;A1200 Keyboard Membrane&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;A1200 Keyboard Membrane&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Compared to modern boards the A1200 is only slightly weird. Pretty much nobody makes keys for the F row wider than 1U because there are usually at least twelve keys and they align with the top of backspace. Pretty much nobody makes a space bar 9U wide like Commodore used to. The only one I am aware of is a SA profile spacebar from Signature Plastics. It’s a reality then that any replacement Amiga keyboard with MX-compatible switches will have some gaps where the smaller modern keys don’t occupy the same space. A solution would be to use keycaps whose legends don’t exactly match and to live with gaps around the keyboard maybe? Should be possible. I could live with that. (But I’m wondering how much it could cost, getting a keyset maker to produce an Amiga MX set.)&lt;/p&gt;
+&lt;p&gt;Making a replacement keyboard for the A1200 is made easier by the simple passive matrix design. The membrane connects to the A1200 board by a simple ribbon with one conductor for each switch or LED connection, no electronics on the keyboard itself. To register a keypress you only have to bridge two of the 31 connectors on the ribbon cable. Of course this means keyboard ghosting is possible - press the right three keys and the system will see four - but if the aim is a true replacement I don’t see the need to do anything about that. Also I don&#39;t feel the need to improve the rollover. So the keyboard needs to connect to the same connector, and that means finding a source of 31-way FFC connectors and of ribbons to match. The advantage here is that the delicate part, the ribbon, is cheap and easily replaced.&lt;/p&gt;&lt;p&gt;But they&#39;re not available. Digikey, Mouser, Allied, Element14 and all the rest may have these things in the online catalog but they have no stock. So that&#39;s out. Looks like there will be some soldering involved. If I want to do a completely non-destructive keyboard replacement I could desolder the existing FFC connector. Then instead solder a 34-way header to the board, bending pins as required (and chopping off the last 3). Into that header would plug a standard 34-way cable assembly just like the floppy drive uses, connecting to a right-angle header on the PCB of my new keyboard. To enable using the original keyboard I could take the old FFC connector and connect that up to a header socket, so that when I want to use the original keyboard the adapter plugs into the socket and then the FFC ribbon goes into the original connector. Best of both worlds? Looking at the back of the A1200 PCB this certainly looks possible.&lt;/p&gt;&lt;p&gt;Thinking about cost I took a look at how the thing could be made. The large size of the PCB rules out using any hobbyist EDA package like the ones from Altium or Eagle, they will not do large boards without an expensive subscription. So KiCAD it must be, totally free, runs on almost every platform (not Amiga!) but some learning is required. I guess that the PCB could cost around $50, the switches should cost around $50. Maybe another $10 for the FFC connector and the cable. And a whole lot of soldering. This is looking quite possible!</description>
+      </item>
+      <item>
+          <title>Amiga 1200!</title>
+          <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.grayunicorn.com/blog/19-03-09-a1200/</link>
+          <guid>https://www.grayunicorn.com/blog/19-03-09-a1200/</guid>
+          <description xml:base="https://www.grayunicorn.com/blog/19-03-09-a1200/">&lt;p&gt;To be clear, I love old computers far beyond their actual practical worth. I love that you can take them apart like LEGO, clean them, put them back together and they work again. When you&#39;re the kind of person that just compulsively takes things apart it&#39;s addictive - imagine a pen that you can unscrew in front of you, of course you do it, right? Then imagine the pen is filthy from sitting in a storage space for 10 years of so and you have an air compressor and can blast that dust right out of there and make it like new again - even better.&lt;/p&gt;&lt;p&gt;So it is with old computers. The Amiga was my first real computer. In about 1987 I was in the wrong tertiary degree course for the wrong reasons. A friend bought an Amiga 1000 and once I saw it I suddenly realized this! I quit the degree immediately, primarily to work to make enough money to get that computer but also to get back to study because I knew that Computer Science was the degree I should have been in. I started with an Amiga 1000.&lt;/p&gt;&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/amiga1000.4462d7b2670747b2.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/amiga1000.f31df6477f50bc5a.jpg&quot; alt=&quot;The Original.&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;The Original.&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;It took a couple of years of studying mathematics while working because I hadn&#39;t been a great student in conventional secondary school but pretty soon I was beginning a CS degree and I upgraded to the Amiga 2500 complete with 68020 and flicker fixer! And embarked on a four-year argument with various professors who would say &quot;that&#39;s not compatible&quot; - maybe that was half correct, but I got all my work done on it. (Worked fine to connect to the VAX.)&lt;/p&gt;&lt;p&gt;Years later I had a PCB made for a little project at PCBFast in Melbourne. Much later, 2018, I heard the owner is retiring and they are closing down - and would any former customers like a few old computers? I couldn&#39;t get there fast enough.&lt;/p&gt;&lt;p&gt;I picked up a couple of really nice Pentium II machines made by Intergraph, an old Dell and sundry monitors, bringing my collection to one 15&quot;, two 17&quot; and two 19&quot;. No NOS 21&quot; Trinitron as I had hoped for but oh well! Sadly I could not transport or find space for some of the industrial gear, like CNC drill machines, that were sold for scrap. Talking about this online someone local thought that if liked that old stuff maybe I would like an Amiga 1200 with various accessories that he thought might be in storage somewhere? HELL YEAH!&lt;/p&gt;&lt;p&gt;I never had an Amiga 1200 but my friend Pete did and it was pretty cool. Like my big box machine, more powerful but in half the space and 1/4 the price. We got a lot of gaming done, even a little work. Eventually, sadly, Commodore died and I got a 486 and never had another Amiga. I did finish the degree and things went well. Started in embedded C, then C++, then mobile - now Android and iOS.
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/old-box.8ae5bbf9f37e8f50.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/old-box.8cdbeae82d0efe27.jpg&quot; alt=&quot;How old did you say this was?&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;How old did you say this was?&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/originals.c160086cb674c2d9.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/originals.a1f413786b4177f0.jpg&quot; alt=&quot;Old stuff&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Old stuff&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;So I got the Amiga, and it did not disappoint. Covered in dust and a little mouse poo the box showed promise, probably repairable if not actually working. I kind of expected years of neglect to have made all the capacitors leak and the board to be too far gone for anything to work at all but it did! After a complete board clean with cotton buds and isopropyl alcohol and a replacement of all electrolytic capacitors it booted, asking me for a Workbench. Which I didn&#39;t have - the included original disk folder had a corrupt workbench disk! Oh well, the Install disk boots and a couple of the games I have tried seem to boot also.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/68030.ce25d879e8001f95.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/68030.603360694a688fea.jpg&quot; alt=&quot;OMG A 68030!&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;OMG A 68030!&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;I was really excited about this thing, perhaps irrationally so. A few years ago A1200.net ran a kickstarter for an Amiga 1200 case replacement. I bought one (transparent!) before I even got my computer.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/new-case.6b5834029b189e02.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/new-case.c9ac7277ee832cb9.jpg&quot; alt=&quot;So 90&#39;s&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;So 90&#39;s&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;I also picked up the awesome &lt;a href=&quot;https://github.com/ChuckyGang/DiagROM&quot;&gt;DiagROM&lt;/a&gt; images, and a &lt;a href=&quot;https://gglabs.us&quot;&gt;GGLabs&lt;/a&gt; A1200 ROM set, and the adapter to burn new ones if I need to. All I can do right now is boot to DiagROM - everything tests fine. I started looking for an Indivision AGA MK2 because I was convinced it was the only way to get good video out of my new machine, remembering the scarcity of 15kHz monitors back in the day - NEC 3D anyone? But there are a couple of Dell U2711 panels at work that nobody seems to be using, wonder if I can buy then a new 27&quot; and bring one home - they are reputed to work beautifully with an Amiga with only a 23-pin to VGA video adapter.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://www.grayunicorn.com/processed_images/disks.fd7b0d3d60300fcf.jpg&quot; &gt;&lt;img src=&quot;https://www.grayunicorn.com/processed_images/disks.eaa6547b56cbdd03.jpg&quot; alt=&quot;I bet disk 3 of everything is broken...&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;I bet disk 3 of everything is broken...&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Though there is a big box of disks I don&#39;t expect too many to work. The hard drive included was a definite NOPE! I picked up a 4GB flash module that sits right on the header for not too much. Right now I&#39;m waiting for the Hyperion 3.1.4 Kickstart/Workbench set to arrive. And I&#39;m thinking about the keyboard. I love mechanical keyboards. Having an Amiga that can play &lt;a href=&quot;http://nethack.org&quot;&gt;Nethack&lt;/a&gt; and Infocom text adventures on its own mechanical keyboard would be pretty cool. I&#39;m far from the first to think about replacing the original KB with a mechanical but maybe I&#39;ll just go and build one.&lt;/p&gt;
+</description>
+      </item>
+    </channel>
+</rss>
