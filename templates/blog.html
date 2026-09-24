@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block seo %}{{< seo title={config.title} description="Blog of Adam Eberbach" /> }}{% endblock %}
+
+{% block content %}
+<div class="blog-page">
+  <header class="blog-header">
+    <h1 class="blog-title">Blog</h1>
+    <p class="blog-description">
+    </p>
+    <hr class="blog-rule" />
+  </header>
+
+  {% if paginator.pages | length > 0 %}
+  <div class="posts-list">
+    {% for page in paginator.pages %}
+    {{< post_card page={page} show_image={config.extra.list_images | default(value=true)} /> }}
+    {% endfor %}
+  </div>
+
+  {% if paginator.number_pagers > 1 %}
+  <nav class="pagination">
+    {% if paginator.previous %}
+    <a href="{{ paginator.previous | safe }}" class="pagination-link pagination-prev">← Newer</a>
+    {% endif %}
+    <span class="pagination-info">Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</span>
+    {% if paginator.next %}
+    <a href="{{ paginator.next | safe }}" class="pagination-link pagination-next">Older →</a>
+    {% endif %}
+  </nav>
+  {% endif %}
+  {% else %}
+  <div class="no-posts">
+    <p>No posts available yet. Start writing by creating files in <code>content/blog/</code></p>
+  </div>
+  {% endif %}
+</div>
+{% endblock content %}
