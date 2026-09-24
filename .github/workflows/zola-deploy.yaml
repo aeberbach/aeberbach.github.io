@@ -1,4 +1,3 @@
-cat << HEREDOC > .github/workflows/zola-demo.yml
 # This workflow has been copied and modified from the Hugo starter workflow:
 # https://github.com/actions/starter-workflows/blob/main/pages/hugo.yml
 #
@@ -103,4 +102,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-HEREDOC
