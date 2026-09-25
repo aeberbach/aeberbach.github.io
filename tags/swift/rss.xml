@@ -2,19 +2,19 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
       <title>Gray Unicorn - Swift</title>
-      <link>https://www.grayunicorn.com</link>
+      <link>https://aeberbach.github.io</link>
       <description>Random collection of project, infrequently updated</description>
       <generator>Zola</generator>
       <language>en</language>
-      <atom:link href="https://www.grayunicorn.com/tags/swift/rss.xml" rel="self" type="application/rss+xml"/>
+      <atom:link href="https://aeberbach.github.io/tags/swift/rss.xml" rel="self" type="application/rss+xml"/>
       <lastBuildDate>Wed, 20 May 2020 00:00:00 +0000</lastBuildDate>
       <item>
           <title>Publish by John Sundell</title>
           <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
           <author>Unknown</author>
-          <link>https://www.grayunicorn.com/blog/20-05-20-publish-sundell/</link>
-          <guid>https://www.grayunicorn.com/blog/20-05-20-publish-sundell/</guid>
-          <description xml:base="https://www.grayunicorn.com/blog/20-05-20-publish-sundell/">&lt;p&gt;I don&#39;t actually think I mentioned using Pelican, which I switched to after Ruby. I hate Ruby. I didn&#39;t hate Python, but given the chance to use Swift instead why wouldn&#39;t I switch? Having the ability to use only Xcode and git is fantastic.&lt;/p&gt;
+          <link>https://aeberbach.github.io/blog/20-05-20-publish-sundell/</link>
+          <guid>https://aeberbach.github.io/blog/20-05-20-publish-sundell/</guid>
+          <description xml:base="https://aeberbach.github.io/blog/20-05-20-publish-sundell/">&lt;p&gt;I don&#39;t actually think I mentioned using Pelican, which I switched to after Ruby. I hate Ruby. I didn&#39;t hate Python, but given the chance to use Swift instead why wouldn&#39;t I switch? Having the ability to use only Xcode and git is fantastic.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/JohnSundell/Publish&quot;&gt;Publish&lt;/a&gt; is available on Github. John Sundell uses it to build &lt;a href=&quot;https://swiftbysundell.com&quot;&gt;Swift by Sundell&lt;/a&gt;, which looks as good as I am ever going to need.&lt;/p&gt;&lt;p&gt;It&#39;s very easy to set up, at least as easy as Jekyll or Pelican. It&#39;s totally easy to convert old blogs. I chose to rearrange images somewhat so converting absolutely everything, including fixing up some images and typos, took just a few hours. If you have an interest take a look, I think you will like it.&lt;/p&gt;&lt;p&gt;Obviously this is pretty vanilla right now because I have read nothing but the github page, but I think it&#39;s got a lot of potential.</description>
       </item>
     </channel>
