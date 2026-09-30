@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://aeberbach.github.io/favicon.svg" />
+    <link rel="stylesheet" href="https://aeberbach.github.io/main.css?h=dd4fb0f354fcfb80d0de" />
+    <link rel="alternate" type="application/rss+xml" title="Gray Unicorn" href="https://aeberbach.github.io/blog/rss.xml" />
+    <script src="https://aeberbach.github.io/theme-init.js?h=f7a49ca0a4e29341b5d4"></script>
+    
+    <title>Code for a Raspberry Pi Pico HID Rudder device.</title>
+    <meta name="description" content="Explanation of how the code works in the 3D-printed rudder" />
+    <meta property="og:title" content="Code for a Raspberry Pi Pico HID Rudder device." />
+    <meta property="og:description" content="Explanation of how the code works in the 3D-printed rudder" />
+    <meta property="og:type" content="website" />
+
+    <meta property="og:image" content="https://aeberbach.github.io/images/2026-09-30-rudder-software/pico-with-adc-connected.jpeg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://aeberbach.github.io/images/2026-09-30-rudder-software/pico-with-adc-connected.jpeg" />
+
+
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <header class="site-header">
+  <div class="header-content">
+    <!-- Mobile hamburger button - far left on mobile -->
+    <button class="hamburger-toggle mobile-only" id="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="hamburger-line" d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path class="hamburger-line" d="M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path class="hamburger-line" d="M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <div class="site-title">
+      <a href="https://aeberbach.github.io">
+        
+        <span class="title-text">Gray Unicorn</span>
+        
+      </a>
+    </div>
+
+    <div class="header-controls">
+      <nav class="main-navigation" role="navigation" aria-label="Main navigation">
+        <ul class="nav-list">
+          
+          <li><a href="https://aeberbach.github.io/blog" class="nav-link">Blog</a></li>
+          
+        </ul>
+      </nav>
+
+      <!-- Mobile controls group - RSS and Search on right -->
+      <div class="mobile-controls">
+        
+        
+        <button type="button" class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar" title="Toggle sidebar">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="16" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+            
+            <line class="sidebar-line" x1="9" y1="4" x2="9" y2="20" stroke="currentColor" stroke-width="1.5"/>
+            
+          </svg>
+        </button>
+        <button type="button" class="theme-toggle" data-theme-cycle aria-label="Toggle theme: light, dark, or auto" title="Toggle theme">
+          <span class="theme-icon theme-icon-light" aria-hidden="true"></span>
+          <span class="theme-icon theme-icon-dark" aria-hidden="true"></span>
+          <span class="theme-icon theme-icon-auto" aria-hidden="true"></span>
+        </button>
+
+        <button class="search-toggle" id="search-toggle" data-search-trigger aria-label="Search articles">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+  <ul class="mobile-nav-list">
+    
+    <li><a href="https://aeberbach.github.io/blog" class="mobile-nav-link">Blog</a></li>
+    
+  </ul>
+</nav>
+
+<div class="search-overlay" id="search-overlay">
+  <div class="search-container">
+    <div class="search-header">
+      <input type="text" class="search-input" id="search-input" placeholder="Search articles..." autocomplete="off">
+      <button class="search-close" id="search-close" aria-label="Close search">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2"/>
+          <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+
+<script>
+  // Theme toggle: cycles light -> dark -> auto (auto follows the OS, live-updating)
+  (function () {
+    const root = document.documentElement;
+    const btn = document.querySelector('[data-theme-cycle]');
+    if (!btn) return;
+    const order = ['light', 'dark', 'auto'];
+    const mql = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function systemTheme() { return mql.matches ? 'dark' : 'light'; }
+
+    function apply(mode) {
+      root.dataset.theme = mode === 'auto' ? systemTheme() : mode;
+      root.dataset.themeMode = mode;
+      btn.setAttribute('title', 'Theme: ' + mode + ' (click to change)');
+      try { localStorage.setItem('theme', mode); } catch (e) {}
+    }
+
+    btn.addEventListener('click', function () {
+      const current = localStorage.getItem('theme') || 'auto';
+      apply(order[(order.indexOf(current) + 1) % order.length]);
+    });
+
+    // Reflect the stored/initial mode in the tooltip on load
+    apply(localStorage.getItem('theme') || 'auto');
+
+    // Keep "auto" in sync when the OS theme changes
+    function onSystemChange() {
+      if ((localStorage.getItem('theme') || 'auto') === 'auto') {
+        root.dataset.theme = systemTheme();
+      }
+    }
+    if (mql.addEventListener) { mql.addEventListener('change', onSystemChange); }
+    else if (mql.addListener) { mql.addListener(onSystemChange); }
+  })();
+
+  // Sidebar show/hide toggle (persisted; disabled on pages without a sidebar)
+  function initSidebarToggle() {
+    var btn = document.getElementById('sidebar-toggle');
+    if (!btn) return;
+
+    // The sidebar element appears later in the document than this header, so
+    // this must run after the DOM is parsed (see the dispatch below).
+    if (!document.querySelector('.sidebar')) {
+      btn.disabled = true;
+      btn.setAttribute('aria-disabled', 'true');
+      return;
+    }
+
+    var root = document.documentElement;
+    function sync() {
+      btn.setAttribute('aria-pressed', root.dataset.sidebar === 'hidden' ? 'false' : 'true');
+    }
+    sync();
+
+    btn.addEventListener('click', function () {
+      if (root.dataset.sidebar === 'hidden') {
+        delete root.dataset.sidebar;
+        try { localStorage.setItem('sidebar', 'shown'); } catch (e) {}
+      } else {
+        root.dataset.sidebar = 'hidden';
+        try { localStorage.setItem('sidebar', 'hidden'); } catch (e) {}
+      }
+      sync();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSidebarToggle);
+  } else {
+    initSidebarToggle();
+  }
+
+  // Hamburger menu functionality
+  (function () {
+    const hamburgerToggle = document.getElementById('hamburger-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const body = document.body;
+
+    if (!hamburgerToggle || !mobileMenu) return;
+
+    hamburgerToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.contains('active');
+
+      if (isOpen) {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      } else {
+        mobileMenu.classList.add('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'true');
+        body.style.overflow = 'hidden';
+      }
+    });
+
+    // Close menu when clicking on a link
+    const mobileNavLinks = mobileMenu.querySelectorAll('.mobile-nav-link');
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      });
+    });
+
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      }
+    });
+  })();
+</script>
+
+      <main class="main-content with-sidebar sidebar-left">
+        <aside class="sidebar"><div class="sidebar-content">
+  <!-- Bio Section -->
+  <section class="bio-section">
+    <div class="avatar-container">
+      
+        <img src="/images/profile.jpg" alt="Adam Eberbach" class="avatar" />
+      
+    </div>
+    <h3 class="author-name">Adam Eberbach</h3>
+    <p class="bio-text">Computer Science graduate, started with C and Ada. Electronics, 3D design and printing, flight sims are what I do for fun.</p>
+  </section>
+
+  <!-- Recent Posts Section -->
+  
+  
+    <section class="recent-posts">
+      <h3 class="section-title">Recent Posts</h3>
+      <ul class="post-list">
+        
+          <li class="post-item">
+            <a href="https://aeberbach.github.io/blog/26-09-30-rudder-software/" class="post-link">
+              Code for a Raspberry Pi Pico HID Rudder device.
+            </a>
+            <time class="post-date" datetime="2026-09-30">
+              Sep 30, 2026
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://aeberbach.github.io/blog/26-09-18-zola/" class="post-link">
+              Switching to Zola
+            </a>
+            <time class="post-date" datetime="2026-09-18">
+              Sep 18, 2026
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://aeberbach.github.io/blog/24-08-23-amigakeyboardsv2/" class="post-link">
+              Amiga A1200 and A600 keyboards, version 2
+            </a>
+            <time class="post-date" datetime="2024-08-23">
+              Aug 23, 2024
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://aeberbach.github.io/blog/22-06-29-a1200leds/" class="post-link">
+              Amiga 1200 LED assembly
+            </a>
+            <time class="post-date" datetime="2022-06-29">
+              Jun 29, 2022
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://aeberbach.github.io/blog/22-06-24-mac-video-4/" class="post-link">
+              Compact Macintosh video - 4
+            </a>
+            <time class="post-date" datetime="2022-06-24">
+              Jun 24, 2022
+            </time>
+          </li>
+        
+      </ul>
+    </section>
+  
+
+  <!-- Categories Section -->
+  
+  
+</div>
+</aside>
+        <div class="content">
+          
+<article class="blog-post">
+  <header class="post-header">
+    <h1 class="post-title">Code for a Raspberry Pi Pico HID Rudder device.</h1>
+
+    <div class="post-meta">
+      <span class="post-byline">
+        <time class="post-date" datetime="2026-09-30">September 30, 2026</time>
+      </span>
+
+      <span class="post-reading-time">6 min read</span>
+
+      
+    </div>
+
+    
+
+    <!-- Monumental Blood Red Rule -->
+    <hr class="monumental-rule" />
+  </header>
+
+  
+  <figure class="post-hero">
+    <img src="https://aeberbach.github.io/images/2026-09-30-rudder-software/pico-with-adc-connected.jpeg" alt="Code for a Raspberry Pi Pico HID Rudder device." />
+  </figure>
+  
+
+  
+
+  <div class="post-content">
+    <p><em>(The code that this article discusses is available at <a rel="external" href="https://github.com/aeberbach/rudder_pico">my GitHub</a>)</em></p>
+<p>The Raspberry Pi Pico SDK is a very complete package, including <a rel="external" href="https://github.com/hathach/tinyusb">tinyUSB by Ha Thach</a>, runs on nearly everything! I'm using it in Visual Studio Code with the official "Raspberry Pi Pico" extension - embedded development does not get easier than this. Install it, create a new project, connect your device and right away you should be able to build and drop the .uf2 image onto the Pico.
+If you bought the <a rel="external" href="https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html">Rapsberry Pi Debug Probe</a> then it's even easier, build and debug with one click, set breakpoints, and you get a serial channel for debugging also. There are many guides on this but I highly recommend the probe, so much for so little money. I have also tried out my Segger J-Link and that works well here too.</p>
+<p>Note I am using the <a rel="external" href="https://shop.pimoroni.com/en-au/products/pimoroni-pico-plus-2?variant=42092668289107">Pimoroni Pico Plus 2</a> - it has clearer labelling and a USB-C port. I have USB-C cables everywhere; I have to look around for a micro-USB these days. It is an excellent product and I can't believe Raspberry Pi are still using micro-USB...</p>
+<p>The code does two things really, collect and store values form the three analog-digital converter inputs, and then make USB reports to the connected computer.</p>
+<h2>ADC</H2>
+<p>The Pico has three usable <a rel="external" href="https://en.wikipedia.org/wiki/Analog-to-digital_converter">ADC</a> channels on board. An early version of this rudder used four channels, one for rudder left and one for rudder right, so I was using an <a rel="external" href="https://www.ti.com/product/ADS1115">ADS1115</a> ADC board via <a rel="external" href="https://en.wikipedia.org/wiki/I2C">I2C</a>. But simple is always better - I switched to one channel for rudder and one for each brake.</p>
+<p>There are a couple of ways of getting ADC values. You can simply spin in a loop and read the values as quickly as possible but that wastes a lot of processing time and could easily interfere with the USB reporting. This code uses an interrupt from the ADC FIFO (read the Pico datasheet...) to get the value from the channel and to notify the main loop that a value can be read. An interrupt appears when a channel is selected and the ADC has been instructed to get a value. An <a rel="external" href="https://en.wikipedia.org/wiki/Interrupt_handler">ISR</a> should be very short and this just records which channel a value is ready for. Then when the main loop cycles around and detects a ready value, the value is read and stored, the next channel is selected and ADC started and that is all for ADC until the next value appears. The channels are read sequentially, indefinitely. The rudder axis is on GPIO 26, the right brake is on GPIO 27 and the left brake is on GPIO 28.</p>
+<pre class="giallo" style="color: #D8DEE9; background-color: #2E3440;" ><code data-lang="c"><span class="giallo-l"><span style="color: #81A1C1;">void</span><span style="color: #88C0D0;"> adc_isr</span><span style="color: #ECEFF4;">() {</span></span>
+<span class="giallo-l"><span style="color: #616E88;">    // get the value from the ADC that caused the interrupt - this action clears the interrupt</span></span>
+<span class="giallo-l"><span>    adc_raw </span><span style="color: #81A1C1;">=</span><span style="color: #88C0D0;"> adc_fifo_get</span><span style="color: #ECEFF4;">()</span><span style="color: #81A1C1;">;</span><span> </span></span>
+<span class="giallo-l"><span style="color: #616E88;">    // adc_pending is the GPIO from which the interrupt came; main loop will apply adc_raw to</span></span>
+<span class="giallo-l"><span style="color: #616E88;">    // that channel when it detects the value of adc_received is no longer zero. </span></span>
+<span class="giallo-l"><span>    adc_received </span><span style="color: #81A1C1;">=</span><span> adc_pending</span><span style="color: #81A1C1;">;</span></span>
+<span class="giallo-l"><span style="color: #ECEFF4;">}</span></span></code></pre>
+<p>As each value is read it is added to a buffer of values, with the location beginning at 0 and ending at 9. When the value goes to 10 it loops back to 0 again - in short, a ring buffer. When a value is required all values are summed and then divided by the buffer size to produce and average. In the event of one bad value the output will be less affected. It's a very simple software low-pass filter.</p>
+<pre class="giallo" style="color: #D8DEE9; background-color: #2E3440;" ><code data-lang="c"><span class="giallo-l"><span style="color: #81A1C1;">void</span><span style="color: #88C0D0;"> brake_right_new_value</span><span style="color: #ECEFF4;">(</span><span style="color: #81A1C1;">uint16_t</span><span> val</span><span style="color: #ECEFF4;">) {</span></span>
+<span class="giallo-l"><span style="color: #81A1C1;">    static int</span><span> index </span><span style="color: #81A1C1;">=</span><span style="color: #B48EAD;"> 0</span><span style="color: #81A1C1;">;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>    brake_right_raw_values</span><span style="color: #ECEFF4;">[</span><span>index</span><span style="color: #81A1C1;">++</span><span style="color: #ECEFF4;">]</span><span style="color: #81A1C1;"> =</span><span style="color: #88C0D0;"> adc_clamped_value</span><span style="color: #ECEFF4;">(</span><span>val</span><span style="color: #ECEFF4;">,</span><span> BRAKE_ADC_MIN</span><span style="color: #ECEFF4;">,</span><span> BRAKE_ADC_MAX</span><span style="color: #ECEFF4;">)</span><span style="color: #81A1C1;">;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #616E88;">    // wrap around to zero if the array is full</span></span>
+<span class="giallo-l"><span style="color: #81A1C1;">    if</span><span style="color: #ECEFF4;"> (</span><span>index </span><span style="color: #81A1C1;">==</span><span> RAW_VALUE_COUNT</span><span style="color: #ECEFF4;">) {</span></span>
+<span class="giallo-l"><span>        index </span><span style="color: #81A1C1;">=</span><span style="color: #B48EAD;"> 0</span><span style="color: #81A1C1;">;</span></span>
+<span class="giallo-l"><span style="color: #ECEFF4;">    }</span></span>
+<span class="giallo-l"><span style="color: #ECEFF4;">}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #81A1C1;">uint16_t</span><span style="color: #88C0D0;"> brake_right_raw_value</span><span style="color: #ECEFF4;">() {</span></span>
+<span class="giallo-l"><span style="color: #81A1C1;">    uint16_t</span><span> sum </span><span style="color: #81A1C1;">=</span><span style="color: #B48EAD;"> 0</span><span style="color: #81A1C1;">;</span></span>
+<span class="giallo-l"><span style="color: #81A1C1;">    for</span><span style="color: #ECEFF4;">(</span><span style="color: #81A1C1;">int</span><span> i </span><span style="color: #81A1C1;">=</span><span style="color: #B48EAD;"> 0</span><span style="color: #81A1C1;">;</span><span> i </span><span style="color: #81A1C1;">&lt;</span><span> RAW_VALUE_COUNT</span><span style="color: #81A1C1;">;</span><span> i</span><span style="color: #81A1C1;">++</span><span style="color: #ECEFF4;">) {</span></span>
+<span class="giallo-l"><span>        sum </span><span style="color: #81A1C1;">+=</span><span> brake_right_raw_values</span><span style="color: #ECEFF4;">[</span><span>i</span><span style="color: #ECEFF4;">]</span><span style="color: #81A1C1;">;</span></span>
+<span class="giallo-l"><span style="color: #ECEFF4;">    }</span></span>
+<span class="giallo-l"><span style="color: #81A1C1;">    return</span><span> sum</span><span style="color: #81A1C1;">/</span><span>RAW_VALUE_COUNT</span><span style="color: #81A1C1;">;</span></span>
+<span class="giallo-l"><span style="color: #ECEFF4;">}</span></span></code></pre>
+<p>When reporting these values the connected machine expects to see values in a range -127..127, so when it is time to output a value the raw ADC values need to be converted. The rudder axis is simple; the ADC value is calculated as a proportion of the full range of values from the lowest to the highest and that is multiplied by 255, that is added to -127 and the output value is ready. This is what using a relatively expensive rotary hall-effect device gets you - it's so simple and reliable that I thought about putting them on the brakes too... but as they say, engineering is the art of doing for $1 what any fool could do for $10.</p>
+<p>The brakes are more complex. The result of bringing the magnet close to the hall effect sensor, rotating around a circular path described by the pedal, is not linear. The brake is applied very gradually at first with the transition from about 60% to 100% happening in about the last tenth of rotation, not ideal. In fact the values looked something like this:</p>
+<table><thead><tr><th style="text-align: left">ADC</th><th style="text-align: right">/ Deflection</th></tr></thead><tbody>
+<tr><td style="text-align: left">747</td><td style="text-align: right">0.1</td></tr>
+<tr><td style="text-align: left">762</td><td style="text-align: right">0.2</td></tr>
+<tr><td style="text-align: left">792</td><td style="text-align: right">0.3</td></tr>
+<tr><td style="text-align: left">840</td><td style="text-align: right">0.4</td></tr>
+<tr><td style="text-align: left">948</td><td style="text-align: right">0.5</td></tr>
+<tr><td style="text-align: left">1090</td><td style="text-align: right">0.6</td></tr>
+<tr><td style="text-align: left">1420</td><td style="text-align: right">0.7</td></tr>
+<tr><td style="text-align: left">2070</td><td style="text-align: right">0.8</td></tr>
+<tr><td style="text-align: left">2900</td><td style="text-align: right">0.9</td></tr>
+<tr><td style="text-align: left">4026</td><td style="text-align: right">1.0</td></tr>
+</tbody></table>
+<p>What is needed is a function that takes the ADC raw value and produces that proportion of 255 that should be added to -127, just like the rudder axis.</p>
+<p>Once, engineers would have drawn a chart and taken their slide rules out. Later they would have fired up Excel. We're able to just use a web site, it's so easy now. I used https://www.standardsapplied.com/nonlinear-curve-fitting-calculator.html - pasting in this table of values and answering a couple of brief questions I got a nice chart instantly, with over 500 equations that could be used, each showing the curve it would produce overlaid on my data points. The very first one, and best fit, was</p>
+<p><code>y = 0.2009032376 * asinh(5763.173774 * x^(1/4) - 680.1121958 * x^(1/2) + 3.331253105 * x - 14004.61103) - 0.6830070089</code></p>
+<p>and some are even more complex. The brake function does not need to be perfect, so I took one reported as the 7th best match - it looked smooth, and is not very difficult for the Pico to compute:</p>
+<p><code>y = 0.1746403809 * ln(x - 724.7640485) - 0.437040687</code></p>
+<p>With this the y value is a simple float that can be used as a proportion for reporting brake position in the range -127..127.</p>
+<pre class="giallo" style="color: #D8DEE9; background-color: #2E3440;" ><code data-lang="c"><span class="giallo-l"><span style="color: #81A1C1;">int</span><span style="color: #88C0D0;"> fitted_raw_brake_value</span><span style="color: #ECEFF4;">(</span><span style="color: #81A1C1;">int</span><span> raw</span><span style="color: #ECEFF4;">) {</span></span>
+<span class="giallo-l"><span style="color: #81A1C1;">    float</span><span> adjusted </span><span style="color: #81A1C1;">=</span><span style="color: #B48EAD;"> 0.1746403809</span><span style="color: #81A1C1;"> *</span><span style="color: #88C0D0;"> log</span><span style="color: #ECEFF4;">((</span><span style="color: #81A1C1;">double</span><span style="color: #ECEFF4;">)</span><span>raw </span><span style="color: #81A1C1;">-</span><span style="color: #B48EAD;"> 724.7640485</span><span style="color: #ECEFF4;">)</span><span style="color: #81A1C1;"> -</span><span style="color: #B48EAD;"> 0.437040687</span><span style="color: #81A1C1;">;</span></span>
+<span class="giallo-l"><span style="color: #616E88;">    // if it&#39;s greater than 1.0, use 1.0; if less than 0.0, use 0.0</span></span>
+<span class="giallo-l"><span style="color: #81A1C1;">    float</span><span> clamped_adjusted </span><span style="color: #81A1C1;">=</span><span style="color: #88C0D0;"> MAX</span><span style="color: #ECEFF4;">(</span><span style="color: #88C0D0;">MIN</span><span style="color: #ECEFF4;">(</span><span>adjusted</span><span style="color: #ECEFF4;">,</span><span style="color: #B48EAD;"> 1.0</span><span style="color: #ECEFF4;">),</span><span style="color: #B48EAD;"> 0.0</span><span style="color: #ECEFF4;">)</span><span style="color: #81A1C1;">;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #616E88;">    // the minimum joystick axis value is -127, maximum is 127. The brake at rest should</span></span>
+<span class="giallo-l"><span style="color: #616E88;">    // report -127 and as it is applied that value increases. An offset of 0..255 is added</span></span>
+<span class="giallo-l"><span style="color: #616E88;">    // based on the relative position of the brake pedal.</span></span>
+<span class="giallo-l"><span style="color: #81A1C1;">    int</span><span> brake_value </span><span style="color: #81A1C1;">=</span><span style="color: #ECEFF4;"> (</span><span style="color: #81A1C1;">int</span><span style="color: #ECEFF4;">)(</span><span style="color: #81A1C1;">-</span><span style="color: #B48EAD;">127.0</span><span style="color: #81A1C1;"> +</span><span style="color: #ECEFF4;"> (</span><span>clamped_adjusted </span><span style="color: #81A1C1;">*</span><span style="color: #B48EAD;"> 255.0</span><span style="color: #ECEFF4;">))</span><span style="color: #81A1C1;">;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #81A1C1;">    return</span><span> brake_value</span><span style="color: #81A1C1;">;</span></span>
+<span class="giallo-l"><span style="color: #ECEFF4;">}</span></span></code></pre>
+<p>Of course there are imperfections everywhere here. The function is not perfect even ignoring that the values probably do not naturally stop at 6-9 decimal places, the two brakes are not exactly the same and many more issues... but all this is reduced to 255 possible values, and calibration allows all the imprecisions to be ignored.</p>
+<p>Almost no input device would actually present a range of values -127..127, and very few would report 0 when at rest. This is why you have a means to calibrate the input device either at the OS level (like Windows input controller properties) or in the application (Microsoft Flight Simulator control setup) - or maybe your software just observes values all the time and calibrates without you even being told about it. Calibration routines  have you move the control through its range of values and then the input is scaled further before use. The actual value sent by the input controller might be -109..83 with a centre point of -6 and that gets adjusted, in software, before use. (This is why the rudder works almost equally well with a 360 degree hall effect device, or a plain potentiometer, where the raw ADC values might range from 2100..2750 rather than 750..4096).</p>
+<H2>USB</H2>
+So, with the values all ready to go how do they get to the computer? USB is a complicated thing, but there is a class of devices within USB called Human Interface Device for which nearly all machines already have a driver, and you can use that for gamepads, keyboards, mice, rudders, joysticks, macro pads, etc. All you need to do is report the correct descriptors, so some power-state housekeeping, and then respond to the hid report with the correct values. 
+<p>That last sentence above is doing an awful lot of work but I don't want to go into more explanation. I don't know if I am qualified, but I do have the excellent "<a rel="external" href="http://janaxelson.com/usbc.htm">USB Complete: The Developer's Guide, Fifth Edition</a>" by <a rel="external" href="http://janaxelson.com/index.html">Jan Axelson</a> and it has been able to answer every question. If you just want to make and use a device you can probably get by with just using an example. It only gets complicated when you step into the less-defined classes. It also gets more complicated if you want to use a driver other than the one provided by the OS - such a driver is selected based on the device descriptor being a better match, and can get you a fancy display of the actual device on-screen, much like the excellent Honeycomb flight controls do. I have not done this!</p>
+
+  </div>
+
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      <span class="tags-label">Tags:</span>
+      <div class="tag-list">
+        
+        <span class="tag">Code</span>
+        
+      </div>
+    </div>
+    
+
+    <div class="post-navigation">
+      <a href="https://aeberbach.github.io/blog" class="back-to-blog">← Back to Blog</a>
+    </div>
+  </footer>
+</article>
+
+        </div>
+      </main>
+      <footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <p class="copyright">
+        © 2026 Adam Eberbach. All rights reserved.
+      </p>
+      <p class="theme-credit">
+        Powered by <a href="https://www.getzola.org" target="_blank" rel="noopener">Zola</a>
+        • <a href="https://github.com/jdrhyne/volks-typo" target="_blank" rel="noopener">Volks-Typo Theme</a>
+      </p>
+    </div>
+
+    <div class="social-links">
+      <a href="https://aeberbach.github.io/blog/rss.xml" class="social-link" aria-label="RSS feed">
+        <span class="social-icon" style="-webkit-mask-image: url('https://aeberbach.github.io/icons/rss.svg'); mask-image: url('https://aeberbach.github.io/icons/rss.svg');" aria-hidden="true"></span>
+      </a>
+      
+      <a href="https://mastodon.online/@aeberbach" class="social-link" aria-label="Mastodon" target="_blank" rel="noopener">
+        <span class="social-icon" style="-webkit-mask-image: url('https://aeberbach.github.io/icons/mastodon.svg'); mask-image: url('https://aeberbach.github.io/icons/mastodon.svg');" aria-hidden="true"></span>
+      </a>
+      
+      <a href="https://github.com/aeberbach" class="social-link" aria-label="Github" target="_blank" rel="noopener">
+        <span class="social-icon" style="-webkit-mask-image: url('https://aeberbach.github.io/icons/github.svg'); mask-image: url('https://aeberbach.github.io/icons/github.svg');" aria-hidden="true"></span>
+      </a>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <script>window.VOLKS_SEARCH_URL = "https://aeberbach.github.io/search/";</script>
+    <script src="https://aeberbach.github.io/search.js?h=86f8110b674a65e81dce"></script>
+  </body>
+</html>
