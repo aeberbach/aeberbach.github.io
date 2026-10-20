@@ -332,7 +332,8 @@ The accelerator came with the Amiga, but was 33MHz. After replacing all of the c
 &lt;h2&gt;Optical Drive&lt;/h2&gt;
 Nah, there’s no optical drive, it’s 2020!
 &lt;h2&gt;What’s Next?&lt;/h2&gt;
-Maybe if Individual Computers release a 68060 I will think about it, the Indivision is such a quality item and their preview of the heatsink for the upcoming card looks amazing. Not only that it is supposed to dramatically improve IDE speeds. Certainly I have to build a joystick, I have a Sanwa arcade stick ready to go into a case (WICO Command until then). But the 20+ GB of Amiga software I have waiting for attention will certainly take up some time...</description>
+Maybe if Individual Computers release a 68060 I will think about it, the Indivision is such a quality item and their preview of the heatsink for the upcoming card looks amazing. Not only that it is supposed to dramatically improve IDE speeds. Certainly I have to build a joystick, I have a Sanwa arcade stick ready to go into a case (WICO Command until then). But the 20+ GB of Amiga software I have waiting for attention will certainly take up some time...
+</description>
       </item>
       <item>
           <title>Amiga 1200 Latched Trapdoor</title>
@@ -354,7 +355,8 @@ Very simple. The dimensions of the trapdoor and the inside ridge are the same as
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;I printed this on a Prusa MK3S with an 0.25mm nozzle. The one you can see here is printed at the roughest setting available but still took 6 hours or so - must put that 0.6mm nozzle back on and see how it looks. And how Vanilla White behaves with that one too.&lt;/p&gt;
 &lt;h2&gt;Where can I get one?&lt;/h2&gt;
-&lt;a href=&quot;https://www.printables.com/model/81156-amiga-1200-ventilated-latched-trapdoor-cover&quot;&gt;My account on Printables - free download.&lt;/a&gt;</description>
+&lt;a href=&quot;https://www.printables.com/model/81156-amiga-1200-ventilated-latched-trapdoor-cover&quot;&gt;My account on Printables - free download.&lt;/a&gt;
+</description>
       </item>
       <item>
           <title>Amiga 600 Keyboard</title>
@@ -414,7 +416,8 @@ This is it! If I&#39;m ever going to get back to the Infocom text adventures or 
     &lt;figcaption&gt;Complete&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;h2&gt;Where can I get one!?&lt;/h2&gt;
-Chances are I have none for sale - but you can ask. More likely you will need to go to my &lt;a href=&quot;https://github.com/aeberbach/A600KB&quot;&gt;repository on GitHub&lt;/a&gt; and have the PCBs made yourself. This is pretty expensive if you have one made, much more affordable if you can get 5 others who will pitch in and want a PCB too. You will also need to download the STL files and print the 3D-printed parts yourself. Apart from PCB and printing, you need 78 MX PCB-mount switches, a 32-way FFC connector (Mouser part number 538-52044-3245), a 32-way ribbon cable (Mouser part number 538-15168-0400), stabilisers, keycaps and one 3mm LED.</description>
+Chances are I have none for sale - but you can ask. More likely you will need to go to my &lt;a href=&quot;https://github.com/aeberbach/A600KB&quot;&gt;repository on GitHub&lt;/a&gt; and have the PCBs made yourself. This is pretty expensive if you have one made, much more affordable if you can get 5 others who will pitch in and want a PCB too. You will also need to download the STL files and print the 3D-printed parts yourself. Apart from PCB and printing, you need 78 MX PCB-mount switches, a 32-way FFC connector (Mouser part number 538-52044-3245), a 32-way ribbon cable (Mouser part number 538-15168-0400), stabilisers, keycaps and one 3mm LED.
+</description>
       </item>
       <item>
           <title>Minipulse metal detector - 2</title>

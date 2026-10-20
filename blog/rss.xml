@@ -7,7 +7,38 @@
       <generator>Zola</generator>
       <language>en</language>
       <atom:link href="https://aeberbach.github.io/blog/rss.xml" rel="self" type="application/rss+xml"/>
-      <lastBuildDate>Wed, 30 Sep 2026 00:00:00 +0000</lastBuildDate>
+      <lastBuildDate>Tue, 20 Oct 2026 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Crayford focuser (new version)</title>
+          <pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://aeberbach.github.io/blog/26-10-20-new-crayford/</link>
+          <guid>https://aeberbach.github.io/blog/26-10-20-new-crayford/</guid>
+          <description xml:base="https://aeberbach.github.io/blog/26-10-20-new-crayford/">&lt;p&gt;&lt;em&gt;(The model that this article is about can be downloaded at &lt;a rel=&quot;external&quot; href=&quot;https://www.printables.com/model/1867218-125-crayford-focuser-for-telescopes-v2&quot;&gt;my Printables&lt;/a&gt;)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;It&#39;s both a great and not-so-great time for having a telescope. On one hand I now live in downtown Toronto, a very, very bright place - seeing a star is rare enough to remark upon, against the glow of the city. Thousands of satellites are zooming around every which way and will photobomb pretty much any observation. But 3D printing just keeps getting better and it has never been easier or cheaper to get a decent telescope built.&lt;/p&gt;
+&lt;p&gt;I don&#39;t have a great image with satellite trails - but you likely know the problem, and if not take a look at &lt;a rel=&quot;external&quot; href=&quot;https://www.astro-deep-sky.astrolucyhu.com/?pgid=b061de7d-f2ba-41de-9017-30ad53702166_4aa50e59-9654-4b5f-9e6e-137a10f69673&quot;&gt;AstroLucyHu&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I&#39;m using a &lt;a rel=&quot;external&quot; href=&quot;https://www.prusa3d.com/product/prusa-core-one/&quot;&gt;Prusa Core One&lt;/a&gt; right now and am very happy with it. I&#39;m expecting my 8-head &lt;a rel=&quot;external&quot; href=&quot;https://www.bondtech.se/indx-by-bondtech/?v=5435c69ed3bc&quot;&gt;INDX&lt;/a&gt; system and a couple of other upgrades to ship soon. Of course there have been videos showing that in early versions not everything works quite as it should but I am confident part of the delay is fixing those issues. Also I am back using Solidworks which feels good. As a student I can buy a Student license and have encountered none of the horrible forced-cloud or restrictions I complained about when using the &quot;Maker&quot; version.&lt;/p&gt;
+&lt;p&gt;This design is a revision of the older focuser design I made. When I did that first one I was still doing things in the wrong order, not always designing with printability in mind and definitely making things too complicated. The idea behind this redesign is to reduce the number of cuts, supports and critical sections where the print may be thin or overcomplicated. The bearings bolts are a good example. In the old design the nuts were slots cut into the side of the tube, and they ended up too close to the inside of the tube so that the print would often break through. This wasn&#39;t terrible if you wanted to push the nuts out of the slots, but was unintentional. Instead I now use longer (25mm) bolts so that the bolt heads and nuts don&#39;t come so close to the inner wall of the tube. Also the nuts insert alonmg the axis of the bolt; much easier both to insert and to get them out.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://aeberbach.github.io/processed_images/simpler_bearings.3a8e862e7f2c3b13.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/simpler_bearings.34c07ea4a2068935.jpg&quot; alt=&quot;Simpler bearings&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Simpler bearings&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;The drawtube used to use a single bolt to hold the eyepiece in place. Now there is a cap that screws down, compressing a split ring against the eyepiece tube. This will not mar the tube like a metal bolt will. It is also tool-free and at least as secure as the single bolt, with the eyepieces I have.&lt;/p&gt;
+&lt;p&gt;A part I have had in waiting for a while is a vernier drive &lt;a rel=&quot;external&quot; href=&quot;https://www.royalsignals.org.uk/jackson_bros_caps/4832unit.htm&quot;&gt;D Type 2 Speed Drive Unit&lt;/a&gt;, and I really wanted to redesign the focuser to make use of this. It&#39;s not expensive, comes complete with knurled aluminium knobs but it is very long... I experimented with a few ideas but it would have required a substantial redesign, cutting back the pinion block and housing as much as possible or else it would stick out a long way. And therefore would not have been much use to anyone that did not buy the drive unit. For now I have put that back in the junk box perhaps to be used another day.&lt;/p&gt;
+&lt;p&gt;Then there is the large range of drives from &lt;a rel=&quot;external&quot; href=&quot;https://orenelliottproducts.com/product-category/drives/&quot;&gt;Oren Elliot Products&lt;/a&gt;. When I look at this I think of photos of the Gebrüder HAFF factory that is in my compass set... rows of lathes and experts driving them. Unfortunately they are a little out of my price range. From all reports they are sikly smooth and do not disappoint.&lt;/p&gt;
+&lt;p&gt;I looked in the junk box again and found a couple of GT2 pulleys, 3D printers have made these and belts in any size very easy to get. I settled on a 4:1 ratio and added a focus knob driving through a 250mm belt. It&#39;s completely optional though, leave it off if not wanted.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://aeberbach.github.io/processed_images/geared_side.9f27fb74b3e1751c.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/geared_side.d3caabd470bea2e5.jpg&quot; alt=&quot;Geared focus knob&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Geared focus knob&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Then I added a mount for a stepper motor on the back of the focuser, using the same pulleys but requiring a 250mm belt (it&#39;s a little further away than the manual geared focuser). Again leave it off if not required. This stepper could be driven by software, there is plenty of free software available. I&#39;m going to hook up a Nintendo Wii Nunchuck controller to at least give me focus without touching the telescope. It might also be interesting to make the telescope aim via the joystick... eventually.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://aeberbach.github.io/processed_images/zoom_and_stepper.e1ab951155574929.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/zoom_and_stepper.584b222387ae448c.jpg&quot; alt=&quot;Stepper motor attached&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Stepper motor attached&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;For this project (and the Flight Sim Rudder before it) I&#39;ve been using the cheapest black PETG I can buy - around $15 per roll. It is fine as long as it is dry, Toronto is very different to Melbourne in this regard. In Melbourne there isn&#39;t a huge amount of difference year-round and PETG just prints. In the Toronto summer the humidity can be high according to my cheap instruments (right now 61%), or down around 20% in the winter. Winter is a great time for printing, in summer you definitely benefit from using filament that has been stored in dry conditions. As mentioned the Prusa INDX system has been reported as having big problems with filament that is not exactly like the Prusament that they also sell - I hope I don&#39;t find myself with 15 rolls of unusable filament when that upgrade eventually arrives...&lt;/p&gt;
+</description>
+      </item>
       <item>
           <title>Code for a Raspberry Pi Pico HID Rudder device.</title>
           <pubDate>Wed, 30 Sep 2026 00:00:00 +0000</pubDate>
@@ -655,7 +686,8 @@ The accelerator came with the Amiga, but was 33MHz. After replacing all of the c
 &lt;h2&gt;Optical Drive&lt;/h2&gt;
 Nah, there’s no optical drive, it’s 2020!
 &lt;h2&gt;What’s Next?&lt;/h2&gt;
-Maybe if Individual Computers release a 68060 I will think about it, the Indivision is such a quality item and their preview of the heatsink for the upcoming card looks amazing. Not only that it is supposed to dramatically improve IDE speeds. Certainly I have to build a joystick, I have a Sanwa arcade stick ready to go into a case (WICO Command until then). But the 20+ GB of Amiga software I have waiting for attention will certainly take up some time...</description>
+Maybe if Individual Computers release a 68060 I will think about it, the Indivision is such a quality item and their preview of the heatsink for the upcoming card looks amazing. Not only that it is supposed to dramatically improve IDE speeds. Certainly I have to build a joystick, I have a Sanwa arcade stick ready to go into a case (WICO Command until then). But the 20+ GB of Amiga software I have waiting for attention will certainly take up some time...
+</description>
       </item>
       <item>
           <title>Amiga 1200 Latched Trapdoor</title>
@@ -677,7 +709,8 @@ Very simple. The dimensions of the trapdoor and the inside ridge are the same as
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;I printed this on a Prusa MK3S with an 0.25mm nozzle. The one you can see here is printed at the roughest setting available but still took 6 hours or so - must put that 0.6mm nozzle back on and see how it looks. And how Vanilla White behaves with that one too.&lt;/p&gt;
 &lt;h2&gt;Where can I get one?&lt;/h2&gt;
-&lt;a href=&quot;https://www.printables.com/model/81156-amiga-1200-ventilated-latched-trapdoor-cover&quot;&gt;My account on Printables - free download.&lt;/a&gt;</description>
+&lt;a href=&quot;https://www.printables.com/model/81156-amiga-1200-ventilated-latched-trapdoor-cover&quot;&gt;My account on Printables - free download.&lt;/a&gt;
+</description>
       </item>
       <item>
           <title>Amiga 600 Keyboard</title>
@@ -737,7 +770,8 @@ This is it! If I&#39;m ever going to get back to the Infocom text adventures or 
     &lt;figcaption&gt;Complete&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;h2&gt;Where can I get one!?&lt;/h2&gt;
-Chances are I have none for sale - but you can ask. More likely you will need to go to my &lt;a href=&quot;https://github.com/aeberbach/A600KB&quot;&gt;repository on GitHub&lt;/a&gt; and have the PCBs made yourself. This is pretty expensive if you have one made, much more affordable if you can get 5 others who will pitch in and want a PCB too. You will also need to download the STL files and print the 3D-printed parts yourself. Apart from PCB and printing, you need 78 MX PCB-mount switches, a 32-way FFC connector (Mouser part number 538-52044-3245), a 32-way ribbon cable (Mouser part number 538-15168-0400), stabilisers, keycaps and one 3mm LED.</description>
+Chances are I have none for sale - but you can ask. More likely you will need to go to my &lt;a href=&quot;https://github.com/aeberbach/A600KB&quot;&gt;repository on GitHub&lt;/a&gt; and have the PCBs made yourself. This is pretty expensive if you have one made, much more affordable if you can get 5 others who will pitch in and want a PCB too. You will also need to download the STL files and print the 3D-printed parts yourself. Apart from PCB and printing, you need 78 MX PCB-mount switches, a 32-way FFC connector (Mouser part number 538-52044-3245), a 32-way ribbon cable (Mouser part number 538-15168-0400), stabilisers, keycaps and one 3mm LED.
+</description>
       </item>
       <item>
           <title>Minipulse metal detector - 2</title>
@@ -1468,7 +1502,8 @@ This step includes the two 16-pin devices, whose sockets were the most mangled f
 &lt;p&gt;Oh wow, that&#39;s a horrible sound from the included mini-speaker. I guess when the sound indicates that you&#39;ve found something it&#39;s much more welcome. Anyway - it works! Obviously there is more tweaking to do and I need to go back and look at the scope, but that&#39;s a wrap. It detects metal.
 &lt;h2&gt;Conclusion&lt;/h2&gt;
 Building this kit is going to take around three hours at an absolute minimum and you should probably budget more like a whole day if you are not very experienced. I took around five hours in all, including winding the coil (and many more 3D printing a coil former, but that&#39;s another story). If you have only ever made LEDs flash with an Arduino this might be too much for you, but then again if you go slow and ask questions in the forum it can probably be done. Just be cautious and don&#39;t guess.&lt;p&gt;After building the whole thing I have one more complaint about the PCB - the holes for the resistors are often far too large. When you put the component into the holes and bend the leads a little they just rattle around. It looks like a uniform hole size was used for all of the resistors, a comfortable fit for the 2W units but less so for the 1/4W, which are the majority.
-&lt;p&gt;I&#39;m pretty happy to have a metal detector, especially one so cheap! But there&#39;s still a long way to go before it can go in the car and find some gold. I need to do a lot of work putting it in a case and building the head cover, hand grip, making a battery system etc. More posts to come...</description>
+&lt;p&gt;I&#39;m pretty happy to have a metal detector, especially one so cheap! But there&#39;s still a long way to go before it can go in the car and find some gold. I need to do a lot of work putting it in a case and building the head cover, hand grip, making a battery system etc. More posts to come...
+</description>
       </item>
       <item>
           <title>Armada - Ernest Cline</title>

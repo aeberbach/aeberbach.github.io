@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>Gray Unicorn - telescope</title>
+      <link>https://aeberbach.github.io</link>
+      <description>Random collection of project, infrequently updated</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://aeberbach.github.io/tags/telescope/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Tue, 20 Oct 2026 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Crayford focuser (new version)</title>
+          <pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://aeberbach.github.io/blog/26-10-20-new-crayford/</link>
+          <guid>https://aeberbach.github.io/blog/26-10-20-new-crayford/</guid>
+          <description xml:base="https://aeberbach.github.io/blog/26-10-20-new-crayford/">&lt;p&gt;&lt;em&gt;(The model that this article is about can be downloaded at &lt;a rel=&quot;external&quot; href=&quot;https://www.printables.com/model/1867218-125-crayford-focuser-for-telescopes-v2&quot;&gt;my Printables&lt;/a&gt;)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;It&#39;s both a great and not-so-great time for having a telescope. On one hand I now live in downtown Toronto, a very, very bright place - seeing a star is rare enough to remark upon, against the glow of the city. Thousands of satellites are zooming around every which way and will photobomb pretty much any observation. But 3D printing just keeps getting better and it has never been easier or cheaper to get a decent telescope built.&lt;/p&gt;
+&lt;p&gt;I don&#39;t have a great image with satellite trails - but you likely know the problem, and if not take a look at &lt;a rel=&quot;external&quot; href=&quot;https://www.astro-deep-sky.astrolucyhu.com/?pgid=b061de7d-f2ba-41de-9017-30ad53702166_4aa50e59-9654-4b5f-9e6e-137a10f69673&quot;&gt;AstroLucyHu&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I&#39;m using a &lt;a rel=&quot;external&quot; href=&quot;https://www.prusa3d.com/product/prusa-core-one/&quot;&gt;Prusa Core One&lt;/a&gt; right now and am very happy with it. I&#39;m expecting my 8-head &lt;a rel=&quot;external&quot; href=&quot;https://www.bondtech.se/indx-by-bondtech/?v=5435c69ed3bc&quot;&gt;INDX&lt;/a&gt; system and a couple of other upgrades to ship soon. Of course there have been videos showing that in early versions not everything works quite as it should but I am confident part of the delay is fixing those issues. Also I am back using Solidworks which feels good. As a student I can buy a Student license and have encountered none of the horrible forced-cloud or restrictions I complained about when using the &quot;Maker&quot; version.&lt;/p&gt;
+&lt;p&gt;This design is a revision of the older focuser design I made. When I did that first one I was still doing things in the wrong order, not always designing with printability in mind and definitely making things too complicated. The idea behind this redesign is to reduce the number of cuts, supports and critical sections where the print may be thin or overcomplicated. The bearings bolts are a good example. In the old design the nuts were slots cut into the side of the tube, and they ended up too close to the inside of the tube so that the print would often break through. This wasn&#39;t terrible if you wanted to push the nuts out of the slots, but was unintentional. Instead I now use longer (25mm) bolts so that the bolt heads and nuts don&#39;t come so close to the inner wall of the tube. Also the nuts insert alonmg the axis of the bolt; much easier both to insert and to get them out.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://aeberbach.github.io/processed_images/simpler_bearings.3a8e862e7f2c3b13.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/simpler_bearings.34c07ea4a2068935.jpg&quot; alt=&quot;Simpler bearings&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Simpler bearings&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;The drawtube used to use a single bolt to hold the eyepiece in place. Now there is a cap that screws down, compressing a split ring against the eyepiece tube. This will not mar the tube like a metal bolt will. It is also tool-free and at least as secure as the single bolt, with the eyepieces I have.&lt;/p&gt;
+&lt;p&gt;A part I have had in waiting for a while is a vernier drive &lt;a rel=&quot;external&quot; href=&quot;https://www.royalsignals.org.uk/jackson_bros_caps/4832unit.htm&quot;&gt;D Type 2 Speed Drive Unit&lt;/a&gt;, and I really wanted to redesign the focuser to make use of this. It&#39;s not expensive, comes complete with knurled aluminium knobs but it is very long... I experimented with a few ideas but it would have required a substantial redesign, cutting back the pinion block and housing as much as possible or else it would stick out a long way. And therefore would not have been much use to anyone that did not buy the drive unit. For now I have put that back in the junk box perhaps to be used another day.&lt;/p&gt;
+&lt;p&gt;Then there is the large range of drives from &lt;a rel=&quot;external&quot; href=&quot;https://orenelliottproducts.com/product-category/drives/&quot;&gt;Oren Elliot Products&lt;/a&gt;. When I look at this I think of photos of the Gebrüder HAFF factory that is in my compass set... rows of lathes and experts driving them. Unfortunately they are a little out of my price range. From all reports they are sikly smooth and do not disappoint.&lt;/p&gt;
+&lt;p&gt;I looked in the junk box again and found a couple of GT2 pulleys, 3D printers have made these and belts in any size very easy to get. I settled on a 4:1 ratio and added a focus knob driving through a 250mm belt. It&#39;s completely optional though, leave it off if not wanted.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://aeberbach.github.io/processed_images/geared_side.9f27fb74b3e1751c.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/geared_side.d3caabd470bea2e5.jpg&quot; alt=&quot;Geared focus knob&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Geared focus knob&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Then I added a mount for a stepper motor on the back of the focuser, using the same pulleys but requiring a 250mm belt (it&#39;s a little further away than the manual geared focuser). Again leave it off if not required. This stepper could be driven by software, there is plenty of free software available. I&#39;m going to hook up a Nintendo Wii Nunchuck controller to at least give me focus without touching the telescope. It might also be interesting to make the telescope aim via the joystick... eventually.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://aeberbach.github.io/processed_images/zoom_and_stepper.e1ab951155574929.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/zoom_and_stepper.584b222387ae448c.jpg&quot; alt=&quot;Stepper motor attached&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Stepper motor attached&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;For this project (and the Flight Sim Rudder before it) I&#39;ve been using the cheapest black PETG I can buy - around $15 per roll. It is fine as long as it is dry, Toronto is very different to Melbourne in this regard. In Melbourne there isn&#39;t a huge amount of difference year-round and PETG just prints. In the Toronto summer the humidity can be high according to my cheap instruments (right now 61%), or down around 20% in the winter. Winter is a great time for printing, in summer you definitely benefit from using filament that has been stored in dry conditions. As mentioned the Prusa INDX system has been reported as having big problems with filament that is not exactly like the Prusament that they also sell - I hope I don&#39;t find myself with 15 rolls of unusable filament when that upgrade eventually arrives...&lt;/p&gt;
+</description>
+      </item>
+    </channel>
+</rss>

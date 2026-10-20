@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://aeberbach.github.io/favicon.svg" />
+    <link rel="stylesheet" href="https://aeberbach.github.io/main.css?h=dd4fb0f354fcfb80d0de" />
+    <link rel="alternate" type="application/rss+xml" title="Gray Unicorn" href="https://aeberbach.github.io/blog/rss.xml" />
+    <script src="https://aeberbach.github.io/theme-init.js?h=f7a49ca0a4e29341b5d4"></script>
+    
+    <title>Crayford focuser (new version)</title>
+    <meta name="description" content="Revised focuser adds geared and stepper motor focusing" />
+    <meta property="og:title" content="Crayford focuser (new version)" />
+    <meta property="og:description" content="Revised focuser adds geared and stepper motor focusing" />
+    <meta property="og:type" content="website" />
+
+    <meta property="og:image" content="https://aeberbach.github.io/images/2026-10-20-new-crayford/geared_side.jpeg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://aeberbach.github.io/images/2026-10-20-new-crayford/geared_side.jpeg" />
+
+
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <header class="site-header">
+  <div class="header-content">
+    <!-- Mobile hamburger button - far left on mobile -->
+    <button class="hamburger-toggle mobile-only" id="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="hamburger-line" d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path class="hamburger-line" d="M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path class="hamburger-line" d="M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <div class="site-title">
+      <a href="https://aeberbach.github.io">
+        
+        <span class="title-text">Gray Unicorn</span>
+        
+      </a>
+    </div>
+
+    <div class="header-controls">
+      <nav class="main-navigation" role="navigation" aria-label="Main navigation">
+        <ul class="nav-list">
+          
+          <li><a href="https://aeberbach.github.io/blog" class="nav-link">Blog</a></li>
+          
+        </ul>
+      </nav>
+
+      <!-- Mobile controls group - RSS and Search on right -->
+      <div class="mobile-controls">
+        
+        
+        <button type="button" class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar" title="Toggle sidebar">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="16" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+            
+            <line class="sidebar-line" x1="9" y1="4" x2="9" y2="20" stroke="currentColor" stroke-width="1.5"/>
+            
+          </svg>
+        </button>
+        <button type="button" class="theme-toggle" data-theme-cycle aria-label="Toggle theme: light, dark, or auto" title="Toggle theme">
+          <span class="theme-icon theme-icon-light" aria-hidden="true"></span>
+          <span class="theme-icon theme-icon-dark" aria-hidden="true"></span>
+          <span class="theme-icon theme-icon-auto" aria-hidden="true"></span>
+        </button>
+
+        <button class="search-toggle" id="search-toggle" data-search-trigger aria-label="Search articles">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+  <ul class="mobile-nav-list">
+    
+    <li><a href="https://aeberbach.github.io/blog" class="mobile-nav-link">Blog</a></li>
+    
+  </ul>
+</nav>
+
+<div class="search-overlay" id="search-overlay">
+  <div class="search-container">
+    <div class="search-header">
+      <input type="text" class="search-input" id="search-input" placeholder="Search articles..." autocomplete="off">
+      <button class="search-close" id="search-close" aria-label="Close search">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2"/>
+          <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+
+<script>
+  // Theme toggle: cycles light -> dark -> auto (auto follows the OS, live-updating)
+  (function () {
+    const root = document.documentElement;
+    const btn = document.querySelector('[data-theme-cycle]');
+    if (!btn) return;
+    const order = ['light', 'dark', 'auto'];
+    const mql = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function systemTheme() { return mql.matches ? 'dark' : 'light'; }
+
+    function apply(mode) {
+      root.dataset.theme = mode === 'auto' ? systemTheme() : mode;
+      root.dataset.themeMode = mode;
+      btn.setAttribute('title', 'Theme: ' + mode + ' (click to change)');
+      try { localStorage.setItem('theme', mode); } catch (e) {}
+    }
+
+    btn.addEventListener('click', function () {
+      const current = localStorage.getItem('theme') || 'auto';
+      apply(order[(order.indexOf(current) + 1) % order.length]);
+    });
+
+    // Reflect the stored/initial mode in the tooltip on load
+    apply(localStorage.getItem('theme') || 'auto');
+
+    // Keep "auto" in sync when the OS theme changes
+    function onSystemChange() {
+      if ((localStorage.getItem('theme') || 'auto') === 'auto') {
+        root.dataset.theme = systemTheme();
+      }
+    }
+    if (mql.addEventListener) { mql.addEventListener('change', onSystemChange); }
+    else if (mql.addListener) { mql.addListener(onSystemChange); }
+  })();
+
+  // Sidebar show/hide toggle (persisted; disabled on pages without a sidebar)
+  function initSidebarToggle() {
+    var btn = document.getElementById('sidebar-toggle');
+    if (!btn) return;
+
+    // The sidebar element appears later in the document than this header, so
+    // this must run after the DOM is parsed (see the dispatch below).
+    if (!document.querySelector('.sidebar')) {
+      btn.disabled = true;
+      btn.setAttribute('aria-disabled', 'true');
+      return;
+    }
+
+    var root = document.documentElement;
+    function sync() {
+      btn.setAttribute('aria-pressed', root.dataset.sidebar === 'hidden' ? 'false' : 'true');
+    }
+    sync();
+
+    btn.addEventListener('click', function () {
+      if (root.dataset.sidebar === 'hidden') {
+        delete root.dataset.sidebar;
+        try { localStorage.setItem('sidebar', 'shown'); } catch (e) {}
+      } else {
+        root.dataset.sidebar = 'hidden';
+        try { localStorage.setItem('sidebar', 'hidden'); } catch (e) {}
+      }
+      sync();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSidebarToggle);
+  } else {
+    initSidebarToggle();
+  }
+
+  // Hamburger menu functionality
+  (function () {
+    const hamburgerToggle = document.getElementById('hamburger-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const body = document.body;
+
+    if (!hamburgerToggle || !mobileMenu) return;
+
+    hamburgerToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.contains('active');
+
+      if (isOpen) {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      } else {
+        mobileMenu.classList.add('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'true');
+        body.style.overflow = 'hidden';
+      }
+    });
+
+    // Close menu when clicking on a link
+    const mobileNavLinks = mobileMenu.querySelectorAll('.mobile-nav-link');
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      });
+    });
+
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      }
+    });
+  })();
+</script>
+
+      <main class="main-content with-sidebar sidebar-left">
+        <aside class="sidebar"><div class="sidebar-content">
+  <!-- Bio Section -->
+  <section class="bio-section">
+    <div class="avatar-container">
+      
+        <img src="/images/profile.jpg" alt="Adam Eberbach" class="avatar" />
+      
+    </div>
+    <h3 class="author-name">Adam Eberbach</h3>
+    <p class="bio-text">Computer Science graduate, started with C and Ada. Electronics, 3D design and printing, flight sims are what I do for fun.</p>
+  </section>
+
+  <!-- Recent Posts Section -->
+  
+  
+    <section class="recent-posts">
+      <h3 class="section-title">Recent Posts</h3>
+      <ul class="post-list">
+        
+          <li class="post-item">
+            <a href="https://aeberbach.github.io/blog/26-10-20-new-crayford/" class="post-link">
+              Crayford focuser (new version)
+            </a>
+            <time class="post-date" datetime="2026-10-20">
+              Oct 20, 2026
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://aeberbach.github.io/blog/26-09-30-rudder-software/" class="post-link">
+              Code for a Raspberry Pi Pico HID Rudder device.
+            </a>
+            <time class="post-date" datetime="2026-09-30">
+              Sep 30, 2026
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://aeberbach.github.io/blog/26-09-18-zola/" class="post-link">
+              Switching to Zola
+            </a>
+            <time class="post-date" datetime="2026-09-18">
+              Sep 18, 2026
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://aeberbach.github.io/blog/24-08-23-amigakeyboardsv2/" class="post-link">
+              Amiga A1200 and A600 keyboards, version 2
+            </a>
+            <time class="post-date" datetime="2024-08-23">
+              Aug 23, 2024
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://aeberbach.github.io/blog/22-06-29-a1200leds/" class="post-link">
+              Amiga 1200 LED assembly
+            </a>
+            <time class="post-date" datetime="2022-06-29">
+              Jun 29, 2022
+            </time>
+          </li>
+        
+      </ul>
+    </section>
+  
+
+  <!-- Categories Section -->
+  
+  
+</div>
+</aside>
+        <div class="content">
+          
+<article class="blog-post">
+  <header class="post-header">
+    <h1 class="post-title">Crayford focuser (new version)</h1>
+
+    <div class="post-meta">
+      <span class="post-byline">
+        <time class="post-date" datetime="2026-10-20">October 20, 2026</time>
+      </span>
+
+      <span class="post-reading-time">5 min read</span>
+
+      
+    </div>
+
+    
+
+    <!-- Monumental Blood Red Rule -->
+    <hr class="monumental-rule" />
+  </header>
+
+  
+  <figure class="post-hero">
+    <img src="https://aeberbach.github.io/images/2026-10-20-new-crayford/geared_side.jpeg" alt="Crayford focuser (new version)" />
+  </figure>
+  
+
+  
+
+  <div class="post-content">
+    <p><em>(The model that this article is about can be downloaded at <a rel="external" href="https://www.printables.com/model/1867218-125-crayford-focuser-for-telescopes-v2">my Printables</a>)</em></p>
+<p>It's both a great and not-so-great time for having a telescope. On one hand I now live in downtown Toronto, a very, very bright place - seeing a star is rare enough to remark upon, against the glow of the city. Thousands of satellites are zooming around every which way and will photobomb pretty much any observation. But 3D printing just keeps getting better and it has never been easier or cheaper to get a decent telescope built.</p>
+<p>I don't have a great image with satellite trails - but you likely know the problem, and if not take a look at <a rel="external" href="https://www.astro-deep-sky.astrolucyhu.com/?pgid=b061de7d-f2ba-41de-9017-30ad53702166_4aa50e59-9654-4b5f-9e6e-137a10f69673">AstroLucyHu</a>.</p>
+<p>I'm using a <a rel="external" href="https://www.prusa3d.com/product/prusa-core-one/">Prusa Core One</a> right now and am very happy with it. I'm expecting my 8-head <a rel="external" href="https://www.bondtech.se/indx-by-bondtech/?v=5435c69ed3bc">INDX</a> system and a couple of other upgrades to ship soon. Of course there have been videos showing that in early versions not everything works quite as it should but I am confident part of the delay is fixing those issues. Also I am back using Solidworks which feels good. As a student I can buy a Student license and have encountered none of the horrible forced-cloud or restrictions I complained about when using the "Maker" version.</p>
+<p>This design is a revision of the older focuser design I made. When I did that first one I was still doing things in the wrong order, not always designing with printability in mind and definitely making things too complicated. The idea behind this redesign is to reduce the number of cuts, supports and critical sections where the print may be thin or overcomplicated. The bearings bolts are a good example. In the old design the nuts were slots cut into the side of the tube, and they ended up too close to the inside of the tube so that the print would often break through. This wasn't terrible if you wanted to push the nuts out of the slots, but was unintentional. Instead I now use longer (25mm) bolts so that the bolt heads and nuts don't come so close to the inner wall of the tube. Also the nuts insert alonmg the axis of the bolt; much easier both to insert and to get them out.</p>
+<figure>
+    <a href="https://aeberbach.github.io/processed_images/simpler_bearings.3a8e862e7f2c3b13.jpg" ><img src="https://aeberbach.github.io/processed_images/simpler_bearings.34c07ea4a2068935.jpg" alt="Simpler bearings" /></a>
+    <figcaption>Simpler bearings</figcaption>
+</figure>
+<p>The drawtube used to use a single bolt to hold the eyepiece in place. Now there is a cap that screws down, compressing a split ring against the eyepiece tube. This will not mar the tube like a metal bolt will. It is also tool-free and at least as secure as the single bolt, with the eyepieces I have.</p>
+<p>A part I have had in waiting for a while is a vernier drive <a rel="external" href="https://www.royalsignals.org.uk/jackson_bros_caps/4832unit.htm">D Type 2 Speed Drive Unit</a>, and I really wanted to redesign the focuser to make use of this. It's not expensive, comes complete with knurled aluminium knobs but it is very long... I experimented with a few ideas but it would have required a substantial redesign, cutting back the pinion block and housing as much as possible or else it would stick out a long way. And therefore would not have been much use to anyone that did not buy the drive unit. For now I have put that back in the junk box perhaps to be used another day.</p>
+<p>Then there is the large range of drives from <a rel="external" href="https://orenelliottproducts.com/product-category/drives/">Oren Elliot Products</a>. When I look at this I think of photos of the Gebrüder HAFF factory that is in my compass set... rows of lathes and experts driving them. Unfortunately they are a little out of my price range. From all reports they are sikly smooth and do not disappoint.</p>
+<p>I looked in the junk box again and found a couple of GT2 pulleys, 3D printers have made these and belts in any size very easy to get. I settled on a 4:1 ratio and added a focus knob driving through a 250mm belt. It's completely optional though, leave it off if not wanted.</p>
+<figure>
+    <a href="https://aeberbach.github.io/processed_images/geared_side.9f27fb74b3e1751c.jpg" ><img src="https://aeberbach.github.io/processed_images/geared_side.d3caabd470bea2e5.jpg" alt="Geared focus knob" /></a>
+    <figcaption>Geared focus knob</figcaption>
+</figure>
+<p>Then I added a mount for a stepper motor on the back of the focuser, using the same pulleys but requiring a 250mm belt (it's a little further away than the manual geared focuser). Again leave it off if not required. This stepper could be driven by software, there is plenty of free software available. I'm going to hook up a Nintendo Wii Nunchuck controller to at least give me focus without touching the telescope. It might also be interesting to make the telescope aim via the joystick... eventually.</p>
+<figure>
+    <a href="https://aeberbach.github.io/processed_images/zoom_and_stepper.e1ab951155574929.jpg" ><img src="https://aeberbach.github.io/processed_images/zoom_and_stepper.584b222387ae448c.jpg" alt="Stepper motor attached" /></a>
+    <figcaption>Stepper motor attached</figcaption>
+</figure>
+<p>For this project (and the Flight Sim Rudder before it) I've been using the cheapest black PETG I can buy - around $15 per roll. It is fine as long as it is dry, Toronto is very different to Melbourne in this regard. In Melbourne there isn't a huge amount of difference year-round and PETG just prints. In the Toronto summer the humidity can be high according to my cheap instruments (right now 61%), or down around 20% in the winter. Winter is a great time for printing, in summer you definitely benefit from using filament that has been stored in dry conditions. As mentioned the Prusa INDX system has been reported as having big problems with filament that is not exactly like the Prusament that they also sell - I hope I don't find myself with 15 rolls of unusable filament when that upgrade eventually arrives...</p>
+
+  </div>
+
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      <span class="tags-label">Tags:</span>
+      <div class="tag-list">
+        
+        <span class="tag">telescope</span>
+        
+        <span class="tag">3D printing</span>
+        
+      </div>
+    </div>
+    
+
+    <div class="post-navigation">
+      <a href="https://aeberbach.github.io/blog" class="back-to-blog">← Back to Blog</a>
+    </div>
+  </footer>
+</article>
+
+        </div>
+      </main>
+      <footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <p class="copyright">
+        © 2026 Adam Eberbach. All rights reserved.
+      </p>
+      <p class="theme-credit">
+        Powered by <a href="https://www.getzola.org" target="_blank" rel="noopener">Zola</a>
+        • <a href="https://github.com/jdrhyne/volks-typo" target="_blank" rel="noopener">Volks-Typo Theme</a>
+      </p>
+    </div>
+
+    <div class="social-links">
+      <a href="https://aeberbach.github.io/blog/rss.xml" class="social-link" aria-label="RSS feed">
+        <span class="social-icon" style="-webkit-mask-image: url('https://aeberbach.github.io/icons/rss.svg'); mask-image: url('https://aeberbach.github.io/icons/rss.svg');" aria-hidden="true"></span>
+      </a>
+      
+      <a href="https://mastodon.online/@aeberbach" class="social-link" aria-label="Mastodon" target="_blank" rel="noopener">
+        <span class="social-icon" style="-webkit-mask-image: url('https://aeberbach.github.io/icons/mastodon.svg'); mask-image: url('https://aeberbach.github.io/icons/mastodon.svg');" aria-hidden="true"></span>
+      </a>
+      
+      <a href="https://github.com/aeberbach" class="social-link" aria-label="Github" target="_blank" rel="noopener">
+        <span class="social-icon" style="-webkit-mask-image: url('https://aeberbach.github.io/icons/github.svg'); mask-image: url('https://aeberbach.github.io/icons/github.svg');" aria-hidden="true"></span>
+      </a>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <script>window.VOLKS_SEARCH_URL = "https://aeberbach.github.io/search/";</script>
+    <script src="https://aeberbach.github.io/search.js?h=86f8110b674a65e81dce"></script>
+  </body>
+</html>
