@@ -7,7 +7,49 @@
       <generator>Zola</generator>
       <language>en</language>
       <atom:link href="https://aeberbach.github.io/tags/3d-printing/rss.xml" rel="self" type="application/rss+xml"/>
-      <lastBuildDate>Tue, 20 Oct 2026 00:00:00 +0000</lastBuildDate>
+      <lastBuildDate>Wed, 28 Oct 2026 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Reworking brake hall effect modules</title>
+          <pubDate>Wed, 28 Oct 2026 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://aeberbach.github.io/blog/26-10-28-rudder-brake-module/</link>
+          <guid>https://aeberbach.github.io/blog/26-10-28-rudder-brake-module/</guid>
+          <description xml:base="https://aeberbach.github.io/blog/26-10-28-rudder-brake-module/">&lt;p&gt;&lt;em&gt;(The model that this article is about can be downloaded at &lt;a rel=&quot;external&quot; href=&quot;https://www.printables.com/model/1860677-rudder-pedals-pendular-differential-braking-for-fl&quot;&gt;my Printables&lt;/a&gt;)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;If you&#39;re building the rudder pedals you might like to see a little more detail on the hall effect modules that make the brakes work. The brakes operate by pushing the top of the pedal so that the pedal rotates around its spindle, just like in a car. Inside the rotating part is a magnet that comes closer to the hall effect sensor causing the output voltage to change.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://aeberbach.github.io/processed_images/rudder-pedal.217e5f6f065d6e55.png&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/rudder-pedal.01527ea504c939ec.png&quot; alt=&quot;One rudder pedal&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;One rudder pedal&lt;/figcaption&gt;
+    &lt;br&gt;
+&lt;/figure&gt;
+&lt;p&gt;The hall effect sensor mounts with one M3 bolt inside the pedal collar. This collar fits over the steel pedal shaft and attaches to the arm using two M3 bolts. By loosening these bolts the collar can be rotated, and since the collar includes to blocks that define the limit of travel for the pedal that changes the angle of the pedal, you can set them up how you like them.&lt;/p&gt;
+&lt;p&gt;In the full video showing construction of the rudder pedals I used some plain strip board to mount the hall effect sensor, a 3-legged device in a case very similar to the familiar TO-92 transistor - though it is actually called a &quot;LPG&quot; package. The problem with strip board is that the bolt coming down through the strips can create electrical circuits where they should not exist. To try and avoid that I beveled the hole drilled for the bolt and made sure to put the strips on the opposite side to the bolt head.&lt;/p&gt;
+&lt;p&gt;On updating my second rudder unit (it&#39;s a long story, but two different printers, workshops, countries even) I found a better way. It starts with a different kind of prototype board.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://aeberbach.github.io/processed_images/board.b467c7ef6709bf1e.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/board.d19bf865a37b1e02.jpg&quot; alt=&quot;Simple prototype board&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Simple prototype board&lt;/figcaption&gt;
+    &lt;br&gt;
+&lt;/figure&gt;
+&lt;p&gt;There is no continuous circuit here, just a bunch of solder positions. If the bolt head comes down on them no big deal. This is really convenient for what I&#39;m doing here because it allows me to solder the sensor in place, add a capacitor, wire the right connections to the pads at the edge of the board and thereafter just solder to those pads.&lt;/p&gt;
+&lt;p&gt;I cut a little rectangle from the edge of the board with a dremel cutoff wheel, keeping three of those big useful solder pads and 3x5 holes. In the central row, second hole from the pads, I drilled a larger hole for the M3 bolt. With the bolt in place this positions the last three holes so that a hall effect sensor soldered here is positioned correctly to pass through the slot and be in the right position to sense the magnet in the pedal assembly. After a little bit of cleaning with a file it is ready to assemble.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://aeberbach.github.io/processed_images/hall-effect-sensors.0d4dff6d3072b24d.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/hall-effect-sensors.c9580a5457f941ba.jpg&quot; alt=&quot;Hall effect sensor mounted on long leads to pass through collar slot&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Hall effect sensor mounted on long leads to pass through collar slot&lt;/figcaption&gt;
+    &lt;br&gt;
+&lt;/figure&gt;
+&lt;p&gt;The datasheet for the DRV5056 contains the note &quot;TI recommends connecting this pin to a ceramic capacitor to ground with a value of at least 0.1µF.&quot; - so, I added a 0.1uF SMD capacitor, size 0805, between these pins. (There&#39;s enough room for a through-hole part, if you use a small one.) If I was then trying to solder to the pins of the sensor directly this would be a problem because if the soldering takes slightly too long the capacitor can easily get hot enough to melt solder on both sides, then you have a cpaacitor stuck to your soldering iron and have to start again. Mounting the hall effect sensor, soldering 30 gauge kynar-insulated wire to the pads and then adding the capacitor between 5V and GND was easy. Then the wires get soldered to the pads and some kapton tape ensures that they don&#39;t spring up immediately the solder on the pad is melted.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://aeberbach.github.io/processed_images/module-back.d16187b9d0f02343.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/module-back.bad694fc7ed40f29.jpg&quot; alt=&quot;Hall effect brake module with caapcitor&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Hall effect brake module with caapcitor&lt;/figcaption&gt;
+    &lt;br&gt;
+&lt;/figure&gt;
+&lt;p&gt;After that it&#39;s easy - with the module installed in its pedal collar, the wires that come down through the pedal arm can be tacked to the pads. After folding the wire so that there is enough slack to allow rotation of the collar for pedal angle adjustment it is loosely fastened to the arm, and the pedal assembly can be fitted with spring and put together.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://aeberbach.github.io/processed_images/installed-sensors.d73941a4e23080ba.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/installed-sensors.dacacb33189cf2cd.jpg&quot; alt=&quot;Sensor module mounted&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Sensor module mounted&lt;/figcaption&gt;
+    &lt;br&gt;
+&lt;/figure&gt;
+</description>
+      </item>
       <item>
           <title>Crayford focuser (new version)</title>
           <pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate>
@@ -22,6 +64,7 @@
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/simpler_bearings.3a8e862e7f2c3b13.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/simpler_bearings.34c07ea4a2068935.jpg&quot; alt=&quot;Simpler bearings&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Simpler bearings&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;The drawtube used to use a single bolt to hold the eyepiece in place. Now there is a cap that screws down, compressing a split ring against the eyepiece tube. This will not mar the tube like a metal bolt will. It is also tool-free and at least as secure as the single bolt, with the eyepieces I have.&lt;/p&gt;
 &lt;p&gt;A part I have had in waiting for a while is a vernier drive &lt;a rel=&quot;external&quot; href=&quot;https://www.royalsignals.org.uk/jackson_bros_caps/4832unit.htm&quot;&gt;D Type 2 Speed Drive Unit&lt;/a&gt;, and I really wanted to redesign the focuser to make use of this. It&#39;s not expensive, comes complete with knurled aluminium knobs but it is very long... I experimented with a few ideas but it would have required a substantial redesign, cutting back the pinion block and housing as much as possible or else it would stick out a long way. And therefore would not have been much use to anyone that did not buy the drive unit. For now I have put that back in the junk box perhaps to be used another day.&lt;/p&gt;
@@ -30,11 +73,13 @@
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/geared_side.9f27fb74b3e1751c.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/geared_side.d3caabd470bea2e5.jpg&quot; alt=&quot;Geared focus knob&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Geared focus knob&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;Then I added a mount for a stepper motor on the back of the focuser, using the same pulleys but requiring a 250mm belt (it&#39;s a little further away than the manual geared focuser). Again leave it off if not required. This stepper could be driven by software, there is plenty of free software available. I&#39;m going to hook up a Nintendo Wii Nunchuck controller to at least give me focus without touching the telescope. It might also be interesting to make the telescope aim via the joystick... eventually.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/zoom_and_stepper.e1ab951155574929.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/zoom_and_stepper.584b222387ae448c.jpg&quot; alt=&quot;Stepper motor attached&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Stepper motor attached&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;For this project (and the Flight Sim Rudder before it) I&#39;ve been using the cheapest black PETG I can buy - around $15 per roll. It is fine as long as it is dry, Toronto is very different to Melbourne in this regard. In Melbourne there isn&#39;t a huge amount of difference year-round and PETG just prints. In the Toronto summer the humidity can be high according to my cheap instruments (right now 61%), or down around 20% in the winter. Winter is a great time for printing, in summer you definitely benefit from using filament that has been stored in dry conditions. As mentioned the Prusa INDX system has been reported as having big problems with filament that is not exactly like the Prusament that they also sell - I hope I don&#39;t find myself with 15 rolls of unusable filament when that upgrade eventually arrives...&lt;/p&gt;
 </description>
@@ -127,20 +172,24 @@ So, with the values all ready to go how do they get to the computer? USB is a co
           <description xml:base="https://aeberbach.github.io/blog/24-08-23-amigakeyboardsv2/">&lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/A600-complete.f39fec000ed9089a.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/A600-complete.f326da5e1be9530d.jpg&quot; alt=&quot;A600 with new keyboard&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;A600 with new keyboard&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/A1200-complete-lid-closed.20365dd8441870bd.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/A1200-complete-lid-closed.df4a55d663511841.jpg&quot; alt=&quot;A1200 with new keyboard&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;A1200 with new keyboard&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/A1200-cap-height-right.bfd5dbd13148ae0f.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/A1200-cap-height-right.874bd9571d7218f2.jpg&quot; alt=&quot;A1200 - cap height is perfect&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;A1200 - cap height is perfect&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;Some time ago I designed a replacement Amiga 1200 keyboard using MX keyswitches. Shortly after that I made one for the Amiga 600 also. They worked great, mostly. There were a couple of problems though: - MX key switches are taller than the original switch mechanism, so keycaps sit up too high - Amiga key caps with correct legend and size are really hard/expensive to get - Caps Lock key with a window to show the original LED is almost impossible to get - the mount I designed for the Amiga 1200 fitted badly&lt;/p&gt;
 &lt;p&gt;Then recently, Amibay user &lt;a rel=&quot;external&quot; href=&quot;https://www.amibay.com/members/steveed.32005/&quot;&gt;steveed&lt;/a&gt; solved the keycap problem, spending hours organising kits of Amiga-perfect keycaps from Signature Plastics. They are great! With these available I was inspired to redo the keyboards, without them I probably would not have.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/keycaps-packaged.1b6f60e775c1a07d.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/keycaps-packaged.0bc9fe8a7ffa3b0d.jpg&quot; alt=&quot;Set of new Amiga keycaps from steveed&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Set of new Amiga keycaps from steveed&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;This post is about the result of that work, showing off the new A600 and A1200 keyboards.&lt;/p&gt;
 &lt;h2&gt;Physical construction&lt;/h2&gt;
@@ -148,27 +197,32 @@ So, with the values all ready to go how do they get to the computer? USB is a co
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/nuphyAir75v2.dc285de730374a7d.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/nuphyAir75v2.ae6a6ee7d2dc5718.jpg&quot; alt=&quot;Nuphy Air 75 V2&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Nuphy Air 75 V2&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;These switches only come in a 3-pin mount, one large central locating pin (also the housing for the internal spring) and two electrical pins. Because they do not have two extra side pins to set the location these would be very hard to mount straight if not using a plate - also because of the stabilizers available a plate is a must. These stabilizers mount level with the switch top, not the PCB. I looked into having a plate made but a simple laser-cut sheet is expensive, and won&#39;t work without some material under it providing thickess and room for the stabilizer wires, so if I have to print something may as well print the whole thing? The decision was helped by finding some &quot;Milky White&quot; PLA filament that prints sharp and is a great color match for the A1200 case. Also the availability of an ultra-reliable Prusa MK4 helped.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/ks-33-layout.95010c7af9b43551.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/ks-33-layout.ccc2aa19403f1de6.jpg&quot; alt=&quot;Pattern for KS-33 layout is simpler&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Pattern for KS-33 layout is simpler&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;Designing the PCB was a little easier after having done a couple of keyboards already. Position of the keys was already known, and routing the traces again was not hard, made easier by not having those two locating pins on every switch. The connector and FFC ribbon remain the same from the old version.&lt;/p&gt;
 &lt;p&gt;Caps lock was always a problem. I once tried drilling a hole in a Caps Lock key and filling it with clear silicon to make a key with a window but it never really worked well. You just can&#39;t buy windowed keys that match the rest of the keys any more. A red glow under the Caps Lock key was visible, but not ideal.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/drilled-window-caps.b9f4cb981d535878.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/drilled-window-caps.7d7cb27a76416805.jpg&quot; alt=&quot;Keycaps with drilled windows, one with translucent silicon window&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Keycaps with drilled windows, one with translucent silicon window&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;To solve this I looked to a chip I read about recently, a Dual Inverter capable of supplying (or sinking) enough current to light LEDs. The idea is that the output of one inverter is chained to the other. When the input is high the output of the first inverter is low and the second is high. Make the input low and the output of the first inverter is high while the second is low. This means that with LEDs attached to those inverters one will be on at any given time.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/inverter-leds.d13bb665e1b384ab.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/inverter-leds.6b259cc4ac1b7dff.jpg&quot; alt=&quot;SN74LVC2ZGU04 dual inverter with LEDs on A600 PCB&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;SN74LVC2ZGU04 dual inverter with LEDs on A600 PCB&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;Normally the Amiga shows a red LED when power is on. What I have done is take the Caps Lock signal from the Amiga and use it as the input to the inverter. When off it is high, so the red power LED, cathode connected to the first inverter, is on. When caps lock is on then no current flows through the red LED, but the blue LED, cathode connected to the second inverter, is lit. With these two side by side and visible through the translucent light pipe the effect is of a single lamp changing color. This LED section of the keyboard replaces the separate LED board in the A600 or A1200, and plugs into the same 4- or 5-pin header on the Amiga.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/A1200-complete-caps-lock.487658f90b70613d.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/A1200-complete-caps-lock.1878b96bd9a5b717.jpg&quot; alt=&quot;A1200 complete with new keyboard A1200 complete, caps lock on&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;A1200 complete with new keyboard A1200 complete, caps lock on&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;Now when you open the A600 there are two cables to unplug before you can lift the top free, keyboard and LED. In the A1200 there are no cables to unplug. Don&#39;t know about you but I have forgotten the LED board many times when taking the lid off the A1200 and have broken the cable once. If you don&#39;t want to use this new LED idea the old LED is still there under the Caps Lock key and you can just break out the LED section of the keyboard PCB, it&#39;s routed so that it will snap out. If you do want the LED section but no color changing Caps Lock function, load one 0R resistor, leave off the inverter and blue LED parts, and the LEDs all work as normal.&lt;/p&gt;
 &lt;h2&gt;Keyboard Plates&lt;/h2&gt;
@@ -176,16 +230,19 @@ So, with the values all ready to go how do they get to the computer? USB is a co
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/A600-Inventor.fb8813092b99192a.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/A600-Inventor.0200662e9bb0a2cf.jpg&quot; alt=&quot;A600 Assembly render from Inventor showing front plates and mounting rails&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;A600 Assembly render from Inventor showing front plates and mounting rails&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;Nobody makes an 8U/9U keyboard stabilizer now of course, and A600 uses an 8U space bar while A1200 uses a 9U. For this I needed to take a 2U stabilizer, discard the wire and bend a new wire using 1.0mm music wire from the hobby store. If this is not accurately bent the space bar will not bounce back up when you depress it, or will feel different when pressed on either side. If you think you will be bending more than one, make a jig. You will probably be bending more than one unless you make the jig though, because by hand it is very unlikely to be right first time! This is a square section of steel with a 1.0mm hole drilled 133.0mm from the edge. You definitely need a centre punch and cutting oil for this. When a wire has one end bent at a right angle and that end is inserted in the hole with the wire laying along the steel bar, bending it over the edge will make a good 133.5mm space bar wire. Not shown is the notch on the other side of the bar that lets me trim the bent ends to a consistent length, also very important.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/space-wire-bending-jig.0e65344a4532e6dc.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/space-wire-bending-jig.85e8af0717e69d5c.jpg&quot; alt=&quot;8U/9U space bar stabilizer wire bending jig&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;8U/9U space bar stabilizer wire bending jig&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;The plates are 3mm thick in places and 0.5mm thick in others. The 3mm sections support key switches, slightly off the PCB, so that less of the switch pins poke through the PCB. Stabilizers are also supported by the plate and they snap in before everything is constructed with the wires hidden from view. The 0.5mm sections tie the 3mm sections together which is important to locate everything relative to the other parts. Where the plate contacts the top of the Amiga case it is in a 0.5mm section. This means the bottom of the keyboard PCB is 1.6mm (PCB) + 0.5mm (plate) down from the bottom of the case - there&#39;s a lot more room inside the case as a result. The supporting bar and the FFC connector protrude a bit but they should be well out of the way. My PiStorm32-Lite is installed with room to spare.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/under-keyboard-A1200.de9db946c717f6ab.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/under-keyboard-A1200.7e01c93cc9ba3737.jpg&quot; alt=&quot;PiStorm32-lite using Raspberry Pi 4 fits easily under this keyboard in A1200&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;PiStorm32-lite using Raspberry Pi 4 fits easily under this keyboard in A1200&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;h2&gt;Mounting the Keyboard&lt;/h2&gt;
 &lt;h3&gt;A1200&lt;/h3&gt;
@@ -193,34 +250,40 @@ So, with the values all ready to go how do they get to the computer? USB is a co
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/left-rail-A1200.e7cee0cc3d1b87d8.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/left-rail-A1200.c8beef55bc2ef0c4.jpg&quot; alt=&quot;Left mount fits into moulded ridges at side of case&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Left mount fits into moulded ridges at side of case&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;Or so I thought! Someone asked why the mounts were not universal, and I couldn&#39;t think of a reason. By making the slots just a bit wider I came up with one that would fit in either case and saved a ton of work checking which version I needed to print and install and which to supply as spares.&lt;/p&gt;
 &lt;p&gt;To keep the A1200 keyboard from flexing over its 450mm span the plate helps a little bit but an aluminium bar is still required to make it stiff enough. In the old version the keyboard could bounce slightly off the supporting bar - a little bit of double sided tape helped. The new version uses a right-angle extrusion and has five mounting points along the bar so it does not move around at all. The one shown here is slightly rough as it is the first one I made, yellow Kapton tape is under it for insulation.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/A1200-keyboard-rear.9273126026d7dc3d.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/A1200-keyboard-rear.5961a0de4bfcd4a5.jpg&quot; alt=&quot;Rear of keyboard showing aluminium extrusion, mounting pieces and rivets&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Rear of keyboard showing aluminium extrusion, mounting pieces and rivets&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;For the A1200 case top the only variation is the width of the light pipes - I have been sending the light pipe assembly for both cases. Having a gap either side of the light pipe looks bad, and having it not fit at all is worse.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/A1200-light-pipes-front.ce2aea5032080b9d.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/A1200-light-pipes-front.d48eb3dbbe6112d3.jpg&quot; alt=&quot;A1200 front panel showing light pipes (A1200.net case)&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;A1200 front panel showing light pipes (A1200.net case)&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;The entire thing is put together with plastic rivets. I first bought these for another project. They make assembly quicker, they are non-conductive, the are compact, this is a perfect place to use them. M3 bolts and nylock nuts would work as well, if that&#39;s what you have.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/lower-mount-A1200.ab713d12b5c313d3.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/lower-mount-A1200.a32df9d7da06c206.jpg&quot; alt=&quot;A1200 lower mount showing switches, stabilizers&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;A1200 lower mount showing switches, stabilizers&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;h3&gt;A600&lt;/h3&gt;
 &lt;p&gt;In the A600 the keyboard mounts between one long claw and two short claws opposing on the top of the case. The design of the plates is such that the top and bottom mount pieces sandwich the PCB and plates and fit between these claws with the top piece locating the keyboard exactly in the width of the case. These interlock, and since they are printed in PLA a very tiny dab of cyanoacrylate glue is enough to keep everything together. Do not use ultra-thin glue here as it will wick through the whole PCB and possibly destroy the entire keyboard. Do not use too much!&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/A600-gluing-rails.46a3483fa876e00a.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/A600-gluing-rails.9c278802f04b9fab.jpg&quot; alt=&quot;Gluing mounting rails on the A600 keyboard&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Gluing mounting rails on the A600 keyboard&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;Fitting the keyboard is exactly like the original - flexing the top of the case slightly makes it easy to put the keyboard in its place. Once it is pushed in under the claws and you can see that the top notch is sitting between the F key apertures it&#39;s in.&lt;/p&gt;
 &lt;p&gt;Light pipes in the A600 are much simpler, just small pieces of translucent PETG to push into the LED holes.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/A600-leds-front.1575016816857106.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/A600-leds-front.9f3adb9bcc58f626.jpg&quot; alt=&quot;A600 LEDs&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;A600 LEDs&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;h3&gt;Cables&lt;/h3&gt;
 &lt;p&gt;In the original design the FFC cable and Right-angled FFC connector were only available from one place, Mouser Electronics. Only a 32-way 178mm cable could be bought, also the only FFC connector available was 32-way. 178mm is a bit too long but the next shortest was far too short, and there are too many conductors as the A1200 requires 31 and the A600 requires 30. I got around this by trimming either one or two conductors from the Amiga side of the cable and just tucking in the extra length where it would fit.&lt;/p&gt;
@@ -269,41 +332,49 @@ Also there is now a version that uses the Big-Ass Enter Key (BAEK) and a wider l
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/5-mouser-pins.6b356e1935a1fe09.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/5-mouser-pins.1a214645942d555e.jpg&quot; alt=&quot;Pins from Mouser&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Pins from Mouser&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Originally I decided to try a friction fit where the widest part of the pin (&quot;barrel&quot;), above the pin itself, would fit so tightly into the printed housing that it would not come out when inserted and removed from a socket. This wasn&#39;t a terrible plan but getting the pins fitted required a lot of force and after a few bent pins it clearly wasn&#39;t going to be a reliable method. Then I decided to try the split front approach on the basis that the barrel was still the largest part of the pin and could be sandwiched between the two parts.&lt;/p&gt;&lt;p&gt;(Maybe there are pins that would have been easier to design for, I did not find them.)&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/images/2021-08-26-amiga-db23/1-wires-through.jpeg&quot;&gt;&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/1-wires-through.1b39721f7f561401.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/1-wires-through.9d2232dfcaaa1b32.jpg&quot; alt=&quot;Wires thread through first&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Wires thread through first&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;The wires thread through the back printed assembly. Know your crimper - mine is an &lt;a href=&quot;https://www.engineertools-jp.com/pa092021&quot;&gt;Engineer PA-20&lt;/a&gt;. Get the connector in exactly the right spot in the tool and the wire fully inserted before crimping or the pin bends like a banana.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/images/2021-08-26-amiga-db23/2-pins-back.jpeg&quot;&gt;&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/2-pins-back.72c057f165f3635e.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/2-pins-back.6d61b7b7ac09c6b4.jpg&quot; alt=&quot;Pins push into back assembly&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Pins push into back assembly&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Once crimped, the wire and pin pass back though the holes and the barrel is seated.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/images/2021-08-26-amiga-db23/3-pins-front-back.jpeg&quot;&gt;&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/3-pins-front-back.318adbc772764f72.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/3-pins-front-back.ce8efa3c46baa9ac.jpg&quot; alt=&quot;Pins go into front piece&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Pins go into front piece&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;The pins all need to be inserted through the front printed part. Chamfers around the tops of the holes help to align but there is a fair bit of friction here. Best to put the shroud facing down on a flat surface and push gently down once sure the pins are aligned in the holes.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/images/2021-08-26-amiga-db23/4-front-back-together.jpeg&quot;&gt;&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/4-front-back-together.6f8015b93e23822e.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/4-front-back-together.9b4e5d3a00ffa8f1.jpg&quot; alt=&quot;Pieces push together&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Pieces push together&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Once together the two pieces are held together by the shell ridges. The pins are held in place between the two pieces.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/images/2021-08-26-amiga-db23/6-shell-open.jpeg&quot;&gt;&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/6-shell-open.7be5df6b21f49acf.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/6-shell-open.0ef134dae6a4813a.jpg&quot; alt=&quot;Shell open&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Shell open&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Functionally complete, next thing was to make it robust. I made a shell that uses two ridges top and bottom (four total) to retain the front and back pin assembly in the joined position. The final step was a cable clamp to make sure insertion and removal does not tug any of the wires out of its pin.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/images/2021-08-26-amiga-db23/7-connector-bottom.jpeg&quot;&gt;&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/7-connector-bottom.deaaf8d4adbeed21.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/7-connector-bottom.5792f3f8e5a7c2ac.jpg&quot; alt=&quot;Connector bottom&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Connector bottom&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Doing this made it obvious why we now use USB for nearly everything, so many wires! I was lucky to have picked up a 20 metre cable someone was throwing out, this 25-conductor stuff is expensive if you can even find it.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/images/2021-08-26-amiga-db23/8-connector-top.jpeg&quot;&gt;&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/8-connector-top.726f732373d3beae.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/8-connector-top.e278d84d1e5a648c.jpg&quot; alt=&quot;Connector finished&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Connector finished&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;(Thanks to the anonymous person that gave me the pictured cork floppy disk coaster, I use it constantly.)&lt;/p&gt;&lt;/p&gt;
 </description>
@@ -318,26 +389,31 @@ Also there is now a version that uses the Big-Ass Enter Key (BAEK) and a wider l
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/8_inch_lcd.6972f1a0afbb415a.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/8_inch_lcd.da89e1c789f94596.jpg&quot; alt=&quot;First Mac Image&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;First Mac Image&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;That&#39;s actually not a bad image. Compared to the CRT it is super sharp! Of course it could be slightly bigger, but as I said in the last post it&#39;s time to move forward, replacing the screen later won&#39;t be too hard if it is affordable.&lt;/p&gt;&lt;p&gt;3D modeling is something I&#39;ve been doing since I needed to make the &lt;a href=&quot;https://acontentch.github.io/posts/2019-07-18-a1200-kbd-9&quot;&gt;keyboard mounting rails&lt;/a&gt; for the Amiga 1200. When I started I used Fusion 360 and it&#39;s reasonably good. I always found the Autodesk web site incredibly dense and corporate and very hard to find out what you are actually allowed to do. My reading was that the license for hobbyists like myself was free as long as I wasn&#39;t making $100k annually - no risk of that. Then they changed it so that there is no such license. Now it&#39;s still free for hobbyists but there can be something like 8 &quot;active&quot; designs at any one time. Another thing about Fusion360 is that it is cloud-based. You might have the fastest CPU(s) that can be bought but Fusion360 will keep you waiting while your design goes up to the cloud, gets procesed and (eventually) you get an STL that you can print. Seriously it is slow, many minutes to generate a simple STL sometimes.&lt;/p&gt;&lt;p&gt;When Shapr3D came along for the iPad I really wanted to like it. I still have an active subscription but there are some things it just can&#39;t do. One big thing is there&#39;s no timeline. Undo works but you can&#39;t roll back features along a timeline like a professional package can. When iOS software became available on Mac desktop I tried again for a bit but it just isn&#39;t for me. Unless this changes pretty quickly I don&#39;t think I am going to subscribe again.&lt;/p&gt;&lt;p&gt;A few years ago a friend had me do some design in Solidworks, using a legitimate license. I loved it and I always wanted to be using Solidworks again. I looked at the license options (website density approximately equal to AutoDesk) and found that student licenses were free, there were startup options with discounts but nothing for me. Then I found the Experimental Aircraft Association! Members get to use a student version of Solidworks! Of course I joined immediately.&lt;/p&gt;&lt;p&gt;(I love aircraft too - and if I don&#39;t make use of one of their member discounts for some flight control gear I might just print my own, having designed it with Solidworks. And having some FPGA experience I don&#39;t think I&#39;ll be using an Arduino to make it work. Rotary encoders would be ideal...)&lt;/p&gt;&lt;p&gt;Having forgotten a lot of what I learned about Solidworks I followed the directions provided by the EAA to &lt;a href=&quot;https://www.youtube.com/user/timcallinan&quot;&gt;Tim Callinan&#39;s YouTube channel&lt;/a&gt; - his playlist on Solidworks is fantastic. There&#39;s a lot of other good content there too. Buy Tim a beer through his donation link (I did).&lt;/p&gt;&lt;p&gt;Solidworks knowledge refreshed and all sketches fully-defined, I designed the display mount for the Macintosh. Basically I made a solid rougly the 2D outline of the CRT front. I made a curved sketch on one axis and then a curved path on the orthogonal axis. The extruded loft of the first curve follows the second curve with the result being a shape that is just like the curved front of a glass CRT, so it fits into the curved front of the Mac nicely. With that done it was a matter of adding mounting lugs, and cutting out the window of the Macintosh from the front.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/images/2021-07-01-mac-video-3/refining.png&quot;&gt;&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/refining.515c81c81865d041.png&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/refining.e375d691646006f9.png&quot; alt=&quot;Refining the design&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Refining the design&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;If you design an object without considering how it will print you can find you need supports, then you waste plastic printing those, you have to spend a lot of time cleaning up the print and getting rid of the supports. Purely mechanical objects can often be designed so that they need no supports. Partly for that reason I made the mount in two parts, both printing flat and with no supports. The first part is basically a frame that mates up to the Mac bezel from the inside with the two-axis curve and allows the visible part (but not the metal surround) of the display to be seen. I printed white first, but black looks better.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/images/2021-07-01-mac-video-3/complete.png&quot;&gt;&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/complete.8dd5e70d3289c1bb.png&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/complete.90f9ed77f1360b18.png&quot; alt=&quot;Assembly complete&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Assembly complete&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;The other half contains a recess that fits the body of the LCD display so that when the frame is sandwiched against it everything is help in place. There is a raised ridge that the frame fits into so that everything is snugly held in position. Given that the four Torx bolts were designed to hold a relatively very heavy CRT I think this is going to be a very secure mount. I printed this in Prusa Orange, you can&#39;t see it when the Mac case is closed anyway.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/images/2021-07-01-mac-video-3/back_angle.png&quot;&gt;&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/back_angle.6b62b7f5b1902819.png&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/back_angle.a64361a891336bfd.png&quot; alt=&quot;Assembly complete&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Assembly complete&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;At the back of this assembly a slot allows the LCD display&#39;s ribbon cable to poke through ready to connect to a circuit board. When I design that PCB I will be able to locate the FFC connector in exactly the right place. I&#39;d better get on with designing that board.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/images/2021-07-01-mac-video-3/front.png&quot;&gt;&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/front.8a876651d2cfa7b2.png&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/front.85f8c12294282e2e.png&quot; alt=&quot;Assembly complete&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Assembly complete&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;And the front looks like this. And now the hard part, making an image appear on that screen.&lt;/p&gt;&lt;p&gt;(This got finally edited and posted after Solidworks changed to the useless cloud-based &quot;maker&quot; license, after I posted in disgust about how bad Solidworks had become, after I started a B.Eng at RMIT. When you&#39;re a student you get access to some great software including all of Solidworks again. As I already have a degree in CS I&#39;m finding the programming parts of this new degree incredibly basic, but the mathematics is challenging. And I forgot how much fun group assignments aren&#39;t.)&lt;/p&gt;
 </description>
@@ -353,6 +429,7 @@ Also there is now a version that uses the Big-Ass Enter Key (BAEK) and a wider l
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/base-support.b8bc4acd22053130.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/base-support.504495ff7fa8f46c.jpg&quot; alt=&quot;In the case&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;In the case&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;The new designs on &lt;a href=&quot;https://github.com/aeberbach/A1200KB&quot;&gt;GitHub&lt;/a&gt; are designed to sit better in place on the ribs that strengthen the case. At the front the supports are designed to both support the bottom of the keyboard PCB and to direct air that enters through the front vents under the keyboard PCB into the body of the machine. Behind the PCB an aluminium bar (10x3mm section) supports the span of the keyboard and is insulated with a 3D-printed strip that also serves to support the board. Generally it is a bit neater and better fitting, a product of getting more familiar with the design tools and the 3D printer.&lt;/p&gt;
 </description>
@@ -367,46 +444,55 @@ Also there is now a version that uses the Big-Ass Enter Key (BAEK) and a wider l
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/all.11628c8089436374.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/all.77a613a56d14435b.jpg&quot; alt=&quot;The Amiga Desk&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;The Amiga Desk&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;I don&#39;t like the keyboard on the MBP so I wanted to use an external keyboard and I much prefer an external mouse to a trackpad. Using a keyboard with the MBP open requires just a bit too much depth with a big mechanical keyboard in front of it. Also I noticed on conference calls that those using their machines flat on the desk had the camera pointing more or less straight up their noses, so it would be better to raise it up a bit on a stand.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/protractor.0144eea39c8c5a8b.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/protractor.daa3a1c1906dcfae.jpg&quot; alt=&quot;Brass Protractor&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Brass Protractor&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;(Of course you need a massive, vintage brass protractor to accurately measure a MBP.)&lt;/p&gt;&lt;p&gt;Stands, like monitors, office chairs and hand sanitizer all sold out about a month ago, so I made one. I measured the angle of the MBP and designed the stand so that fully open the screen would be just tilting back a little, leaving some room for camera angle adjustment.&lt;/p&gt;&lt;p&gt;I made a simple stand to hold the MBP open at the correct angle by 3D printing two side pieces. They are joined by PVC pipe with an outside diameter of 21.5mm (Holman water pipe). This will also allow the stand to be used on other models if I should get a wider one (surely I need an upgrade to the 16&quot; model?)&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/mbp-stand.e46d42b44d300dd2.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/mbp-stand.71797bd779d688f0.jpg&quot; alt=&quot;MacBook Pro Stand&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;MacBook Pro Stand&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;This raises the screen high enough in the air to make long-term use more comfortable, reduces the required desk depth a little and makes the angle of the built-in camera better for conferencing. That was the MBP, keyboard and mouse problem solved.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/mbp-on-stand.8907924e18cd9d26.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/mbp-on-stand.e76c73a52b56e4b3.jpg&quot; alt=&quot;MacBook Pro on Stand&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;MacBook Pro on Stand&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Xcode is fine on one full screen, but then switching back and forth to keep abreast of the discussions in chat and the emails and everything else got a bit tedious. I decided to use the iPad Pro as a second screen, and this post is about that stand.&lt;/p&gt;&lt;h2&gt;iPad Pro&lt;/h2&gt;&lt;p&gt;An iPad Pro is a fantastic screen. I bought a 2018 model when they were released and have not regretted it at all. For the occasional movie, for large and readable music (forScore) or books (iBooks) or PDFs (PDF Expert) and even 3D modelling (Shapr3d) it&#39;s amazing. And now with macOS Catalina &quot;Sidecar&quot; it can be as good as an external monitor for a Mac, and sharper than most monitors. if connected via USB-C cable it is completely lag-free.&lt;/p&gt;&lt;h2&gt;Elevation&lt;/h2&gt;&lt;p&gt;With the MBP up on a stand the iPad isn&#39;t in a good position to be a second screen as it sits down low on the table. It needs to sit up next to the MBP so that you can naturally slide the mouse cursor over. It could stack up on some books, but most covers don&#39;t offer a lot of angle adjustment so if having two things side-by-side at different angles bothers you then you will be adjusting your MBP to match. But if using the camera it is the MBP whose screen must choose the angle, too bad if the iPad stand can&#39;t match that. Making the stand angle adjustable would be best. An iPad is pretty heavy though so a simple pivot wouldn&#39;t hold it in place.&lt;/p&gt;&lt;h2&gt;Pivot&lt;/h2&gt;&lt;p&gt;I settled on using two ends for the stand as with the MBP, connected with pieces of the same water pipe. The base has two lower holes that accept water pipe, and an upper hole that is somewhat larger. Into that larger hole snaps the arm that supports the iPad. Once pipe is inserted in this pivot the arm can&#39;t work itself loose.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/angle-adjustment.5e25c0a451e5714c.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/angle-adjustment.caae33861768ff59.jpg&quot; alt=&quot;Angle Adjustment&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Angle Adjustment&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;The lower end of the arm has a M10x1.5 thread into which fits a matching 3D printed bolt that can be tightened to clamp through a groove in the stand base. Thus the arms can be fixed at any angle over the range of allowed movement. This picture also shows the groove into which the iPad slides. I keep mine in the Apple Keyboard Case, which sets the required width of the groove in this part.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/side-assembly.53627cdf507094f7.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/side-assembly.52246cc0cc75af42.jpg&quot; alt=&quot;Side Assembly&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Side Assembly&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Another reason for making the arms and base separate components is that they are approaching the maximum print size of my Prusa printer. At this size it&#39;s a fairly lengthy print, using a 0.6mm nozzle at .30mm layer height takes around three hours (and the base parts take even longer). As resolution increases, printed threads become more usable right off the printer but in this case it was fine to print it rough, minimizing print time, and then I used a tap and die to improve the modelled threads in the arm and printed bolt to be as smooth as I could want.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/tapping.1692f3313143760a.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/tapping.b8ec8161bfd33456.jpg&quot; alt=&quot;Tapping the Thread&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Tapping the Thread&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;I&#39;m very happy with the finished stands. There is always something to make better but since we&#39;re now talking about relaxing things a bit and possibly going back to the office in a month or two, I can live with it like this.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/compact-workspace.6b38d2de86fc67fb.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/compact-workspace.6a8d040b01f9642a.jpg&quot; alt=&quot;Compact Work Space&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Compact Work Space&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;h2&gt;Cheap tools&lt;/h2&gt;&lt;p&gt;This 40-piece set cost less than $70 - I don&#39;t think I will ever use it on anything harder than plastic, so it will do.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/tapdieset.f19d0dc0a7a78e0f.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/tapdieset.03f8552a51c6e011.jpg&quot; alt=&quot;Tap and Die Set&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Tap and Die Set&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;
 </description>
@@ -425,12 +511,14 @@ I bought the kit from Amiga on the Lake when it was available for under fifty bu
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/workbench.9095672e3a16ce63.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/workbench.c8fbcc8993002588.jpg&quot; alt=&quot;Power Supply&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Power Supply&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;h2&gt;Internal Power Supply&lt;/h2&gt;
 This has been the subject of another post, but briefly the floppy drive is gone and a MeanWell RPT-60B module sits in its place. The power switch and mains cable socket are mounted in a 3D printed assembly that also holds the 9-pin mouse socket. Way nicer than having a power brick attached!
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/powersupply.653b12f744131ef6.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/powersupply.9a4ccc771feddf23.jpg&quot; alt=&quot;Power Supply&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Power Supply&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;h2&gt;Floppy shuffle&lt;/h2&gt;
 With the power supply there is no room for an internal floppy. Not that one is needed often, but you do occasionally want need a DF0: to exist. After some schematic investigations I shuffled the drive select signal so that the first drive connected to the external connector is DF0:, then the one connected to the daisy chain of that first drive is DF1:, and so on. It’s easy to do with some short wires and by lifting some of the port resistors at the back of the board.
@@ -438,65 +526,76 @@ With the power supply there is no room for an internal floppy. Not that one is n
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/shuffle.83945f6ed23f0bfb.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/shuffle.5a334f9bc36c105d.jpg&quot; alt=&quot;Shuffling the drive ID&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Shuffling the drive ID&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;h2&gt;Mouse&lt;/h2&gt;
 An optical unit from AmigaKit. I don’t know how we ever used ball mouses, so horrible. One complaint I have is that it is way too light compared to all the other mice I use (containing batteries etc.) - so I might have to open it up and add some weights.
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/ports.8228671af0bb377b.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/ports.a3cc692ee2a07b0b.jpg&quot; alt=&quot;Slightly more modern ports.&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Slightly more modern ports.&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;h2&gt;Indivision AGA MK2 CR&lt;/h2&gt;
 These are out of production now and hard to find. I looked for months and finally found one for not too much (though still way over their new cost back when they were available). But it is worth it - without it there would be no way to get the best out of the giant monitor. Though there is an annoying mode change flicker, and there is an overlay when changing modes, I now run a Workbench at a reasonable size. SO much better than using an OSSC - even with a great quality SCART cable I think this is better. The OSSC is excellent if you want a zero-delay arcade-accurate solution but I care as much about text.&lt;/p&gt;&lt;p&gt;The DVI connector that comes with this card carries an analog signal too so the monitor connects easily, using a DVI-VGA physical adapter from the junk box. Because the power connector and input power filter was removed from the motherboard there is room, after moving a couple of capacitors, for a 3D-printed unit to bring this DVI socket out to the back of the case.
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/indivision.6653266ea354b62a.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/indivision.2f053f53fc2751cb.jpg&quot; alt=&quot;Individual Computers Indivision AGA MK2 CR&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Individual Computers Indivision AGA MK2 CR&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;h2&gt;Monitor&lt;/h2&gt;
 It’s an Apple Studio Display, 21” from the blue &amp;amp; white G3 years. Not to be moved without careful planning! It’s so big the base only barely fits on the shelf without overhang. But it’s pretty amazing quality, a Trinitron tube with the two horizontal wires of the aperture grille just visible. This monitor connected via USB to the Macs of the time and adjustment was through software. The only physical controls are contrast and brightness, power and the colour button on the left (which appears to do nothing with no Mac connected). I expect I will be replacing capacitors in this monitor sooner or later but it will be worth it. There are a couple of monitors I would rather have, like the Graphite version or perhaps the legendary Sony GDM-FW900, but I&#39;m not going to find one of those.
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/monitor.538ac9aa8050e3d3.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/monitor.bfdb3a8177ec1ecd.jpg&quot; alt=&quot;Blueberry Apple 21&amp;quot; Studio Display&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Blueberry Apple 21&amp;quot; Studio Display&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;h2&gt;Keyboard&lt;/h2&gt;
 The Amiga 1200 keyboard was just mush and the years did not improve it. Again this was the subject of another post, but this is the third revision of my A1200 keyboard replacement PCB using Cherry MX switches. It mounts inside the Amiga with some 3D-printed rails and an aluminium rod for stiffness. I’m using genuine Cherry MX brown switches on this one - perhaps a little better than the Gateron clones and of course they cost more. The MX keyswitches are not compatible with Amiga keys so I had to make a few from blanks with laser toner and a cheap laser engraver. Not perfect but OK for now. Unfortunately my timing was bad, just as I was about to investigate having keys made it was the Golden Week holiday, now this Coronavirus lockdown has happened, but I will talk to some manufacturers about having a full international Amiga MX set produced soon - maybe crowdfunded?
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/keyboard.0d4163c46ebeac2e.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/keyboard.a5a42dd267023ea2.jpg&quot; alt=&quot;My A1200 keyboard in place&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;My A1200 keyboard in place&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;h2&gt;Speakers&lt;/h2&gt;
 Apple M6082 are classic beige speakers, not from Commodore but at least from around the time of the Amiga. The beige/colour logo style is probably my favourite Apple has gone through. They are a good size and sound great - once you replace the drivers. The diaphragm in these units had basically fallen away around the edge of the speaker so I replaced the drivers with car speakers. One day I might get the original speakers re-coned. Lots of inputs if you want to use them with other sources too.
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/m6082.e3e40a969237771d.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/m6082.7f9264030a04e117.jpg&quot; alt=&quot;AppleDesign Powered Speakers&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;AppleDesign Powered Speakers&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;h2&gt;Desk&lt;/h2&gt;I have had this ladder-shelf thing for a while. It’s a bit like an IKEA Ivar shelf unit but much more solid, American Cherry timber. We had a kitchen made recently and the cutout from the messmate benchtop left over when the sink was fitted was a good size - trimmed it up, used two sliding drawer units and the Amiga just slides away when not in use.
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/all.11628c8089436374.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/all.77a613a56d14435b.jpg&quot; alt=&quot;Complete&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Complete&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;h2&gt;PCMCIA&lt;/h2&gt;
 By far the easiest way to get data onto an Amiga is to use a Mac. The Mac will download Amiga archives, decompress them and put them onto a FAT-formatted compact flash easily. On the Amiga the fat95 and cf133 packages (see aminet) mount this card once inserted in the PCMCIA adapter. When I bulk downloaded a lot of software it made it easy for me to decompress and arrange all the files so that I could put the CF in the Amiga and see all the icons at the top level. “The Unarchiver” handles .lha files just like any modern archive and there’s even a command line version to download if you are scripting.
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/pcmcia.47424d24fb59e02d.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/pcmcia.f92ba444ca88269d.jpg&quot; alt=&quot;PCMCIA&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;PCMCIA&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;h2&gt;4xEIDE’99 buffered disk interface&lt;/h2&gt;
 Apparently there are better IDE interfaces, certainly there are faster ones. This works well enough for me and makes two drives possible. I have the two CF cards on the primary interface and the secondary is free in case I want to add another unit. It does need software installed for anything but the primary master interface to work correctly.
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/cfassembly.1f68e3af01f71413.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/cfassembly.58b99459432d3881.jpg&quot; alt=&quot;Drive interface and drive stack&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Drive interface and drive stack&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;h2&gt;Two CF card slots&lt;/h2&gt;
 I’m not a big fan of cutting holes in a case to fit extras. However there was already a hole in this one, looks like someone had made space for a ribbon cable to exit to an external drive. So enlarging it to make a place for two CF card readers to sit seemed reasonable. The only good CF card readers I found on eBay were intended to mount in a PC case but are no bigger than the others once the backplane metal is removed. To make a nice compact unit I removed jumpers and soldered one as master, one as slave, then stacked them running the power pins through both to power both from one cable. Unlike many eBay CF adapters these work correctly with the system drive activity LED. A 3D-printed assembly holds them both nicely in place.
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/cfoutside.8618069fb4ac411a.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/cfoutside.525ad2073d2bb7a7.jpg&quot; alt=&quot;CF Cards accessible&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;CF Cards accessible&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;h2&gt;Microbotics MX1230A&lt;/h2&gt;
 The accelerator came with the Amiga, but was 33MHz. After replacing all of the capacitors on the card I obtained a 50MHz CPU, FPU and crystal, also a 5V 32x32 128M SIMM to max it out. The SIMM is recognised as 64M only - my theory is that this is related to Workbench version since the card looks to be in top condition, no chance of an address circuit being out. I would like to check it but I have no schematic for the card and no time to see if this actually works as 128M under the Workbench current at the time of this card&#39;s release. The included SetXA/AutoXA programs tell me there is no Microbotics card installed but the MMULib software from aminet installs fine; no issues accessing 68030 instructions, WHDLoad can access the 64M of memory. 64M is plenty of memory for what I need though it would be better to see all of it of course. There are 68040 and 68060 options available but when I had an Amiga many years ago 68030 is what I wanted, so that’s what I have.
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/microbotics.927f783bcfad5751.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/microbotics.32f2a2056a94c3c2.jpg&quot; alt=&quot;Microbotics M1230XA&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Microbotics M1230XA&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;h2&gt;Optical Drive&lt;/h2&gt;
 Nah, there’s no optical drive, it’s 2020!
@@ -516,11 +615,13 @@ Very simple. The dimensions of the trapdoor and the inside ridge are the same as
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/outside.274ad1973a947c8c.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/outside.344ae49af9a0cc4e.jpg&quot; alt=&quot;Outside&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Outside&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;Twisting the knob with the screw slot causes the latch to twist and prevents the trapdoor falling out. Twisting it back lets you remove it.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/inside.f3ec1d25056bb263.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/inside.4a626ba3c2774654.jpg&quot; alt=&quot;Inside&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Inside&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;I printed this on a Prusa MK3S with an 0.25mm nozzle. The one you can see here is printed at the roughest setting available but still took 6 hours or so - must put that 0.6mm nozzle back on and see how it looks. And how Vanilla White behaves with that one too.&lt;/p&gt;
 &lt;h2&gt;Where can I get one?&lt;/h2&gt;
@@ -545,6 +646,7 @@ With a much smaller space to work in and a very simple clip-to-mount scheme ther
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/PCB.b8ffb66307fd5e34.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/PCB.250df1fb2fc48057.jpg&quot; alt=&quot;PCB&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;PCB&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;h2&gt;First test&lt;/h2&gt;
 With a 3.2mm substrate the solder remains fairly flat to the board, with the keyswitch pins only just protruding from the plated through holes. This is great because it&#39;s fairly easy to clean off the flux residue with cotton buds and alcohol, no sharp pins tearing the cotton apart.
@@ -553,6 +655,7 @@ With a 3.2mm substrate the solder remains fairly flat to the board, with the key
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/test-fit.a8a56ff663eec399.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/test-fit.5cdb3e96990e71f1.jpg&quot; alt=&quot;Test&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Test&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;h2&gt;Mounting&lt;/h2&gt;
 One long, and two small, plastic clips hold the keyboard to the top case of the A600. These essentially give the PCB the depth that it doesn&#39;t have compared to the original keyboard module, so it fits in to the clips exactly the same way. Unfortunately there is so little room in the Amiga that the programming headers on the F2R16 module stick up and obstruct the PCB when it is fitted into the clips, so I had to remove them - will have to replace them before reprogramming or work out a way to keep them low.
@@ -561,6 +664,7 @@ One long, and two small, plastic clips hold the keyboard to the top case of the 
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/mounting.5567ef091d8b8014.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/mounting.330baa2c59c661dd.jpg&quot; alt=&quot;Mounting&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Mounting&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;h2&gt;Keycaps&lt;/h2&gt;
 Weird keycaps are familiar to anyone that has tried to replace Amiga keys. The A600 makes this even worse, with 1.5U Esc key, 1U BS, 1U Del, 1.5U Shift etc. - these are impossible to buy. Then you get to the 1.25U Help, 2U Tab, 1.25U F and Amiga keys - also unobtainable. I decided to make some.
@@ -572,17 +676,20 @@ One of Commodore&#39;s weirdest features has always been the space bar. I&#39;m 
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/printed-spacebar-unit.a86558850969b186.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/printed-spacebar-unit.7dcff8f6bca4a0fa.jpg&quot; alt=&quot;Space unit&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Space unit&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;I did not expect the 3D printer to be able to consistently produce prints that would allow the key stabilisers to work smoothly, but it does. The whole thing fastens to the PCB with two M3 nuts and bolts. You can buy wire for 7U stabilisers but I didn&#39;t have any so again bent a used bicycle spoke. At 1.8mm this is the perfect substitute wire. Just bend accurately and at a good right angle or you get a spacebar that will go down but doesn&#39;t come back up.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/spacebar-in-place.a406d4a6a651eeff.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/spacebar-in-place.f1f2509bb3d41a77.jpg&quot; alt=&quot;Space unit in place&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Space unit in place&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;h2&gt;The result!&lt;/h2&gt;
 This is it! If I&#39;m ever going to get back to the Infocom text adventures or Amiga assembly code I might have to do it on an A600. This keyboard really feels good.
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/complete.95afbbce7d5317b6.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/complete.c24fc710c25d4c6b.jpg&quot; alt=&quot;Complete&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Complete&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;h2&gt;Where can I get one!?&lt;/h2&gt;
 Chances are I have none for sale - but you can ask. More likely you will need to go to my &lt;a href=&quot;https://github.com/aeberbach/A600KB&quot;&gt;repository on GitHub&lt;/a&gt; and have the PCBs made yourself. This is pretty expensive if you have one made, much more affordable if you can get 5 others who will pitch in and want a PCB too. You will also need to download the STL files and print the 3D-printed parts yourself. Apart from PCB and printing, you need 78 MX PCB-mount switches, a 32-way FFC connector (Mouser part number 538-52044-3245), a 32-way ribbon cable (Mouser part number 538-15168-0400), stabilisers, keycaps and one 3mm LED.
@@ -599,26 +706,31 @@ Chances are I have none for sale - but you can ask. More likely you will need to
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/voltage-converter.ac7f228b2c0ed7b3.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/voltage-converter.ec6001a7229ac1bf.jpg&quot; alt=&quot;12V output, done dirt cheap&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;12V output, done dirt cheap&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;So with that in mind I set out to make a 3D model of the underside of the drill these batteries connect to. It took three prototypes before I had one that would let the drill pack click in snugly without rattles, but on that third one I just decided to finish it and did everything down to the full case with holes for the headphone jack, coil plug and the lid. The final print was fantastic - having a 5 hour window for the print meant I selected best quality options and both lid and case turned out great. Or well enough anyway. PETG always seems to have a lot of stringing.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/images/2019-11-09-minipulse2/housing.jpeg&quot;&gt;&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/housing.71828673a84a99e8.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/housing.3492a201d8a1e11e.jpg&quot; alt=&quot;Boxy. Like a Volvo 244DL&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Boxy. Like a Volvo 244DL&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;(On the way home to this print I stopped at the hardware store to pick up some 20mm electrical conduit for the wand - I found &quot;20mm&quot; PVC pipe before I got tot he electrical section so I got that instead - be warned, &quot;20mm&quot; PVC is internal diameter, &quot;20mm&quot; electrical conduit is outside diameter. Oh well the white stuff that is too big will be useful one day.)&lt;/p&gt;&lt;p&gt;Next up is the coil. Some years ago I printed a coil former with the aim of building a low capacitance coil, separating the coil windings and achieving a 90 degree crossing of the wires as much as possible. To protect this coil it needs a housing and the entire coil assembly needs to be adjustable to it stays relatively flat to the ground, that angle being adjustable depending on the user&#39;s height. The coil is 200mm diameter so any housing is very close to the capacity of my 3D printer...&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/images/2019-11-09-minipulse2/coil-housing.jpeg&quot;&gt;&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/coil-housing.1b3c4f3405df5bf3.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/coil-housing.2bfd9e7f5f2e26b1.jpg&quot; alt=&quot;Coil housing&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Coil housing&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;The angle adjustment is achieved by having interlocking vanes with a 3D-printed bolt holding it all together. It&#39;s a good idea to keep metal away from the coil so while I could have bought a much stronger nylon bolt and nut, I just printed a thread on the bolt and on the last plate of the fingers so that the coil angle can be adjusted and the bolt tightened. Fusion 360 makes this incredibly easy - just pick the &quot;Thread&quot; tool under the Create menu and make sure both tapped hole and bolt have the same kind of thread applied. I thought I would be looking up thread measurements and applying formula for hours here. The thread print takes a while, obviously the better it is printed the smoother the thread will be.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/images/2019-11-09-minipulse2/coil-pivot.jpeg&quot;&gt;&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/coil-pivot.46b8db98365e63af.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/coil-pivot.3402206d5f5667dd.jpg&quot; alt=&quot;Coil pivot&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Coil pivot&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Unless your printer is really dialled in, 3D printed threads don&#39;t work all that well unless you touch up the threads with a real tap &amp;amp; die set.&lt;/p&gt;&lt;p&gt;Joining all the parts is the 20mm orange electrical conduit. Tarzan&#39;s Grip glue is great for joining this to printed parts. Because it expands to fit space by absorbing moisture it fills gaps. If the fit between conduit and printed part is something that is going to be held in place by expansion, like a printed cylinder fitting inside the conduit, it&#39;s secure. One piece of conduit acts as the wand of the detector, joining the coil pivot to the handle. Another is hidden, coming from the other side of the handle into the metal detector housing.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/images/2019-11-09-minipulse2/handle.jpeg&quot;&gt;&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/handle.b91b859fd45e48d6.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/handle.595b8040eebeb089.jpg&quot; alt=&quot;Handle&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Handle&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;And the result is this. It&#39;s far from finished, but it is ready to use. When I rework this design I will try to decrease the size of the box, probably by making the battery mount from the rear as it does on the line cutter.&lt;/p&gt;
 </description>
@@ -633,45 +745,54 @@ Chances are I have none for sale - but you can ask. More likely you will need to
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/main_body.b3dc74b6f2a7d2ef.png&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/main_body.df79c0f1f0d732fe.png&quot; alt=&quot;Main body of case&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Main body of case&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;With Fusion360 I made a few versions of a housing for the Pi with an attached compartment for the power supply module. The IEC C8 plug snaps into place on one side and the 5V output connects via two wires to the Pi in the other compartment.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/psu_top.7c40a64c0dbcf6ab.png&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/psu_top.c364b625c8908b37.png&quot; alt=&quot;Case lid for PSU side&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Case lid for PSU side&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;There are two separate lids so that you can leave the Pi lid off if you want while keeping the mains power covered.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/pi_top.1af2798521022cee.png&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/pi_top.c2b6ceda7c18558a.png&quot; alt=&quot;Case lid for Pi side&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Case lid for Pi side&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;Powering the Pi is pretty easy since the power pins are available on the header. It would have been OK to plug the power into the top of the header but then other headers, or hats, would not fit. Instead I took some longer right-angled header pins and took out the GND and 5V pins from the main header, inserting the right angled pins instead. Then the power wire can attach on the bottom of the Pi leaving the header available.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/pwr_pins.27079f9e75693971.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/pwr_pins.26960494f2abd8d7.jpg&quot; alt=&quot;Detail of 90 degree power pins added&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Detail of 90 degree power pins added&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/power_wires.c0b20872dbedfe54.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/power_wires.b18bbab2d8cab4f4.jpg&quot; alt=&quot;Leads from PSU attach to new pins&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Leads from PSU attach to new pins&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;The power supply module connects to the mains plug on one side with the 5V wires going into the Pi side through the ventilation holes. It&#39;s held down with a cable tie.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/psu_detail.138f84ed6b1e35f5.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/psu_detail.2725a83713147823.jpg&quot; alt=&quot;Tiny 5W PSU attached with cable tie&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Tiny 5W PSU attached with cable tie&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;When all hooked up you don&#39;t need to see the power supply wiring at all. The Pi has everything available.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/ready_to_use.644bcba0c978edc9.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/ready_to_use.fc773b5e55c8caaa.jpg&quot; alt=&quot;Pin in case with PSU sealed&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Pin in case with PSU sealed&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;The big difference is you plug in a regular mains cable. No plugpacks! I used a standard C8 panel mount socket, that&#39;s the same mains cable as a Mac mini or many of the bigger plugpacks use, so plenty in the junk box.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/power_side.263854f671c6280f.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/power_side.7d1b3b1f2ea03ada.jpg&quot; alt=&quot;C8 mains socket on side of case&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;C8 mains socket on side of case&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;The main use I have for this thing is on the 3D printer itself, running &lt;A HREF=&quot;https://octoprint.org&quot;&gt;Octoprint&lt;/A&gt; - Official Pi 4 support is not ready yet but I have found the Pi 4 test builds very stable. It can do other things like &lt;A HREF=&quot;https://pi-hole.net&quot;&gt;Pi-hole&lt;/A&gt; while attached to the printer housing but it needs to be close to the printer to take care of the webcam.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/on_printer.cd49b90a6b69c9fa.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/on_printer.63393e0e3beb2c46.jpg&quot; alt=&quot;Pi mounted on printer housing&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Pi mounted on printer housing&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;You can download the STL file at &lt;a href=&quot;https://www.printables.com/model/88156-raspberry-pi-4-model-b-case-with-integrated-power-&quot;&gt;my page on Printables&lt;/a&gt; - it&#39;s free and is one of my most popular designs.&lt;/p&gt;
 &lt;h3&gt;Brief Autodesk Fusion 360 rant...&lt;/h3&gt;
@@ -694,16 +815,19 @@ I also used one of these supplies in my Commodore power brick - worked fine, and
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/PSU.0b251b0597fdad96.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/PSU.9731f1fcd1d9b767.jpg&quot; alt=&quot;Power supply unit&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Power supply unit&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;The 3D printer didn&#39;t do the best job last night. Part of the reason for making the power supply assembly in three printed parts was to avoid bridging, supports and other extruded plastic hassles. Usually the Prusa does better than this though. I will probably revise to make it more printable by using some supports, thickening in places and make it a little nicer but structurally this is fine.&lt;/p&gt;&lt;p&gt;Inside the machine I removed the original power connector and for good measure the rusty old RF modulator. Power cables come from the left side of the case to the power supply.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/inside.ff188142c4b82e45.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/inside.328e173187e8b533.jpg&quot; alt=&quot;Open Case, Rear&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Open Case, Rear&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;And that&#39;s all there is to it. The power cable enters the machine at the back right and it&#39;s easy to reach the power switch, no more bending down to the floor.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/rear.cd1c4be217a27a33.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/rear.53f6b5bc7a4fe6dc.jpg&quot; alt=&quot;New Power Socket and Switch&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;New Power Socket and Switch&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;(The case screws aren&#39;t in - it does close completely with about 1mm to spare)&lt;/p&gt;&lt;p&gt;I&#39;ll be checking this out as I go using a &lt;a href=&quot;https://www.maximintegrated.com/en/products/ibutton/data-loggers/DS1922E.html&quot;&gt;Maxim/Dallas Thermochron button&lt;/a&gt;, a compact temperature logger that can fit inside the case and record temperature over time as the machine is used. I don&#39;t anticipate any problems as the ventilation here is probably better than in the brick and this is a very efficient supply, I never noticed the brick even getting warm.&lt;/p&gt;&lt;p&gt;Of course, don&#39;t do anything like this unless you are competent and understand the risks. Making connections incorrectly or being careless could destroy your Amiga or even kill you.&lt;/p&gt;
 </description>
@@ -720,30 +844,36 @@ Well not that long as far as time between blog posts goes. Last time I had decid
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/prusa-printer.18af43eec8a618a0.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/prusa-printer.516663403f1e62da.jpg&quot; alt=&quot;Prusa i3 MK3S&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Prusa i3 MK3S&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;I&#39;ve never owned another 3D printer though I have used a couple. The really impressive thing with this machine is that you get everything right down to alcohol wipes, hex keys, pliers, filament, and an instruction manual the size of a thick glossy magazine with photography to match. You even get a pack of gummy bears. Check out any number of youtube videos for a full review of this kit but if you&#39;re wondering whether it&#39;s worth the premium over cheaper printers I&#39;d say definitely yes. Has worked well from the first print (one nozzle jam but fixed easily enough).&lt;/p&gt;&lt;p&gt;Octoprint deserves its own post, but what a great piece of software. I&#39;m using it. So much nicer to use a web interface over shuffling SD cards around.&lt;/p&gt;&lt;h2&gt;Design and build&lt;/h2&gt;&lt;p&gt;Previously pictures were shown of the aluminium mounts I made for the keyboard in the A1200.net case. I decided to stop using these and to change the design a bit for a few reasons. First, it&#39;s too hard to make, and with the machinery I have available it is a bit dangerous to be routing small pieces of aluminium angle. I sold a few boards and I wanted to be able to give those people 3D designs too, and I wanted the pieces to be easy to install.&lt;/p&gt;&lt;p&gt;I used Fusion 360 from Autodesk. It&#39;s good because it&#39;s powerful, and it&#39;s free for an individual if you derive less than $100k in revenue annually from using it. That&#39;s me. It sucks because so much of it is cloud-based. Every single time you want to export to STL you wait, and wait, and sometimes it eventually succeeds. I&#39;m using Shapr3D on the iPad Pro also - fantastic so far.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/front-with-rails.7253ea6d2bdd7523.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/front-with-rails.4b3672eb110aa8d0.jpg&quot; alt=&quot;The front&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;The front&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;In the A1200.net case there is some plastic molding right above the edge of the keyboard - that made fitting a piece of aluminium angle necessitate filing slots for those plastic fins to fit into or the case could not close. This could not continue with a 3D printed solution because plastic is just way more flexy and including slots would remove any stiffness it ever had to begin with. This problem almost had me thinking I would need to redesign the PCB.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/back-with-rails.09776351c3abc432.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/back-with-rails.1ac4f60821bf95fc.jpg&quot; alt=&quot;The back&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;The back&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Then I thought about putting a 10x3mm aluminium bar under the keyboard, supporting from behind and being supported in turn by the side rails - and it works! To avoid having a long piece of conductive metal in proximity to anything in the trap door (or the keyswitches) I printed 3cm lengths of rectangular section that fit nicely over the bar. This also raises the keyboard support so the PCB does not sag in the middle. The ends of the bar fit into the sockets on the side rail pieces, which then attach to the side of the keyboard with short M3 bolts. Finally the lower support rails attach with longer M3 bolts.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/kbd-in-case.2987389ed5f7534e.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/kbd-in-case.09e4d90101dabdd0.jpg&quot; alt=&quot;In the case&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;In the case&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;This gets the keyboard in just the right spot. DSA key profile makes it all a good fit. I also checked it out in the original Amiga case, and though I had to revise the bottom rails to clear the round bumps either side everything was fine there too. It is a tighter fit in the original Amiga case but still good. There is plenty of room to clear any trapdoor accelerator you might have. Devices like Indivision, I don&#39;t know, I don&#39;t have one.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/case-closed.b639be61a8a9b936.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/case-closed.9fbd5bcb095aeade.jpg&quot; alt=&quot;Case closed&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Case closed&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/key-profile.4158f0bd93db1565.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/key-profile.72d096a42d5b6d23.jpg&quot; alt=&quot;Key profile&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Key profile&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/a&gt;&lt;/p&gt;&lt;h2&gt;And that&#39;s it! (not really)&lt;/h2&gt;&lt;p&gt;The Amiga is now fitted with the mechanical keyboard, 4GB solid state disk module, 3.1.4 ROMs. I got a PCMCIA adapter so transferring data from the PC is no problem. But I still need:&lt;/p&gt;Hyperion 3.1.4.1 update (Amiga on the Lake have mailed me a serial number for my OS, waiting)optical mouse (ordered from Amigakit, waiting)IDE interface and multiple internal CF card adapters (Amigakit, waiting)joystick (have a basic one, but I need to build up the ultimate Sanwa I have been collecting parts for)monitor solution - got the OSSC, have not had time to do much with it yet.figure out WHDLoad and get all my favorites like Dungeon Master and FA/18 Interceptor working again.proper Amiga keycaps. Time to start experimenting with laser engraving some of the blank keycaps I bought.&lt;/p&gt;
 </description>
@@ -767,30 +897,36 @@ The first step is an easy one, getting a 5V supply using a 79L05. I confused mys
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/negative-supply.49e1321f949bf06a.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/negative-supply.fe5af99b4cc2309f.jpg&quot; alt=&quot;Negative Supply&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Negative Supply&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;h2&gt;Step 2&lt;/h2&gt;
 Another easy step! This thing will be done in no time. A 78L05 provides +5V.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/positive-supply.03cfcca5267e6239.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/positive-supply.0f2834069bbdf3d4.jpg&quot; alt=&quot;Positive Supply&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Positive Supply&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;h2&gt;Step 3&lt;/h2&gt;
 Now starts the analogue stuff so I&#39;m out of my comfort zone. I picked up a 470nF capacitor instead of the 47nF here, my only component mistake - I just don&#39;t do enough electronics to read &quot;473J100&quot; without having to stop and think. When that was fixed the test showed I was very close to the expected result - at least close enough to go on.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/tx-oscillator.c9cd60b5fffcb091.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/tx-oscillator.8598467c72b0612e.jpg&quot; alt=&quot;TX Oscillator&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;TX Oscillator&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/frequency-check.79c049a60d87e2c5.png&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/frequency-check.e9cfab59f2196b7e.png&quot; alt=&quot;Frequency Check&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Frequency Check&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/pulse-width.c31ef353d4e45b85.png&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/pulse-width.790d939f89c6fa6e.png&quot; alt=&quot;Pulse Width&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Pulse Width&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/sync-check.92dc5e25573f0047.png&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/sync-check.8cae78667cff6ec6.png&quot; alt=&quot;Sync Check&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Sync Check&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;OK, something isn&#39;t exactly right. My pulse width appears to be ~45uS. I do have a higher supply voltage, 13.8V from a fixed supply intended to power a ham radio. I don&#39;t have an adjustable supply or any batteries to do an actual 12V supply. The frequency is OK, and it&#39;s in sync with the pulse from U2, so I think it&#39;s OK to go ahead.
 &lt;p&gt;The manual also suggests putting on headphones and listening for an induced noise when the coil is close. It works!
@@ -798,12 +934,14 @@ Now starts the analogue stuff so I&#39;m out of my comfort zone. I picked up a 4
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/NE555-54us-pulse.e6b644c4275c2546.png&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/NE555-54us-pulse.60c0e1796c7fb9bc.png&quot; alt=&quot;555?&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;555?&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;h2&gt;Step 4&lt;/h2&gt;
 My coil inductance is 370uH, or at least to the degree that my very cheap &lt;a href=&quot;https://www.amazon.com/MASTECH-Portable-Digital-Capacitance-Inductance/dp/B07J2F7F7L/ref=sr_1_1?dchild=1&amp;keywords=Mastech+MY6243&amp;qid=1589974588&amp;sr=8-1&quot;&gt;Mastech MY6243 LCR Digital Multimeter, Capacitance and Inductance Tester&lt;/a&gt; can measure it. (I bought it just for this project - usually I only do digital electronics, never anything with a coil!) On this basis I did not adjust the damping resistor but I might later.
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/flyback.f2a7d7120cdf4886.png&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/flyback.b767886e3485dc2c.png&quot; alt=&quot;Flyback&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Flyback&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;That&#39;s a little high but once again I&#39;m going with it and moving on.&lt;
 &lt;h2&gt;Step 5&lt;/h2&gt;
@@ -811,6 +949,7 @@ OK, now it&#39;s time to hook up the coil since I need to measure voltages chang
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/rx-preamp.fff56033a654f83a.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/rx-preamp.4e6225a8eeb7626a.jpg&quot; alt=&quot;RX Preamp&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;RX Preamp&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;At this point some of the uneasiness from previous steps evaporated. Clearly something is working properly.
 &lt;h2&gt;Step 6&lt;/h2&gt;
@@ -818,15 +957,18 @@ This step includes the two 16-pin devices, whose sockets were the most mangled f
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/sample-pulse-generator.6d7a7a8dc43e5ca2.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/sample-pulse-generator.524e28dc609dac8c.jpg&quot; alt=&quot;Sample Pulse Generator&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Sample Pulse Generator&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/sample-pulse-delay.b7c9b385cc7247f1.png&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/sample-pulse-delay.e2648c287d545c43.png&quot; alt=&quot;Sample Pulse Delay&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Sample Pulse Delay&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;h2&gt;Step 7&lt;/h2&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/sampling-integrator.8ff26a1482e72bc3.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/sampling-integrator.da1b0b91206b4932.jpg&quot; alt=&quot;Sampling Integrator&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Sampling Integrator&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;The section parts list says it&#39;s time to use the TL062 op-amp, but a TL072 is supplied. For all intensive porpoises that&#39;s the same thing, and the full parts list makes that clear but maybe it could be mentioned in the section parts list also?&lt;
 &lt;p&gt;The test in this step is about the opposite of the one in step 5 - this time the voltage at the test point goes up rather than down as the metallic object nears the coil.
@@ -834,6 +976,7 @@ This step includes the two 16-pin devices, whose sockets were the most mangled f
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/second-integrator.dd096a47ec476f0f.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/second-integrator.6bc1ef0d7002aeec.jpg&quot; alt=&quot;Second Integrator&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Second Integrator&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;Just like in Step 7 the op-amp supplied is an equivalent, a TL071 instead of a TL061.&lt;/p&gt;&lt;p&gt;The test step here is a tricky adjustment to make on the oscilloscope, I would almost suggest doing it on the meter instead - the voltage you are watching dances around a bit and it is hard to get it at zero but it doesn&#39;t have to be exact.
 &lt;p&gt;I couldn&#39;t capture everything in this short clip so here&#39;s the explanation. The self-adjusting threshold causes the voltage at TP9 to adjust back to 0 in the absence of a moving target. The display here shows the voltage as a target (the big acetone can from previous clips) moves close to the coil, pauses and then moves away. All working!
@@ -841,10 +984,12 @@ This step includes the two 16-pin devices, whose sockets were the most mangled f
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/complete-board.7d7ea2b81ed89c31.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/complete-board.7981dbbc583cdb8a.jpg&quot; alt=&quot;Complete Board&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Complete Board&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/connected-board.05852087921a8f93.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/connected-board.2217a0230b77a78b.jpg&quot; alt=&quot;All Connected&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;All Connected&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;Oh wow, that&#39;s a horrible sound from the included mini-speaker. I guess when the sound indicates that you&#39;ve found something it&#39;s much more welcome. Anyway - it works! Obviously there is more tweaking to do and I need to go back and look at the scope, but that&#39;s a wrap. It detects metal.
 &lt;h2&gt;Conclusion&lt;/h2&gt;

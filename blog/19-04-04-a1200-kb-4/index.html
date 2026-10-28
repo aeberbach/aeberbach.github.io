@@ -239,6 +239,15 @@
       <ul class="post-list">
         
           <li class="post-item">
+            <a href="https://aeberbach.github.io/blog/26-10-28-rudder-brake-module/" class="post-link">
+              Reworking brake hall effect modules
+            </a>
+            <time class="post-date" datetime="2026-10-28">
+              Oct 28, 2026
+            </time>
+          </li>
+        
+          <li class="post-item">
             <a href="https://aeberbach.github.io/blog/26-10-20-new-crayford/" class="post-link">
               Crayford focuser (new version)
             </a>
@@ -271,15 +280,6 @@
             </a>
             <time class="post-date" datetime="2024-08-23">
               Aug 23, 2024
-            </time>
-          </li>
-        
-          <li class="post-item">
-            <a href="https://aeberbach.github.io/blog/22-06-29-a1200leds/" class="post-link">
-              Amiga 1200 LED assembly
-            </a>
-            <time class="post-date" datetime="2022-06-29">
-              Jun 29, 2022
             </time>
           </li>
         
@@ -331,17 +331,20 @@ A big concerns was how to connect a new PCB to the Amiga. The original connects 
 <figure>
     <a href="https://aeberbach.github.io/processed_images/trimmed-ribbon.645cd6d67a511c5b.jpg" ><img src="https://aeberbach.github.io/processed_images/trimmed-ribbon.6b72fddaf402b052.jpg" alt="Trimmed ribbon in Amiga ZIF socket drawing" /></a>
     <figcaption>Trimmed ribbon in Amiga ZIF socket drawing</figcaption>
+    <br>
 </figure>
 <p>Fortunately there was stock at Mouser. One style of 32-way cable is available, 15cm long, contacts on opposite sides. I bought samples and carefully snipped off one connector and found it fit in the Amiga keyboard connector as well as the original. There is also a right angle connector available though not ZIF - which is OK because this end of the cable can be left in once inserted. However the contacts opposite sides thing means the connector has to mount on the back of the PCB - but that then turns the pin order around so that the order is left to right just as I had drawn it. Apart from the cable being 5cm longer than ideal this couldn't have worked out better!</p>
 <figure>
     <a href="https://aeberbach.github.io/processed_images/keyboard-connector.35b23f857e4415b6.jpg" ><img src="https://aeberbach.github.io/processed_images/keyboard-connector.3e0c39ad971ded43.jpg" alt="Connector ready to join the board drawing" /></a>
     <figcaption>Connector ready to join the board drawing</figcaption>
+    <br>
 </figure>
 <h2>Switch placement</h2>
 While I anticipated spending a lot more time getting every individual key in position I only had to measure a few offsets. The fantastic keyboard symbol library from <a href="https://github.com/ai03-2725/MX_Alps_Hybrid.pretty">ai03-2725</a> shows key outline. Once one key in a group is placed accurately all the adjacent keys can be placed just like LEGO. A quick laser print of the overlay layer showed that all the keys lined up with the holes in the top cover with only one reference point measured per group.</p><p><a href="/images/2019-04-04-a1200-kbd-4/key-group-offsets.jpg">
 <figure>
     <a href="https://aeberbach.github.io/processed_images/key-group-offsets.fb3c1199bb175533.jpg" ><img src="https://aeberbach.github.io/processed_images/key-group-offsets.139921f9246c8146.jpg" alt="Measuring up drawing" /></a>
     <figcaption>Measuring up drawing</figcaption>
+    <br>
 </figure>
 <h2>Dealing with Amiga-sized keys</h2>
 Basically - I'm not, yet.
@@ -349,11 +352,13 @@ Basically - I'm not, yet.
 <figure>
     <a href="https://aeberbach.github.io/processed_images/cheap-keycaps.d79f956f3871e9cb.jpg" ><img src="https://aeberbach.github.io/processed_images/cheap-keycaps.ad1e9d5a9e015415.jpg" alt="Economical keys" /></a>
     <figcaption>Economical keys</figcaption>
+    <br>
 </figure>
 <p>The real fix for all these issues is to hope I can get my hands on a custom set produced by Kipper2K.</p><h2>Substrate</h2><p>The original keyboard has a metal plate supporting the plastic assembly on which springs and sliders move to operate the membrane contacts. It's stiff. I thought about reusing this plate but that would not work for a few reasons. With a PCB and MX switches on top the keyboard would be too high. I would also have to modify an original keyboard and those are a bit scarce.</p>
 <figure>
     <a href="https://aeberbach.github.io/processed_images/key-height.225225d2c873c99f.jpg" ><img src="https://aeberbach.github.io/processed_images/key-height.242c202c75cde086.jpg" alt="Economical keys" /></a>
     <figcaption>Economical keys</figcaption>
+    <br>
 </figure>
 <p></a></p><p>2mm fibreglass is available from the PCB manufacturer - is it stiff enough to span 420mm and support 90 keys? Almost certainly not, but 150mm would be stiff enough in height. If I was to support the top and bottom edge of the board with aluminium angle it should be OK - this is one of those things where you have to wait and see. I couldn't get a big sheet of FR4 to experiment, not even from the PCB manufacturer, they have nothing local - if you want anything it gets ordered from China. Getting a full run of first revision PCBs made cost about the same as buying blank sheets!</p>
 <h2>Color</h2>

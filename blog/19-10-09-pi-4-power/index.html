@@ -239,6 +239,15 @@
       <ul class="post-list">
         
           <li class="post-item">
+            <a href="https://aeberbach.github.io/blog/26-10-28-rudder-brake-module/" class="post-link">
+              Reworking brake hall effect modules
+            </a>
+            <time class="post-date" datetime="2026-10-28">
+              Oct 28, 2026
+            </time>
+          </li>
+        
+          <li class="post-item">
             <a href="https://aeberbach.github.io/blog/26-10-20-new-crayford/" class="post-link">
               Crayford focuser (new version)
             </a>
@@ -271,15 +280,6 @@
             </a>
             <time class="post-date" datetime="2024-08-23">
               Aug 23, 2024
-            </time>
-          </li>
-        
-          <li class="post-item">
-            <a href="https://aeberbach.github.io/blog/22-06-29-a1200leds/" class="post-link">
-              Amiga 1200 LED assembly
-            </a>
-            <time class="post-date" datetime="2022-06-29">
-              Jun 29, 2022
             </time>
           </li>
         
@@ -327,45 +327,54 @@
 <figure>
     <a href="https://aeberbach.github.io/processed_images/main_body.b3dc74b6f2a7d2ef.png" ><img src="https://aeberbach.github.io/processed_images/main_body.df79c0f1f0d732fe.png" alt="Main body of case" /></a>
     <figcaption>Main body of case</figcaption>
+    <br>
 </figure>
 <p>With Fusion360 I made a few versions of a housing for the Pi with an attached compartment for the power supply module. The IEC C8 plug snaps into place on one side and the 5V output connects via two wires to the Pi in the other compartment.</p>
 <figure>
     <a href="https://aeberbach.github.io/processed_images/psu_top.7c40a64c0dbcf6ab.png" ><img src="https://aeberbach.github.io/processed_images/psu_top.c364b625c8908b37.png" alt="Case lid for PSU side" /></a>
     <figcaption>Case lid for PSU side</figcaption>
+    <br>
 </figure>
 <p>There are two separate lids so that you can leave the Pi lid off if you want while keeping the mains power covered.</p>
 <figure>
     <a href="https://aeberbach.github.io/processed_images/pi_top.1af2798521022cee.png" ><img src="https://aeberbach.github.io/processed_images/pi_top.c2b6ceda7c18558a.png" alt="Case lid for Pi side" /></a>
     <figcaption>Case lid for Pi side</figcaption>
+    <br>
 </figure>
 <p>Powering the Pi is pretty easy since the power pins are available on the header. It would have been OK to plug the power into the top of the header but then other headers, or hats, would not fit. Instead I took some longer right-angled header pins and took out the GND and 5V pins from the main header, inserting the right angled pins instead. Then the power wire can attach on the bottom of the Pi leaving the header available.</p>
 <figure>
     <a href="https://aeberbach.github.io/processed_images/pwr_pins.27079f9e75693971.jpg" ><img src="https://aeberbach.github.io/processed_images/pwr_pins.26960494f2abd8d7.jpg" alt="Detail of 90 degree power pins added" /></a>
     <figcaption>Detail of 90 degree power pins added</figcaption>
+    <br>
 </figure>
 <figure>
     <a href="https://aeberbach.github.io/processed_images/power_wires.c0b20872dbedfe54.jpg" ><img src="https://aeberbach.github.io/processed_images/power_wires.b18bbab2d8cab4f4.jpg" alt="Leads from PSU attach to new pins" /></a>
     <figcaption>Leads from PSU attach to new pins</figcaption>
+    <br>
 </figure>
 <p>The power supply module connects to the mains plug on one side with the 5V wires going into the Pi side through the ventilation holes. It's held down with a cable tie.</p>
 <figure>
     <a href="https://aeberbach.github.io/processed_images/psu_detail.138f84ed6b1e35f5.jpg" ><img src="https://aeberbach.github.io/processed_images/psu_detail.2725a83713147823.jpg" alt="Tiny 5W PSU attached with cable tie" /></a>
     <figcaption>Tiny 5W PSU attached with cable tie</figcaption>
+    <br>
 </figure>
 <p>When all hooked up you don't need to see the power supply wiring at all. The Pi has everything available.</p>
 <figure>
     <a href="https://aeberbach.github.io/processed_images/ready_to_use.644bcba0c978edc9.jpg" ><img src="https://aeberbach.github.io/processed_images/ready_to_use.fc773b5e55c8caaa.jpg" alt="Pin in case with PSU sealed" /></a>
     <figcaption>Pin in case with PSU sealed</figcaption>
+    <br>
 </figure>
 <p>The big difference is you plug in a regular mains cable. No plugpacks! I used a standard C8 panel mount socket, that's the same mains cable as a Mac mini or many of the bigger plugpacks use, so plenty in the junk box.</p>
 <figure>
     <a href="https://aeberbach.github.io/processed_images/power_side.263854f671c6280f.jpg" ><img src="https://aeberbach.github.io/processed_images/power_side.7d1b3b1f2ea03ada.jpg" alt="C8 mains socket on side of case" /></a>
     <figcaption>C8 mains socket on side of case</figcaption>
+    <br>
 </figure>
 <p>The main use I have for this thing is on the 3D printer itself, running <A HREF="https://octoprint.org">Octoprint</A> - Official Pi 4 support is not ready yet but I have found the Pi 4 test builds very stable. It can do other things like <A HREF="https://pi-hole.net">Pi-hole</A> while attached to the printer housing but it needs to be close to the printer to take care of the webcam.</p>
 <figure>
     <a href="https://aeberbach.github.io/processed_images/on_printer.cd49b90a6b69c9fa.jpg" ><img src="https://aeberbach.github.io/processed_images/on_printer.63393e0e3beb2c46.jpg" alt="Pi mounted on printer housing" /></a>
     <figcaption>Pi mounted on printer housing</figcaption>
+    <br>
 </figure>
 <p>You can download the STL file at <a href="https://www.printables.com/model/88156-raspberry-pi-4-model-b-case-with-integrated-power-">my page on Printables</a> - it's free and is one of my most popular designs.</p>
 <h3>Brief Autodesk Fusion 360 rant...</h3>

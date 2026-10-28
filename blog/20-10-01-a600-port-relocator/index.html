@@ -239,6 +239,15 @@
       <ul class="post-list">
         
           <li class="post-item">
+            <a href="https://aeberbach.github.io/blog/26-10-28-rudder-brake-module/" class="post-link">
+              Reworking brake hall effect modules
+            </a>
+            <time class="post-date" datetime="2026-10-28">
+              Oct 28, 2026
+            </time>
+          </li>
+        
+          <li class="post-item">
             <a href="https://aeberbach.github.io/blog/26-10-20-new-crayford/" class="post-link">
               Crayford focuser (new version)
             </a>
@@ -271,15 +280,6 @@
             </a>
             <time class="post-date" datetime="2024-08-23">
               Aug 23, 2024
-            </time>
-          </li>
-        
-          <li class="post-item">
-            <a href="https://aeberbach.github.io/blog/22-06-29-a1200leds/" class="post-link">
-              Amiga 1200 LED assembly
-            </a>
-            <time class="post-date" datetime="2022-06-29">
-              Jun 29, 2022
             </time>
           </li>
         
@@ -328,20 +328,24 @@
 <figure>
     <a href="https://aeberbach.github.io/processed_images/side.b4c3a46aefbd5be9.jpg" ><img src="https://aeberbach.github.io/processed_images/side.0c9ff6c5a0d02efd.jpg" alt="Side ports" /></a>
     <figcaption>Side ports</figcaption>
+    <br>
 </figure>
 <p>To get around this I though of making a port relocator so that the two side ports are connected to a pair of DE-9 plugs, connected to a single stacked dual DE-9 plug at the rear of the machine. Any such plugs would need to be chopped to fit in space allowed by the A600 case, so I had to find some that would not fall apart when one lug is removed as is required for the right plug. The left plug needs less modification but still must have a corner trimmed off.</p>
 <figure>
     <a href="https://aeberbach.github.io/processed_images/side-rear.7dfea4973dbfb90a.jpg" ><img src="https://aeberbach.github.io/processed_images/side-rear.27d46792dfe27aeb.jpg" alt="From an angle" /></a>
     <figcaption>From an angle</figcaption>
+    <br>
 </figure>
 <figure>
     <a href="https://aeberbach.github.io/processed_images/rear.ea43462b13fcf060.jpg" ><img src="https://aeberbach.github.io/processed_images/rear.3a82639110c7cfb2.jpg" alt="Plug in here" /></a>
     <figcaption>Plug in here</figcaption>
+    <br>
 </figure>
 <p></a></p><p>One kind of connector that can be cut in this way is made by Amphenol, and is sold by <a href="https://www.digikey.com.au/product-detail/en/ID09S33E4GX00LF/609-5771-ND/1536372">Digikey</a> and probably other places too. The face of the connector is crimped all round to the body.</p>
 <figure>
     <a href="https://aeberbach.github.io/processed_images/chopped.c4144c5e99900fe7.jpg" ><img src="https://aeberbach.github.io/processed_images/chopped.c50d3ebf9ea5f44d.jpg" alt="Chopped connectors" /></a>
     <figcaption>Chopped connectors</figcaption>
+    <br>
 </figure>
 <p>PCB design was done in KiCAD. There is nothing but connectors, header and PCB. It is necessary to use two PCBs here because the connectors sit up above the base of the machine. Using 2.4mm substrate on the top board and a 2.54mm-spaced header including 2.54mm spacer between the boards makes the lower board able to pass under the floppy drive bulge. Using 2.4mm substrate for the lower board also should result in a nice solid assembly that has room for slim rubber feet underneath. The eighteen-pin header connects the two 9-pin ports between the boards. The four-pin header is only for extra stability, it connects to nothing.</p><p>I have not built this (that's why pictures show a cardboard mockup). If you do I would be interested to know how it works. Maybe I will one day if I get some cheap way of making simple PCBs. Most people use cables for this apparently, but then that still sticks out the right side of the machine...</p>
 <p>Find the whole project on my <a href="https://github.com/aeberbach/A600-side-port-relocator">github account</a>.

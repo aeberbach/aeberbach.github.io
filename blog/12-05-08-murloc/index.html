@@ -239,6 +239,15 @@
       <ul class="post-list">
         
           <li class="post-item">
+            <a href="https://aeberbach.github.io/blog/26-10-28-rudder-brake-module/" class="post-link">
+              Reworking brake hall effect modules
+            </a>
+            <time class="post-date" datetime="2026-10-28">
+              Oct 28, 2026
+            </time>
+          </li>
+        
+          <li class="post-item">
             <a href="https://aeberbach.github.io/blog/26-10-20-new-crayford/" class="post-link">
               Crayford focuser (new version)
             </a>
@@ -271,15 +280,6 @@
             </a>
             <time class="post-date" datetime="2024-08-23">
               Aug 23, 2024
-            </time>
-          </li>
-        
-          <li class="post-item">
-            <a href="https://aeberbach.github.io/blog/22-06-29-a1200leds/" class="post-link">
-              Amiga 1200 LED assembly
-            </a>
-            <time class="post-date" datetime="2022-06-29">
-              Jun 29, 2022
             </time>
           </li>
         
@@ -328,16 +328,19 @@
 <figure>
     <a href="https://aeberbach.github.io/processed_images/finished.11c1fa0718860309.jpg" ><img src="https://aeberbach.github.io/processed_images/finished.5b9400ab168a736c.jpg" alt="The &quot;egg&quot;" /></a>
     <figcaption>The &quot;egg&quot;</figcaption>
+    <br>
 </figure>
 <p>Physically the light is a very cheap light fitting from Bunning’s, an Australian hardware chain. Having the base and dome made it really easy. For the old build light I built a wooden base and used Liquid Nails to attach the glass dome from a discarded light fitting, way too much work. This base gives plenty more space to work in, a platform to attach hardware both sides using spacers and bolts, and plenty of space above the LEDs for a thin layer of tissue to help diffuse the light.</p>
 <figure>
     <a href="https://aeberbach.github.io/processed_images/inside.d812a77adaa4df42.jpg" ><img src="https://aeberbach.github.io/processed_images/inside.6ac81b9e5c010e53.jpg" alt="What's inside" /></a>
     <figcaption>What's inside</figcaption>
+    <br>
 </figure>
 <p>Experienced Arduino users will notice that’s not a Uno + Ethernet Shield used in construction. I used one of Sparkfun’s Ethernet Pro models, essentially a Uno + Ethernet Shield in one. This held up construction a little because I was not aware of the requirement for a FTDI USB-serial cable and had to wait for it to arrive.</p><p>The finishing touch is sound. The plush Murloc is a good match for the size of the light fitting I picked out to house the build light. And if he sits over the glass dome it’s like he’s guarding an egg… I didn’t want to have any cable between the light and the Murloc though as it would make the whole assembly fragile, so I took the Murloc’s voice box out and built it into the base.</p>
 <figure>
     <a href="https://aeberbach.github.io/processed_images/murlocguts.c4b77f6d044541dc.jpg" ><img src="https://aeberbach.github.io/processed_images/murlocguts.ed59c22dba2a5d7b.jpg" alt="Talking Murloc Guts" /></a>
     <figcaption>Talking Murloc Guts</figcaption>
+    <br>
 </figure>
 <p>The voice box should be familiar to anyone who has disassembled any talking toys, there’s a speaker, a black-blob integrated circuit on a tiny PCB, batteries and a simple button. I first took the batteries and case away and powered the Murloc sound board from the Arduino board. The button is a rubber dome bridging PCB contacts – I traced the PCB track back to the blob, noticed the other half of the contact was ground and decided to try simply pulling the pin down to logic zero. Success!</p><p>Now when the build breaks, “Rwlrwlrwlrwl!” And a minute later, “Rwlrwlrwlrwl!!” – until the build is fixed. The other outcome is that everything is fine. For that I picked a nice muted green, no pulsing, just a steady colour that won’t bother anyone. And it matches the Murloc.</p><p>If someone issues a command that isn’t recognised the light goes purple.</p><p>How’s it working? All tests show it’s fully functional. In use we’ll see whether the Murloc is too annoying, I have a feeling I should make the Murloc noise only every ten minutes or so.</p><p>In the background you can see my command window issuing curl commands to the light’s IP address. It responds to GET requests for Building, BuildGood and BuildBroken. If I need more states in future they will be easy to add, as Arduino just isn’t difficult enough to seem like an embedded system at all. Try it!
   </div>

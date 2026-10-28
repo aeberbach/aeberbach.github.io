@@ -239,6 +239,15 @@
       <ul class="post-list">
         
           <li class="post-item">
+            <a href="https://aeberbach.github.io/blog/26-10-28-rudder-brake-module/" class="post-link">
+              Reworking brake hall effect modules
+            </a>
+            <time class="post-date" datetime="2026-10-28">
+              Oct 28, 2026
+            </time>
+          </li>
+        
+          <li class="post-item">
             <a href="https://aeberbach.github.io/blog/26-10-20-new-crayford/" class="post-link">
               Crayford focuser (new version)
             </a>
@@ -271,15 +280,6 @@
             </a>
             <time class="post-date" datetime="2024-08-23">
               Aug 23, 2024
-            </time>
-          </li>
-        
-          <li class="post-item">
-            <a href="https://aeberbach.github.io/blog/22-06-29-a1200leds/" class="post-link">
-              Amiga 1200 LED assembly
-            </a>
-            <time class="post-date" datetime="2022-06-29">
-              Jun 29, 2022
             </time>
           </li>
         
@@ -328,16 +328,19 @@
 <figure>
     <a href="https://aeberbach.github.io/processed_images/keycap-profiles.d44a0eee3eba5ad1.jpg" ><img src="https://aeberbach.github.io/processed_images/keycap-profiles.8d3060c156c59f7c.jpg" alt="All the profiles" /></a>
     <figcaption>All the profiles</figcaption>
+    <br>
 </figure>
 <p>Cherry MX and compatible are by far the most popular switches available and in the last few years there has been an absolute explosion of new switch variants especially from Chinese manufacturers - who are going through what Japanese manufacturing went through and after producing a lot of absoluter crap are now offering some pretty good stuff. For what it’s worth I prefer tactile without click, brown or clear stem colors in the Cherry range. My original FILCO sold me on Cherry brown stem switches and I still think they are the best, barring Topre.</p>
 <figure>
     <a href="https://aeberbach.github.io/processed_images/cherry_key_switch_module_mx_brown_large.e04d3bbc81600067.jpg" ><img src="https://aeberbach.github.io/processed_images/cherry_key_switch_module_mx_brown_large.1c26b1221cf309f9.jpg" alt="Single Keyswitch" /></a>
     <figcaption>Single Keyswitch</figcaption>
+    <br>
 </figure>
 <p>But Amigas 1200s have a keyboard based on a membrane, a series of conductive pads bridged by a carbonized rubber foot attached to a key that is held off the pads by a spring. You press they key, the spring compresses, contact is made. Works OK; feels mushy. Some of the earlier Amigas had mechanical but later ones were built to a budget. Why not a mechanical in an A1200 though? Without an A1200 in my possession I wasn’t sure right away if this would be possible. But I did find out that the A1200 membranes are available for replacement, so obviously sometimes it’s required and disassembly is not beyond most people. A mechanical board should never need replacing. Membranes do.</p>
 <figure>
     <a href="https://aeberbach.github.io/processed_images/membrane.7aaf2d6a3873e879.jpg" ><img src="https://aeberbach.github.io/processed_images/membrane.c4d4701a4e92298d.jpg" alt="A1200 Keyboard Membrane" /></a>
     <figcaption>A1200 Keyboard Membrane</figcaption>
+    <br>
 </figure>
 <p>Compared to modern boards the A1200 is only slightly weird. Pretty much nobody makes keys for the F row wider than 1U because there are usually at least twelve keys and they align with the top of backspace. Pretty much nobody makes a space bar 9U wide like Commodore used to. The only one I am aware of is a SA profile spacebar from Signature Plastics. It’s a reality then that any replacement Amiga keyboard with MX-compatible switches will have some gaps where the smaller modern keys don’t occupy the same space. A solution would be to use keycaps whose legends don’t exactly match and to live with gaps around the keyboard maybe? Should be possible. I could live with that. (But I’m wondering how much it could cost, getting a keyset maker to produce an Amiga MX set.)</p>
 <p>Making a replacement keyboard for the A1200 is made easier by the simple passive matrix design. The membrane connects to the A1200 board by a simple ribbon with one conductor for each switch or LED connection, no electronics on the keyboard itself. To register a keypress you only have to bridge two of the 31 connectors on the ribbon cable. Of course this means keyboard ghosting is possible - press the right three keys and the system will see four - but if the aim is a true replacement I don’t see the need to do anything about that. Also I don't feel the need to improve the rollover. So the keyboard needs to connect to the same connector, and that means finding a source of 31-way FFC connectors and of ribbons to match. The advantage here is that the delicate part, the ribbon, is cheap and easily replaced.</p><p>But they're not available. Digikey, Mouser, Allied, Element14 and all the rest may have these things in the online catalog but they have no stock. So that's out. Looks like there will be some soldering involved. If I want to do a completely non-destructive keyboard replacement I could desolder the existing FFC connector. Then instead solder a 34-way header to the board, bending pins as required (and chopping off the last 3). Into that header would plug a standard 34-way cable assembly just like the floppy drive uses, connecting to a right-angle header on the PCB of my new keyboard. To enable using the original keyboard I could take the old FFC connector and connect that up to a header socket, so that when I want to use the original keyboard the adapter plugs into the socket and then the FFC ribbon goes into the original connector. Best of both worlds? Looking at the back of the A1200 PCB this certainly looks possible.</p><p>Thinking about cost I took a look at how the thing could be made. The large size of the PCB rules out using any hobbyist EDA package like the ones from Altium or Eagle, they will not do large boards without an expensive subscription. So KiCAD it must be, totally free, runs on almost every platform (not Amiga!) but some learning is required. I guess that the PCB could cost around $50, the switches should cost around $50. Maybe another $10 for the FFC connector and the cable. And a whole lot of soldering. This is looking quite possible!

@@ -239,6 +239,15 @@
       <ul class="post-list">
         
           <li class="post-item">
+            <a href="https://aeberbach.github.io/blog/26-10-28-rudder-brake-module/" class="post-link">
+              Reworking brake hall effect modules
+            </a>
+            <time class="post-date" datetime="2026-10-28">
+              Oct 28, 2026
+            </time>
+          </li>
+        
+          <li class="post-item">
             <a href="https://aeberbach.github.io/blog/26-10-20-new-crayford/" class="post-link">
               Crayford focuser (new version)
             </a>
@@ -271,15 +280,6 @@
             </a>
             <time class="post-date" datetime="2024-08-23">
               Aug 23, 2024
-            </time>
-          </li>
-        
-          <li class="post-item">
-            <a href="https://aeberbach.github.io/blog/22-06-29-a1200leds/" class="post-link">
-              Amiga 1200 LED assembly
-            </a>
-            <time class="post-date" datetime="2022-06-29">
-              Jun 29, 2022
             </time>
           </li>
         
@@ -327,11 +327,13 @@
 <figure>
     <a href="https://aeberbach.github.io/processed_images/pico-dvi.e1ebdab2a68503e4.png" ><img src="https://aeberbach.github.io/processed_images/pico-dvi.475b15e704c2b816.png" alt="Probably not good for 4K" /></a>
     <figcaption>Probably not good for 4K</figcaption>
+    <br>
 </figure>
 <p></a></p><p>What makes this work is the Programmed I/O feature of the Raspberry Pi Pico. It is a pair of simple processors each containing four state machines that run independently of the Pico's pair of ARM cores. These state machines have a tiny set of 9 instructions where every instruction takes one cycle and can achieve multiple actions - reading the state of a pin while setting the state of another for example. Very powerful! <a href="https://www.raspberrypi.com/news/what-is-pio/">What is PIO?</a></p><p>Programming for the Pico is not difficult to set up. You have C/C++ or Python environments to choose from. Python is fine if doing things that aren't pushing the capabilities of the Pico to its fullest, it's great for learning, but I'll be using C.</p><p>I have a Mac, Windows and Linux platforms available so tried them all. The Mac installation stalled at the OpenOCD stage. I never really intended to use the Mac, so moved on. The Windows installation proceeded like any Windows installation these days - take the instructions for other platforms, but add this special driver tool and add this special programmer shell, and a bunch of other stuff to make Windows work more like Linux. Which begs the question "why not just use Linux"?</p><p>So I tried installing Ubuntu on a recent Lenovo P1, a fairly powerful laptop with NVidia A2000 RTX GPU. With this GPU I expected a lot of problems and was not amazed to have to give special permission to let drivers that were not 100% ideologically pure into the install. But everything worked, right down to support for sound and the big screen and external accessories via Thunderbolt hub. And it's generally a pretty great environment. If I could get all the software on Linux that I keep Windows around for I would probably never boot Windows again. Like in macOS, the tools a developer relies on are native, not hacked onto something essentially different. Linux has really come a long way since I first installed it from floppy.</p><p>Pico installation is not hard but it is software, so things break. I found two main problems. The first was that the shell script supplied by Raspberry Pi to get all the C environment set up contained a repo that referred to submodules hosted at a defunct repo in .cz. That is now fixed, I fixed it locally by editing .gitmodules and finding those packages elsewhere. The other problem is that gdb-multiarch would not connect to the Pico via OpenOCD. I read that it was a known bug in the version included in Ubuntu 22.04 so I got a later version of gdb-multiarch (12.1) and now all is well.</p><p>Loading software to the Pico is made easy by the built-in UF2 loader. If you hold down the button on the Pico while connecting via USB it mounts as a filesystem. The .uf2 binary can be copied to the Pico causing it to reboot and begin running that code. So easy! But it's a slow process and eventually a SMD USB micro socket will break off. The best way to do this is to get another Pico and dedicate it to being a SWD probe and that makes loading software instant, and allows debugging via SWD too. Very nice. I made a quick <a href="https://www.printables.com/model/217523-raspberry-pi-pico-picoprobe-housing">housing for a Pico</a> that will be dedicated to picoprobe duties.</p><p>(I did also try out the Segger IDE under Windows with my Segger J-Link mini edu and liked the way that it connects to the Pi via SWD allowing instant software load and debug. But then I couldn't see that it offers anything more than the vscode/gcc setup. Maybe I have not tried to do anything very sophisticated yet. It's great that Segger lets individuals use this software for free but it would be nice if it didn't show nag screems quite so often. I'll try it out again in Linux perhaps.)</p><p>With the Pico able to output TMDS, requiring 8 GPIO pins, and three (hsync, vsync and pixel) GPIOs dedicated to input, that leaves enough to use two for the rotary encoder that is the brightness control, and enough to control every other aspect of the LCD including enabling voltages in the sequence shown in the datasheet. I'm thinking that the Pico will start up, enabling the LCD voltage supplies in the sequence the datasheet requires. Then it will begin a PIO process to read Macintosh video, storing that in a frame buffer owned by one of the ARM cores. The PIO process that outputs to the LCD will read from that frame buffer. As it won't have much to do while the video conversion process is going on the Pico core will be free to detect interrupts from the rotary encoder and alter the duty cycle of the LCD backlight PWM output - a brightness control. The LCD driver board incorporating the Pico is designed to sit on the back of the LCD so that the ribbon cable connects into the socket. It looks like this:</p>
 <figure>
     <a href="https://aeberbach.github.io/processed_images/pcb.67516273a8caefad.png" ><img src="https://aeberbach.github.io/processed_images/pcb.84deb6f66f7363a3.png" alt="PCB top layer" /></a>
     <figcaption>PCB top layer</figcaption>
+    <br>
 </figure>
 <p></a></p><p>When it comes back from manufacturing it will be time to get it built and then get onto the business of writing the software.</p></p>
 

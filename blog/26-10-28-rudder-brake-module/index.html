@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://aeberbach.github.io/favicon.svg" />
+    <link rel="stylesheet" href="https://aeberbach.github.io/main.css?h=dd4fb0f354fcfb80d0de" />
+    <link rel="alternate" type="application/rss+xml" title="Gray Unicorn" href="https://aeberbach.github.io/blog/rss.xml" />
+    <script src="https://aeberbach.github.io/theme-init.js?h=f7a49ca0a4e29341b5d4"></script>
+    
+    <title>Reworking brake hall effect modules</title>
+    <meta name="description" content="Building little hall effect PCBs" />
+    <meta property="og:title" content="Reworking brake hall effect modules" />
+    <meta property="og:description" content="Building little hall effect PCBs" />
+    <meta property="og:type" content="website" />
+
+    <meta property="og:image" content="https://aeberbach.github.io/images/2026-10-28-rudder-brake-module/installed-sensors.jpeg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://aeberbach.github.io/images/2026-10-28-rudder-brake-module/installed-sensors.jpeg" />
+
+
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <header class="site-header">
+  <div class="header-content">
+    <!-- Mobile hamburger button - far left on mobile -->
+    <button class="hamburger-toggle mobile-only" id="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="hamburger-line" d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path class="hamburger-line" d="M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path class="hamburger-line" d="M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <div class="site-title">
+      <a href="https://aeberbach.github.io">
+        
+        <span class="title-text">Gray Unicorn</span>
+        
+      </a>
+    </div>
+
+    <div class="header-controls">
+      <nav class="main-navigation" role="navigation" aria-label="Main navigation">
+        <ul class="nav-list">
+          
+          <li><a href="https://aeberbach.github.io/blog" class="nav-link">Blog</a></li>
+          
+        </ul>
+      </nav>
+
+      <!-- Mobile controls group - RSS and Search on right -->
+      <div class="mobile-controls">
+        
+        
+        <button type="button" class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar" title="Toggle sidebar">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="16" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+            
+            <line class="sidebar-line" x1="9" y1="4" x2="9" y2="20" stroke="currentColor" stroke-width="1.5"/>
+            
+          </svg>
+        </button>
+        <button type="button" class="theme-toggle" data-theme-cycle aria-label="Toggle theme: light, dark, or auto" title="Toggle theme">
+          <span class="theme-icon theme-icon-light" aria-hidden="true"></span>
+          <span class="theme-icon theme-icon-dark" aria-hidden="true"></span>
+          <span class="theme-icon theme-icon-auto" aria-hidden="true"></span>
+        </button>
+
+        <button class="search-toggle" id="search-toggle" data-search-trigger aria-label="Search articles">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+  <ul class="mobile-nav-list">
+    
+    <li><a href="https://aeberbach.github.io/blog" class="mobile-nav-link">Blog</a></li>
+    
+  </ul>
+</nav>
+
+<div class="search-overlay" id="search-overlay">
+  <div class="search-container">
+    <div class="search-header">
+      <input type="text" class="search-input" id="search-input" placeholder="Search articles..." autocomplete="off">
+      <button class="search-close" id="search-close" aria-label="Close search">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2"/>
+          <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+
+<script>
+  // Theme toggle: cycles light -> dark -> auto (auto follows the OS, live-updating)
+  (function () {
+    const root = document.documentElement;
+    const btn = document.querySelector('[data-theme-cycle]');
+    if (!btn) return;
+    const order = ['light', 'dark', 'auto'];
+    const mql = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function systemTheme() { return mql.matches ? 'dark' : 'light'; }
+
+    function apply(mode) {
+      root.dataset.theme = mode === 'auto' ? systemTheme() : mode;
+      root.dataset.themeMode = mode;
+      btn.setAttribute('title', 'Theme: ' + mode + ' (click to change)');
+      try { localStorage.setItem('theme', mode); } catch (e) {}
+    }
+
+    btn.addEventListener('click', function () {
+      const current = localStorage.getItem('theme') || 'auto';
+      apply(order[(order.indexOf(current) + 1) % order.length]);
+    });
+
+    // Reflect the stored/initial mode in the tooltip on load
+    apply(localStorage.getItem('theme') || 'auto');
+
+    // Keep "auto" in sync when the OS theme changes
+    function onSystemChange() {
+      if ((localStorage.getItem('theme') || 'auto') === 'auto') {
+        root.dataset.theme = systemTheme();
+      }
+    }
+    if (mql.addEventListener) { mql.addEventListener('change', onSystemChange); }
+    else if (mql.addListener) { mql.addListener(onSystemChange); }
+  })();
+
+  // Sidebar show/hide toggle (persisted; disabled on pages without a sidebar)
+  function initSidebarToggle() {
+    var btn = document.getElementById('sidebar-toggle');
+    if (!btn) return;
+
+    // The sidebar element appears later in the document than this header, so
+    // this must run after the DOM is parsed (see the dispatch below).
+    if (!document.querySelector('.sidebar')) {
+      btn.disabled = true;
+      btn.setAttribute('aria-disabled', 'true');
+      return;
+    }
+
+    var root = document.documentElement;
+    function sync() {
+      btn.setAttribute('aria-pressed', root.dataset.sidebar === 'hidden' ? 'false' : 'true');
+    }
+    sync();
+
+    btn.addEventListener('click', function () {
+      if (root.dataset.sidebar === 'hidden') {
+        delete root.dataset.sidebar;
+        try { localStorage.setItem('sidebar', 'shown'); } catch (e) {}
+      } else {
+        root.dataset.sidebar = 'hidden';
+        try { localStorage.setItem('sidebar', 'hidden'); } catch (e) {}
+      }
+      sync();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSidebarToggle);
+  } else {
+    initSidebarToggle();
+  }
+
+  // Hamburger menu functionality
+  (function () {
+    const hamburgerToggle = document.getElementById('hamburger-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const body = document.body;
+
+    if (!hamburgerToggle || !mobileMenu) return;
+
+    hamburgerToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.contains('active');
+
+      if (isOpen) {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      } else {
+        mobileMenu.classList.add('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'true');
+        body.style.overflow = 'hidden';
+      }
+    });
+
+    // Close menu when clicking on a link
+    const mobileNavLinks = mobileMenu.querySelectorAll('.mobile-nav-link');
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      });
+    });
+
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+        mobileMenu.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      }
+    });
+  })();
+</script>
+
+      <main class="main-content with-sidebar sidebar-left">
+        <aside class="sidebar"><div class="sidebar-content">
+  <!-- Bio Section -->
+  <section class="bio-section">
+    <div class="avatar-container">
+      
+        <img src="/images/profile.jpg" alt="Adam Eberbach" class="avatar" />
+      
+    </div>
+    <h3 class="author-name">Adam Eberbach</h3>
+    <p class="bio-text">Computer Science graduate, started with C and Ada. Electronics, 3D design and printing, flight sims are what I do for fun.</p>
+  </section>
+
+  <!-- Recent Posts Section -->
+  
+  
+    <section class="recent-posts">
+      <h3 class="section-title">Recent Posts</h3>
+      <ul class="post-list">
+        
+          <li class="post-item">
+            <a href="https://aeberbach.github.io/blog/26-10-28-rudder-brake-module/" class="post-link">
+              Reworking brake hall effect modules
+            </a>
+            <time class="post-date" datetime="2026-10-28">
+              Oct 28, 2026
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://aeberbach.github.io/blog/26-10-20-new-crayford/" class="post-link">
+              Crayford focuser (new version)
+            </a>
+            <time class="post-date" datetime="2026-10-20">
+              Oct 20, 2026
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://aeberbach.github.io/blog/26-09-30-rudder-software/" class="post-link">
+              Code for a Raspberry Pi Pico HID Rudder device.
+            </a>
+            <time class="post-date" datetime="2026-09-30">
+              Sep 30, 2026
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://aeberbach.github.io/blog/26-09-18-zola/" class="post-link">
+              Switching to Zola
+            </a>
+            <time class="post-date" datetime="2026-09-18">
+              Sep 18, 2026
+            </time>
+          </li>
+        
+          <li class="post-item">
+            <a href="https://aeberbach.github.io/blog/24-08-23-amigakeyboardsv2/" class="post-link">
+              Amiga A1200 and A600 keyboards, version 2
+            </a>
+            <time class="post-date" datetime="2024-08-23">
+              Aug 23, 2024
+            </time>
+          </li>
+        
+      </ul>
+    </section>
+  
+
+  <!-- Categories Section -->
+  
+  
+</div>
+</aside>
+        <div class="content">
+          
+<article class="blog-post">
+  <header class="post-header">
+    <h1 class="post-title">Reworking brake hall effect modules</h1>
+
+    <div class="post-meta">
+      <span class="post-byline">
+        <time class="post-date" datetime="2026-10-28">October 28, 2026</time>
+      </span>
+
+      <span class="post-reading-time">4 min read</span>
+
+      
+    </div>
+
+    
+
+    <!-- Monumental Blood Red Rule -->
+    <hr class="monumental-rule" />
+  </header>
+
+  
+  <figure class="post-hero">
+    <img src="https://aeberbach.github.io/images/2026-10-28-rudder-brake-module/installed-sensors.jpeg" alt="Reworking brake hall effect modules" />
+  </figure>
+  
+
+  
+
+  <div class="post-content">
+    <p><em>(The model that this article is about can be downloaded at <a rel="external" href="https://www.printables.com/model/1860677-rudder-pedals-pendular-differential-braking-for-fl">my Printables</a>)</em></p>
+<p>If you're building the rudder pedals you might like to see a little more detail on the hall effect modules that make the brakes work. The brakes operate by pushing the top of the pedal so that the pedal rotates around its spindle, just like in a car. Inside the rotating part is a magnet that comes closer to the hall effect sensor causing the output voltage to change.</p>
+<figure>
+    <a href="https://aeberbach.github.io/processed_images/rudder-pedal.217e5f6f065d6e55.png" ><img src="https://aeberbach.github.io/processed_images/rudder-pedal.01527ea504c939ec.png" alt="One rudder pedal" /></a>
+    <figcaption>One rudder pedal</figcaption>
+    <br>
+</figure>
+<p>The hall effect sensor mounts with one M3 bolt inside the pedal collar. This collar fits over the steel pedal shaft and attaches to the arm using two M3 bolts. By loosening these bolts the collar can be rotated, and since the collar includes to blocks that define the limit of travel for the pedal that changes the angle of the pedal, you can set them up how you like them.</p>
+<p>In the full video showing construction of the rudder pedals I used some plain strip board to mount the hall effect sensor, a 3-legged device in a case very similar to the familiar TO-92 transistor - though it is actually called a "LPG" package. The problem with strip board is that the bolt coming down through the strips can create electrical circuits where they should not exist. To try and avoid that I beveled the hole drilled for the bolt and made sure to put the strips on the opposite side to the bolt head.</p>
+<p>On updating my second rudder unit (it's a long story, but two different printers, workshops, countries even) I found a better way. It starts with a different kind of prototype board.</p>
+<figure>
+    <a href="https://aeberbach.github.io/processed_images/board.b467c7ef6709bf1e.jpg" ><img src="https://aeberbach.github.io/processed_images/board.d19bf865a37b1e02.jpg" alt="Simple prototype board" /></a>
+    <figcaption>Simple prototype board</figcaption>
+    <br>
+</figure>
+<p>There is no continuous circuit here, just a bunch of solder positions. If the bolt head comes down on them no big deal. This is really convenient for what I'm doing here because it allows me to solder the sensor in place, add a capacitor, wire the right connections to the pads at the edge of the board and thereafter just solder to those pads.</p>
+<p>I cut a little rectangle from the edge of the board with a dremel cutoff wheel, keeping three of those big useful solder pads and 3x5 holes. In the central row, second hole from the pads, I drilled a larger hole for the M3 bolt. With the bolt in place this positions the last three holes so that a hall effect sensor soldered here is positioned correctly to pass through the slot and be in the right position to sense the magnet in the pedal assembly. After a little bit of cleaning with a file it is ready to assemble.</p>
+<figure>
+    <a href="https://aeberbach.github.io/processed_images/hall-effect-sensors.0d4dff6d3072b24d.jpg" ><img src="https://aeberbach.github.io/processed_images/hall-effect-sensors.c9580a5457f941ba.jpg" alt="Hall effect sensor mounted on long leads to pass through collar slot" /></a>
+    <figcaption>Hall effect sensor mounted on long leads to pass through collar slot</figcaption>
+    <br>
+</figure>
+<p>The datasheet for the DRV5056 contains the note "TI recommends connecting this pin to a ceramic capacitor to ground with a value of at least 0.1µF." - so, I added a 0.1uF SMD capacitor, size 0805, between these pins. (There's enough room for a through-hole part, if you use a small one.) If I was then trying to solder to the pins of the sensor directly this would be a problem because if the soldering takes slightly too long the capacitor can easily get hot enough to melt solder on both sides, then you have a cpaacitor stuck to your soldering iron and have to start again. Mounting the hall effect sensor, soldering 30 gauge kynar-insulated wire to the pads and then adding the capacitor between 5V and GND was easy. Then the wires get soldered to the pads and some kapton tape ensures that they don't spring up immediately the solder on the pad is melted.</p>
+<figure>
+    <a href="https://aeberbach.github.io/processed_images/module-back.d16187b9d0f02343.jpg" ><img src="https://aeberbach.github.io/processed_images/module-back.bad694fc7ed40f29.jpg" alt="Hall effect brake module with caapcitor" /></a>
+    <figcaption>Hall effect brake module with caapcitor</figcaption>
+    <br>
+</figure>
+<p>After that it's easy - with the module installed in its pedal collar, the wires that come down through the pedal arm can be tacked to the pads. After folding the wire so that there is enough slack to allow rotation of the collar for pedal angle adjustment it is loosely fastened to the arm, and the pedal assembly can be fitted with spring and put together.</p>
+<figure>
+    <a href="https://aeberbach.github.io/processed_images/installed-sensors.d73941a4e23080ba.jpg" ><img src="https://aeberbach.github.io/processed_images/installed-sensors.dacacb33189cf2cd.jpg" alt="Sensor module mounted" /></a>
+    <figcaption>Sensor module mounted</figcaption>
+    <br>
+</figure>
+
+  </div>
+
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      <span class="tags-label">Tags:</span>
+      <div class="tag-list">
+        
+        <span class="tag">electronics</span>
+        
+        <span class="tag">3D printing</span>
+        
+      </div>
+    </div>
+    
+
+    <div class="post-navigation">
+      <a href="https://aeberbach.github.io/blog" class="back-to-blog">← Back to Blog</a>
+    </div>
+  </footer>
+</article>
+
+        </div>
+      </main>
+      <footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <p class="copyright">
+        © 2026 Adam Eberbach. All rights reserved.
+      </p>
+      <p class="theme-credit">
+        Powered by <a href="https://www.getzola.org" target="_blank" rel="noopener">Zola</a>
+        • <a href="https://github.com/jdrhyne/volks-typo" target="_blank" rel="noopener">Volks-Typo Theme</a>
+      </p>
+    </div>
+
+    <div class="social-links">
+      <a href="https://aeberbach.github.io/blog/rss.xml" class="social-link" aria-label="RSS feed">
+        <span class="social-icon" style="-webkit-mask-image: url('https://aeberbach.github.io/icons/rss.svg'); mask-image: url('https://aeberbach.github.io/icons/rss.svg');" aria-hidden="true"></span>
+      </a>
+      
+      <a href="https://mastodon.online/@aeberbach" class="social-link" aria-label="Mastodon" target="_blank" rel="noopener">
+        <span class="social-icon" style="-webkit-mask-image: url('https://aeberbach.github.io/icons/mastodon.svg'); mask-image: url('https://aeberbach.github.io/icons/mastodon.svg');" aria-hidden="true"></span>
+      </a>
+      
+      <a href="https://github.com/aeberbach" class="social-link" aria-label="Github" target="_blank" rel="noopener">
+        <span class="social-icon" style="-webkit-mask-image: url('https://aeberbach.github.io/icons/github.svg'); mask-image: url('https://aeberbach.github.io/icons/github.svg');" aria-hidden="true"></span>
+      </a>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <script>window.VOLKS_SEARCH_URL = "https://aeberbach.github.io/search/";</script>
+    <script src="https://aeberbach.github.io/search.js?h=86f8110b674a65e81dce"></script>
+  </body>
+</html>

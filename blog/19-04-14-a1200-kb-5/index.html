@@ -239,6 +239,15 @@
       <ul class="post-list">
         
           <li class="post-item">
+            <a href="https://aeberbach.github.io/blog/26-10-28-rudder-brake-module/" class="post-link">
+              Reworking brake hall effect modules
+            </a>
+            <time class="post-date" datetime="2026-10-28">
+              Oct 28, 2026
+            </time>
+          </li>
+        
+          <li class="post-item">
             <a href="https://aeberbach.github.io/blog/26-10-20-new-crayford/" class="post-link">
               Crayford focuser (new version)
             </a>
@@ -271,15 +280,6 @@
             </a>
             <time class="post-date" datetime="2024-08-23">
               Aug 23, 2024
-            </time>
-          </li>
-        
-          <li class="post-item">
-            <a href="https://aeberbach.github.io/blog/22-06-29-a1200leds/" class="post-link">
-              Amiga 1200 LED assembly
-            </a>
-            <time class="post-date" datetime="2022-06-29">
-              Jun 29, 2022
             </time>
           </li>
         
@@ -329,21 +329,25 @@ One weekend morning I got up thinking it was time to get this done! Could I use 
 <figure>
     <a href="https://aeberbach.github.io/processed_images/placement.2cdb63845dac05e5.jpg" ><img src="https://aeberbach.github.io/processed_images/placement.e52c100a41b74b51.jpg" alt="Placing Footprints" /></a>
     <figcaption>Placing Footprints</figcaption>
+    <br>
 </figure>
 <p>Using the fantastic MX footprints included in the KiCAD library from <a href="https://github.com/ai03-2725/MX_Alps_Hybrid.pretty">ai03-2725</a> made placing the switches in the right place easy. One box is placed next to another - 'E' key next to 'W' key and so on. Soon all the keys are in place, according to my measured offsets (see last article).</p><p>Before geting started you set up the basic board parameters and design rules. I need to pass traces through between the pins of the FFC connector, so my smallest trace needs to be 0.35mm. The PCB maker has a question when placing an order and it looks like things begin to get more expensive when a hole is less than 0.60mm - so I'll use 0.60.</p>
 <figure>
     <a href="https://aeberbach.github.io/processed_images/ratsnest.67fbd692c73ea117.jpg" ><img src="https://aeberbach.github.io/processed_images/ratsnest.65d512d6d0f45f8f.jpg" alt="Rat's Nest" /></a>
     <figcaption>Rat's Nest</figcaption>
+    <br>
 </figure>
 <p>Routing a board in KiCAD is a lot like every other PCB package I have used. It starts with a rats nest display, which really doesn't tell you anything except that nothing is connected, so you hide it. Select the layer on which you want to place a track. Click on one point to connect and the line will drag out, interactively routing itself around things it can't be connected to. If you try and put the trace between two pins that are too close together it just won't go there, instead it will route itself all over the board in an effort to get there. The end result is that you end up with a circuit with no design rule violations. I have used a system that could highlight the places tracks got too close, but you could still make the mistake and violate your own rules. I have also used a system with no checking and it's only when you get the PCB back you find the wrong things are connected. Overall, the KiCAD interactive router is good.</p><p>For rev 1 of the board I tried to use no vias with two layers - not because it matters but because when making a PCB years ago I was told vias make the board more expensive. In the end I think there are threein total, so not bad. But this is a little like writing code in 2019 and using lookup tables and integer approximations for trigonometry, because sinf() is so slow! In fact sinf() is fast now, faster than your lookup table, and in same way the number of vias no longer matters. Don't waste your time.</p>
 <figure>
     <a href="https://aeberbach.github.io/processed_images/perpendicular.4a693abfdf8c73da.jpg" ><img src="https://aeberbach.github.io/processed_images/perpendicular.2b03222227c43d30.jpg" alt="Rat's Nest" /></a>
     <figcaption>Rat's Nest</figcaption>
+    <br>
 </figure>
 <p>What you should do is use vias wherever you need them. Above I said "two layers", meaning there are copper tracks on the front and the back of the PCB. Between those layers the holes that the component pins go through are plated through, so both sides are electrically connected. So a trace can come up to a pin on the front of the board, and another trace can go away from that pin on the rear of the board and they will be electrically connected. If you want a trace to switch sides without going to a pin first, you use a via which is really just a through hole that no component will go in.</p><p>When routing it is a good idea to keep your options open. No sooner do you make a trace hug close to the existing routing to keep plenty of space on one side then you find you need space on the side you took it all away from. Also you need to be able to move long distances without thinking too hard and as the board gets more crowded it can be impossible. If you try to make all your connections more or less direct then soon you have created a maze that can't be solved. My solution to this is to make one layer (top) run mostly east-west, and the other layer (bottom) run north-south. If the trace has to change direction, use a via rather than allowing a trace on one layer to fence in other connections. This problem gets dramatically worse once many connections have been made.</p><p>Once done - and you're sure it's right - it's time to submit the job to the manufacturer. You don't "export" this, you "plot" it. In the olden days that's how they used to do it (I have read) and all the PCB software still calls it "plot", and you make "gerbers" - not baby food, not legendary blades, but the <a href="https://en.wikipedia.org/wiki/Gerber_format">RS-274X file format</a>. These describe the layers that need to be made with various processes to make your board. There is the copper (both sides), the mask (the paint-like stuff that covers all the copper that should not be exposed), the board outline (where the board will be cut out) and the silk screen. This last one is not essential but very useful for including information on the board like where to place components.</p><p>The service I am using is called OurPCB. It looks easy - there is a list of things to choose, like the weight of the substrate material, copper thickness, the board size, how many you want made, how fast, and many other things. Then it tells you how much this will cost. It's real money alright but nothing like as expensive as this used to be.</p><p>About 20 minutes after submitting the order I got an email back saying that one of my files (solder mask) was missing. I submitted that and all was well. Great service! <a href="https://www.ourpcb.com.au">OurPCB</a> is highly recommended.</p>
 <figure>
     <a href="https://aeberbach.github.io/processed_images/keyboard-pcb.c83d42ffed87144b.jpg" ><img src="https://aeberbach.github.io/processed_images/keyboard-pcb.b55f0867db2d63bd.jpg" alt="It's real!" /></a>
     <figcaption>It's real!</figcaption>
+    <br>
 </figure>
 <p></a></p><p>About 8 days later, right on time, I got a delivery at work - PCBs. The next article will be all about adding components and making it fit into the computer.</p>
 

@@ -22,6 +22,7 @@
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/simpler_bearings.3a8e862e7f2c3b13.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/simpler_bearings.34c07ea4a2068935.jpg&quot; alt=&quot;Simpler bearings&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Simpler bearings&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;The drawtube used to use a single bolt to hold the eyepiece in place. Now there is a cap that screws down, compressing a split ring against the eyepiece tube. This will not mar the tube like a metal bolt will. It is also tool-free and at least as secure as the single bolt, with the eyepieces I have.&lt;/p&gt;
 &lt;p&gt;A part I have had in waiting for a while is a vernier drive &lt;a rel=&quot;external&quot; href=&quot;https://www.royalsignals.org.uk/jackson_bros_caps/4832unit.htm&quot;&gt;D Type 2 Speed Drive Unit&lt;/a&gt;, and I really wanted to redesign the focuser to make use of this. It&#39;s not expensive, comes complete with knurled aluminium knobs but it is very long... I experimented with a few ideas but it would have required a substantial redesign, cutting back the pinion block and housing as much as possible or else it would stick out a long way. And therefore would not have been much use to anyone that did not buy the drive unit. For now I have put that back in the junk box perhaps to be used another day.&lt;/p&gt;
@@ -30,11 +31,13 @@
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/geared_side.9f27fb74b3e1751c.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/geared_side.d3caabd470bea2e5.jpg&quot; alt=&quot;Geared focus knob&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Geared focus knob&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;Then I added a mount for a stepper motor on the back of the focuser, using the same pulleys but requiring a 250mm belt (it&#39;s a little further away than the manual geared focuser). Again leave it off if not required. This stepper could be driven by software, there is plenty of free software available. I&#39;m going to hook up a Nintendo Wii Nunchuck controller to at least give me focus without touching the telescope. It might also be interesting to make the telescope aim via the joystick... eventually.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/zoom_and_stepper.e1ab951155574929.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/zoom_and_stepper.584b222387ae448c.jpg&quot; alt=&quot;Stepper motor attached&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Stepper motor attached&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;For this project (and the Flight Sim Rudder before it) I&#39;ve been using the cheapest black PETG I can buy - around $15 per roll. It is fine as long as it is dry, Toronto is very different to Melbourne in this regard. In Melbourne there isn&#39;t a huge amount of difference year-round and PETG just prints. In the Toronto summer the humidity can be high according to my cheap instruments (right now 61%), or down around 20% in the winter. Winter is a great time for printing, in summer you definitely benefit from using filament that has been stored in dry conditions. As mentioned the Prusa INDX system has been reported as having big problems with filament that is not exactly like the Prusament that they also sell - I hope I don&#39;t find myself with 15 rolls of unusable filament when that upgrade eventually arrives...&lt;/p&gt;
 </description>

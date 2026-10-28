@@ -7,7 +7,49 @@
       <generator>Zola</generator>
       <language>en</language>
       <atom:link href="https://aeberbach.github.io/tags/electronics/rss.xml" rel="self" type="application/rss+xml"/>
-      <lastBuildDate>Wed, 13 Apr 2016 00:00:00 +0000</lastBuildDate>
+      <lastBuildDate>Wed, 28 Oct 2026 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Reworking brake hall effect modules</title>
+          <pubDate>Wed, 28 Oct 2026 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://aeberbach.github.io/blog/26-10-28-rudder-brake-module/</link>
+          <guid>https://aeberbach.github.io/blog/26-10-28-rudder-brake-module/</guid>
+          <description xml:base="https://aeberbach.github.io/blog/26-10-28-rudder-brake-module/">&lt;p&gt;&lt;em&gt;(The model that this article is about can be downloaded at &lt;a rel=&quot;external&quot; href=&quot;https://www.printables.com/model/1860677-rudder-pedals-pendular-differential-braking-for-fl&quot;&gt;my Printables&lt;/a&gt;)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;If you&#39;re building the rudder pedals you might like to see a little more detail on the hall effect modules that make the brakes work. The brakes operate by pushing the top of the pedal so that the pedal rotates around its spindle, just like in a car. Inside the rotating part is a magnet that comes closer to the hall effect sensor causing the output voltage to change.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://aeberbach.github.io/processed_images/rudder-pedal.217e5f6f065d6e55.png&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/rudder-pedal.01527ea504c939ec.png&quot; alt=&quot;One rudder pedal&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;One rudder pedal&lt;/figcaption&gt;
+    &lt;br&gt;
+&lt;/figure&gt;
+&lt;p&gt;The hall effect sensor mounts with one M3 bolt inside the pedal collar. This collar fits over the steel pedal shaft and attaches to the arm using two M3 bolts. By loosening these bolts the collar can be rotated, and since the collar includes to blocks that define the limit of travel for the pedal that changes the angle of the pedal, you can set them up how you like them.&lt;/p&gt;
+&lt;p&gt;In the full video showing construction of the rudder pedals I used some plain strip board to mount the hall effect sensor, a 3-legged device in a case very similar to the familiar TO-92 transistor - though it is actually called a &quot;LPG&quot; package. The problem with strip board is that the bolt coming down through the strips can create electrical circuits where they should not exist. To try and avoid that I beveled the hole drilled for the bolt and made sure to put the strips on the opposite side to the bolt head.&lt;/p&gt;
+&lt;p&gt;On updating my second rudder unit (it&#39;s a long story, but two different printers, workshops, countries even) I found a better way. It starts with a different kind of prototype board.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://aeberbach.github.io/processed_images/board.b467c7ef6709bf1e.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/board.d19bf865a37b1e02.jpg&quot; alt=&quot;Simple prototype board&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Simple prototype board&lt;/figcaption&gt;
+    &lt;br&gt;
+&lt;/figure&gt;
+&lt;p&gt;There is no continuous circuit here, just a bunch of solder positions. If the bolt head comes down on them no big deal. This is really convenient for what I&#39;m doing here because it allows me to solder the sensor in place, add a capacitor, wire the right connections to the pads at the edge of the board and thereafter just solder to those pads.&lt;/p&gt;
+&lt;p&gt;I cut a little rectangle from the edge of the board with a dremel cutoff wheel, keeping three of those big useful solder pads and 3x5 holes. In the central row, second hole from the pads, I drilled a larger hole for the M3 bolt. With the bolt in place this positions the last three holes so that a hall effect sensor soldered here is positioned correctly to pass through the slot and be in the right position to sense the magnet in the pedal assembly. After a little bit of cleaning with a file it is ready to assemble.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://aeberbach.github.io/processed_images/hall-effect-sensors.0d4dff6d3072b24d.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/hall-effect-sensors.c9580a5457f941ba.jpg&quot; alt=&quot;Hall effect sensor mounted on long leads to pass through collar slot&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Hall effect sensor mounted on long leads to pass through collar slot&lt;/figcaption&gt;
+    &lt;br&gt;
+&lt;/figure&gt;
+&lt;p&gt;The datasheet for the DRV5056 contains the note &quot;TI recommends connecting this pin to a ceramic capacitor to ground with a value of at least 0.1µF.&quot; - so, I added a 0.1uF SMD capacitor, size 0805, between these pins. (There&#39;s enough room for a through-hole part, if you use a small one.) If I was then trying to solder to the pins of the sensor directly this would be a problem because if the soldering takes slightly too long the capacitor can easily get hot enough to melt solder on both sides, then you have a cpaacitor stuck to your soldering iron and have to start again. Mounting the hall effect sensor, soldering 30 gauge kynar-insulated wire to the pads and then adding the capacitor between 5V and GND was easy. Then the wires get soldered to the pads and some kapton tape ensures that they don&#39;t spring up immediately the solder on the pad is melted.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://aeberbach.github.io/processed_images/module-back.d16187b9d0f02343.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/module-back.bad694fc7ed40f29.jpg&quot; alt=&quot;Hall effect brake module with caapcitor&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Hall effect brake module with caapcitor&lt;/figcaption&gt;
+    &lt;br&gt;
+&lt;/figure&gt;
+&lt;p&gt;After that it&#39;s easy - with the module installed in its pedal collar, the wires that come down through the pedal arm can be tacked to the pads. After folding the wire so that there is enough slack to allow rotation of the collar for pedal angle adjustment it is loosely fastened to the arm, and the pedal assembly can be fitted with spring and put together.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&quot;https://aeberbach.github.io/processed_images/installed-sensors.d73941a4e23080ba.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/installed-sensors.dacacb33189cf2cd.jpg&quot; alt=&quot;Sensor module mounted&quot; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;Sensor module mounted&lt;/figcaption&gt;
+    &lt;br&gt;
+&lt;/figure&gt;
+</description>
+      </item>
       <item>
           <title>Minipule Metal Detector</title>
           <pubDate>Wed, 13 Apr 2016 00:00:00 +0000</pubDate>
@@ -27,30 +69,36 @@ The first step is an easy one, getting a 5V supply using a 79L05. I confused mys
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/negative-supply.49e1321f949bf06a.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/negative-supply.fe5af99b4cc2309f.jpg&quot; alt=&quot;Negative Supply&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Negative Supply&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;h2&gt;Step 2&lt;/h2&gt;
 Another easy step! This thing will be done in no time. A 78L05 provides +5V.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/positive-supply.03cfcca5267e6239.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/positive-supply.0f2834069bbdf3d4.jpg&quot; alt=&quot;Positive Supply&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Positive Supply&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;h2&gt;Step 3&lt;/h2&gt;
 Now starts the analogue stuff so I&#39;m out of my comfort zone. I picked up a 470nF capacitor instead of the 47nF here, my only component mistake - I just don&#39;t do enough electronics to read &quot;473J100&quot; without having to stop and think. When that was fixed the test showed I was very close to the expected result - at least close enough to go on.&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/tx-oscillator.c9cd60b5fffcb091.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/tx-oscillator.8598467c72b0612e.jpg&quot; alt=&quot;TX Oscillator&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;TX Oscillator&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/frequency-check.79c049a60d87e2c5.png&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/frequency-check.e9cfab59f2196b7e.png&quot; alt=&quot;Frequency Check&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Frequency Check&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/pulse-width.c31ef353d4e45b85.png&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/pulse-width.790d939f89c6fa6e.png&quot; alt=&quot;Pulse Width&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Pulse Width&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/sync-check.92dc5e25573f0047.png&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/sync-check.8cae78667cff6ec6.png&quot; alt=&quot;Sync Check&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Sync Check&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;OK, something isn&#39;t exactly right. My pulse width appears to be ~45uS. I do have a higher supply voltage, 13.8V from a fixed supply intended to power a ham radio. I don&#39;t have an adjustable supply or any batteries to do an actual 12V supply. The frequency is OK, and it&#39;s in sync with the pulse from U2, so I think it&#39;s OK to go ahead.
 &lt;p&gt;The manual also suggests putting on headphones and listening for an induced noise when the coil is close. It works!
@@ -58,12 +106,14 @@ Now starts the analogue stuff so I&#39;m out of my comfort zone. I picked up a 4
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/NE555-54us-pulse.e6b644c4275c2546.png&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/NE555-54us-pulse.60c0e1796c7fb9bc.png&quot; alt=&quot;555?&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;555?&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;h2&gt;Step 4&lt;/h2&gt;
 My coil inductance is 370uH, or at least to the degree that my very cheap &lt;a href=&quot;https://www.amazon.com/MASTECH-Portable-Digital-Capacitance-Inductance/dp/B07J2F7F7L/ref=sr_1_1?dchild=1&amp;keywords=Mastech+MY6243&amp;qid=1589974588&amp;sr=8-1&quot;&gt;Mastech MY6243 LCR Digital Multimeter, Capacitance and Inductance Tester&lt;/a&gt; can measure it. (I bought it just for this project - usually I only do digital electronics, never anything with a coil!) On this basis I did not adjust the damping resistor but I might later.
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/flyback.f2a7d7120cdf4886.png&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/flyback.b767886e3485dc2c.png&quot; alt=&quot;Flyback&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Flyback&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;That&#39;s a little high but once again I&#39;m going with it and moving on.&lt;
 &lt;h2&gt;Step 5&lt;/h2&gt;
@@ -71,6 +121,7 @@ OK, now it&#39;s time to hook up the coil since I need to measure voltages chang
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/rx-preamp.fff56033a654f83a.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/rx-preamp.4e6225a8eeb7626a.jpg&quot; alt=&quot;RX Preamp&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;RX Preamp&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;At this point some of the uneasiness from previous steps evaporated. Clearly something is working properly.
 &lt;h2&gt;Step 6&lt;/h2&gt;
@@ -78,15 +129,18 @@ This step includes the two 16-pin devices, whose sockets were the most mangled f
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/sample-pulse-generator.6d7a7a8dc43e5ca2.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/sample-pulse-generator.524e28dc609dac8c.jpg&quot; alt=&quot;Sample Pulse Generator&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Sample Pulse Generator&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/sample-pulse-delay.b7c9b385cc7247f1.png&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/sample-pulse-delay.e2648c287d545c43.png&quot; alt=&quot;Sample Pulse Delay&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Sample Pulse Delay&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;h2&gt;Step 7&lt;/h2&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/sampling-integrator.8ff26a1482e72bc3.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/sampling-integrator.da1b0b91206b4932.jpg&quot; alt=&quot;Sampling Integrator&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Sampling Integrator&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;The section parts list says it&#39;s time to use the TL062 op-amp, but a TL072 is supplied. For all intensive porpoises that&#39;s the same thing, and the full parts list makes that clear but maybe it could be mentioned in the section parts list also?&lt;
 &lt;p&gt;The test in this step is about the opposite of the one in step 5 - this time the voltage at the test point goes up rather than down as the metallic object nears the coil.
@@ -94,6 +148,7 @@ This step includes the two 16-pin devices, whose sockets were the most mangled f
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/second-integrator.dd096a47ec476f0f.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/second-integrator.6bc1ef0d7002aeec.jpg&quot; alt=&quot;Second Integrator&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Second Integrator&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;Just like in Step 7 the op-amp supplied is an equivalent, a TL071 instead of a TL061.&lt;/p&gt;&lt;p&gt;The test step here is a tricky adjustment to make on the oscilloscope, I would almost suggest doing it on the meter instead - the voltage you are watching dances around a bit and it is hard to get it at zero but it doesn&#39;t have to be exact.
 &lt;p&gt;I couldn&#39;t capture everything in this short clip so here&#39;s the explanation. The self-adjusting threshold causes the voltage at TP9 to adjust back to 0 in the absence of a moving target. The display here shows the voltage as a target (the big acetone can from previous clips) moves close to the coil, pauses and then moves away. All working!
@@ -101,10 +156,12 @@ This step includes the two 16-pin devices, whose sockets were the most mangled f
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/complete-board.7d7ea2b81ed89c31.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/complete-board.7981dbbc583cdb8a.jpg&quot; alt=&quot;Complete Board&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;Complete Board&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;figure&gt;
     &lt;a href=&quot;https://aeberbach.github.io/processed_images/connected-board.05852087921a8f93.jpg&quot; &gt;&lt;img src=&quot;https://aeberbach.github.io/processed_images/connected-board.2217a0230b77a78b.jpg&quot; alt=&quot;All Connected&quot; /&gt;&lt;/a&gt;
     &lt;figcaption&gt;All Connected&lt;/figcaption&gt;
+    &lt;br&gt;
 &lt;/figure&gt;
 &lt;p&gt;Oh wow, that&#39;s a horrible sound from the included mini-speaker. I guess when the sound indicates that you&#39;ve found something it&#39;s much more welcome. Anyway - it works! Obviously there is more tweaking to do and I need to go back and look at the scope, but that&#39;s a wrap. It detects metal.
 &lt;h2&gt;Conclusion&lt;/h2&gt;

@@ -239,6 +239,15 @@
       <ul class="post-list">
         
           <li class="post-item">
+            <a href="https://aeberbach.github.io/blog/26-10-28-rudder-brake-module/" class="post-link">
+              Reworking brake hall effect modules
+            </a>
+            <time class="post-date" datetime="2026-10-28">
+              Oct 28, 2026
+            </time>
+          </li>
+        
+          <li class="post-item">
             <a href="https://aeberbach.github.io/blog/26-10-20-new-crayford/" class="post-link">
               Crayford focuser (new version)
             </a>
@@ -271,15 +280,6 @@
             </a>
             <time class="post-date" datetime="2024-08-23">
               Aug 23, 2024
-            </time>
-          </li>
-        
-          <li class="post-item">
-            <a href="https://aeberbach.github.io/blog/22-06-29-a1200leds/" class="post-link">
-              Amiga 1200 LED assembly
-            </a>
-            <time class="post-date" datetime="2022-06-29">
-              Jun 29, 2022
             </time>
           </li>
         
@@ -327,11 +327,13 @@
 <figure>
     <a href="https://aeberbach.github.io/processed_images/schematic.2f3ec97ebedf4110.jpg" ><img src="https://aeberbach.github.io/processed_images/schematic.92a03db8b458ba10.jpg" alt="Part of schematic drawing" /></a>
     <figcaption>Part of schematic drawing</figcaption>
+    <br>
 </figure>
 <p></a></p><p>Looking at the circuit you can see that it is a matrix. The keys, with two terminals each, could be directly connected to the controller, for around 200 connections from keyboard to controller. Or like a joystick they could all use one common connection and then there would only be 100 wires or so, one from each switch plus one common. But better still is to use a matrix where a key is defined by two connections, and when those connections are bridged the controller derives a unique key. The minimum you would need is rows + columns connections - so in a really simple keyboard like this standalone numpad:</p></p>
 <figure>
     <a href="https://aeberbach.github.io/processed_images/numpad.ba1562fff977d48c.jpg" ><img src="https://aeberbach.github.io/processed_images/numpad.8b0259be513576c7.jpg" alt="GoldTouch numpad" /></a>
     <figcaption>GoldTouch numpad</figcaption>
+    <br>
 </figure>
 <p>The minimum would be only 10 connections from matrix to controller because there are 4 column and 6 rows. All this minimisation is good because connections cost time and money. The Amiga however has a special set of keys with their own connections not shared with the regular matrix. These are keys like CTRL, L-AMIGA etc - the ones that can't be blocked by another key. Ignoring the connections to the LED that lights when CAPSLOCK is pressed it uses 29 connections to the controller chip, via the ribbon cable that emerges from the top of the membrane.</p><p>I could write a whole article about the keyboard matrix and try to make it good, but it's been done really well already - please take a look at <a href="http://blog.komar.be/how-to-make-a-keyboard-the-matrix/">komar's tech blog</a>.</p><p>Because I just want to make a replacement keyboard I am not using diodes or changing the layout in any way from the original. The circuit is exactly the same right down to the flipped row/column connections on some of the keys like F6. I do not think that making all this completely regular could have had an effect, as these are just passive switches, but I'm not changing it. The keyboard should be better with mechanical switches, but it should not be electrically different - bugs and all.</p><p>When the schematic is done the output is a netlist. This is just a text file that defines what's in the circuit and how the things are connected. The first part describes the components. Here are two entries (and part of a third) describing the switches:</p><pre><code>
     (comp (ref K2)

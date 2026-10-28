@@ -239,6 +239,15 @@
       <ul class="post-list">
         
           <li class="post-item">
+            <a href="https://aeberbach.github.io/blog/26-10-28-rudder-brake-module/" class="post-link">
+              Reworking brake hall effect modules
+            </a>
+            <time class="post-date" datetime="2026-10-28">
+              Oct 28, 2026
+            </time>
+          </li>
+        
+          <li class="post-item">
             <a href="https://aeberbach.github.io/blog/26-10-20-new-crayford/" class="post-link">
               Crayford focuser (new version)
             </a>
@@ -271,15 +280,6 @@
             </a>
             <time class="post-date" datetime="2024-08-23">
               Aug 23, 2024
-            </time>
-          </li>
-        
-          <li class="post-item">
-            <a href="https://aeberbach.github.io/blog/22-06-29-a1200leds/" class="post-link">
-              Amiga 1200 LED assembly
-            </a>
-            <time class="post-date" datetime="2022-06-29">
-              Jun 29, 2022
             </time>
           </li>
         
@@ -328,6 +328,7 @@ The PCB is back! It's really big, barely goes in my backpack with the zip shut. 
 <figure>
     <a href="https://aeberbach.github.io/processed_images/fit.a7ac3fad2b268178.jpg" ><img src="https://aeberbach.github.io/processed_images/fit.342970222867a589.jpg" alt="Testing Fit" /></a>
     <figcaption>Testing Fit</figcaption>
+    <br>
 </figure>
 <h2>Does it work?</h2>
 Building it was easy. The PCB-mount switches stuffed in easily and so did the FFC connector and LED. It works! With DiagROM in the system I tried it out and every key generates the right codes, except for Help and Del. This was my fault - I forgot to solder those two switches! But everything is fine, right down to the Caps Lock LED turning on and off.
@@ -337,16 +338,19 @@ No. I kind of expected to find a few things that needed fixing and I did. This i
 <figure>
     <a href="https://aeberbach.github.io/processed_images/bad-footprint.c634f0c6b387e15d.jpg" ><img src="https://aeberbach.github.io/processed_images/bad-footprint.88e3420fab390707.jpg" alt="Bad Footprint" /></a>
     <figcaption>Bad Footprint</figcaption>
+    <br>
 </figure>
 <p>Though I want the stiffness of 2mm PCB material here it's too thick to go in the clips at the bottom of the case. I will need to cut the board back and attach a piece of 1mm aluminium, stepped down to the level of the clips.</p>
 <figure>
     <a href="https://aeberbach.github.io/processed_images/too-thick.04cfbe9142535e5d.jpg" ><img src="https://aeberbach.github.io/processed_images/too-thick.d683446ab44880b7.jpg" alt="Too Thick" /></a>
     <figcaption>Too Thick</figcaption>
+    <br>
 </figure>
 <p>And the keycaps sit too high when the PCB is sitting on top of the case supports. The entire PCB needs to be lowered within the case.</p>
 <figure>
     <a href="https://aeberbach.github.io/processed_images/key-height.2cf4f95245eb9dab.jpg" ><img src="https://aeberbach.github.io/processed_images/key-height.b1f920277923889a.jpg" alt="Too High" /></a>
     <figcaption>Too High</figcaption>
+    <br>
 </figure>
 <h2>Make it fit - lower It</h2>
 Sitting up on the supports makes the keys too high. The only thing to do is trim the edge of the board so that it can drop down inside the case, below the supports, but still be supported somehow. There is room for screws and brackets if careful. Is there an aluminium extrusion somewhere that could do this? A quick search produced no joy, at one end Bunnings with a lot of standard and chunky extrusions that don't look useful and at the other end a lot of industrial suppliers that can probably do anything but say "call us for a quote". Small quantities of unusual angle could easily cost more than my whole project, so I gave that up.
@@ -354,11 +358,13 @@ Sitting up on the supports makes the keys too high. The only thing to do is trim
 <figure>
     <a href="https://aeberbach.github.io/processed_images/attach-angle.f3f3a07b8a5a9c18.jpg" ><img src="https://aeberbach.github.io/processed_images/attach-angle.5000b56aaacff49b.jpg" alt="Securely Mounted" /></a>
     <figcaption>Securely Mounted</figcaption>
+    <br>
 </figure>
 <p>Then gradually increasing the size of the cut I added in a new rebate to the outside of the extrusion so that with the PCB resting inside the original angle, the new cut would sit on top of the original case keyboard supports. This picture shows the PCB sitting in the new cut, where the case supports will go. Later I trimmed off the excess height you can see above the PCB.</p>
 <figure>
     <a href="https://aeberbach.github.io/processed_images/angle-groove.ce034253348431a0.jpg" ><img src="https://aeberbach.github.io/processed_images/angle-groove.e440e74dcc441fce.jpg" alt="Securely Mounted" /></a>
     <figcaption>Securely Mounted</figcaption>
+    <br>
 </figure>
 <p>While this works, obviously I need a 3D printer. It would have been much easier and much quicker to design something to the exact dimensions required and then print it. I spent hours thinking about how to safely route this thin extrusion, then more time measuring and setting up the router for the cut. I don't need the side supports to span any distance or to prevent any flex, just not collapse so printed ABS or similar would have been perfect.</p><p>Having done as much as I could with rev 1 I was reasonably happy. I did not expect to get everything right first time. Time for rev 2!</p>
 <h2>The Changes:</h2>
